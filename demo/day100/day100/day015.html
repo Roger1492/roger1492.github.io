@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 015 - 中国历史年代表</title>
+  <style>
+    h1{
+      text-align: center;
+    }
+    .wrap{
+      margin: 0 auto;
+      position: relative;
+      width: 500px;
+    }
+    section{
+      outline: 1px solid gray;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+    }
+    section:hover{
+      text-decoration: underline;
+    }
+    p{
+      margin: 0;
+    }
+    span{
+      font-size: 13px;
+      color: gray;
+    }
+    .a{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+    .a1{
+      grid-column: 1 / 2;
+      grid-row: 1 / 5;
+    }
+    .a2,.a3{
+      grid-column: 2 / 5;
+    }
+    .a4,.a5{
+      grid-column: 2 / 3;
+    }
+    .a6{
+      grid-column: 3 / 4;
+      grid-row: 3 / 5;
+    }
+    .a7{
+      grid-column: 4 / 5;
+      grid-row: 3 / 5;
+    }
+
+    .c{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+    .c1{
+      grid-row: 1 / 4;
+    }
+    .c2{
+      grid-column: 2 / 5;
+    }
+    .c3{
+      grid-row: 2 / 4;
+    }
+    .c4,.c5{
+      grid-column: 3 / 5;
+    }
+    .c6{
+      grid-column: 1 / 5;
+    }
+
+    .d{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+    .d1{
+      grid-row: 1 / 4;
+    }
+    .d2,.d3,.d4{
+      grid-column: 2 / 5;
+    }
+
+    .e{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+    .e1{
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+    }
+    .e2{
+      grid-column: 2 / 5;
+    }
+    .e4{
+      grid-column: 3 / 5;
+    }
+
+    .f{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+    }
+    .f1{
+      grid-row: 1 / 7;
+    }
+    .f2,.f3,.f4,.f5,.f6{
+      grid-column: 2 / 3;
+    }
+    .f7{
+      grid-column: 3 / 5;
+      grid-row: 1 / 3;
+    }
+    .f8{
+      grid-column: 3 / 4;
+      grid-row: 3 / 5;
+    }
+    .f9{
+      grid-column: 4 / 5;
+      grid-row: 3 / 5;
+    }
+
+    .h{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    .h1{
+      grid-column: 1 / 3;
+    }
+    .h2{
+      grid-column: 1 / 2;
+      grid-row: 2 / 4;
+    }
+    .h3,.h4{
+      grid-column: 2 / 3;
+    }
+    .h5{
+      grid-column: 3 / 4;
+      grid-row: 1 / 3;
+    }
+    .h7{
+      grid-column: 4 / 5;
+      grid-row: 1 / 4;
+    }
+    .i{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+    }
+    .i1{
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+    }
+    .i2{
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+    }
+    .i3{
+      grid-column: 1 / 3;
+      grid-row: 3 / 4;
+    }
+    .i4{
+      grid-column: 1 / 3;
+      grid-row: 4 / 5;
+    }
+    .i5{
+      grid-column: 1 / 2;
+      grid-row: 5 / 6;
+    }
+    .i6{
+      grid-column: 2 / 3;
+      grid-row: 5 / 6;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>中国历史</h1>
+  <div class="wrap">
+    <div class="a">
+      <section class="a1">史<br>前<br>时<br>代</section>
+      <section class="a2">旧石器时代</section>
+      <section class="a3">中石器时代</section>
+      <section class="a4">新石器时代</section>
+      <section class="a5">青铜器时代</section>
+      <section class="a6">黄河<br>文明</section>
+      <section class="a7">长江<br>文明</section>
+    </div>
+    <div class="b">
+      <section>
+        <p>传说时代</p><br>
+        <p>（三皇五帝）</p>
+      </section>
+      <section>
+        <p>夏</p><br>
+        <span>约前21世纪-约前17世纪</span>
+      </section>
+      <section>
+        <p>商</p><br>
+        <span>约前17世纪–约前11世纪</span>
+      </section>
+    </div>
+    <div class="c">
+      <section class="c1">
+        <p>周</p><br>
+        <span>
+            前11世纪-前256
+        </span>
+      </section>
+      <section class="c2">
+        <p>西周<span>前11世纪–前771</span></p>
+      </section>
+      <section class="c3">
+        <p>东周<span>前770–前256</span></p>
+      </section>
+      <section class="c4">
+        <p>春秋<span>前770–前403</span></p>
+      </section>
+      <section class="c5">
+        <p>战国<span>前402–前221</span></p>
+      </section>
+      <section class="c6">
+        <p>秦<span>前402–前221</span></p>
+        <span>西楚 前206-前202</span>
+      </section>
+    </div>
+    <div class="d">
+      <section class="d1">
+        <p>汉</p><span>前202-220</span>
+      </section>
+      <section class="d2">
+        <p>西汉<span>前202–8</span></p>
+      </section>
+      <section class="d3">
+        <p>新<span>8–23</span></p>
+      </section>
+      <section class="d4">
+        <span>玄汉 23-25</span>
+        <p>东汉<span>25–220</span></p>
+      </section>
+      <section class="d5">
+        <p>三国</p><span>265-420</span>
+      </section>
+      <section class="d6">
+        <p>魏</p><span>220–265</span>
+      </section>
+      <section class="d7">
+        <p>蜀汉</p><span>221–263</span>
+      </section>
+      <section class="d8">
+        <p>吴</p><span>229–280</span>
+      </section>
+    </div>
+    <div class="e">
+      <section class="e1">
+        <p>晋</p>
+        <span>265-420</span>
+      </section>
+      <section class="e2">
+        <p>西晋<span>265-316</span></p>
+      </section>
+      <section class="e3">
+        <p>东晋</p>
+        <span>317-420</span>
+      </section>
+      <section class="e4">
+        <p>五胡十六国</p>
+        <span>304-439</span>
+      </section>
+    </div>
+    <div class="f">
+      <section class="f1">
+        <p>南北朝</p>
+        <span>420-589</span>
+      </section>
+      <section class="f2">
+        <p>宋</p>
+        <span>420-479</span>
+      </section>
+      <section class="f3">
+        <p>齐</p>
+        <span>479-502</span>
+      </section>
+      <section class="f4">
+        <p>梁</p>
+        <span>502-557</span>
+      </section>
+      <section class="f5">
+        <p>后梁</p>
+        <span>555-587</span>
+      </section>
+      <section class="f6">
+        <p>陈</p>
+        <span>557-589</span>
+      </section>
+      <section class="f7">
+        <p>北魏</p>
+        <span>386-534</span>
+      </section>
+      <section class="f8">
+        <p>西魏</p>
+        <span>535-557</span>
+      </section>
+      <section class="f9">
+        <p>东魏</p>
+        <span>534-550</span>
+      </section>
+      <section class="f10">
+        <p>北周</p>
+        <span>557-581</span>
+      </section>
+      <section class="f11">
+        <p>北齐</p>
+        <span>550-577</span>
+      </section>
+    </div>
+    <div class="g">
+      <section>
+        <p>隋<span>581-619</span></p>
+      </section>
+      <section>
+        <p>唐<span>618-907</span></p>
+        <span>武周 690-705</span>
+      </section>
+    </div>
+    <div class="h">
+      <section class="h1">
+        <p>五代十国</p>
+        <span>907-979</span>
+      </section>
+      <section class="h2">
+        <p>宋</p>
+        <span>960-1279</span>
+      </section>
+      <section class="h3">
+        <p>北宋</p>
+        <span>960-1127</span>
+      </section>
+      <section class="h4">
+        <p>南宋</p>
+        <span>1127-1279</span>
+      </section>
+      <section class="h5">
+        <p>辽(契丹)</p>
+        <span>916-1125</span><br>
+        <span>西辽 1124-1218</span>
+      </section>
+      <section class="h6">
+        <p>金</p>
+        <span>1115-1234</span>
+      </section>
+      <section class="h7">
+        <span>定军难 881-982</span>
+        <p>西夏</p>
+        <span>1038-1227</span>
+      </section>
+    </div>
+    <div class="i">
+      <section class="i1">
+        <span>大蒙古国 1206-1271</span>
+        <p>元<span>1271-1368</span></p>
+        <span>北元 1368-1388</span>
+      </section>
+      <section class="i2">
+        <p>明<span>1368-1644</span></p>
+        <span>南明 1644-1662</span>
+      </section>
+      <section class="i3">
+        <span>后金 1616-1636</span>
+        <p>清<span>1636-1912</span></p>
+      </section>
+      <section class="i4">
+        <p>中华民国</p>
+        <span>大陆时期 1912-1949</span>
+      </section>
+      <section class="i5">
+        <p>中华人民共和国</p>
+        <span>1949至今</span>
+      </section>
+      <section class="i6">
+        <p>中华民国</p>
+        <span>台湾时期 1949至今</span>
+      </section>
+    </div>
+  </div>
+</body>
+
+</html>

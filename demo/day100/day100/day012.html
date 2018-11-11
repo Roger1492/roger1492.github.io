@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 012 - :nth Tester</title>
+  <style>
+    .wrap{
+      margin: 0 auto;
+      width: 910px;
+    }
+    h1{
+      text-align: center;
+    }
+    .container{
+      width: 910px;
+      display: grid;
+      grid-template-columns: 450px 450px;
+    }
+    ul{
+      list-style-type: none;
+    }
+    .selector,
+    .list{
+      width: 450px;
+      outline: 1px solid gray;
+    }
+    .list::before{
+      content: "<ul>";
+    }
+    .list::after{
+      content: "</ul>";
+    }
+    .first-list > li:nth-of-type(1)::before,
+    .first-list > li:nth-of-type(2)::before,
+    .first-list > li:nth-of-type(3)::before,
+    .first-list > li:nth-of-type(4)::before,
+    .first-list > li:nth-of-type(5)::before,
+    .first-list > li:nth-of-type(6)::before,
+    .first-list > li:nth-of-type(7)::before,
+    .first-list > li:nth-of-type(8)::before,
+    .first-list > li:nth-of-type(9)::before,
+    .first-list > li:nth-of-type(10)::before,
+    .first-list > li:nth-of-type(11)::before,
+    .first-list > li:nth-of-type(12)::before,
+    .first-list > li:nth-of-type(13)::before,
+    .first-list > li:nth-of-type(14)::before,
+    .first-list > li:nth-of-type(15)::before,
+    .first-list > li:nth-of-type(16)::before,
+    .first-list > li:nth-of-type(17)::before,
+    .first-list > li:nth-of-type(18)::before,
+    .first-list > li:nth-of-type(19)::before,
+    .first-list > li:nth-of-type(20)::before,
+    .first-list > li:nth-of-type(21)::before,
+    .first-list > li:nth-of-type(22)::before,
+    .first-list > li:nth-of-type(23)::before,
+    .first-list > li:nth-of-type(24)::before,
+    .first-list > li:nth-of-type(25)::before,
+    .first-list > li:nth-of-type(26)::before,
+    .first-list > li:nth-of-type(27)::before,
+    .first-list > li:nth-of-type(28)::before,
+    .first-list > li:nth-of-type(29)::before,
+    .first-list > li:nth-of-type(30)::before{
+      content: "<li><div></div><div></div></li>";
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>:nth Tester</h1>
+    <div class="container">
+      <div class="selector">
+        <select name="" id="select1">
+          <option value="nth-child">:nth-child</option>
+          <option value="nth-of-type">:nth-of-type</option>
+          <option value="nth-last-child">:nth-last-child</option>
+          <option value="nth-last-of-type">:nth-last-of-type</option>
+        </select>
+        (
+          <input type="text" id="input">
+        )
+      </div>
+      <div class="list">
+        <ul class="first-list">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+    let select = document.getElementById('select1');
+    let input = document.getElementById('input');
+    input.addEventListener('change', function(e){
+      
+    }, false);
+  </script>
+</body>
+</html>

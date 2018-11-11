@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 004 - 响应式下拉菜单</title>
+    <style>
+        /* 手机 */
+        @media (max-width: 576px) {
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .wrap{
+                width: 100%;
+            }
+            #menuicon {
+                position: relative;
+                transform: translate(330px, 0px);
+                width: 40px;
+                height: 20px;
+            }
+
+            #menuicon span {
+                display: block;
+                margin-top: 4px;
+                width: 30px;
+                height: 2px;
+                background-color: red;
+            }
+            
+            .list{
+                display: none;
+            }
+
+            ul {
+                margin: 0;
+                width: 100%;
+                background: lightblue;
+                list-style: none;
+            }
+
+            li {
+                width: 100%;
+                height: 40px;
+            }
+        }
+
+        /* 桌面 */
+        @media (min-width: 992px) {
+            #menuicon {
+                display: none;
+            }
+
+            ul {
+                width: 750px;
+                list-style-type: none;
+            }
+
+            li {
+                width: 150px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                background-color: lightblue;
+                ;
+                float: left;
+                cursor: pointer;
+            }
+
+            li:hover {
+                background-color: rgb(147, 191, 206);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul>
+            <li id="menuicon">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </li>
+            <div class="list">
+                <li>Javascript</li>
+                <li>VS Code</li>
+                <li>WebStorm</li>
+                <li>PyCharm</li>
+                <li>Typescript</li>
+            </div>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#menuicon").click(function(){
+                $(".list").slideToggle();
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 010 - js实现网页版计算器</title>
+    <style>
+        .wrap{
+            margin: 50px auto;
+            width: 600px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(6, 80px);
+            grid-gap: 5px;
+        }
+        section{
+            line-height: 80px;
+            text-align: center;
+            border: 1px solid gray;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        section:nth-of-type(1){
+            grid-column: 1 / 5;
+            text-align: right;
+        }
+        section:nth-of-type(18){
+            grid-column: 4 / 5;
+            grid-row: 3 / 7;
+            line-height: 320px;
+            background-color: lightseagreen;
+        }
+        section:not(:first-child):hover{
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <section class="io">result</section>
+        <section class="operation">+</section>
+        <section class="operation">-</section>
+        <section class="operation">&times;</section>
+        <section class="operation">&divide;</section>
+        <section class="numbers">7</section>
+        <section class="numbers">8</section>
+        <section class="numbers">9</section>
+        <section class="numbers">4</section>
+        <section class="numbers">5</section>
+        <section class="numbers">6</section>
+        <section class="numbers">1</section>
+        <section class="numbers">2</section>
+        <section class="numbers">3</section>
+        <section class="numbers">0</section>
+        <section class="numbers">.</section>
+        <section class="clear">C</section>
+        <section class="result">&equals;</section>
+    </div>
+</body>
+</html>

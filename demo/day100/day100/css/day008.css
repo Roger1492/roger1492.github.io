@@ -1,0 +1,259 @@
+body {
+  font-family: 'Microsoft YaHei', 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  position: relative;
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(http://pic.netbian.com/uploads/allimg/170610/174855-1497088135bff2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.desktop {
+  height: calc(100vh - 50px);
+  display: grid;
+  grid-template-rows: repeat(10, 80px);
+  justify-items: left;
+}
+
+.desktop-icon {
+  position: relative;
+  width: 90px;
+  height: 80px;
+  cursor: pointer;
+}
+
+/* TODO: 添加点后的背景颜色 */
+
+.desktop-icon:hover {
+  outline: 2px solid rgba(156, 207, 224, .4);
+  background-color: rgba(209, 230, 236, .4);
+}
+
+.desktop-icon img {
+  position: relative;
+  padding-top: 5px;
+  transform: translate(25px);
+  width: 40px;
+  height: 40px;
+}
+
+.desktop-icon span {
+  position: relative;
+  display: block;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  overflow: hidden;
+}
+
+.taskbar {
+  position: relative;
+  height: 50px;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.taskbar-icon {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+}
+
+.taskbar-icon:hover {
+  height: 50px;
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.taskbar-icon:hover::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  background: lightblue;
+  bottom: 0;
+}
+
+.taskbar-icon img {
+  margin: 12px;
+  width: 26px;
+  height: 26px;
+}
+
+/* 系统托盘样式 */
+.tray {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  width: 300px;
+}
+
+.tray-icon {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+}
+
+.tray-icon img {
+  height: 50px;
+}
+
+.windows-app {
+  position: absolute;
+  top: 100px;
+  left: 200px;
+  z-index: 99;
+  display: none;
+}
+
+/* 公共的最大化，最小化，关闭按钮样式 */
+.controls-close {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  height: 20px;
+  width: 126px;
+}
+
+.controls-close span {
+  height: 20px;
+  width: 40px;
+  float: left;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  border: 1px solid rgb(199, 197, 197);
+  font-weight: bolder;
+  color: rgb(230, 230, 230);
+  text-shadow: 1px 1px 1px black;
+}
+
+.controls-close span:nth-of-type(1) {
+  border-radius: 0 0 0 3px;
+}
+
+.controls-close span:nth-of-type(1):hover,
+.controls-close span:nth-of-type(2):hover {
+  background-color: aqua;
+  box-shadow: 0 0 8px 2px aqua;
+
+}
+
+.controls-close span:nth-of-type(3) {
+  background-color: rgba(255, 0, 0, .6);
+  border-radius: 0 3px 3px 0;
+}
+
+.controls-close span:nth-of-type(3):hover {
+  box-shadow: 0 0 8px 2px rgba(255, 0, 0, .6);
+}
+
+/* windows 资源管理器样式 */
+.windows-resoure-manager {
+  width: 850px;
+  height: 560px;
+  border-width: 0 3px 3px 3px;
+  border: solid rgba(209, 230, 236, .4);
+  border-radius: 5px;
+}
+
+.wsm-titlebar,
+.gc-titlebar {
+  position: relative;
+  height: 30px;
+  background: rgba(209, 230, 236, .4);
+}
+
+/* Google Chrome Browser */
+.google-chrome {
+  width: 900px;
+  height: 560px;
+  border-width: 0 3px 3px 3px;
+  border: solid rgba(209, 230, 236, .4);
+  border-radius: 5px;
+}
+
+.menu-sets {
+  height: 30px;
+}
+
+.menu-sets>* {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.g-sets {
+  display: inline-block;
+  max-width: 250px;
+  min-width: 40px;
+  height: 22px;
+  background-color: gray;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border: solid gray;
+}
+
+.g-sets:hover {
+  background-color: rgb(180, 179, 179);
+  border-color: rgb(180, 179, 179);
+}
+
+.g-sets img {
+  width: 15px;
+  height: 15px;
+}
+
+.g-close-set {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.g-close-set:hover {
+  background-color: rgb(180, 179, 179);
+}
+
+.add-new-sets {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.add-new-sets:hover {
+  background-color: gray;
+}
+
+.google-address {
+  width: 100%;
+  height: 32px;
+  background: rgba(209, 230, 236, .4);
+  border-bottom: 1px solid gray;
+}
+
+.google-address>span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.google-address>span:hover {
+  border-color: gray;
+  background-color: gray;
+}

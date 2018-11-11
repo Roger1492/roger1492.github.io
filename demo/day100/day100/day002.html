@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 002 - 轮播图</title>
+    <style>
+        .wrap{
+            width: 1200px;
+            height: 800px;
+            border: 1px solid gray;
+        }
+        .show{
+            position: relative;
+            width: 1200px;
+            height: 700px;
+        }
+        .show img{
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            max-width: 1200px;
+            max-height: 700px;
+        }
+        .thumbnail{
+            position: relative;
+            width: 1200px;
+            height: 100px;
+        }
+        .thumbnail img{
+            position: relative;
+            outline: 1px solid gray;
+            width: 100px;
+            height: 100px;
+            float: left;
+            transition: all .2s ease-in-out;
+        }
+        .thumbnail img:hover{
+            transform: translateY(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="show">
+            <img src="http://img.hb.aicdn.com/108089c6c77114cf8b23cc37c46f8d8b9688cb5035885-rg3b6r_fw658" alt="">
+        </div>
+        <div class="thumbnail">
+            <img src="http://img.hb.aicdn.com/108089c6c77114cf8b23cc37c46f8d8b9688cb5035885-rg3b6r_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/eee25bfc3c7a141c2990fa9d357ba2e697f96a47b2480-csTfpD_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/519246b8d55a8633b1015992f01f7f9d4fd3f3b316c32-5pBtGP_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/12445ac618227636dd84a66a5754f2ef7a4f44461ae06-fp1Awu_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/e6fcc80eeab06821b436b3b9de277646011b63e635eed-ruHg7s_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/2814bd1b48ce619adb60497b6cd4cd6fb75baf453ebc2-8erIho_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/a26e309f9f2e5f0898155a3d1ca2c934ecf4b502ba46f-udPMvZ_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/ec33d9d99bd0b21a066139f97acdda90903ecf7a15c165-XQbh43_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/5a30fa64fe265ecabe380e00e96cd7f70ca30957476ed-Zc1jmr_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/1c179def1641c67ea72de8027a1f577986e807ad2e61a-26BHMO_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/ec5d8136547fd6b853738e52ee4456437c5b9d9425d0a-HEcXLp_fw658" alt="">
+            <img src="http://img.hb.aicdn.com/43ff1009a07e6132756b515adad011402055ff3d62a11-LnYOuz_fw658" alt="">
+        </div>
+    </div>
+    <script>
+        // 点击后显示相应的图片
+        let showImg = document.getElementsByClassName("show")[0].getElementsByTagName("img")[0];
+        let thumbnails = document.getElementsByClassName("thumbnail")[0].querySelectorAll("img");
+        let index = 0;
+
+        for (let i = 0; i < thumbnails.length; i++){
+            thumbnails[i].addEventListener("click", function(e){
+                showImg.src = this.src;
+            }, false);
+        }
+
+        // 自动显示图片
+        setInterval(function () {
+            for (let i = 0; i < thumbnails.length; i++){
+                thumbnails[i].style.transform = "translateY(0px)";
+            }
+
+            showImg.src = thumbnails[index].src;
+            thumbnails[index].style.transform = "translateY(10px)";
+
+            if(index > 10){
+                index = 0;
+            } else {
+                index++
+            }
+        }, 3000)
+    </script>
+</body>
+</html>

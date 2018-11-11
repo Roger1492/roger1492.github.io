@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 001 - 注册页面</title>
+    <style>
+        form{
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            margin: 100px auto;
+            width: 800px;
+            height: 500px;
+            background-image: url("http://pic.netbian.com/uploads/allimg/181018/213457-1539869697f1c5.jpg");
+            background-position: -213px -85px;
+            overflow: hidden;
+        }
+        .wrap{
+            position: relative;
+            left: 0;
+            width: 1200px;
+            height: 500px;
+            display: inline-block;
+            z-index: 100;
+            transition: all .4s ease-in-out;
+        }
+        section{
+            position: relative;
+            width: 400px;
+            height: 500px;
+            float: left;
+        }
+        .login{
+            background: lightgreen;
+            margin-right: 200px;
+        }
+        .signin{
+            background: lightgreen;
+            margin-left: 200px;
+        }
+        .wrap section span{
+            margin-top: 50px;
+            width: 400px;
+            display: inline-block;
+            font-size: 40px;
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="password"]{
+            position: relative;
+            margin-top: 20px;
+            left: 75px;
+            width: 250px;
+            height: 30px;
+            font-size: 24px;
+            outline: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid gray;
+            border-radius: 5px 5px 0 0;
+            background: lightgreen;
+            transition: all .4s ease-out;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus{
+            border-bottom: 2px solid #0366d6;
+        }
+        input[type="button"]{
+            position: absolute;
+            bottom: 100px;
+            width: 150px;
+            left: 125px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            font-size: 24px;
+            transition: all .4s ease-in-out;
+        }
+        input[type="button"]:hover{
+            background: #0366d6;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="wrap">
+            <section class="login">
+                <span>Log in</span><br>
+                <input type="text" placeholder="Username"><br>
+                <input type="password" id="login-passwd1" placeholder="Password"><br>
+                <input type="password" id="login-passwd2" placeholder="Password"><br>
+                <input type="button" value="Log in" id="login">
+            </section>
+            <section class="signin">
+                <span>Sign in</span><br>
+                <input type="text" placeholder="Username"><br>
+                <input type="password" name="" id="signin-passwd" placeholder="Password"><br>
+                <input type="button" value="Sign in" id="signin">
+            </section>
+        </div>
+    </form>
+
+    <script>
+        let wrap = document.getElementsByClassName("wrap")[0];
+        let login = document.getElementById("login");
+        let signin = document.getElementById("signin");
+
+        login.addEventListener("click", function(e){
+            wrap.style.transform = "translateX(-400px)";
+        }, false);
+        signin.addEventListener("click", function(e){
+            wrap.style.transform = "translateX(0px)";
+        }, false);
+    </script>
+</body>
+</html>

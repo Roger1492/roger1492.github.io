@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 011 - 单词查询</title>
+  <style>
+    .wrap{
+      position: relative;
+      margin: 0 auto;
+      width: 600px;
+      min-height: 100vh;
+      border: 1px solid gray;
+      overflow: hidden;
+    }
+    #search-input{
+      width: 500px;
+      height: 30px;
+      font-size: 24px;
+      border: 1px solid gray;
+      box-sizing: border-box;
+    }
+    #btn{
+      position: absolute;
+      top: -6px;
+      width: 100px;
+      height: 36px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .translate{
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 500px;
+    }
+    .translate select{
+      width: 200px;
+      height: 30px;
+      font-size: 20px;
+    }
+    .word{
+      height: 40px;
+      min-width: 60px;
+      font-size: 30px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="search">
+      <input type="text" id="search-input">
+      <input type="button" value="查询" id="btn">
+    </div>
+    <div class="translate">
+      <select name="" id="from">
+        <option value="zho">中文</option>
+        <option value="eng" selected>英语</option>
+        <option value="fra">法语</option>
+        <option value="pol">波兰语</option>
+        <option value="deu">德语</option>
+        <option value="jpn">日语</option>
+        <option value="kor">韩语</option>
+        <option value="spa">西班牙语</option>
+        <option value="ita">意大利语</option>
+        <option value="rus">俄语</option>
+        <option value="ara">阿拉伯语</option>
+        <option value="grc">希腊语</option>
+        <option value="heb">希伯来语</option>
+      </select>
+      >>>>
+      <select name="" id="dest">
+        <option value="zho" selected>中文</option>
+        <option value="eng">英语</option>
+        <option value="fra">法语</option>
+        <option value="pol">波兰语</option>
+        <option value="deu">德语</option>
+        <option value="jpn">日语</option>
+        <option value="kor">韩语</option>
+        <option value="spa">西班牙语</option>
+        <option value="ita">意大利语</option>
+        <option value="rus">俄语</option>
+        <option value="ara">阿拉伯语</option>
+        <option value="grc">希腊语</option>
+        <option value="heb">希伯来语</option>
+      </select>
+    </div>
+    <div id="show">
+      <section class="word"></section>
+      <hr>
+      <span></span>
+    </div>
+  </div>
+
+  <script>
+    let btn = document.getElementById('btn');
+    let searchInput = document.getElementById('search-input');
+    let from = document.getElementById('from');
+    let dest = document.getElementById('dest');
+    let show = document.getElementById('show');
+    let word = document.getElementsByClassName('word')[0];
+    let span = document.getElementsByTagName('span')[0];
+
+    btn.addEventListener('click', function (e) {
+      let url = `https://glosbe.com/gapi/translate?from=${from.value}&dest=${dest.value}&format=json&phrase=${searchInput.value}&pretty=true`;
+      
+      let xhr = new XMLHttpRequest();
+      let arr = [];
+      for(let i = 0; i < arr.length; i++){
+        arr.pop();
+      }
+      xhr.onreadystatechange = function(){
+        if(xhr.status === 200 && xhr.readyState === 4){
+          let context = JSON.parse(xhr.responseText);
+          word.innerHTML = searchInput.value;
+
+          // 添加解释
+          try {
+            for(let i = 0; i < context.tuc.length; i++){
+              arr.push(context.tuc[i].phrase.text);
+            }
+          } catch (error) {
+            // console.log(error);
+          }
+
+          span.innerHTML = '';
+          for(let i = 0; i < arr.length; i++){
+            span.innerHTML += `<div>${arr[i]}</div>`;
+          }
+        }
+      };
+      xhr.open("GET", url, true);
+      xhr.send();
+    }, false);
+  </script>
+</body>
+
+</html>
