@@ -1,4 +1,5 @@
 # JavaScript
+[this call apply 完全理解](post/this_call_apply完全理解.md)  
 [我对于闭包的简单理解](post/我对于闭包的简单理解.md)  
 
 # CSS
@@ -14,7 +15,7 @@
 # Poetry
 > 我会把我喜欢的诗词做个收集整理，就以朝代分类  
 
-**[古文](poetry/古文.md)**  
+[古文观止](poetry/古文观止.md)  
 [两汉](poetry/两汉.md)  
 [五代十国](poetry/五代十国.md)  
 [元词](poetry/元词.md)  
