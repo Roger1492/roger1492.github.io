@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>下雨动画</title>
+  <style>
+    body{
+      overflow: hidden;
+      background: black;
+    }
+    #wrap{
+      position: relative;
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+    section{
+      position: relative;
+      float: left;
+      top: -120px;
+      width: 2px;   /* 雨滴的宽度 */
+      height: 60px;   /* 雨滴的高度 */
+      background: -webkit-linear-gradient(top, gray, white);
+    }
+    @keyframes run{
+      0% {
+        transform: translateY(-100px);
+      }
+      80%{
+        opacity: .7;
+      }
+      100%{
+        transform: translateY(110vh);  /*    雨滴下落的方向 */
+        opacity: .2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap"></div>
+
+  <script>
+    let rainNum = 800;    // 雨滴的数量
+    let viewWidth = 1500;   // 显示的宽度
+    let wrap = document.getElementById('wrap');
+
+    // 创建雨滴
+    function createRain(){
+      for(let i = 0; i < rainNum; i++){
+        let delayTime = Math.floor(Math.random() * 5000);
+        let nRndPosition = Math.floor(Math.random() * viewWidth);
+        let createSec = document.createElement('section');
+        createSec.style.left = nRndPosition + 'px';
+        createSec.style.animationName = 'run';
+        createSec.style.animationDuration = '2s';     // 雨滴下落的速度
+        createSec.style.animationDelay = delayTime + 'ms';
+        createSec.style.animationIterationCount = 'infinite';
+        createSec.style.animationTimingFunction = 'cubic-bezier(0.4, 0, 1, 1)';
+        wrap.appendChild(createSec);
+      }
+    }
+    createRain();
+  </script>
+</body>
+</html>
