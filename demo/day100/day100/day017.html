@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 017 - 网页版天气预报</title>
+    <style>
+        .wrap{
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+        .day{
+            border: 1px solid gray;
+            min-width: 200px;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        网页版天气预报：
+        API是来自Yahoo Weather
+        地址：https://developer.yahoo.com/weather/?guccounter=1
+        例子：https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Shanghai%20China%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys
+     -->
+    <div class="container">
+        <div class="top">
+            <input type="text" id="getCity" placeholder="city">
+            <input type="text" id="getCountry" placeholder="country">
+            <input type="button" value="Sure" id="btn">
+        </div>
+        <div class="wrap">
+            <div class="day day1">
+                <section class="date"></section>
+                <section class="week"></section>
+                <section class="temp"></section>
+                <section class="text"></section>
+                <img src="" alt="weather img" class="img">
+                <section id="location"></section>
+                <section id="speed"></section>
+                <section id="humidity"></section>
+                <section id="pressure"></section>
+                <section id="visibility"></section>
+                <section id="sunrise"></section>
+                <section id="sunset"></section>
+            </div>
+            <div class="day day2">
+                <section class="date"></section>
+                <section class="week"></section>
+                <section class="temp"></section>
+                <section class="text"></section>
+                <img src="" alt="weather img" class="img">
+            </div>
+            <div class="day day3">
+                <section class="date"></section>
+                <section class="week"></section>
+                <section class="temp"></section>
+                <section class="text"></section>
+                <img src="" alt="weather img" class="img">
+            </div>
+            <div class="day day4">
+                <section class="date"></section>
+                <section class="week"></section>
+                <section class="temp"></section>
+                <section class="text"></section>
+                <img src="" alt="weather img" class="img">
+            </div>
+            <div class="day day5">
+                <section class="date"></section>
+                <section class="week"></section>
+                <section class="temp"></section>
+                <section class="text"></section>
+                <img src="" alt="weather img" class="img">
+            </div>
+            <div class="day day6">
+                <section class="date"></section>
+                <section class="week"></section>
+                <section class="temp"></section>
+                <section class="text"></section>
+                <img src="" alt="weather img" class="img">
+            </div>
+            <div class="day day7">
+                <section class="date"></section>
+                <section class="week"></section>
+                <section class="temp"></section>
+                <section class="text"></section>
+                <img src="" alt="weather img" class="img">
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            let defaultUrl =
+                'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22Shanghai%20China%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+            let btn = document.getElementById('btn');
+            let getCity = document.getElementById('getCity');
+            let getCountry = document.getElementById('getCountry');
+            let date = document.getElementsByClassName('date');
+            let week = document.getElementsByClassName('week');
+            let temp = document.getElementsByClassName('temp');
+            let text = document.getElementsByClassName('text');
+            let img = document.getElementsByClassName('img');
+            let location = document.getElementById('location');
+            let speed = document.getElementById('speed');
+            let humidity = document.getElementById('humidity');
+            let pressure = document.getElementById('pressure');
+            let visibility = document.getElementById('visibility');
+            let sunrise = document.getElementById('sunrise');
+            let sunset = document.getElementById('sunset');
+
+            // 获取天气预报数据
+            function getData(url) {
+                fetch(url)
+                    .then(res => res.json())
+                    .then(weather => {
+                        location.innerHTML = `${weather.query.results.channel.location.country}，${weather.query.results.channel.location.region}，${weather.query.results.channel.location.city}`;
+                        speed.innerHTML = `风力：每小时 ${weather.query.results.channel.wind.speed} 英里`;
+                        humidity.innerHTML = `湿度：${weather.query.results.channel.atmosphere.humidity}`;
+                        pressure.innerHTML = `气压：${weather.query.results.channel.atmosphere.pressure} 帕`;
+                        visibility.innerHTML = `能见度：${weather.query.results.channel.atmosphere.visibility} 米`;
+                        sunrise.innerHTML = `日升：${weather.query.results.channel.astronomy.sunrise}`;
+                        sunset.innerHTML = `日落：${weather.query.results.channel.astronomy.sunset}`;
+                        for (let i = 0; i < 7; i++) {
+                            date[i].innerHTML = getMonth(weather.query.results.channel.item.forecast[i].date) + ' ' +weather.query.results.channel.item.forecast[i].date.substring(0,2) + ' 日';
+                            week[i].innerHTML = weekTocn(weather.query.results.channel.item.forecast[i].day);
+                            temp[i].innerHTML = toC(weather.query.results.channel.item.forecast[i].low) + '℃ / ' +toC(weather.query.results.channel.item.forecast[i].high) + '℃';
+                            text[i].innerHTML = weather.query.results.channel.item.forecast[i].text;
+                            img[i].src = `http://l.yimg.com/a/i/us/we/52/${weather.query.results.channel.item.forecast[i].code}.gif`;
+                        }
+                    })
+            }
+            
+            // 把英文的星期转换为中文
+            function weekTocn(wk){
+                switch(wk){
+                    case 'Mon': return '星期一'; break;
+                    case 'Tue': return '星期二'; break;
+                    case 'Wed': return '星期三'; break;
+                    case 'Thu': return '星期四'; break;
+                    case 'Fri': return '星期五'; break;
+                    case 'Sat': return '星期六'; break;
+                    case 'Sun': return '星期天'; break;
+                    default: return wk;
+                }
+            }
+
+            // 获取中文的月份
+            function getMonth(m){
+                let nm = m.substring(3,6);
+                switch(nm){
+                    case 'Jan': return '1 月'; break;
+                    case 'Feb': return '2 月'; break;
+                    case 'Mar': return '3 月'; break;
+                    case 'Apr': return '4 月'; break;
+                    case 'May': return '5 月'; break;
+                    case 'Jun': return '6 月'; break;
+                    case 'Jul': return '7 月'; break;
+                    case 'Aug': return '8 月'; break;
+                    case 'Sep': return '9 月'; break;
+                    case 'Oct': return '10 月'; break;
+                    case 'Nov': return '11 月'; break;
+                    case 'Dec': return '12 月'; break;
+                    default: return nm;
+                }
+            }
+
+            // 华氏度 -> 摄氏度
+            function toC(n){
+                return Math.round((n - 32) / 1.8);
+            }
+
+            // 摄氏度 -> 华氏度
+            function toF(n){
+                return Math.round(n * 1.8 + 32);
+            }
+
+            getData(defaultUrl);
+
+            btn.addEventListener('click', function(e){
+                let newUrl = `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${getCity.value}%20${getCountry.value}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
+                getData(newUrl);
+            }, false);
+        };
+    </script>
+</body>
+
+</html>
