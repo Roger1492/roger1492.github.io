@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>最简单的Loader #2</title>
+    <style>
+        div{
+            position: relative;
+            margin: 200px auto;
+            width: 400px;
+            height: 400px;
+        }
+        section{
+            position: absolute;
+        }
+        .first{
+            width: 280px;
+            height: 280px;
+            border: 60px solid;
+            border-color: red transparent;
+            border-radius: 50%;
+            animation: run1 3s infinite linear;
+        }
+        .second{
+            left: 60px;
+            top: 60px;
+            width: 180px;
+            height: 180px;
+            border: 50px solid;
+            border-color: blue transparent;
+            border-radius: 50%;
+            animation: run2 3s infinite linear;
+        }
+        .third{
+            left: 110px;
+            top: 110px;
+            width: 100px;
+            height: 100px;
+            border: 40px solid;
+            border-color: rgb(11, 158, 109) transparent;
+            border-radius: 50%;
+            animation: run3 3s infinite linear;
+        }
+        .fourth{
+            left: 180px;
+            top: 180px;
+            width: 40px;
+            height: 40px;
+            background-color: gray;
+            border-radius: 50%;
+            animation: run4 3s infinite linear;
+        }
+        @keyframes run1{
+            100%{
+                transform: rotateZ(360deg);
+            }
+        }
+        @keyframes run2{
+            100%{
+                transform: rotateZ(-360deg);
+            }
+        }
+        @keyframes run3{
+            100%{
+                transform: rotateZ(360deg);
+            }
+        }
+        @keyframes run4{
+            50%{
+                transform: scale(2.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <section class="first"></section>
+        <section class="second"></section>
+        <section class="third"></section>
+        <section class="fourth"></section>
+    </div>
+</body>
+</html>
