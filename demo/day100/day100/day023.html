@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 023 - 苹果电脑外观效果图</title>
+    <style>
+        /* 键盘按键 */
+        .board{
+            position: relative;
+            width: 1400px;
+            height: 1000px;
+            background: lightgray;
+        }
+        section{
+            border-radius: 5px;
+            background: rgb(124, 123, 123);
+            height: 70px;
+            color: aliceblue;
+        }
+        section > span{
+            display: inline-block;
+            width: 71px;
+            text-align: center;
+        }
+        .keyboard{
+            width: 1100px;
+        }
+        .keyboard > div{
+            margin-top: 4px;
+        }
+        .line1{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 70px;
+            grid-gap: 4px;
+        }
+        .touchbar{
+            grid-column: 1 / 2;
+        }
+        .line2, .line3{
+            display: grid;
+            grid-template-columns: repeat(14, 1fr);
+            grid-template-rows: 70px;
+            grid-gap: 4px;
+        }
+        .delete{
+            width: 120px;
+        }
+        .tab{
+            width: 120px;
+        }
+        .line4{
+            display: grid;
+            grid-template-columns: repeat(13, 1fr);
+            grid-template-rows: 70px;
+            grid-gap: 4px;
+        }
+        .caps{
+            width: 140px;
+        }
+        .return{
+            width: 130px;
+        }
+        .line5{
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: 70px;
+            grid-gap: 4px;
+        }
+        .shift{
+            width: 170px;
+        }
+        .line6{
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: 70px;
+            grid-gap: 4px;
+        }
+        .space{
+            width: 360px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mac">
+        <div class="screen"></div>
+        <div class="board">
+            <div class="keyboard">
+                <div class="line1">
+                    <section class="touchbar"></section>
+                </div>
+                <div class="line2">
+                    <section><span>~</span><span>`</span></section>
+                    <section><span>!</span><span>1</span></section>
+                    <section><span>@</span><span>2</span></section>
+                    <section><span>#</span><span>3</span></section>
+                    <section><span>$</span><span>4</span></section>
+                    <section><span>%</span><span>5</span></section>
+                    <section><span>^</span><span>6</span></section>
+                    <section><span>&</span><span>7</span></section>
+                    <section><span>*</span><span>8</span></section>
+                    <section><span>(</span><span>9</span></section>
+                    <section><span>)</span><span>0</span></section>
+                    <section><span>-</span><span>-</span></section>
+                    <section><span>+</span><span>&equals;</span></section>
+                    <section class="delete">delete</section>
+                </div>
+                <div class="line3">
+                    <section class="tab">tab</section>
+                    <section>Q</section>
+                    <section>W</section>
+                    <section>E</section>
+                    <section>R</section>
+                    <section>T</section>
+                    <section>Y</section>
+                    <section>U</section>
+                    <section>I</section>
+                    <section>O</section>
+                    <section>P</section>
+                    <section><span>{</span><span>[</span></section>
+                    <section><span>}</span><span>]</span></section>
+                    <section><span>|</span><span>\</span></section>
+                </div>
+                <div class="line4">
+                    <section class="caps">caps lock</section>
+                    <section>A</section>
+                    <section>S</section>
+                    <section>D</section>
+                    <section>F</section>
+                    <section>G</section>
+                    <section>H</section>
+                    <section>J</section>
+                    <section>K</section>
+                    <section>L</section>
+                    <section><span>:</span><span>;</span></section>
+                    <section><span>"</span><span>'</span></section>
+                    <section class="return">return</section>
+                </div>
+                <div class="line5">
+                    <section class="shift">shift</section>
+                    <section>Z</section>
+                    <section>X</section>
+                    <section>C</section>
+                    <section>V</section>
+                    <section>B</section>
+                    <section>N</section>
+                    <section>M</section>
+                    <section><span>&lt;</span><span>,</span></section>
+                    <section><span>&gt;</span><span>.</span></section>
+                    <section><span>?</span><span>/</span></section>
+                    <section class="shift">shift</section>
+                </div>
+                <div class="line6">
+                    <section class="fn">fn</section>
+                    <section class="control">control</section>
+                    <section class="option">option</section>
+                    <section class="command">command</section>
+                    <section class="space"></section>
+                    <section class="command">command</section>
+                    <section class="option">option</section>
+                    <section class="norrowLeft"></section>
+                    <section>
+                        <span class="norrowUp"></span>
+                        <span class="norrowDown"></span>
+                    </section>
+                    <section class="norrowRight"></section>
+                </div>
+            </div>
+            <div class="sound"></div>
+            <div class="touchpad"></div>
+        </div>
+    </div>
+</body>
+</html>
