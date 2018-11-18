@@ -46,6 +46,8 @@
                 <section id="visibility"></section>
                 <section id="sunrise"></section>
                 <section id="sunset"></section>
+                <section id="lat"></section>
+                <section id="long"></section>
             </div>
             <div class="day day2">
                 <section class="date"></section>
@@ -110,19 +112,25 @@
             let visibility = document.getElementById('visibility');
             let sunrise = document.getElementById('sunrise');
             let sunset = document.getElementById('sunset');
+            let lat = document.getElementById('lat');
+            let long  = document.getElementById('long');
 
             // 获取天气预报数据
             function getData(url) {
                 fetch(url)
                     .then(res => res.json())
                     .then(weather => {
-                        location.innerHTML = `${weather.query.results.channel.location.country}，${weather.query.results.channel.location.region}，${weather.query.results.channel.location.city}`;
+                        location.innerHTML = `${weather.query.results.channel.location.country}，
+                                              ${weather.query.results.channel.location.region}，
+                                              ${weather.query.results.channel.location.city}`;
                         speed.innerHTML = `风力：每小时 ${weather.query.results.channel.wind.speed} 英里`;
                         humidity.innerHTML = `湿度：${weather.query.results.channel.atmosphere.humidity}`;
                         pressure.innerHTML = `气压：${weather.query.results.channel.atmosphere.pressure} 帕`;
                         visibility.innerHTML = `能见度：${weather.query.results.channel.atmosphere.visibility} 米`;
                         sunrise.innerHTML = `日升：${weather.query.results.channel.astronomy.sunrise}`;
                         sunset.innerHTML = `日落：${weather.query.results.channel.astronomy.sunset}`;
+                        lat.innerHTML = `纬度：${weather.query.results.channel.item.lat} °`;
+                        long.innerHTML = `经度：${weather.query.results.channel.item.long} °`;
                         for (let i = 0; i < 7; i++) {
                             date[i].innerHTML = getMonth(weather.query.results.channel.item.forecast[i].date) + ' ' +weather.query.results.channel.item.forecast[i].date.substring(0,2) + ' 日';
                             week[i].innerHTML = weekTocn(weather.query.results.channel.item.forecast[i].day);
@@ -182,6 +190,13 @@
             btn.addEventListener('click', function(e){
                 let newUrl = `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${getCity.value}%20${getCountry.value}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
                 getData(newUrl);
+            }, false);
+
+            document.addEventListener('keypress', function(e){
+                if(e.keyCode === 13){
+                    let newUrl = `https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22${getCity.value}%20${getCountry.value}%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys`;
+                getData(newUrl);
+                }
             }, false);
         };
     </script>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 019 - 手风琴效果菜单</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            list-style-type: none;
+            background: rgb(131, 129, 129);
+            font-size: 26px;
+        }
+        div{
+            background: rgb(82, 82, 82);
+            color: white;
+            cursor: pointer;
+        }
+        div:not(:first-child){
+            border-top: 1px solid white;
+        }
+        div:hover{
+            background: rgb(175, 174, 174);
+        }
+        div > i{
+            display: inline-block;
+            margin-right: 10px;
+            margin-left: 5px;
+        }
+        li{
+            position: relative;
+            left: 10px;
+            width: 280px;
+            display: none;
+            background: lightgray;
+        }
+        section{
+            cursor: pointer;
+        }
+        section:hover{
+            background: rgb(190, 190, 190);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <div><i class="fa fa-google"></i>show 1</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-bug"></i>show 2</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-barcode"></i>show 3</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-bath"></i>show 4</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-file"></i>show 5</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-coffee"></i>show 6</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-folder"></i>show 7</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-tree"></i>show 8</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-code"></i>show 9</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-comment"></i>show 10</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-filter"></i>show 11</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-phone"></i>show 12</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+        <div><i class="fa fa-mars"></i>show 13</div>
+        <li>
+            <section>one</section>
+            <section>two</section>
+            <section>three</section>
+            <section>four</section>
+        </li>
+    </ul>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('div').click(function(){
+                $('li').slideUp(300);
+                $(this).next().slideToggle(300);
+            })
+        })
+    </script>
+</body>
+
+</html>

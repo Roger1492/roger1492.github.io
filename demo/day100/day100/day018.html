@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 018 - 手机旋转属性</title>
+</head>
+<body>
+    <div class="show">
+        <h2>旋转您的手机</h2>
+        <section id="alpha"></section>
+        <section id="beta"></section>
+        <section id="gamma"></section>
+    </div>
+    <script>
+        let alpha = document.getElementById('alpha');
+        let beta = document.getElementById('beta');
+        let gamma = document.getElementById('gamma');
+        window.addEventListener('deviceorientation', function(e){
+            alpha.innerHTML = `Alpha: ${e.alpha}`;
+            beta.innerHTML = `Beta: ${e.beta}`;
+            gamma.innerHTML = `Gamma: ${e.gamma}`;
+
+        })
+    </script>
+</body>
+</html>

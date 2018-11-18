@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .wrap{
+            margin: 50px auto;
+            width: 600px;
+            height: 500px;
+            outline: 1px solid gray;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            width: 600px;
+            height: 50px;
+        }
+        ul li{
+            position: relative;
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            outline: 1px solid gray;
+            cursor: pointer;
+            transition: borderBottom .3s;
+        }
+        ul li:hover{
+            border-bottom: 1px solid white;
+        }
+        /* ul li:hover::before{
+            position: absolute;
+            left: 0;
+            content: '';
+            width: 100px;
+            height: 5px;
+            background: red;
+        } */
+        ul li:first-child{
+            border-bottom: 1px solid white;
+        }
+        .show{
+            position: relative;
+            top: 1px;
+            width: 600px;
+            height: 450px;
+        }
+        section{
+            width: 600px;
+            height: 449px;
+            line-height: 450px;
+            font-size: 40px;
+            text-align: center;
+            position: absolute;
+            background: white;
+        }
+        section:not(:first-child){
+            display: none;
+        }
+        strong{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+            <li>five</li>
+            <li>six</li>
+        </ul>
+        <div class="show">
+            <section>this is <strong>one</strong></section>
+            <section>this is <strong>two</strong></section>
+            <section>this is <strong>three</strong></section>
+            <section>this is <strong>four</strong></section>
+            <section>this is <strong>five</strong></section>
+            <section>this is <strong>six</strong></section>
+        </div>
+    </div>
+    <script>
+        let li = document.getElementsByTagName('li');
+        let sec = document.getElementsByTagName('section');
+
+        for(let i = 0; i < li.length; i++){
+            li[i].addEventListener('click', function(e){
+
+                for(let j = 0; j < sec.length; j++){
+                    sec[j].style.display = 'none';
+                    li[j].style.borderBottom = '1px solid gray';
+                }
+
+                this.style.borderBottom = '1px solid white';
+                sec[i].style.display = 'block';
+            }, false);
+        }
+    </script>
+</body>
+</html>
