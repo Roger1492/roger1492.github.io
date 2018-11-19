@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tab切换</title>
     <style>
         .wrap{
             margin: 50px auto;
@@ -19,29 +19,26 @@
             width: 600px;
             height: 50px;
         }
-        ul li{
+        li{
             position: relative;
             float: left;
             width: 100px;
             height: 50px;
             line-height: 50px;
             text-align: center;
-            outline: 1px solid gray;
             cursor: pointer;
             transition: borderBottom .3s;
+            box-sizing: border-box;
+            border-right: 1px solid gray;
+            border-bottom: 1px solid gray;
         }
-        ul li:hover{
+        li:first-child{
             border-bottom: 1px solid white;
         }
-        /* ul li:hover::before{
-            position: absolute;
-            left: 0;
-            content: '';
-            width: 100px;
-            height: 5px;
-            background: red;
-        } */
-        ul li:first-child{
+        li:last-child{
+            border-right-width: 0px;
+        }
+        li:hover{
             border-bottom: 1px solid white;
         }
         .show{

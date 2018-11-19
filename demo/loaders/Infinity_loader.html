@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .wrap{
+      width: 500px;
+      height: 500px;
+      border: 1px solid gray;
+    }
+    .dot{
+      margin: 200px auto;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      border: 1px solid black;
+      background: black;
+      animation: frun 5s infinite linear;
+    }
+    .sub-dot{
+      position: absolute;
+      left: 25%;
+      top: 25%;
+      width: 20px;
+      height: 20px;
+      border: 1px solid black;
+      background: black;
+      border-radius: 50%;
+      z-index: -99;
+    }
+    .sub-dot:nth-of-type(1){
+      animation: run 2s infinite linear;
+    }
+    .sub-dot:nth-of-type(2){
+      animation: run 2s 1s infinite linear;
+    }
+    @keyframes frun{
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes run{
+      0%{
+        left: 25%;
+        top: 25%;
+      }
+      20%{
+        opacity: .7;
+        transform: translate(30px, 20px) scale(.8);
+      }
+      40%{
+        opacity: .5;
+        transform: translate(20px,40px) scale(.6);
+      }
+      60%{
+        opacity: .3;
+        transform: translate(50px,40px) scale(.4);
+      }
+      80%{
+        opacity: .1;
+        transform: translate(60px, 50px) scale(.2);
+      }
+      100%{
+        opacity: 0;
+        transform: translate(65px, 55px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 灵感来源地址：https://codepen.io/aaroniker/pen/MzoXaZ -->
+
+  <div class="wrap">
+    <div class="dot">
+      <div class="sub-dot"></div>
+      <div class="sub-dot"></div>
+    </div>
+  </div>
+</body>
+</html>

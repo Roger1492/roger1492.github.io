@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Infinity Loader 2</title>
+  <style>
+    .wrap{
+      position: relative;
+      width: 500px;
+      height: 500px;
+      border: 1px solid gray;
+    }
+    .line{
+      position: relative;
+      top: 200px;
+      left: 150px;
+      width: 200px;
+      height: 5px;
+      /* background: gray; */
+      border-radius: 5px;
+      animation: line 10s infinite linear;
+    }
+    .line1{
+      transform: rotateZ(10deg);
+    }
+    .line2{
+      transform: rotateZ(120deg);
+    }
+    .line3{
+      transform: rotateZ(250deg);
+    }
+
+    .dot{
+      position: relative;
+      top: -24px;
+      width: 50px;
+      height: 50px;
+      border: 1px solid gray;
+      border-radius: 50%;
+      background: white;
+      animation: dot1 4s infinite linear;
+    }
+    .dot::after,
+    .dot::before{
+      position: absolute;
+      left: 13px;
+      top: 14px;
+      content: "";
+      width: 20px;
+      height: 20px;
+      border: 1px solid gray;
+      border-radius: 50%;
+      z-index: -99;
+    }
+    .dot::after{
+      animation: dot 2s infinite linear;
+    }
+    .dot::before{
+      animation:  dot 2s 1s infinite linear;
+    }
+
+    @keyframes line1{
+      100%{
+        transform: rotateZ(360deg);
+      }
+    }
+
+    @keyframes dot1{
+      50%{
+        transform: translateX(150px);
+      }
+    }
+
+    @keyframes dot{
+      20%{
+        opacity: .7;
+        transform: translate(20px, 30px) scale(.8);
+      }
+      40%{
+        opacity: .5;
+        transform: translate(30px, 30px) scale(.6);
+      }
+      60%{
+        opacity: .3;
+        transform: translate(40px,25px) scale(.4);
+      }
+      80%{
+        opacity: .1;
+        transform: translate(50px, 40px) scale(.2);
+      }
+      100%{
+        opacity: 0;
+        transform: translate(45px, 30px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="line line1">
+      <div class="dot"></div>
+    </div>
+    <div class="line line2">
+      <div class="dot"></div>
+    </div>
+    <div class="line line3">
+      <div class="dot"></div>
+    </div>
+  </div>
+</body>
+</html>

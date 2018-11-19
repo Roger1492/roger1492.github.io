@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fancy watch</title>
+  <style>
+    .clock {
+      position: relative;
+      margin: 50px auto;
+      width: 500px;
+      height: 500px;
+    }
+
+    canvas {
+      border: 1px solid gray;
+      border-radius: 50%;
+      z-index: -999;
+    }
+
+    .line {
+      position: absolute;
+      transform-origin: 100% 50%;
+      top: 250px;
+      width: 250px;
+      height: 2px;
+      background: red;
+      animation: run 60s infinite linear;
+      z-index: 99;
+    }
+    .line::after{
+      position: absolute;
+      top: -250px;
+      content: '';
+      width: 500px;
+      height: 500px;
+      z-index: 99;
+    }
+    .line::before{
+      position: absolute;
+      content: '';
+      top: -50px;
+      left: -50px;
+      width: 100px;
+      height: 100px;
+      border: 1px solid gray;
+      border-radius: 50%;
+      z-index: 99;
+      box-shadow: 10px 10px 10px 2000px rgba(0, 0, 0, 0.404);
+    }
+    @keyframes run{
+      100%{
+        transform: rotateZ(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    灵感来源地址：https://codepen.io/uchardon/pen/QJdxgW 
+  -->
+  <!-- 第一种 -->
+  <div class="clock">
+    <canvas width="500" height="500" id="canvas"></canvas>
+    <div class="line"></div>
+  </div>
+
+  <!-- 第二种 -->
+  <div class="wrap2">
+
+  </div>
+
+  <script>
+    let ctx = document.getElementById('canvas').getContext('2d');
+    ctx.beginPath();
+    ctx.translate(244, 257);
+    let num = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
+    ctx.font = '20px Arial';
+    for (let i = 0; i < 12; i++) {
+      let x = 240 * Math.cos((Math.PI / 6) * i);
+      let y = 240 * Math.sin((Math.PI / 6) * i);
+      ctx.fillText(num[i], x, y);
+    }
+  </script>
+</body>
+
+</html>
