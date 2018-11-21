@@ -11,6 +11,7 @@
 
 # Demo  
 [100天100项目](demo/day100/day100.md)  
+[仿animate.css](demo/animate.css/animate.html)  
 [components - Buttons](demo/buttons/button.md)  
 [components - Loaders](demo/loaders/loader.md)  
 [components - Menus](demo/menus/menu.md)  
