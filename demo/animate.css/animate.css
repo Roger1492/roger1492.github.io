@@ -97,6 +97,9 @@ body{
   }
 }
 
+.tada{
+  transform-origin: 50% 50%;
+}
 @keyframes tada{
   10%{
     transform-origin: 50% 50%;
@@ -113,5 +116,62 @@ body{
   40%,60%,80%{
     transform-origin: 50% 50%;
     transform: rotateZ(-10deg);
+  }
+}
+
+.wobble{
+  transform-origin: 50% 100%;
+}
+@keyframes wobble{
+  15%{
+    transform: rotateZ(-10deg);
+  }
+  30%{
+    transform: rotateZ(10deg);
+  }
+  45%{
+    transform: rotateZ(-10deg);
+  }
+  60%{
+    transform: rotateZ(10deg);
+  }
+  75%{
+    transform: rotateZ(-10deg);
+  }
+  90%{
+    transform: rotateZ(10deg);
+  }
+}
+
+.jello{
+  transform-origin: 50% 50%;
+}
+@keyframes jello{
+  10%{
+    transform: rotateZ(-20deg) skewX(-40deg);
+  }
+  20%{
+    transform: rotateZ(20deg) skewX(40deg);
+  }
+  30%{
+    transform: rotateZ(-15deg) skewX(-30deg);
+  }
+  40%{
+    transform: rotateZ(15deg) skewX(30deg);
+  }
+  50%{
+    transform: rotateZ(-10deg) skewX(-20deg);
+  }
+  60%{
+    transform: rotateZ(10deg) skewX(20deg);
+  }
+  70%{
+    transform: rotateZ(-6deg) skewX(-12deg);
+  }
+  80%{
+    transform: rotateZ(6deg) skewX(12deg);
+  }
+  90%{
+    transform: rotateZ(3deg) skewX(3deg);
   }
 }

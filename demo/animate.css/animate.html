@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="animate.css">
 </head>
 <body>
-  <div id="animate">Animate.css</div>
+  <div id="animate" class="bounce">Animate.css</div>
 
   <div id="sel">
       <select name="" id="animates">
@@ -130,16 +130,17 @@
     // 选中动画名字后执行一次动画
     animates.addEventListener('change', function(e){
       name = this.options[this.selectedIndex].value;
-      console.log(name);
+      animate.classList.replace(animate.className,name);
       animate.style.animation = `${name} 1s linear`;
     }, false);
 
     // 点击按钮后重复执行一遍动画
     // 先删除原来的style，在重新加一遍动画
-    // btn.addEventListener('click', function(e){
-      // animate.style.animationName = name;
-      // animate.style.animationIterationCount += 1;
-    // }, false);
+    btn.addEventListener('click', function(e){
+      name = animates.options[animates.selectedIndex].value;
+      animate.style.animation = `${name} 1s linear`;
+      // animate.removeAttribute('style');
+    }, false);
   </script>
 </body>
 </html>
