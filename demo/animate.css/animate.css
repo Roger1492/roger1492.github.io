@@ -23,258 +23,125 @@ body{
 /*******************************************/
 
 @keyframes bounce{
-  35%{
-    transform: translateY(-30px);
-  }
-  80%{
-    transform: translateY(-10px);
-  }
-  95%{
-    transform: translateY(-5px);
-  }
-  0%,70%,90%,100%{
-    transform: translateY(0px);
-  }
+  35%{ transform: translateY(-30px); }
+  80%{ transform: translateY(-10px); }
+  95%{ transform: translateY(-5px); }
+  0%,70%,90%,100%{ transform: translateY(0px); }
 }
 
 @keyframes flash{
-  25%,75%{
-    opacity: 0;
-  }
-  0%,50%,100%{
-    opacity: 1;
-  }
+  25%,75%{ opacity: 0; }
+  0%,50%,100%{ opacity: 1; }
 }
 
 @keyframes pluse{
-  50%{
-    transform: scale(1.2);
-  }
+  50%{ transform: scale(1.2); }
 }
 
 @keyframes rubberBand{
-  25%{
-    transform: scaleX(1.3);
-  }
-  50%{
-    transform: scaleX(.7);
-  }
-  65%{
-    transform: scalex(1.2);
-  }
-  80%{
-    transform: scaleX(.8)
-  }
-  94%{
-    transform: scaleX(1.1);
-  }
-  97%{
-    transform: scalex(.9);
-  }
-  0%,100%{
-    transform: scalex(1);
-  }
+  25%{ transform: scaleX(1.3); }
+  50%{ transform: scaleX(.7); }
+  65%{ transform: scalex(1.2); }
+  80%{ transform: scaleX(.8) }
+  94%{ transform: scaleX(1.1); }
+  97%{ transform: scalex(.9); }
+  0%,100%{ transform: scalex(1); }
 }
 
 @keyframes shake{
-  10%,30%,50%,70%,90%{
-    transform: translateX(-10px);
-  }
-  20%,40%,60%,80%{
-    transform: translateX(10px);
-  }
-  0%,100%{
-    transform: translateX(0px);
-  }
+  10%,30%,50%,70%,90%{ transform: translateX(-10px); }
+  20%,40%,60%,80%{ transform: translateX(10px); }
+  0%,100%{ transform: translateX(0px); }
 }
 
 @keyframes swing{
-  20%,60%{
-    transform: rotateZ(10deg);
-  }
-  40%,80%{
-    transform: rotateZ(-10deg);
-  }
+  20%,60%{ transform: rotateZ(10deg); }
+  40%,80%{ transform: rotateZ(-10deg); }
 }
 
 .tada{
   transform-origin: 50% 50%;
 }
 @keyframes tada{
-  10%{
-    transform-origin: 50% 50%;
-    transform: scale(.8) rotateZ(-10deg);
-  }
-  20%{
-    transform-origin: 50% 50%;
-    transform: scale(1) rotateZ(0deg);
-  }
-  30%,50%,70%,90%{
-    transform-origin: 50% 50%;
-    transform: rotateZ(10deg);
-  }
-  40%,60%,80%{
-    transform-origin: 50% 50%;
-    transform: rotateZ(-10deg);
-  }
+  10%{ transform-origin: 50% 50%; transform: scale(.8) rotateZ(-10deg);}
+  20%{ transform-origin: 50% 50%; transform: scale(1) rotateZ(0deg);}
+  30%,50%,70%,90%{ transform-origin: 50% 50%; transform: rotateZ(10deg);}
+  40%,60%,80%{ transform-origin: 50% 50%; transform: rotateZ(-10deg);}
 }
 
 .wobble{
   transform-origin: 50% 100%;
 }
 @keyframes wobble{
-  15%{
-    transform: rotateZ(-10deg);
-  }
-  30%{
-    transform: rotateZ(10deg);
-  }
-  45%{
-    transform: rotateZ(-10deg);
-  }
-  60%{
-    transform: rotateZ(10deg);
-  }
-  75%{
-    transform: rotateZ(-10deg);
-  }
-  90%{
-    transform: rotateZ(10deg);
-  }
+  15%{ transform: rotateZ(-10deg); }
+  30%{ transform: rotateZ(10deg); }
+  45%{ transform: rotateZ(-10deg); }
+  60%{ transform: rotateZ(10deg); }
+  75%{ transform: rotateZ(-10deg); }
+  90%{ transform: rotateZ(10deg); }
 }
 
 .jello{
   transform-origin: 50% 50%;
 }
 @keyframes jello{
-  10%{
-    transform: rotateZ(-20deg) skewX(-40deg);
-  }
-  20%{
-    transform: rotateZ(20deg) skewX(40deg);
-  }
-  30%{
-    transform: rotateZ(-15deg) skewX(-30deg);
-  }
-  40%{
-    transform: rotateZ(15deg) skewX(30deg);
-  }
-  50%{
-    transform: rotateZ(-10deg) skewX(-20deg);
-  }
-  60%{
-    transform: rotateZ(10deg) skewX(20deg);
-  }
-  70%{
-    transform: rotateZ(-6deg) skewX(-12deg);
-  }
-  80%{
-    transform: rotateZ(6deg) skewX(12deg);
-  }
-  90%{
-    transform: rotateZ(3deg) skewX(3deg);
-  }
+  10%{ transform: rotateZ(-20deg) skewX(-40deg);}
+  20%{ transform: rotateZ(20deg) skewX(40deg);}
+  30%{ transform: rotateZ(-15deg) skewX(-30deg);}
+  40%{ transform: rotateZ(15deg) skewX(30deg);}
+  50%{ transform: rotateZ(-10deg) skewX(-20deg);}
+  60%{ transform: rotateZ(10deg) skewX(20deg);}
+  70%{ transform: rotateZ(-6deg) skewX(-12deg);}
+  80%{ transform: rotateZ(6deg) skewX(12deg);}
+  90%{ transform: rotateZ(3deg) skewX(3deg);}
 }
 
 @keyframes bounceIn{
-  0%{
-    opacity: 0;
-    transform: scale(.6);
-  }
-  20%{
-    transform: scale(1);
-  }
-  40%{
-    transform: scale(.7);
-  }
-  60%{
-    transform: scale(1);
-  }
-  80%{
-    transform: scale(.8)
-  }
-  100%{
-    opacity: 1;
-    transform: scale(1);
-  }
+  0%{ opacity: 0; transform: scale(.6); }
+  20%{ transform: scale(1); }
+  40%{ transform: scale(.7); }
+  60%{ transform: scale(1); }
+  80%{ transform: scale(.8) }
+  100%{ opacity: 1; transform: scale(1); }
 }
 
 @keyframes bounceInDown{
-  0%{
-    opacity: 0;
-    transform: translateY(-60vh);
-  }
-  50%{
-    transform: translateY(0px);
-  }
-  60%{
-    transform: translateY(-20px);
-  }
-  80%{
-    transform: translateY(0px);
-  }
+  0%{ opacity: 0; transform: translateY(-60vh); }
+  50%{ transform: translateY(0px); }
+  60%{ transform: translateY(-20px); }
+  80%{ transform: translateY(0px); }
 }
 
 @keyframes bounceInLeft{
-  0%{
-    opacity: 0;
-    transform: translateX(-55vW);
-  }
-  50%{
-    transform: translateX(0px);
-  }
-  60%{
-    transform: translateX(-20px);
-  }
-  80%{
-    transform: translateX(0px);
-  }
+  0%{ opacity: 0; transform: translateX(-55vW); }
+  50%{ transform: translateX(0px); }
+  60%{ transform: translateX(-20px); }
+  80%{ transform: translateX(0px); }
 }
 
 @keyframes bounceInRight{
-  0%{
-    opacity: 0;
-    transform: translateX(40vw);
-  }
-  50%{
-    transform: translateX(0px);
-  }
-  60%{
-    transform: translateX(20px);
-  }
-  80%{
-    transform: translateX(0px);
-  }
+  0%{ opacity: 0; transform: translateX(40vw); }
+  50%{ transform: translateX(0px); }
+  60%{ transform: translateX(20px); }
+  80%{ transform: translateX(0px); }
 }
 
 @keyframes bounceInUp{
-  0%{
-    opacity: 0;
-    transform: translateY(48vh);
-  }
-  50%{
-    transform: translateY(0px);
-  }
-  60%{
-    transform: translateY(10px);
-  }
-  80%{
-    transform: translateY(0px);
-  }
+  0%{ opacity: 0; transform: translateY(48vh); }
+  50%{ transform: translateY(0px); }
+  60%{ transform: translateY(10px); }
+  80%{ transform: translateY(0px); }
 }
 
 @keyframes bounceOut{
-  20%{
-    transform: scale(.6);
-  }
-  40%{
-    transform: scale(1);
-  }
-  50%{
-    opacity: 0;
-    transform: scale(.1);
-  }
-  /* 100%{
-    transform: scale(1);
-  } */
+  20%{ transform: scale(.6); }
+  40%{ transform: scale(1); }
+  50%{ opacity: 0; transform: scale(.1); }
+}
+
+@keyframes bounceOutDown{
+  15%{ transform: translateY(20px);}
+  30%{ transform: translateY(0px); }
+  50%{ transform: translateY(55vh); }
+  100%{ opacity: 0; transform: translateY(0px); }
 }

@@ -11,7 +11,6 @@
       position: relative;
       margin: 0;
       padding: 0;
-      /* overflow: hidden; */
     }
     
     .pixel {
@@ -24,6 +23,7 @@
       float: left;
       border: 1px solid gray;
       cursor: pointer;
+      border-radius: 50%;
     }
   </style>
 </head>
@@ -37,7 +37,7 @@
   <!-- 右键事件显示样式 -->
 
   <script>
-    var currentColor;
+    var currentColor = '#000';
     let wrap = document.getElementById('wrap');
     let menu = document.getElementsByClassName('menu')[0];
     let color = document.getElementById('color');
