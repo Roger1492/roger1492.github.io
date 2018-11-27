@@ -25,7 +25,6 @@
 
 [先秦](poetry/先秦.md)  
 [两汉](poetry/两汉.md)  
-[古诗十九首](poetry/古诗十九首.md)  
 [魏晋南北朝](poetry/魏晋南北朝.md)  
 [唐词](poetry/唐词.md)  
 [唐诗](poetry/唐诗.md)  
