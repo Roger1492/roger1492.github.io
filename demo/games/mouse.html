@@ -5,11 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>打地鼠游戏</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .hole{
+      position: relative;
+      width: 100px;
+      height: 60px;
+      border: 1px solid gray;
+      border-radius: 50%;
+    }
+    .mouse{
+      position: relative;
+      top: 60px;
+      left: 40px;
+      width: 20px;
+      height: 50px;
+      background: gray;
+    }
+
+  </style>
 </head>
 <body>
   <!-- 
     1，生成 n 个洞穴，每个洞穴中随机出现地鼠。
     2，点击地鼠后，地鼠消失
    -->
+   <div class="hole hole1">
+     <section class="mouse mouse1"></section>
+   </div>
+   <div class="hole hole2">
+     <section class="mouse mouse2"></section>
+   </div>
+   <div class="hole hole3">
+     <section class="mouse mouse3"></section>
+   </div>
+   <div class="hole hole4">
+     <section class="mouse mouse4"></section>
+   </div>
+   <div class="hole hole5">
+     <section class="mouse mouse5"></section>
+   </div>
+   <div class="hole hole6">
+     <section class="mouse mouse6"></section>
+   </div>
+   <div class="hole hole7">
+     <section class="mouse mouse7"></section>
+   </div>
+   <div class="hole hole8">
+     <section class="mouse mouse8"></section>
+   </div>
+   <div class="hole hole9">
+     <section class="mouse mouse9"></section>
+   </div>
+   <div class="hole hole10">
+     <section class="mouse mouse10"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+   <div class="hole">
+     <section class="mouse"></section>
+   </div>
+
+   <script>
+      let hole = Array.from(document.getElementsByClassName('hole'));
+      let x = window.innerWidth;
+      let y = window.innerHeight;
+
+    // 设置洞穴的位置
+    function setPosition(){
+
+      for(let i = 0; i < hole.length; i++){
+        let nRndx = Math.floor(Math.random() * x);
+        let nRndy = Math.floor(Math.random() * 100 + y);
+        hole[i].style.left = nRndx + 'px';
+        hole[i].style.left = nRndy + 'py';
+      }
+    }
+
+    // 地鼠出洞
+      let mouse = Array.from(document.getElementsByClassName('mouse'));
+      setInterval(function(){
+      let nRnd = Math.floor(Math.random() * 20);
+        mouse[nRnd].style.transform = 'translateY(-110px)';
+        mouse[nRnd].style.transition = '2s';
+
+        mouse[nRnd].addEventListener('click', function(e){
+          this.style.transform = 'translateY(0px)';
+        }, false);
+
+      }, 1000);   // 代表多少秒出来一个地鼠，这里设为为 1000ms。
+
+    setPosition();
+   </script>
 </body>
 </html>
