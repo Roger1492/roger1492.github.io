@@ -15,7 +15,8 @@
 [components - Buttons](demo/buttons/button.md)  
 [components - Loaders](demo/loaders/loader.md)  
 [components - Menus](demo/menus/menu.md)  
-[conponents - tabs](demo/tabs/tab.md)
+[conponents - tabs](demo/tabs/tab.md)  
+[Games](demo/games/game.md)
 
 
 # Poetry
