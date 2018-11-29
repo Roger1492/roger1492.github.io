@@ -4,6 +4,8 @@
 [JavaScript 的 this 原理](http://www.ruanyifeng.com/blog/2018/06/javascript-this.html)  
 [JS 中可以提升幸福度的小技巧](https://juejin.im/post/5b51e5d3f265da0f4861143c)  
 [变量提升和函数提升](https://www.cnblogs.com/liuhe688/p/5891273.html)  
+[JavaScript 教程](https://wangdoc.com/javascript/index.html)  
+[深入理解JavaScript中的堆与栈 、浅拷贝与深拷贝](https://blog.csdn.net/flyingpig2016/article/details/52895620)
 
 ## CSS
 [Intro to CSS 3D transforms](https://3dtransforms.desandro.com/)  
