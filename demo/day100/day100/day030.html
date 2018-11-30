@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>二，八，十，十六进制的转换</title>
+  <style>
+    #wrap{
+      position: relative;
+      margin: 100px auto;
+      width: 600px;
+      border: 1px solid gray;
+    }
+    #btn-group{
+      width: 100%;
+      height: 50px;
+      text-align: center;
+    }
+    #btn-translate,
+    #btn-clear{
+      width: 50%;
+      height: 50px;
+      font-size: 30px;
+      float: left;
+    }
+    section,input{
+      box-sizing: border-box;
+      width: 100%;
+    }
+    input{
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="btn-group">
+        <button id="btn-translate">进制转换</button>
+        <button id="btn-clear">清除</button>
+    </div>
+    <div class="container">
+      <section><input id="binary" type="text" placeholder="二进制"></section>
+      <section><input id="octal" type="text" placeholder="八进制"></section>
+      <section><input id="decimal" type="text" placeholder="十进制"></section>
+      <section><input id="hexadecimal" type="text" placeholder="十六进制"></section>
+    </div>
+  </div>
+  <script>
+    let btnTranslate = document.getElementById('btn-translate');
+    let btnClear = document.getElementById('btn-clear');
+    let binary = document.getElementById('binary');
+    let octal = document.getElementById('octal');
+    let decimal = document.getElementById('decimal');
+    let hexadeciaml = document.getElementById('hexadecimal');
+
+    // 二进制抓换位其他进制
+    binary.addEventListener('change', function(e){
+
+    }, false);
+
+    // 八进制转换为其他进制
+    octal.addEventListener('change', function(e){
+
+    }, false);
+
+    // 十进制转换为其他进制
+    decimal.addEventListener('change' ,function(e){
+
+    }, false);
+
+    // 十六进制转换为其他进制
+    hexadeciaml.addEventListener('change' ,function(e){
+
+    }, false);
+
+
+    // 清除所有的输入
+    btnClear.addEventListener('click', function(e){
+      binary.value = '';
+      octal.value = '';
+      decimal.value = '';
+      hexadeciaml.value = '';
+    }, false);
+  </script>
+</body>
+</html>
