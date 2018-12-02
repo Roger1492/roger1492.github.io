@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,36 +18,69 @@
       height: 50px;
       text-align: center;
     }
-    #btn-translate,
-    #btn-clear{
+    button{
       width: 50%;
       height: 50px;
       font-size: 30px;
       float: left;
+      border: none;
+      outline: none;
+      transition: all .2s ease-in;
     }
-    section,input{
-      box-sizing: border-box;
+    button:hover{
+      background: rgb(131, 131, 131);
+    }
+    section{
       width: 100%;
     }
     input{
+      width: 100%;
+      outline: none;
       font-size: 30px;
+      border-width: 0 0 1px 0;
+      border-style: solid;
+      border-color: transparent transparent gray transparent;
+    }
+    section:last-child input{
+      border-width: 0;
     }
   </style>
 </head>
+
 <body>
   <div id="wrap">
     <div class="btn-group">
-        <button id="btn-translate">进制转换</button>
-        <button id="btn-clear">清除</button>
+      <button id="btn-translate">进制转换</button>
+      <button id="btn-clear">清除</button>
     </div>
     <div class="container">
-      <section><input id="binary" type="text" placeholder="二进制"></section>
-      <section><input id="octal" type="text" placeholder="八进制"></section>
-      <section><input id="decimal" type="text" placeholder="十进制"></section>
-      <section><input id="hexadecimal" type="text" placeholder="十六进制"></section>
+      <section>二进制:<input id="binary" type="text"></section>
+      <section>八进制:<input id="octal" type="text"></section>
+      <section>十进制:<input id="decimal" type="text"></section>
+      <section>十六进制:<input id="hexadecimal" type="text"></section>
     </div>
   </div>
   <script>
+
+    // 1，任意一个input框中输入内容后，清除其他三个框中的value。
+    // 2，点击转换按钮后先判断哪个input框中有value
+    // 3，转换成其他进制
+
+    // 进制转换方法：
+    // 1，十进制转换为其他进制，用 `toString()` 转换。
+    // let a = 12345;
+    // (a).toString(2);
+    // (a).toString(8);
+    // (a).toString(16);
+
+    // 2，其他进制转换为十进制，用 `parseInt()` 转换。
+    // parseInt(x, 2);  二进制转换为十进制
+    // parseInt(x, 8);  八进制转换为十进制
+    // parseInt(x, 16); 十六进制转换为十进制
+
+    // 3，其他进制转换为其他进制
+    // 先用 `parseInt()` 转换为十进制，再用 `toString()` 转换为相应的进制
+
     let btnTranslate = document.getElementById('btn-translate');
     let btnClear = document.getElementById('btn-clear');
     let binary = document.getElementById('binary');
@@ -54,34 +88,95 @@
     let decimal = document.getElementById('decimal');
     let hexadeciaml = document.getElementById('hexadecimal');
 
-    // 二进制抓换位其他进制
-    binary.addEventListener('change', function(e){
 
-    }, false);
+    // 在input框中输入value后清除其他框中的value
+    function clearOtherValue() {
+      binary.addEventListener('focus', function (e) {
+        octal.value = '';
+        decimal.value = '';
+        hexadeciaml.value = '';
+      }, false);
+
+      octal.addEventListener('focus', function (e) {
+        binary.value = '';
+        decimal.value = '';
+        hexadeciaml.value = '';
+      }, false);
+
+      decimal.addEventListener('focus', function (e) {
+        binary.value = '';
+        octal.value = '';
+        hexadeciaml.value = '';
+      }, false);
+
+      hexadeciaml.addEventListener('focus', function (e) {
+        binary.value = '';
+        octal.value = '';
+        decimal.value = '';
+      }, false);
+    }
+
+    // 二进制转换为其他进制
+    function twoToOther(v){
+      let num = Number.parseInt(v, 2);
+      decimal.value = num;
+      octal.value = (num).toString(8);
+      hexadeciaml.value = (num).toString(16).toUpperCase();
+    }
 
     // 八进制转换为其他进制
-    octal.addEventListener('change', function(e){
-
-    }, false);
+    function octalToOther(v){
+      let num = Number.parseInt(v, 8);
+      decimal.value = num;
+      binary.value = (num).toString(2);
+      hexadeciaml.value = (num).toString(16).toUpperCase();
+    }
 
     // 十进制转换为其他进制
-    decimal.addEventListener('change' ,function(e){
+    function decimalToOther(v){
+      let num = Number.parseInt(v);
+      binary.value = (num).toString(2);
+      octal.value = (num).toString(8);
+      hexadeciaml.value = (num).toString(16).toUpperCase();
+    }
 
+    // 十六进制转化为其他进制
+    function hexadeciamlToOther(v){
+      let num = Number.parseInt(v, 16);
+      decimal.value = num;
+      binary.value = (num).toString(2);
+      octal.value = (num).toString(8);
+    }
+
+    // 分组 str：要分的string，n:要多少组
+    function splitToGroup(str, n){
+
+    }
+
+
+    // 开始进制转换
+    btnTranslate.addEventListener('click', function(e){
+      if(binary.value){
+        twoToOther(binary.value);
+      } else if(octal.value){
+        octalToOther(octal.value);
+      } else if(decimal.value){
+        decimalToOther(decimal.value);
+      } else {
+        hexadeciamlToOther(hexadeciaml.value);
+      }
     }, false);
-
-    // 十六进制转换为其他进制
-    hexadeciaml.addEventListener('change' ,function(e){
-
-    }, false);
-
 
     // 清除所有的输入
-    btnClear.addEventListener('click', function(e){
+    btnClear.addEventListener('click', function (e) {
       binary.value = '';
       octal.value = '';
       decimal.value = '';
       hexadeciaml.value = '';
     }, false);
+
+    clearOtherValue();
   </script>
 </body>
+
 </html>

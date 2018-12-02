@@ -1,3 +1,3 @@
 # Games
 
-[打地鼠游戏](mouse.html)
+[打地鼠游戏 - 简略实现](mouse.html)  

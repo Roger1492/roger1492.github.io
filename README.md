@@ -11,14 +11,10 @@
 [分类词汇](English/Words.md)  
 
 # Demo  
-[100天100项目](demo/day100/day100.md)  
 [仿animate.css](demo/animate.css/animate.html)  
-[components - Buttons](demo/buttons/button.md)  
-[components - Loaders](demo/loaders/loader.md)  
-[components - Menus](demo/menus/menu.md)  
-[conponents - tabs](demo/tabs/tab.md)  
-[Games](demo/games/game.md)
-
+[100天100项目](demo/day100/day100.md)  
+[Web组件](demo/components/components.md)  
+[Games](demo/games/game.md)  
 
 # Poetry
 > 我会把我喜欢的诗词做个收集整理，就以朝代分类  
