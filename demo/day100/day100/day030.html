@@ -40,6 +40,7 @@
       border-width: 0 0 1px 0;
       border-style: solid;
       border-color: transparent transparent gray transparent;
+      text-transform: uppercase;
     }
     section:last-child input{
       border-width: 0;
@@ -61,7 +62,6 @@
     </div>
   </div>
   <script>
-
     // 1，任意一个input框中输入内容后，清除其他三个框中的value。
     // 2，点击转换按钮后先判断哪个input框中有value
     // 3，转换成其他进制
@@ -117,50 +117,52 @@
     }
 
     // 二进制转换为其他进制
-    function twoToOther(v){
+    function twoToOther(v) {
       let num = Number.parseInt(v, 2);
       decimal.value = num;
       octal.value = (num).toString(8);
-      hexadeciaml.value = (num).toString(16).toUpperCase();
+      hexadeciaml.value = (num).toString(16);
     }
 
     // 八进制转换为其他进制
-    function octalToOther(v){
+    function octalToOther(v) {
       let num = Number.parseInt(v, 8);
       decimal.value = num;
-      binary.value = (num).toString(2);
-      hexadeciaml.value = (num).toString(16).toUpperCase();
+      // binary.value = (num).toString(2);
+      binary.value = addZero((num).toString(2), 4);
+      hexadeciaml.value = (num).toString(16);
     }
 
     // 十进制转换为其他进制
-    function decimalToOther(v){
+    function decimalToOther(v) {
       let num = Number.parseInt(v);
-      binary.value = (num).toString(2);
+      binary.value = addZero((num).toString(2), 4);
       octal.value = (num).toString(8);
-      hexadeciaml.value = (num).toString(16).toUpperCase();
+      hexadeciaml.value = (num).toString(16);
     }
 
     // 十六进制转化为其他进制
-    function hexadeciamlToOther(v){
+    function hexadeciamlToOther(v) {
       let num = Number.parseInt(v, 16);
       decimal.value = num;
-      binary.value = (num).toString(2);
+      binary.value = addZero((num).toString(2), 4);
       octal.value = (num).toString(8);
     }
 
-    // 分组 str：要分的string，n:要多少组
-    function splitToGroup(str, n){
-
+    // 在位数不够的二进制数字前添加0
+    function addZero(str, n) {
+      let len = n - (str.length % n) == n ? 0 : (n - (str.length % n));
+      return '0'.repeat(len) + str;
     }
 
 
     // 开始进制转换
-    btnTranslate.addEventListener('click', function(e){
-      if(binary.value){
+    btnTranslate.addEventListener('click', function (e) {
+      if (binary.value) {
         twoToOther(binary.value);
-      } else if(octal.value){
+      } else if (octal.value) {
         octalToOther(octal.value);
-      } else if(decimal.value){
+      } else if (decimal.value) {
         decimalToOther(decimal.value);
       } else {
         hexadeciamlToOther(hexadeciaml.value);
