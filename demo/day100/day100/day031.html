@@ -19,20 +19,37 @@
         .actions{
             float: left;
             width: 100%;
-            height: 40px;
+            height: 30px;
             background: rgb(211, 210, 210);
         }
         .actions > div{
             float: left;
         }
+        .actions button{
+            height: 30px;
+            width: 30px;
+            border: none;
+            background: rgb(211, 210, 210);
+        }
+        .actions button:hover{
+            background: rgb(190, 190, 190);;
+        }
         .context{
             box-sizing: border-box;
             float: left;
             width: 100%;
-            height: 660px;
+            height: 670px;
             padding: 8px;
             outline: none;
             letter-spacing: 1px;
+        }
+        .tips{
+            position: absolute;
+            border: 1px solid gray;
+            padding-left: 4px;
+            padding-right: 4px;
+            border-radius: 5px;
+            background: white;
         }
     </style>
 </head>
@@ -53,7 +70,6 @@
                 <button id="justifyRight"><i class="fa fa-align-right"></i></button>
                 <button id="indent"><i class="fa fa-indent"></i></button>
                 <button id="outdent"><i class="fa fa-outdent"></i></button>
-                <!-- <button id="insertHorizontalRule"><i class="fa"></i></button> -->
             </div>
 
             <select name="heading" id="heading">
@@ -107,6 +123,30 @@
                 document.execCommand(this.id, false, null);
             }, false);
         })
+
+        // 鼠标滑过按钮后提示内容
+        function tooltips(){
+
+            // 提示框
+            let tips = document.createElement('span');
+            tips.classList.add('tips');
+            document.body.append(tips);
+
+            let btn = Array.from(document.querySelectorAll('button,select'));
+            btn.forEach((ele, ind, arr) => {
+                ele.addEventListener('mouseenter', function(e){
+                    tips.innerHTML = this.id;
+                    tips.setAttribute('style', `display:block; top:${e.target.offsetTop-30}px; left:${e.target.offsetLeft}px;`);
+                }, false);
+            })
+            btn.forEach((ele, ind, arr) => {
+                ele.addEventListener('mouseleave', function(e){
+                    tips.style.display = 'none'
+                }, false);
+            })
+        }
+
+        tooltips();
     </script>
 
     <!-- 
