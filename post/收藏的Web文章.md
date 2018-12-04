@@ -7,6 +7,8 @@
 [JavaScript 教程](https://wangdoc.com/javascript/index.html)  
 [深入理解JavaScript中的堆与栈 、浅拷贝与深拷贝](https://blog.csdn.net/flyingpig2016/article/details/52895620)  
 [JavaScript 代码整洁之道](https://www.zcfy.cc/article/clean-code-javascript-readme-md-at-master-ryanmcdermott-clean-code-javascript-github-2273.html)  
+[JavaScript 事件循环](https://segmentfault.com/a/1190000014522243)  
+[for...of vs for...in Loops in JavaScript](https://alligator.io/js/for-of-for-in-loops/)  
 
 ## CSS
 [Intro to CSS 3D transforms](https://3dtransforms.desandro.com/)  
