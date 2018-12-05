@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 033 - 搜索提示</title>
+</head>
+<body>
+  
+  <input type="text" name="country" id="autocomplete" placeholder="Countries">
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/day033 - jquery_autocomplete.js"></script>
+
+  <!-- 本地查找 (no ajax) -->
+  <script>
+    var countries = [
+      {value: 'Andorra', data: 'AD'},
+      {value: 'China', data: 'CN'},
+      {value: 'Chine', data: 'CE'},
+      {value: 'Japan', data: 'JP'}
+    ];
+
+    $(document).ready(function(){
+      $('#autocomplete').autocomplete({
+        lookup: countries
+      })
+    })
+  </script>
+</body>
+</html>
