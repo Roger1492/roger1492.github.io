@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 013 - 所有单位的转换</title>
+  <style>
+    #wrap{
+      /* margin: 50px auto; */
+      width: 840px;
+    }
+    #tools{
+      width: 842px;
+      height: 40px;
+      box-sizing: border-box;
+      border: 1px solid gray;
+    }
+    #tools > section{
+      width: 60px;
+      height: 38px;
+      line-height: 38px;
+      text-align: center;
+      float: left;
+      cursor: pointer;
+      box-sizing: border-box;
+      font-size: 12px;
+      transition: all .1s linear;
+    }
+    #tools > section:not(:first-child){
+      border-left: 1px solid gray;
+    }
+    #tools > section:hover{
+      background: gray;
+      color: white;
+    }
+    #show{
+      position: relative;
+      width: 840px;
+      height: 500px;
+      border: 1px solid gray;
+    }
+    #show > section{
+      position: absolute;
+      width: 840px;
+      height: 500px;
+    }
+    #show > section:not(:first-child){
+      display: none;
+    }
+    .inpt{
+      position: relative;
+      top: 10px;
+      left: 20px;
+    }
+    .detail{
+      position: relative;
+      margin-top: 50px;
+      margin-left: 50px;
+      width: 800px;
+      height: 300px;
+    }
+    .detail > section{
+      margin: 10px;
+      width: 300px;
+      height: 20px;
+      float: left;
+      border-bottom: 1px solid rgb(189, 189, 189);
+    }
+    .detail > section span:nth-of-type(1){
+      display: inline-block;
+      width: 220px;
+    }
+    .detail > section span:nth-of-type(2){
+      font-size: 12px;
+    }
+    .unit{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 13px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="tools">
+      <section data-degree="deg">角度</section>
+      <section data-degree="len">长度</section>
+      <section data-degree="are">面积</section>
+      <section data-degree="vol">体积</section>
+      <section data-degree="qua">质量</section>
+      <section data-degree="tem">温度</section>
+      <section data-degree="pre">压力</section>
+      <section data-degree="pow">功率</section>
+      <section data-degree="hot">功/能/热</section>
+      <section data-degree="den">密度</section>
+      <section data-degree="ntn">力</section>
+      <section data-degree="tim">时间</section>
+      <section data-degree="spd">速度</section>
+      <section data-degree="sav">数据存储</section>
+    </div>
+    <div id="show">
+      <!-- 角度 -->
+      <section id="deg">
+        <div class="inpt">
+          <input id="len-input" type="text">
+          <select name="" id="">
+            <optgroup label="角度制">
+                <option value="圆周">圆周</option>
+                <option value="直角">直角</option>
+                <option value="百分度(gon)">百分度(gon)</option>
+                <option value="度(°)">度(°)</option>
+                <option value="分(')">分(')</option>
+                <option value="秒('')">秒('')</option>
+            </optgroup>
+            <optgroup label="弧度制">
+                <option value="弧度(rad)">弧度(rad)</option>
+                <option value="毫弧度(mrad)">毫弧度(mrad)</option>
+            </optgroup>
+          </select>
+          <button class="len-btn">Button</button>
+        </div>
+        <div class="detail">
+            <section><span class="d-len"></span><span>圆周</span></section>
+            <section><span class="d-len"></span><span>直角</span></section>
+            <section><span class="d-len"></span><span>百分度(gon)</span></section>
+            <section><span class="d-len"></span><span>度(°)</span></section>
+            <section><span class="d-len"></span><span>分(')</span></section>
+            <section><span class="d-len"></span><span>秒('')</span></section>
+        </div>
+        <span class="unit">国际单位：角度(°)</span>
+      </section>
+      <!-- 长度 -->
+      <section id="len">two</section>
+      <!-- 面积 -->
+      <section id="are">three</section>
+      <!-- 体积 -->
+      <section id="vol">four</section>
+      <!-- 质量 -->
+      <section id="qua">five</section>
+      <!-- 温度 -->
+      <section id="tem">six</section>
+      <!-- 压力 -->
+      <section id="pre">seven</section>
+      <!-- 功率 -->
+      <section id="pow">eight</section>
+      <!-- 功/能/热 -->
+      <section id="hot">nine</section>
+      <!-- 密度 -->
+      <section id="den">ten</section>
+      <!-- 力 -->
+      <section id="ntn">eleven</section>
+      <!-- 时间 -->
+      <section id="tim">
+        <div class="inpt">
+          <input type="text" id="tim-input">
+          <select name="" id="tim-select">
+            <option value="年(yr)">年(yr)</option>
+            <option value="周(week)">周(week)</option>
+            <option value="天(d)">天(d)</option>
+            <option value="时(h)">时(h)</option>
+            <option value="分(min)">分(min)</option>
+            <option value="秒(s)">秒(s)</option>
+            <option value="毫秒(ms)">毫秒(ms)</option>
+            <option value="微秒(μs)">微秒(μs)</option>
+            <option value="纳秒(ns)">纳秒(ns)</option>
+          </select>
+          <button class="tim-btn">Button</button>
+        </div>
+        <div class="detail">
+          <section><span class="d-time"></span><span>年(yr)</span></section>
+          <section><span class="d-time"></span><span>周(week)</span></section>
+          <section><span class="d-time"></span><span>天(d)</span></section>
+          <section><span class="d-time"></span><span>时(h)</span></section>
+          <section><span class="d-time"></span><span>分(min)</span></section>
+          <section><span class="d-time"></span><span>秒(s)</span></section>
+          <section><span class="d-time"></span><span>毫秒(ms)</span></section>
+          <section><span class="d-time"></span><span>微秒(μs)</span></section>
+          <section><span class="d-time"></span><span>纳秒(ns)</span></section>
+        </div>
+        <span class="unit">国际单位：秒(s)</span>
+      </section>
+      <!-- 速度 -->
+      <section id="spd">13</section>
+      <!-- 数据存储 -->
+      <section id="sav">14</section>
+    </div>
+  </div>
+  <script>
+    let toolSec = Array.from(document.querySelectorAll('#tools>section'));
+    let showSec = Array.from(document.querySelectorAll('#show>section'));
+
+    // 时间
+    let timBtn = document.getElementsByClassName('tim-btn')[0];
+    let timInput = document.getElementById('tim-input');
+    let dTim = document.querySelectorAll('.d-time');
+    let timSelect = document.getElementById('tim-select');
+
+    // tab切换
+    toolSec.forEach((ele, ind, arr) => {
+      ele.addEventListener('click', function(e){
+
+        showSec.forEach((ele1, ind, arr) => {
+          ele1.style.display = 'none';
+        })
+
+        currentShow = document.querySelector(`#${e.target.dataset.degree}`);
+        currentShow.style.display = 'block';
+      }, false);
+    })
+
+    // 时间转换
+    timBtn.addEventListener('click', function(e){
+      let tSelect = timSelect.value;
+      let tValue = timInput.value;
+      if(tSelect === '年(yr)'){
+        dTim[0].innerHTML = tValue;
+        dTim[1].innerHTML = Math.round(tValue*365/7);
+        dTim[2].innerHTML = tValue*365;
+        dTim[3].innerHTML = tValue*365*24;
+        dTim[4].innerHTML = tValue*365*24*60;
+        dTim[5].innerHTML = tValue*365*24*60*60;
+        dTim[6].innerHTML = tValue*365*24*60*60*1000;
+        dTim[7].innerHTML = tValue*365*24*60*60*1000000;
+        dTim[8].innerHTML = tValue*365*24*60*60*1000000000;
+      } else if(tSelect === '周(week)'){
+        dTim[0].innerHTML = tValue*7/365;
+        dTim[1].innerHTML = tValue;
+        dTim[2].innerHTML = tValue*7;
+        dTim[3].innerHTML = tValue*7*24;
+        dTim[4].innerHTML = tValue*7*24*60;
+        dTim[5].innerHTML = tValue*7*24*60*60;
+        dTim[6].innerHTML = tValue*7*24*60*60*1000;
+        dTim[7].innerHTML = tValue*7*24*60*60*1000000;
+        dTim[8].innerHTML = tValue*7*24*60*60*1000000000;
+      } else if(tSelect === '天(d)'){
+        dTim[0].innerHTML = tValue/365;
+        dTim[1].innerHTML = tValue/7;
+        dTim[2].innerHTML = tValue;
+        dTim[3].innerHTML = tValue*24;
+        dTim[4].innerHTML = tValue*24*60;
+        dTim[5].innerHTML = tValue*24*60*60;
+        dTim[6].innerHTML = tValue*24*60*60*1000;
+        dTim[7].innerHTML = tValue*24*60*60*1000000;
+        dTim[8].innerHTML = tValue*24*60*60*1000000000;
+      } else if(tSelect === '时(h)'){
+        dTim[0].innerHTML = tValue/24/7/365;
+        dTim[1].innerHTML = tValue/24/7;
+        dTim[2].innerHTML = tValue/24;
+        dTim[3].innerHTML = tValue;
+        dTim[4].innerHTML = tValue*60;
+        dTim[5].innerHTML = tValue*60*60;
+        dTim[6].innerHTML = tValue*60*60*1000;
+        dTim[7].innerHTML = tValue*60*60*1000000;
+        dTim[8].innerHTML = tValue*60*60*1000000000;
+      } else if(tSelect === '分(min)'){
+        dTim[0].innerHTML = tValue/60/24/7/365;
+        dTim[1].innerHTML = tValue/60/24/7;
+        dTim[2].innerHTML = tValue/60/24;
+        dTim[3].innerHTML = tValue/60;
+        dTim[4].innerHTML = tValue;
+        dTim[5].innerHTML = tValue*60;
+        dTim[6].innerHTML = tValue*60*1000;
+        dTim[7].innerHTML = tValue*60*1000000;
+        dTim[8].innerHTML = tValue*60*1000000000;
+      } else if(tSelect === '秒(s)'){
+        dTim[0].innerHTML = tValue/60/60/24/7/365;
+        dTim[1].innerHTML = tValue/60/60/24/7;
+        dTim[2].innerHTML = tValue/60/60/24;
+        dTim[3].innerHTML = tValue/60/60;
+        dTim[4].innerHTML = tValue/60;
+        dTim[5].innerHTML = tValue;
+        dTim[6].innerHTML = tValue*60*1000;
+        dTim[7].innerHTML = tValue*60*1000000;
+        dTim[8].innerHTML = tValue*60*1000000000;
+      } else if(tSelect === '毫秒(ms)'){
+        dTim[0].innerHTML = tValue/1000/60/60/24/7/365;
+        dTim[1].innerHTML = tValue/1000/60/60/24/7;
+        dTim[2].innerHTML = tValue/1000/60/60/24;
+        dTim[3].innerHTML = tValue/1000/60/60;
+        dTim[4].innerHTML = tValue/1000/60;
+        dTim[5].innerHTML = tValue/1000;
+        dTim[6].innerHTML = tValue;
+        dTim[7].innerHTML = tValue*1000;
+        dTim[8].innerHTML = tValue*1000000;
+      } else if(tSelect === '微秒(μs)'){
+        dTim[0].innerHTML = tValue/1000/1000/60/60/24/7/365;
+        dTim[1].innerHTML = tValue/1000/1000/60/60/24/7;
+        dTim[2].innerHTML = tValue/1000/1000/60/60/24;
+        dTim[3].innerHTML = tValue/1000/1000/60/60;
+        dTim[4].innerHTML = tValue/1000/1000/60;
+        dTim[5].innerHTML = tValue/1000/1000;
+        dTim[6].innerHTML = tValue/1000;
+        dTim[7].innerHTML = tValue;
+        dTim[8].innerHTML = tValue*1000;
+      } else {
+        dTim[0].innerHTML = tValue/1000/1000/1000/60/60/24/7/365;
+        dTim[1].innerHTML = tValue/1000/1000/1000/60/60/24/7;
+        dTim[2].innerHTML = tValue/1000/1000/1000/60/60/24;
+        dTim[3].innerHTML = tValue/1000/1000/1000/60/60;
+        dTim[4].innerHTML = tValue/1000/1000/1000/60;
+        dTim[5].innerHTML = tValue/1000/1000/1000;
+        dTim[6].innerHTML = tValue/1000/1000;
+        dTim[7].innerHTML = tValue/1000;
+        dTim[8].innerHTML = tValue;
+      }
+    }, false);
+
+    function year(){
+      
+    }
+  </script>
+</body>
+</html>

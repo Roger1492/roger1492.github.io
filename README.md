@@ -1,4 +1,5 @@
 # Articles
+[数学 -三角函数基本知识点](post/math_trigonometric_function.md)  
 [Python爬虫 Mzitu](post/python_mzitu_all.md)  
 [Emacs快捷键总结](post/Emacs快捷键总结.md)  
 [Emacs配置文件](post/Emacs配置文件.md)  
