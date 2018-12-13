@@ -106,14 +106,14 @@
       <section id="deg">
         <div class="inpt">
           <input id="len-input" type="text">
-          <select name="" id="">
+          <select name="" id="len-select">
             <optgroup label="角度制">
                 <option value="圆周">圆周</option>
                 <option value="直角">直角</option>
                 <option value="百分度(gon)">百分度(gon)</option>
                 <option value="度(°)">度(°)</option>
                 <option value="分(')">分(')</option>
-                <option value="秒('')">秒('')</option>
+                <option value='秒(")'>秒('')</option>
             </optgroup>
             <optgroup label="弧度制">
                 <option value="弧度(rad)">弧度(rad)</option>
@@ -129,6 +129,8 @@
             <section><span class="d-len"></span><span>度(°)</span></section>
             <section><span class="d-len"></span><span>分(')</span></section>
             <section><span class="d-len"></span><span>秒('')</span></section>
+            <section><span class="d-len"></span><span>弧度(rad)</span></section>
+            <section><span class="d-len"></span><span>毫弧度(mrad)</span></section>
         </div>
         <span class="unit">国际单位：角度(°)</span>
       </section>
@@ -192,6 +194,12 @@
     let toolSec = Array.from(document.querySelectorAll('#tools>section'));
     let showSec = Array.from(document.querySelectorAll('#show>section'));
 
+    // 角度
+    let lenInput = document.getElementById('len-input');
+    let lenBtn = document.getElementsByClassName('len-btn')[0];
+    let dLen = document.querySelectorAll('.d-len');
+    let lenSelect = document.getElementById('len-select');
+
     // 时间
     let timBtn = document.getElementsByClassName('tim-btn')[0];
     let timInput = document.getElementById('tim-input');
@@ -210,6 +218,29 @@
         currentShow.style.display = 'block';
       }, false);
     })
+
+    // 角度转换
+    lenBtn.addEventListener('click', function(e){
+      let lValue = lenInput.value;
+      let lSelect = lenSelect.value;
+      if(lSelect === '圆周'){
+
+      } else if(lSelect === '直角'){
+
+      } else if(lSelect == '百分度(gon)'){
+
+      } else if(lSelect === '度(°)'){
+
+      } else if(lSelect === '分(\')'){
+
+      } else if(lSelect === '秒(\")'){
+
+      } else if(lSelect === '弧度(rad)'){
+
+      } else {
+        
+      }
+    }, false);
 
     // 时间转换
     timBtn.addEventListener('click', function(e){
@@ -307,10 +338,6 @@
         dTim[8].innerHTML = tValue;
       }
     }, false);
-
-    function year(){
-      
-    }
   </script>
 </body>
 </html>
