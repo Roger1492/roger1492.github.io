@@ -5,27 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Day 035 - 各种物理量的计算</title>
+    <style>
+        section{
+            margin: 50px 10px;
+            padding: 10px 30px;
+            background: rgb(204, 202, 202);
+            border-radius: 20px;
+        }
+        input[type='text']{
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
     <div class="wrap">
         <!-- 施瓦西半径 -->
         <section class="Sch_radius">
-            <span>施瓦西半径：</span><br>
-            <span>G是万有引力常数，已知G = (6.67408±0.00031)*10<sup>-11</sup>m<sup>3</sup>kg<sup>-1</sup>s<sup>-2</sup></span><br>
-            <span>c是光速，已知c = 299792458m/s</span><br>
+            <h3>施瓦西半径:</h3>
             <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2b3b26bac5d5a787fe4aa7a2b7057ae07dd6eca7" alt=""><br>
-            输入天体质量(kg)：<span class="mass_s" contenteditable="true" style="display: inline-block; width:200px; height: 20px; border-bottom: 1px solid gray;"></span><br>
-            <input type="button" class="btn_s" value="计算施瓦西半径"><span class="show_s"></span>
+            <div style="width: 880px;">
+                <div>
+                    2 × 6.67408 × 10 <sup>-11</sup>m<sup>3</sup>kg<sup>-1</sup>s<sup>-2</sup> × 
+                    <input class="mass_s" type="text" placeholder="输入天体的质量(Kg)">
+                </div>
+                <hr style="height: 1px; background: black;">
+                <div style="text-align: center;">(299792458m/s)<sup>2</sup></div>
+                <input class="btn_s" type="button" value="计算史瓦西半径">
+                <div class="show_s" style="color: blue;">结果：?</div>
+            </div>
+        </section>
+
+        <!-- 万有引力定律 -->
+        <section class="gravity">
+            <h3>万有引力定律:</h3>
+            <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3156e20e0c0ed9373b47b53e48663d2c6f014e46" alt="">
+            <div style="width: 850px;">
+                <div>
+                        6.67408 × 10 <sup>-11</sup>m<sup>3</sup>kg<sup>-1</sup>s<sup>-2</sup> × <input class="mass_g1" type="text" placeholder="m1"> × <input class="mass_g2" type="text" placeholder="m2">
+                </div>
+                <hr style="height: 1px; background: black;">
+                <div style="text-align: center;"><input class="radius_g" type="text" placeholder="r"></div>
+                <input class="btn_g" type="button" value="万有引力">
+                <div class="show_g" style="color: blue;">结果：?</div>
+            </div>
         </section>
 
         <script>
+            // 史瓦西半径
             let btn_s = document.getElementsByClassName('btn_s')[0];
             let show_s = document.getElementsByClassName('show_s')[0];
             let mass_s = document.getElementsByClassName('mass_s')[0];
 
+            // 万有引力定律
+            let btn_g = document.getElementsByClassName('btn_g')[0];
+            let show_g = document.getElementsByClassName('show_g')[0];
+            let mass_g1 = document.getElementsByClassName('mass_g1')[0];
+            let mass_g2 = document.getElementsByClassName('mass_g2')[0];
+            let radius_g = document.getElementsByClassName('radius_g')[0];
+
             btn_s.addEventListener('click', function(e){
-                let result = (2*6.67408e-11*parseInt(mass_s.innerHTML))/(299792458*299792458);
-                show_s.innerHTML = result + 'm';
+                let result = (2*6.67408e-11*parseInt(mass_s.value))/(299792458*299792458);
+                show_s.innerHTML = '结果：' + result + ' M';
+            }, false);
+
+            btn_g.addEventListener('click', function(){
+                let result = (6.67408e-11*parseInt(mass_g1.value) * parseInt(mass_g2.value))/(parseInt(radius_g.value)*parseInt(radius_g.value))
+                show_g.innerHTML = '结果：' + result + ' kg·m·s<sup>-2</sup>';
             }, false);
         </script>
     </div>

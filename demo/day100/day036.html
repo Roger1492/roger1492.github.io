@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 036 - 摩尔斯码转化</title>
+  <style>
+    .box{
+      float: left;
+      width: 300px;
+    }
+    .box button{
+      position: relative;
+      margin-left: 100px;
+    }
+    .box section{
+      border: 1px solid gray;
+      width: 300px;
+      height: 400px;
+      outline: none;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    .morseTo{
+      font-size: 28px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box">
+      <button class="tom">转换为摩尔斯</button>
+      <section contenteditable="true" class="toMorse"></section>
+    </div>
+    <div class="box">
+        <button class="mot">摩尔斯转换为</button>
+        <section contenteditable="true" class="morseTo"></section>
+    </div>
+  </div>
+
+  <script>
+    let morse = {
+      a:'·-',
+      b:'-···',
+      c:'-·-·',
+      d:'-··',
+      e:'·',
+      f:'··-·',
+      g:'--·',
+      h:'····',
+      i:'··',
+      j:'·---',
+      k:'-·-',
+      l:'·-··',
+      m:'--',
+      n:'-·',
+      o:'---',
+      p:'·--·',
+      q:'--·-',
+      r:'·-·',
+      s:'···',
+      t:'-',
+      u:'··-',
+      v:'···-',
+      w:'·--',
+      x:'-··-',
+      y:'-·--',
+      z:'--··'
+    };
+    let tom = document.getElementsByClassName('tom')[0];
+    let mot = document.getElementsByClassName('mot')[0];
+    let toMorse = document.getElementsByClassName('toMorse')[0];
+    let morseTo = document.getElementsByClassName('morseTo')[0];
+
+    // 转换为摩尔斯代码
+    tom.addEventListener('click', function(){
+      let ma = toMorse.innerHTML.split('');
+      // for(let m in ma){
+      //   console.log(morse[ma[m]]);
+      // }
+      ma.forEach((ele, ind, arr) => {
+        morseTo.innerHTML += morse[ele] + '|';
+      })
+    }, false);
+
+    // 摩尔斯代码转换为其他
+    mot.addEventListener('click', function(){}, false);
+  </script>
+</body>
+</html>
