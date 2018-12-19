@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>连连看</title>
+  <style>
+    #wrap{
+      outline: 1px solid gray;
+      width: 600px;
+      height: 600px;
+    }
+    #wrap section{
+      width: 30px;
+      height: 30px;
+      border: 1px solid gray;
+      box-sizing: border-box;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap"></div>
+
+  <script>
+    let num = [];
+    // 1，随机生成40组数字，每组4个相同的数字,并随机放入格子中，
+
+    let wrap = document.getElementById('wrap');
+    for(let i = 0; i < 400; i++){
+      let createGrid = document.createElement('section');
+      wrap.appendChild(createGrid);
+    }
+  </script>
+</body>
+</html>
