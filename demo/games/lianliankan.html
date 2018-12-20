@@ -7,16 +7,24 @@
   <title>连连看</title>
   <style>
     #wrap{
-      outline: 1px solid gray;
-      width: 600px;
-      height: 600px;
+      width: 700px;
+      height: 700px;
     }
     #wrap section{
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
       border: 1px solid gray;
       box-sizing: border-box;
-      float: left;
+      /* float: left; */
+      display: inline-block;
+      color: gray;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    #wrap section:hover{
+      background-color: lightgray;
     }
   </style>
 </head>
@@ -25,13 +33,44 @@
 
   <script>
     let num = [];
-    // 1，随机生成40组数字，每组4个相同的数字,并随机放入格子中，
+    let index = 0;
+    let firstClick = '';
+    let secondClick = '';
 
+    // 随机生成40组数字，每组4个相同的数字,并随机放入格子中，
+    for(let i = 0; i < 100; i++){
+      index++;
+      for(let j = 0; j < 4; j++){
+        num.push(index);
+      }
+    }
+
+    // 数组乱序
+    function shuffle(arr){
+      for(let i = arr.length; i; i--){
+        let j = Math.floor(Math.random() * i);
+        [arr[i-1], arr[j]] = [arr[j], arr[i-1]];
+      }
+      return arr;
+    }
+
+    shuffle(num);
+
+    // 生成格子
     let wrap = document.getElementById('wrap');
     for(let i = 0; i < 400; i++){
       let createGrid = document.createElement('section');
+      createGrid.innerHTML = num[i];
       wrap.appendChild(createGrid);
     }
+
+    // TODO: 判断两次点击的数字是否相同。
+    let grid = Array.from(document.querySelectorAll('section'));
+    grid.forEach((ele, ind, arr) => {
+      ele.addEventListener('click', function(e){
+        firstClick = this.innerHTML;
+      }, false);
+    });
   </script>
 </body>
 </html>
