@@ -23,14 +23,10 @@
     };
     var c = document.getElementById("myCanvas");
     var points = new Array(args.point_num);
-    var mouse_point = {
-      x: -1,
-      y: -1
-    };
-
-    // 随机生成粒子的坐标
-    for (let i = 0; i < points.length; i++) {
-      points[i] = {
+    
+    // 生成粒子
+    for(let i = 0; i < points.length; i++){
+      points[s] = {
         x: Math.floor(Math.random() * c.width),
         y: Math.floor(Math.random() * c.height),
         move: Math.random() * 2 * Math.PI
@@ -38,9 +34,9 @@
     }
 
     // 处理窗口缩放
-    function resizeCanvas() {
-      for (let i = 0; i < points.length; i++) {
-        var p = points[i];
+    function resizeCanvas(){
+      for(let i = 0; i < points.length; i++){
+        let p = points[i];
         p.x = (p.x / c.width) * document.body.clientWidth;
         p.y = (p.y / c.height) * document.body.clientHeight;
       }
@@ -51,99 +47,32 @@
     window.addEventListener('resize', resizeCanvas, false);
 
     // 粒子移动
-    function pointsMove(ps) {
-      for (let i = 0; i < ps.length; i++) {
-        var p = ps[i];
+    function pointsMove(ps){
+      for(let i = 0; i < ps.length; i++){
+        let p = ps[i];
 
         p.x += args.speed * Math.sin(p.move);
         p.y += args.speed * Math.cos(p.move);
 
-        if (p.x < 0 || p.x > c.width) {
+        if(p.x < 0 || p.x > c.width){
           p.move = 2 * Math.PI - p.move;
-        } else if (p.y > c.height || p.y < 0) {
+        } else if(p.y > c.height || p.y < 0){
           p.move = Math.PI - p.move;
         }
       }
     }
 
-    // 粒子间连接线
-    function lineOfTwoPoints(p1, p2, cxt, d_connect) {
-      var d = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
-      cxt.globalAlpha = (d_connect - d) / d_connect;
-
-      if (d < d_connect) {
-        cxt.moveTo(p1.x, p1.y);
-        cxt.lineTo(p2.x, p2.y);
-        cxt.stroke();
-      }
-    }
-
-    // 鼠标事件
-    function canvasMouseMove(e) {
-      var bbox = c.getBoundingClientRect();
-      var pos = {
-        x: e.clientX - bbox.left * (c.width / bbox.width),
-        y: e.clientY - bbox.top * (c.height / bbox.height)
-      };
-      mouse_point = {
-        x: pos.x,
-        y: pos.y
-      };
-    }
-
-    function canvasMouseOut() {
-      mouse_point = {
-        x: -1,
-        y: -1
-      };
-    }
-    c.addEventListener('mousemove', canvasMouseMove, false);
-    c.addEventListener('mouseout', canvasMouseOut, false);
-
     // 显示逻辑
-    function show() {
-      // 先排序，减少计算量
-      points.sort(function (a, b) {
-        return a.x - b.x;
-      });
+    function show(){
+      points.sort((a,b) => (a.x - b.x));
 
-      // 画出每一个粒子点
-      var cxt = c.getContext("2d");
-      cxt.clearRect(0, 0, c.width, c.height);
-      cxt.fillStyle = args.color;
-      cxt.strokeStyle = args.color;
-      var d_connect = Math.max(c.width, c.height) * args.connect_dist;
-
-      // 画出粒子之间的连接线
-      for (let i = 0; i < points.length; i++) {
-        var p1 = points[i];
-        cxt.globalAlpha = 1;
-        cxt.beginPath();
-        cxt.arc(p1.x, p1.y, 3, 0, Math.PI * 2, true);
-        cxt.closePath();
-        cxt.fill();
-
-        for (let j = i + 1; j < points.length; j++) {
-          var p2 = points[j];
-          lineOfTwoPoints(p1, p2, cxt, d_connect);
-
-          if (p1.x + d_connect < p2.x) {
-            break;
-          }
-        }
-      }
-
-      // 画出粒子与鼠标当前位置的连接线
-      if (mouse_point.x >= 0) {
-        for (let i = 0; i < points.length; i++) {
-          lineOfTwoPoints(mouse_point, points[i], cxt, d_connect);
-        }
-      }
-
-      pointsMove(points);
+      let ctx = c.getContext('2d');
+      ctx.fillRect(0, 0, c.width, c.height);
+      ctx.fillStyle = args.color;
+      ctx.strokeStyle = args.color;
+      let d_connect = Math.max(c.width, c.height) * args.connect_dist;
     }
     show();
-    setInterval(show, 1000 / 30); // 以30帧的频率进行刷新
   </script>
 </body>
 

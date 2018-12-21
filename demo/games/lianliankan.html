@@ -1,76 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>连连看</title>
   <style>
-    #wrap{
-      width: 700px;
-      height: 700px;
+    #wrap {
+      width: 740px;
+      height: 740px;
     }
-    #wrap section{
+
+    #wrap section,
+    #wrap div {
       width: 35px;
       height: 35px;
       line-height: 35px;
       text-align: center;
       border: 1px solid gray;
       box-sizing: border-box;
-      /* float: left; */
       display: inline-block;
-      color: gray;
       cursor: pointer;
-      border-radius: 50%;
+      margin: 1px;
+      transition: all .3s;
     }
-    #wrap section:hover{
-      background-color: lightgray;
+
+    #wrap section:hover,
+    #wrap div:hover {
+      border-radius: 5px;
+    }
+
+    #score {
+      position: absolute;
+      top: 0;
+      left: 800px;
+    }
+
+    .active {
+      outline: 3px solid black;
     }
   </style>
 </head>
+
 <body>
   <div id="wrap"></div>
+  <div id="score">
+    <h2>得分：<span>0</span></h2>
+  </div>
 
   <script>
+    // 初始化
+    let args = {
+      group: 30, // 组数
+      group_num: 6, // 每组的个数(必须是偶数)
+    };
+
     let num = [];
     let index = 0;
-    let firstClick = '';
-    let secondClick = '';
+    let wrap = document.getElementById('wrap');
 
-    // 随机生成40组数字，每组4个相同的数字,并随机放入格子中，
-    for(let i = 0; i < 100; i++){
+    // 随机生成 args.group 组数字，每组 args.group_num 个相同的数字,并随机放入格子中，
+    for (let i = 0; i < args.group; i++) {
       index++;
-      for(let j = 0; j < 4; j++){
+      for (let j = 0; j < args.group_num; j++) {
         num.push(index);
       }
     }
 
     // 数组乱序
-    function shuffle(arr){
-      for(let i = arr.length; i; i--){
+    function shuffle(arr) {
+      for (let i = arr.length; i; i--) {
         let j = Math.floor(Math.random() * i);
-        [arr[i-1], arr[j]] = [arr[j], arr[i-1]];
+        [arr[i - 1], arr[j]] = [arr[j], arr[i - 1]];
       }
       return arr;
     }
-
     shuffle(num);
 
     // 生成格子
-    let wrap = document.getElementById('wrap');
-    for(let i = 0; i < 400; i++){
+    for (let i = 0; i < args.group * args.group_num; i++) {
       let createGrid = document.createElement('section');
       createGrid.innerHTML = num[i];
+      createGrid.setAttribute('class', `g${num[i]}`);
       wrap.appendChild(createGrid);
+    }
+
+    for (let i = 1; i <= args.group; i++) {
+      let gridNum = document.getElementsByClassName(`g${i}`);
+      let rndColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      for (let i = 0; i < args.group_num; i++) {
+        gridNum[i].style.backgroundColor = rndColor;
+      }
     }
 
     // TODO: 判断两次点击的数字是否相同。
     let grid = Array.from(document.querySelectorAll('section'));
     grid.forEach((ele, ind, arr) => {
-      ele.addEventListener('click', function(e){
-        firstClick = this.innerHTML;
+      ele.addEventListener('click', function (e) {
+        this.classList.add('active');
+
+        let active = document.getElementsByClassName('active');
+        if (active[0].innerHTML == active[1].innerHTML) {
+          active[0].parentElement.removeChild(active[0]);
+          active[1].parentElement.removeChild(active[1]);
+        } else {
+          active[0].classList.remove('active');
+          active[1].classList.remove('active');
+        }
       }, false);
     });
   </script>
 </body>
+
 </html>
