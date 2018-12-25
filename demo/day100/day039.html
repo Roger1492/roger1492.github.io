@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 039 - CSS实现各种形状</title>
+  <style>
+    .wrap section{
+      width: 400px;
+      display: inline-block;
+    }
+
+    #square{
+      width: 100px;
+      height: 100px;
+      background: lightgray;
+    }
+    #circle{
+      width: 100px;
+      height: 100px;
+      background: lightgray;
+      border-radius: 50%;
+    }
+    #oval{
+      width: 200px;
+      height: 100px;
+      background: lightgray;
+      border-radius: 50%;
+    }
+    #triangle-up{
+      width: 0;
+      height: 0;
+      border-bottom: 100px solid lightgray;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+    #triangle-down{
+      width: 0;
+      height: 0;
+      border-top: 100px solid lightgray;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+    #triangle-left{
+      width: 0;
+      height: 0;
+      border-right: 100px solid lightgray;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+    }
+    #triangle-right{
+      width: 0;
+      height: 0;
+      border-left: 100px solid lightgray;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+    }
+    #triangle-left-up{
+      width: 0;
+      height: 0;
+      border-top: 100px solid lightgray;
+      border-right: 100px solid transparent;
+    }
+    #triangle-left-down{
+      width: 0;
+      height: 0;
+      border-bottom: 100px solid lightgray;
+      border-right: 100px solid transparent;
+    }
+    #triangle-right-up{
+      width: 0;
+      height: 0;
+      border-top: 100px solid lightgray;
+      border-left: 100px solid transparent;
+    }
+    #triangle-right-down{
+      width: 0;
+      height: 0;
+      border-bottom: 100px solid lightgray;
+      border-left: 100px solid transparent;
+    }
+
+    #trapezoid{
+      width: 100px;
+      height: 0;
+      border-bottom: 100px solid lightgray;
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+    }
+
+    #curvedarrow{
+      position: relative;
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-right: 50px solid lightgray;
+      transform: rotate(10deg);
+    }
+    #curvedarrow::after{
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 20px;
+      left: -16px;
+      top: -46px;
+      border-top: 10px solid lightgray;
+      transform: rotateZ(45deg);
+      border-radius: 50% 0 0 0;
+    }
+
+    #parallelogram{
+      width: 150px;
+      height: 70px;
+      background: lightgray;
+      transform: skew(20deg);
+    }
+
+    #star-5{
+      position: relative;
+      width: 0;
+      height: 0;
+      border-top: 50px solid lightgray;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+    }
+    #star-5::after,
+    #star-5::before{
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 50px solid lightgray;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+    }
+    #star-5::after{
+      transform: rotateZ(60deg);
+      left: -78px;
+      top: -37px;
+    }
+    #star-5::before{
+      transform: rotateZ(-60deg);
+      left: -127px;
+      top: -42px;
+    }
+
+    #star-6{
+      position: relative;
+      width: 0;
+      height: 0;
+      border-bottom: 100px solid lightgray;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+    }
+    #star-6::after{
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      left: -60px;
+      top: 30px;
+      border-top: 100px solid lightgray;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent; 
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 正方形 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #square{
+          width: 100px;
+          height: 100px;
+          background: lightgray;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="square"></div>
+    </section>
+  </div>
+
+  <!-- 圆形 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #circle{
+            width: 100px;
+            height: 100px;
+            background: gray;
+            border-radius: 50%;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="circle"></div>
+      </section>
+    </div>
+
+    <!-- 椭圆 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #oval{
+            width: 200px;
+            height: 100px;
+            background: gray;
+            border-radius: 50%;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="oval"></div>
+      </section>
+    </div>
+
+  <!-- 三角形 向上 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #triangle-up{
+            width: 0;
+            height: 0;
+            border-bottom: 100px solid lightgray;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="triangle-up"></div>
+      </section>
+    </div>
+
+    <!-- 三角形 向下 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #triangle-down{
+            width: 0;
+            height: 0;
+            border-top: 100px solid lightgray;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="triangle-down"></div>
+      </section>
+    </div>
+
+    <!-- 三角形 向左 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #triangle-left{
+            width: 0;
+            height: 0;
+            border-right: 100px solid lightgray;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="triangle-left"></div>
+      </section>
+    </div>
+
+    <!-- 三角形 向右 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #triangle-right{
+            width: 0;
+            height: 0;
+            border-left: 100px solid lightgray;
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="triangle-right"></div>
+      </section>
+    </div>
+
+      <!-- 三角形 左上 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #triangle-left-up{
+            width: 0;
+            height: 0;
+            border-top: 100px solid lightgray;
+            border-right: 100px solid transparent;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="triangle-left-up"></div>
+      </section>
+    </div>
+
+      <!-- 三角形 左下 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #triangle-left-down{
+            width: 0;
+            height: 0;
+            border-bottom: 100px solid lightgray;
+            border-right: 100px solid transparent;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="triangle-left-down"></div>
+      </section>
+    </div>
+
+      <!-- 三角形 右上 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #triangle-right-up{
+            width: 0;
+            height: 0;
+            border-top: 100px solid lightgray;
+            border-left: 100px solid transparent;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="triangle-right-up"></div>
+      </section>
+    </div>
+
+      <!-- 三角形 右下 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #triangle-right-down{
+            width: 0;
+            height: 0;
+            border-bottom: 100px solid lightgray;
+            border-left: 100px solid transparent;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="triangle-right-down"></div>
+      </section>
+    </div>
+
+  <!-- 梯形 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #trapezoid{
+            width: 100px;
+            height: 0;
+            border-bottom: 100px solid lightgray;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="trapezoid"></div>
+      </section>
+    </div>
+
+  <!-- 弯尾箭头 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+          #curvedarrow{
+            position: relative;
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-right: 50px solid lightgray;
+            transform: rotate(10deg);
+          }
+          #curvedarrow::after{
+            position: absolute;
+            content: '';
+            width: 40px;
+            height: 20px;
+            left: -16px;
+            top: -46px;
+            border-top: 10px solid lightgray;
+            transform: rotateZ(45deg);
+            border-radius: 50% 0 0 0;
+          }
+        </code></pre>
+      </section>
+      <section>
+        <div id="curvedarrow"></div>
+      </section>
+    </div>
+
+  <!-- 梯形 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #parallelogram{
+          width: 150px;
+          height: 70px;
+          background: lightgray;
+          transform: skew(20deg);
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="parallelogram"></div>
+    </section>
+  </div>
+
+  <!-- 五角星 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+            #star-5{
+              position: relative;
+              width: 0;
+              height: 0;
+              border-top: 50px solid lightgray;
+              border-left: 100px solid transparent;
+              border-right: 100px solid transparent;
+            }
+            #star-5::after,
+            #star-5::before{
+              position: absolute;
+              content: '';
+              width: 0;
+              height: 0;
+              border-top: 50px solid lightgray;
+              border-left: 100px solid transparent;
+              border-right: 100px solid transparent;
+            }
+            #star-5::after{
+              transform: rotateZ(60deg);
+              left: -78px;
+              top: -37px;
+            }
+            #star-5::before{
+              transform: rotateZ(-60deg);
+              left: -127px;
+              top: -42px;
+            }
+        </code></pre>
+      </section>
+      <section>
+        <div id="star-5"></div>
+      </section>
+    </div>
+  
+    <!-- 六角形 -->
+  <div class="wrap">
+      <section>
+        <pre><code>
+            #star-6{
+              position: relative;
+              width: 0;
+              height: 0;
+              border-bottom: 100px solid lightgray;
+              border-left: 60px solid transparent;
+              border-right: 60px solid transparent;
+            }
+            #star-6::after{
+              position: absolute;
+              content: '';
+              width: 0;
+              height: 0;
+              left: -60px;
+              top: 30px;
+              border-top: 100px solid lightgray;
+              border-left: 60px solid transparent;
+              border-right: 60px solid transparent; 
+            }
+        </code></pre>
+      </section>
+      <section>
+        <div id="star-6"></div>
+      </section>
+    </div>
+</body>
+</html>
