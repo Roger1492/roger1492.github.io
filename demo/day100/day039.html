@@ -120,29 +120,30 @@
       position: relative;
       width: 0;
       height: 0;
-      border-top: 50px solid lightgray;
+      border-top: 80px solid lightgray;
       border-left: 100px solid transparent;
       border-right: 100px solid transparent;
     }
-    #star-5::after,
-    #star-5::before{
+    #star-5::before,
+    #star-5::after{
       position: absolute;
       content: '';
       width: 0;
       height: 0;
-      border-top: 50px solid lightgray;
       border-left: 100px solid transparent;
       border-right: 100px solid transparent;
     }
-    #star-5::after{
-      transform: rotateZ(60deg);
-      left: -78px;
-      top: -37px;
-    }
     #star-5::before{
-      transform: rotateZ(-60deg);
-      left: -127px;
-      top: -42px;
+      top: -80px;
+      left: -106px;
+      border-top: 80px solid #981b1b99;
+      transform: rotateZ(71deg);
+    }
+    #star-5::after{
+      top: -81px;
+      left: -97px;
+      border-top: 80px solid #0080007d;
+      transform: rotateZ(-70deg);
     }
 
     #star-6{
@@ -163,6 +164,322 @@
       border-top: 100px solid lightgray;
       border-left: 60px solid transparent;
       border-right: 60px solid transparent; 
+    }
+
+    #pentagon{
+      position: relative;
+      width: 100px;
+      height: 0;
+      border-top: 94px solid lightgray;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+    }
+    #pentagon::before{
+      position: absolute;
+      top: -171px;
+      left: -31px;
+      content: '';
+      width: 0;
+      height: 0;
+      border-bottom: 77px solid lightgray;
+      border-left: 80px solid transparent;
+      border-right: 80px solid transparent;
+    }
+
+    #hexagon{
+      position: relative;
+      width: 200px;
+      height: 100px;
+      background: lightgray;
+    }
+    #hexagon::after,
+    #hexagon::before{
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 100px solid transparent;
+      border-right: 100px solid transparent;
+    }
+    #hexagon::before{
+      top: -50px;
+      border-bottom: 50px solid lightgray;
+    }
+    #hexagon::after{
+      top: 100px;
+      border-top: 50px solid lightgray;
+    }
+
+    #octagon{
+      position: relative;
+      width: 200px;
+      height: 80px;
+      background: lightgray;
+    }
+    #octagon::before,
+    #octagon::after{
+      position: absolute;
+      content: '';
+      width: 95px;
+      height: 0;
+      border-left: 53px solid transparent;
+      border-right: 52px solid transparent;
+    }
+    #octagon::before{
+      top: -71px;
+      border-bottom: 71px solid lightgray;
+    }
+    #octagon::after{
+      top: 80px;
+      border-top: 60px solid lightgray;
+    }
+
+    #heart{
+      position: relative;
+      width: 65px;
+      height: 100px;
+      background: lightgray;
+      border-radius: 50% 50% 0 0;
+      transform: rotateZ(-45deg);
+    }
+    #heart::after{
+      position: absolute;
+      left: 18px;
+      top: 20px;
+      content: '';
+      width: 65px;
+      height: 100px;
+      background: lightgray;
+      border-radius: 50% 50% 0 0;
+      transform: rotateZ(90deg);
+    }
+
+    #infinity{
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border: 20px solid lightgray;
+      border-radius: 50% 50% 0 50%;
+      transform: rotateZ(-45deg);
+    }
+    #infinity::before{
+      position: absolute;
+      content: '';
+      left: 50px;
+      top: 50px;
+      width: 50px;
+      height: 50px;
+      border: 20px solid lightgray;
+      border-radius: 50% 50% 50% 0;
+      transform: rotateZ(90deg);
+    }
+
+    #diamond-square{
+      width: 100px;
+      height: 100px;
+      background: lightgray;
+      transform: rotateZ(45deg);
+    }
+
+    #diamond-sheild{
+      position: relative;
+      top: -118px;
+      width: 0;
+      height: 0;
+      border-bottom: 50px solid lightgray;
+      border-left: 70px solid transparent;
+      border-right: 70px solid transparent;
+    }
+    #diamond-sheild::after{
+      position: absolute;
+      content: '';
+      left: -69px;
+      top: 50px;
+      width: 0;
+      height: 0;
+      border-top: 87px solid lightgray;
+      border-left: 70px solid transparent;
+      border-right: 70px solid transparent;
+    }
+
+    #diamond-barrow{
+      position: relative;
+      top: -100px;
+      width: 0;
+      height: 0;
+      border-bottom: 100px solid lightgray;
+      border-right: 50px solid transparent;
+      border-left: 50px solid transparent;
+    }
+    #diamond-barrow::after{
+      position: absolute;
+      content: '';
+      left: -50px;
+      top: 100px;
+      width: 0;
+      height: 0;
+      border-top: 100px solid lightgray;
+      border-right: 50px solid transparent;
+      border-left: 50px solid transparent;
+    }
+
+    #cut-diamond{
+      position: relative;
+      top: -150px;
+      width: 66px;
+      height: 0;
+      border-bottom: 65px solid lightgray;
+      border-right: 50px solid transparent;
+      border-left: 50px solid transparent;
+    }
+    #cut-diamond::after{
+      position: absolute;
+      content: '';
+      left: -50px;
+      top: 65px;
+      width: 0;
+      height: 0;
+      border-top: 107px solid lightgray;
+      border-right: 83px solid transparent;
+      border-left: 83px solid transparent;
+    }
+
+    #egg{
+      width: 120px;
+      height: 180px;
+      background: lightgray;
+      border-radius: 50% / 60% 60% 40% 40%;
+    }
+
+    #pac-man{
+      width: 0;
+      height: 0;
+      border-width: 40px;
+      border-style: solid;
+      border-color: lightgray transparent lightgray lightgray;
+      border-radius: 50%;
+    }
+
+    #talk-bubble{
+      position: relative;
+      width: 150px;
+      height: 70px;
+      border-radius: 10px;
+      background: lightgray;
+    }
+    #talk-bubble::before{
+      position: absolute;
+      content: '';
+      left: 150px;
+      top: 24px;
+      width: 0;
+      height: 0;
+      border-left: 20px solid lightgray;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    #point-burst{
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background: lightgray;
+    }
+    #point-burst::before,
+    #point-burst::after{
+      position: absolute;
+      content: '';
+      width: 100px;
+      height: 100px;
+      background: lightgray;
+    }
+    #point-burst::before{
+      transform: rotateZ(30deg);
+    }
+    #point-burst::after{
+      transform: rotateZ(-30deg);
+    }
+
+    #yin-yang{
+      position: relative;
+      width: 100px;
+      height: 50px;
+      border-color: lightgray;
+      border-style: solid;
+      border-width: 4px 4px 50px 4px;
+      border-radius: 50%;
+      }
+    #yin-yang::before,
+    #yin-yang::after{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      }
+    #yin-yang::before{
+      top: 22px;
+      left: 0px;
+      border: 15px solid lightgray;
+      background: white;
+      }
+     #yin-yang::after{
+      left: 50px;
+      top: 20px;
+      border: 15px solid white;
+      background: lightgray;
+      }
+
+    #tv{
+      width: 200px;
+      height: 100px;
+      background: lightgray;
+      border-radius: 50% / 20%;
+    }
+
+    #cone{
+      position: relative;
+      top: 65px;
+      width: 0;
+      height: 0;
+      border: 100px solid;
+      border-color: lightgray transparent transparent transparent;
+      border-radius: 50%;
+        }
+    
+    #moon{
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: lightgray;
+    }
+    #moon::after{
+      position: absolute;
+      content: '';
+      top: -51px;
+      left: -47px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: white;
+    }
+
+    #cross{
+      position: relative;
+      top: -112px;
+      width: 200px;
+      height: 30px;
+      background: lightgray;
+    }
+    #cross::before{
+      position: absolute;
+      top: -84px;
+      left: 90px;
+      content: '';
+      width: 30px;
+      height: 200px;
+      background: lightgray;
     }
   </style>
 </head>
@@ -491,5 +808,501 @@
         <div id="star-6"></div>
       </section>
     </div>
+
+   <!-- 五边形 -->
+   <div class="wrap">
+    <section>
+      <pre><code>
+        #pentagon{
+          position: relative;
+          width: 100px;
+          height: 0;
+          border-top: 94px solid lightgray;
+          border-left: 30px solid transparent;
+          border-right: 30px solid transparent;
+        }
+        #pentagon::before{
+          position: absolute;
+          top: -171px;
+          left: -31px;
+          content: '';
+          width: 0;
+          height: 0;
+          border-bottom: 77px solid lightgray;
+          border-left: 80px solid transparent;
+          border-right: 80px solid transparent;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="pentagon"></div>
+    </section>
+  </div>
+
+  <!-- 六边形 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #hexagon{
+          position: relative;
+          width: 200px;
+          height: 100px;
+          background: lightgray;
+        }
+        #hexagon::after,
+        #hexagon::before{
+          position: absolute;
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: 100px solid transparent;
+          border-right: 100px solid transparent;
+        }
+        #hexagon::before{
+          top: -50px;
+          border-bottom: 50px solid lightgray;
+        }
+        #hexagon::after{
+          top: 100px;
+          border-top: 50px solid lightgray;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="hexagon"></div>
+    </section>
+  </div>
+
+  <!-- 八边形 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #octagon{
+          position: relative;
+          width: 200px;
+          height: 80px;
+          background: lightgray;
+        }
+        #octagon::before,
+        #octagon::after{
+          position: absolute;
+          content: '';
+          width: 95px;
+          height: 0;
+          border-left: 53px solid transparent;
+          border-right: 52px solid transparent;
+        }
+        #octagon::before{
+          top: -71px;
+          border-bottom: 71px solid lightgray;
+        }
+        #octagon::after{
+          top: 80px;
+          border-top: 45px solid lightgray;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="octagon"></div>
+    </section>
+  </div>
+
+  <!-- 心形 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #heart{
+          position: relative;
+          width: 65px;
+          height: 100px;
+          background: lightgray;
+          border-radius: 50% 50% 0 0;
+          transform: rotateZ(-45deg);
+        }
+        #heart::after{
+          position: absolute;
+          left: 18px;
+          top: 20px;
+          content: '';
+          width: 65px;
+          height: 100px;
+          background: lightgray;
+          border-radius: 50% 50% 0 0;
+          transform: rotateZ(90deg);
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="heart"></div>
+    </section>
+  </div>
+
+  <!-- 无限符号 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #infinity{
+          position: relative;
+          width: 50px;
+          height: 50px;
+          border: 20px solid lightgray;
+          border-radius: 50% 50% 0 50%;
+          transform: rotateZ(-45deg);
+        }
+        #infinity::before{
+          position: absolute;
+          content: '';
+          left: 50px;
+          top: 50px;
+          width: 50px;
+          height: 50px;
+          border: 20px solid lightgray;
+          border-radius: 50% 50% 50% 0;
+          transform: rotateZ(90deg);
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="infinity"></div>
+    </section>
+  </div>
+
+  <!-- 菱形 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #diamond-square{
+          width: 100px;
+          height: 100px;
+          background: lightgray;
+          transform: rotateZ(45deg);
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="diamond-square"></div>
+    </section>
+  </div>
+
+  <!-- 钻石盾牌 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #diamond-sheild{
+          position: relative;
+          top: -118px;
+          width: 0;
+          height: 0;
+          border-bottom: 50px solid lightgray;
+          border-left: 70px solid transparent;
+          border-right: 70px solid transparent;
+        }
+        #diamond-sheild::after{
+          position: absolute;
+          content: '';
+          left: -69px;
+          top: 50px;
+          width: 0;
+          height: 0;
+          border-top: 87px solid lightgray;
+          border-left: 70px solid transparent;
+          border-right: 70px solid transparent;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="diamond-sheild"></div>
+    </section>
+  </div>
+
+  <!-- 菱形箭头 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #diamond-barrow{
+          position: relative;
+          top: -100px;
+          width: 0;
+          height: 0;
+          border-bottom: 100px solid lightgray;
+          border-right: 50px solid transparent;
+          border-left: 50px solid transparent;
+        }
+        #diamond-barrow::after{
+          position: absolute;
+          content: '';
+          left: -50px;
+          top: 100px;
+          width: 0;
+          height: 0;
+          border-top: 100px solid lightgray;
+          border-right: 50px solid transparent;
+          border-left: 50px solid transparent;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="diamond-barrow"></div>
+    </section>
+  </div>
+
+  <!-- 砖石形 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #cut-diamond{
+          position: relative;
+          top: -150px;
+          width: 66px;
+          height: 0;
+          border-bottom: 65px solid lightgray;
+          border-right: 50px solid transparent;
+          border-left: 50px solid transparent;
+        }
+        #cut-diamond::after{
+          position: absolute;
+          content: '';
+          left: -50px;
+          top: 65px;
+          width: 0;
+          height: 0;
+          border-top: 107px solid lightgray;
+          border-right: 83px solid transparent;
+          border-left: 83px solid transparent;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="cut-diamond"></div>
+    </section>
+  </div>
+
+  <!-- 鸡蛋 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #egg{
+          width: 120px;
+          height: 180px;
+          background: lightgray;
+          border-radius: 50% / 60% 60% 40% 40%;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="egg"></div>
+    </section>
+  </div>
+
+  <!-- 吃豆人 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #pac-man{
+          width: 0;
+          height: 0;
+          border-width: 40px;
+          border-style: solid;
+          border-color: lightgray transparent lightgray lightgray;
+          border-radius: 50%;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="pac-man"></div>
+    </section>
+  </div>
+
+  <!-- 聊天框 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #talk-bubble{
+          position: relative;
+          width: 150px;
+          height: 70px;
+          border-radius: 10px;
+          background: lightgray;
+        }
+        #talk-bubble::before{
+          position: absolute;
+          content: '';
+          left: 150px;
+          top: 24px;
+          width: 0;
+          height: 0;
+          border-left: 20px solid lightgray;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="talk-bubble"></div>
+    </section>
+  </div>
+
+  <!-- 爆炸形状 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #point-burst{
+          position: relative;
+          width: 100px;
+          height: 100px;
+          background: lightgray;
+        }
+        #point-burst::before,
+        #point-burst::after{
+          position: absolute;
+          content: '';
+          width: 100px;
+          height: 100px;
+          background: lightgray;
+        }
+        #point-burst::before{
+          transform: rotateZ(30deg);
+        }
+        #point-burst::after{
+          transform: rotateZ(-30deg);
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="point-burst"></div>
+    </section>
+  </div>
+
+  <!-- 阴阳八卦 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #yin-yang{
+          position: relative;
+          width: 100px;
+          height: 50px;
+          border-color: lightgray;
+          border-style: solid;
+          border-width: 4px 4px 50px 4px;
+          border-radius: 50%;
+          }
+        #yin-yang::before,
+        #yin-yang::after{
+          position: absolute;
+          content: '';
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          }
+        #yin-yang::before{
+          top: 22px;
+          left: 0px;
+          border: 15px solid lightgray;
+          background: white;
+          }
+         #yin-yang::after{
+          left: 50px;
+          top: 20px;
+          border: 15px solid white;
+          background: lightgray;
+          }
+      </code></pre>
+    </section>
+    <section>
+      <div id="yin-yang"></div>
+    </section>
+  </div>
+
+  <!-- 电视 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #tv{
+          width: 200px;
+          height: 100px;
+          background: lightgray;
+          border-radius: 50% / 20%;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="tv"></div>
+    </section>
+  </div>
+
+  <!-- 圆锥形 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #cone{
+          position: relative;
+          top: 65px;
+          width: 0;
+          height: 0;
+          border: 100px solid;
+          border-color: lightgray transparent transparent transparent;
+          border-radius: 50%;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="cone"></div>
+    </section>
+  </div>
+
+  <!-- 月亮 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #moon{
+          position: relative;
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          background: lightgray;
+        }
+        #moon::after{
+          position: absolute;
+          top: -51px;
+          left: -47px;
+          content: '';
+          width: 220px;
+          height: 220px;
+          border-radius: 50%;
+          background: white;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="moon"></div>
+    </section>
+  </div>
+
+  <!-- 十字架 -->
+  <div class="wrap">
+    <section>
+      <pre><code>
+        #cross{
+          position: relative;
+          top: -112px;
+          width: 200px;
+          height: 30px;
+          background: lightgray;
+        }
+        #cross::before{
+          position: absolute;
+          top: -84px;
+          left: 90px;
+          content: '';
+          width: 30px;
+          height: 200px;
+          background: lightgray;
+        }
+      </code></pre>
+    </section>
+    <section>
+      <div id="cross"></div>
+    </section>
+  </div>
 </body>
 </html>
