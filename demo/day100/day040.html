@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 040 - 杨辉三角</title>
+  <style>
+    html,body{
+      font-family: 'Microsoft YaHei', 'Courier New', Courier, monospace;
+    }
+    h2,div{
+      text-align: center;
+    }
+    #show{
+      list-style: none;
+    }
+    #show li{
+      text-align: center;
+    }
+    #show li span{
+      display: inline-block;
+      padding: 0 2px;
+      min-width: 20px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      border: 1px solid lightgray;
+      background: lightgray;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+    #show li:nth-of-type(even) > span{
+      background: lightblue;
+      text-align: center;
+      border: 1px solid lightblue;
+    }
+  </style>
+</head>
+<body>
+  <h2>杨辉三角</h2>
+  <div>
+    <input type="text" id="enter" placeholder="输入要生成的行数">
+    <input type="button" value="生成杨辉三角" id="btn">
+  </div>
+  <ul id="show">
+
+  </ul>
+
+  <script>
+    let enter = document.getElementById('enter');
+    let btn = document.getElementById('btn');
+    let show = document.getElementById('show');
+    let row;
+    btn.addEventListener('click', function(e){
+      row = enter.value;
+      let array = new Array(row);
+      for(let i = 0; i < row; i++){
+        array[i] = new Array(i);
+        for(let j = 0; j < i + 1; j++){
+          if(i === 0 || j === 0 || i === j){
+            array[i][j] = 1;
+          } else {
+            array[i][j] = array[i-1][j-1] + array[i-1][j];
+          }
+        }
+      }
+
+      // console.log(array);
+
+      // 生成列表
+      show.innerHTML = '';
+      for(let i = 0; i < array.length; i++){
+        let createLi = document.createElement('li');
+        for(let j = 0; j < array[i].length; j++){
+          let createSpan = document.createElement('span');
+          createSpan.innerHTML = array[i][j];
+          createLi.appendChild(createSpan);
+        }
+        show.appendChild(createLi);
+      }
+
+    }, false);
+  </script>
+</body>
+</html>

@@ -83,11 +83,21 @@
       text-align: center;
     }
 
-    .sw-circle{
-      width: 200px;
-      height: 200px;
-      border: 10px solid gray;
+    .sw-watch{
+      position: relative;
+      left: 50px;
+      width: 300px;
+      height: 300px;
+      border: 3px solid lightgray;
       border-radius: 50%;
+      line-height: 300px;
+      text-align: center;
+      font-size: 30px;
+    }
+    .sw-ss{
+      position: relative;
+      left: 155px;
+      top: -100px;
     }
   </style>
 </head>
@@ -120,7 +130,7 @@
             </div>
           </div>
           <div class="cd-face12">
-
+              <canvas class="cd-watch" width="300" height="300" style="border: 1px solid gray"></canvas>
           </div>
       </div>
       <div class="cd-controls">
@@ -132,9 +142,15 @@
     </div>
     <div class="stopwatch">
       <h2>秒表</h2>
-      <div class="sw-circle">
-
+      <div class="sw-watch">
+        <span class="sww sww-1">00</span> :
+        <span class="sww sww-2">00</span> :
+        <span class="sww sww-3">00</span>
       </div>
+          <div class="sw-ss">
+            <button class="sw-start">Start</button>
+            <button class="sw-stop">Stop</button>
+          </div>
     </div>
   </div>
 
@@ -149,6 +165,40 @@
     cdRight.addEventListener('click', function(e){
       cdWrap.style.transform = 'translate(400px)';
     }, false);
+
+    // 倒计时
+    let stopWatch = document.getElementsByClassName('cd-watch')[0];
+    let ctx = stopWatch.getContext('2d');
+    ctx.beginPath();
+    ctx.arc(150, 150, 100, 0, Math.PI*2, false);
+    ctx.stroke();
+
+    // 秒表
+    let runStopWatch;
+    let watchIndex = 0;
+    let sww = document.getElementsByClassName('sww');
+    let ssStart = document.getElementsByClassName('sw-start')[0];
+    let ssStop = document.getElementsByClassName('sw-stop')[0];
+    ssStart.addEventListener('click', function(){
+      runStopWatch = setInterval(function(){
+        ++watchIndex;
+        sww[1].innerHTML = addZero(watchIndex);
+        
+        if(watchIndex >= 9){
+          watchIndex = 0;
+          sww[0].innerHTML = addZero(Number.parseInt(sww[0].innerHTML) + 1);
+        }
+
+      }, 1000);
+    }, false);
+    ssStop.addEventListener('click', function(){
+      clearInterval(runStopWatch);
+    }, false);
+
+    function addZero(n){
+      return n <= 9 ? '0' + n : '' + n;
+    }
+
   </script>
 </body>
 </html>
