@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 043 - 获取按键的keyCode</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #wrap{
+      width: 350px;
+      margin: 15% auto;
+    }
+
+    #show {
+      font: 50px 'Microsoft YaHei';
+      font-weight: bolder;
+    }
+
+    #show section {
+      margin: 10px auto;
+      display: inline-block;
+      min-width: 100px;
+      height: 68px;
+      padding: 0 10px;
+      text-align: center;
+      border: 1px solid lightgray;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="wrap">
+    <h2>获取任意按键的 Key 和 keyCode</h2>
+    <div id="show">
+      <section id="k"></section>
+      <section id="c"></section>
+    </div>
+    <div id="function-key">
+      <section id="shift"></section>
+    </div>
+  </div>
+
+  <script>
+    let k = document.getElementById('k');
+    let c = document.getElementById('c');
+    let shift = document.getElementById('shift');
+
+    function funcKey(e){
+      if(e.shiftKey === true){
+        shift.innerHTML = 'Shift is pressed';
+        shift.style.color = 'blue';
+      } else {
+        shift.innerHTML = 'Shift is NOT pressed';
+        shift.style.color = 'red';
+      }
+    }
+
+    document.addEventListener('keypress', function (e) {
+      k.innerHTML = e.key;
+      c.innerHTML = e.keyCode;
+      
+      funcKey(e);
+
+    }, false);
+  </script>
+</body>
+
+</html>

@@ -1,6 +1,10 @@
 # 收藏的Web文章
 
+> 这个页面所有的文章都是我收集做的总汇。
+
+
 ## JavaScript
+
 [JavaScript 的 this 原理](http://www.ruanyifeng.com/blog/2018/06/javascript-this.html)  
 [JS 中可以提升幸福度的小技巧](https://juejin.im/post/5b51e5d3f265da0f4861143c)  
 [变量提升和函数提升](https://www.cnblogs.com/liuhe688/p/5891273.html)  
@@ -9,8 +13,11 @@
 [JavaScript 代码整洁之道](https://www.zcfy.cc/article/clean-code-javascript-readme-md-at-master-ryanmcdermott-clean-code-javascript-github-2273.html)  
 [JavaScript 事件循环](https://segmentfault.com/a/1190000014522243)  
 [for...of vs for...in Loops in JavaScript](https://alligator.io/js/for-of-for-in-loops/)  
+[[译] JavaScript：回调是什么鬼？](https://juejin.im/post/594b3607128fe100650355c7)  
+[JavaScript 代码简洁之道](https://juejin.im/post/5c24b7a851882509a76875e8)  
 
 ## CSS
+
 [Intro to CSS 3D transforms](https://3dtransforms.desandro.com/)  
 [CSS 中重要的层叠概念](https://juejin.im/post/5ba4efe36fb9a05cf52ac192)  
 [关于z-index 那些你不知道的事](https://webdesign.tutsplus.com/zh-hans/articles/what-you-may-not-know-about-the-z-index-property--webdesign-16892)  

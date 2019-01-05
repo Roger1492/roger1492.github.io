@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 044 - 显示二维码</title>
+  <style>
+    #wrap{
+      width: 400px;
+      height: 400px;
+      margin: 8% auto;
+    }
+    #text{
+      width: 300px;
+      border-width: 0 0 1px 0;
+      border-bottom-color: black;
+      font-size: 18px;
+      outline: none;
+    }
+    #btn{
+      outline: none;
+      border: none;
+      height: 35px;
+      width: 96px;
+      border-radius: 5px;
+    }
+    #qrcode{
+      margin-top: 100px;
+      margin-left: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="wrap">
+    <input type="text" id="text">
+    <button id="btn">生产二维码</button>
+    <div id="qrcode"></div>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/lrsjng.jquery-qrcode/0.14.0/jquery-qrcode.min.js"></script>
+  <script>
+    let btn = document.getElementById('btn');
+    let inp = document.getElementById('text');
+    let qr = document.getElementById('qrcode');
+
+    btn.addEventListener('click', function (e) {
+      options.text = inp.value;
+
+      qr.innerHTML = '';
+
+      $(document).ready(function () {
+        $('#qrcode').qrcode(options);
+      })
+
+    }, false);
+
+    let options = {
+      render: 'div',
+      minVersion: 1,
+      ecLevel: 'L',
+      size: 300,
+      fill: '#000',
+      background: null,
+      text: 'I love you'
+    };
+
+    $(document).ready(function () {
+      $('#qrcode').qrcode(options);
+    })
+  </script>
+</body>
+
+</html>

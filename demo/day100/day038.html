@@ -184,7 +184,7 @@
         ++watchIndex;
         sww[1].innerHTML = addZero(watchIndex);
         
-        if(watchIndex >= 9){
+        if(watchIndex == 10){
           watchIndex = 0;
           sww[0].innerHTML = addZero(Number.parseInt(sww[0].innerHTML) + 1);
         }
