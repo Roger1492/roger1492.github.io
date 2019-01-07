@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 046 - 人生进度条</title>
+  <style>
+    html,body{
+      margin: 0;
+      padding: 0;
+      font-family: 'Microsoft YaHei', 'Courier New', Courier, monospace;
+    }
+    .life-of-entire,
+    .life-of-year{
+      width: 50%;
+      float: left;
+    }
+    .life-of-year h2,
+    .life-of-entire h2{
+      text-align: center;
+    }
+    .life-of-year > section{
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+      margin-top: 5px;
+      border: 1px solid gray;
+    }
+    .life-of-entire > section{
+      display: inline-block;
+      width: 30px;
+      height: 60px;
+      margin-top: 5px;
+      margin-left: 10px;
+      border: 1px solid gray;
+    }
+    .year-progress,
+    .life-progress{
+      position: relative;
+      margin: 10px auto;
+      width: 80%;
+      height: 20px;
+      border: 1px solid gray;
+    }
+    .year-progress-passed{
+      height: 20px;
+      background: lightcoral;
+    }
+    .life-progress-passed{
+      height: 20px;
+      background: lightblue;
+    }
+    .year-precent,
+    .life-precent{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 800;
+    }
+    .year-precent-text{
+      color: lightcoral;
+    }
+    .life-precent-text{
+      color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div class="life-of-year">
+      <h2>今年</h2>
+      <div class="year-progress">
+        <section class="year-progress-passed"></section>
+      </div>
+      <div class="year-precent">
+        今年已过了 <span class="year-precent-text"></span>
+      </div>
+    </div>
+    <div class="life-of-entire">
+      <h2>今生</h2>
+      <div class="life-progress">
+        <section class="life-progress-passed"></section>
+      </div>
+      <div class="life-precent">
+        今生已过了 <span class="life-precent-text"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 获取今年的全部天数，在左边生成对应天数的格子，在右边生成对应年数的格子
+    let currentYear = new Date().getFullYear();
+    let firstOfYear = new Date(currentYear, 0, 1, 0, 0, 0);
+    let lastOfYear = new Date(currentYear, 11, 31, 23, 59, 59);
+    let distanceOfYear = Math.round((lastOfYear - firstOfYear) / 1000 / 3600 / 24);
+    let yearOfPassed = Math.ceil((new Date() - new Date(currentYear,0,1,0,0,0)) / 1000 / 3600 / 24);
+    let lifeOfPassed = Math.ceil((new Date() - new Date(1992,10,29)) / 1000 / 3600 / 24 / 365);
+    let dayPassed = (yearOfPassed/distanceOfYear) * 100;    // 过去的天数占一年中总天数的比
+    let lifePassed = Math.ceil((((new Date() - new Date(1992,9,29)) / 1000 / 3600 / 24 / 365) / 90) * 100);    // 过去的人生占总人生长的的比
+
+    let lifeOfYear = document.getElementsByClassName('life-of-year')[0];
+    let lifeOfEntire = document.getElementsByClassName('life-of-entire')[0];
+    let yearProgress = document.getElementsByClassName('year-progress')[0];
+    let lifeProgress = document.getElementsByClassName('life-progress')[0];
+    let yearProgressPassed = document.getElementsByClassName('year-progress-passed')[0];
+    let lifeProgressPassed = document.getElementsByClassName('life-progress-passed')[0];
+    let yearPrecentText = document.getElementsByClassName('year-precent-text')[0];
+    let lifePrecentText = document.getElementsByClassName('life-precent-text')[0];
+
+    for(let i = 0; i < distanceOfYear; i++){
+      let gridOfDay = document.createElement('section');
+      gridOfDay.setAttribute('class','day day'+i);
+      lifeOfYear.appendChild(gridOfDay);
+    }
+
+    for(let i = 0; i < 90; i++){
+      let gridOfYear = document.createElement('section');
+      gridOfYear.setAttribute('class', 'year year'+i);
+      lifeOfEntire.appendChild(gridOfYear);
+    }
+
+    // 今年已过的时间，今生已过的人生，渲染进度条和格子
+    yearProgressPassed.style.width = dayPassed + '%';
+    lifeProgressPassed.style.width = lifePassed + '%';
+    yearPrecentText.innerHTML = (dayPassed).toFixed(2) + '%';
+    lifePrecentText.innerHTML = lifePassed + '%';
+
+    for(let i = 0; i < yearOfPassed; i++){
+      let g = document.querySelector(`.day${i}`);
+      g.style.background = 'lightcoral';
+    }
+    for(let i = 0; i < lifeOfPassed; i++){
+      let l = document.querySelector(`.year${i}`);
+      l.style.background = 'lightblue';
+    }
+  </script>
+</body>
+</html>
