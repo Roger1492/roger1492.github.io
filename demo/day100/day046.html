@@ -76,7 +76,7 @@
         <section class="year-progress-passed"></section>
       </div>
       <div class="year-precent">
-        今年已过了 <span class="year-precent-text"></span>
+        今年已过了 <span class="year-day-text"></span><span class="year-precent-text"></span>
       </div>
     </div>
     <div class="life-of-entire">
@@ -85,7 +85,7 @@
         <section class="life-progress-passed"></section>
       </div>
       <div class="life-precent">
-        今生已过了 <span class="life-precent-text"></span>
+        今生已过了 <span class="life-year-text"></span><span class="life-precent-text"></span>
       </div>
     </div>
   </div>
@@ -125,8 +125,8 @@
     // 今年已过的时间，今生已过的人生，渲染进度条和格子
     yearProgressPassed.style.width = dayPassed + '%';
     lifeProgressPassed.style.width = lifePassed + '%';
-    yearPrecentText.innerHTML = (dayPassed).toFixed(2) + '%';
-    lifePrecentText.innerHTML = lifePassed + '%';
+    yearPrecentText.innerHTML = `${yearOfPassed} 天 (${(dayPassed).toFixed(2)}%)`;
+    lifePrecentText.innerHTML = `${lifeOfPassed} 年 (${lifePassed}%)`;
 
     for(let i = 0; i < yearOfPassed; i++){
       let g = document.querySelector(`.day${i}`);
