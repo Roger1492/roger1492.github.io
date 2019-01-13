@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 048 - 用CSS实现26个字母</title>
+  <style>
+    .char{
+      position: relative;
+      float: left;
+      width: 160px;
+      height: 200px;
+      margin: 10px;
+      overflow: hidden;
+    }
+    .A{
+      position: absolute;
+      left: 38px;
+      top: 100px;
+      width: 84px;
+      height: 20px;
+      background: lightgray;
+    }
+    .A::before{
+      position: absolute;
+      content: '';
+      transform: translate(-4px, -100px) skew(-19deg);
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      }
+    .A::after{
+      position: absolute;
+      content: '';
+      transform: translate(67px, -100px) skew(19deg);
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+    }
+    .B{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+    }
+    .B::before{
+      position: absolute;
+      content: '';
+      width: 80px;
+      height: 60px;
+      border: 20px solid;
+      border-color: lightgray lightgray lightgray transparent;
+      border-radius: 0 40% 40% 0;
+    }
+    .B::after{
+      position: absolute;
+      content: '';
+      top: 80px;
+      width: 90px;
+      height: 80px;
+      border: 20px solid;
+      border-color: lightgray lightgray lightgray transparent;
+      border-radius: 0 40% 40% 0;
+    }
+    .C{
+      width: 120px;
+      height: 160px;
+      border: 20px solid;
+      border-color: lightgray transparent lightgray lightgray;
+      border-radius: 50%;
+    }
+
+    .D{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+    }
+    .D::before{
+      position: absolute;
+      content: '';
+      width: 160px;
+      height: 160px;
+      border: 20px solid;
+      border-color: lightgray lightgray transparent transparent;
+      border-radius: 50%;
+      transform: translate(-80px, 0px) rotateZ(45deg);
+    }
+    .E{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+    }
+    .E::before{
+      position: absolute;
+      content: '';
+      left: 20px;
+      width: 100px;
+      height: 20px;
+      background: lightgray;
+      box-shadow: 0 180px 0 0 lightgray, -20px 90px 0 0 lightgray;
+    }
+    .F{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+    }
+    .F::before{
+      position: absolute;
+      content: '';
+      left: 20px;
+      width: 110px;
+      height: 20px;
+      background: lightgray;
+    }
+    .F::after{
+      position: absolute;
+      content: '';
+      left: 20px;
+      top: 90px;
+      width: 70px;
+      height: 20px;
+      background: lightgray;
+    }
+    .G{
+      width: 120px;
+      height: 160px;
+      border: 20px solid;
+      border-color: lightgray transparent lightgray lightgray;
+      border-radius: 50%;
+    }
+    .G::before{
+      position: absolute;
+      content: '';
+      width: 60px;
+      height: 20px;
+      background: lightgray;
+      transform: translate(54px,75px);
+    }
+    .G::after{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 60px;
+      background: lightgray;
+      transform: translate(94px, 94px);
+    }
+    .H{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      box-shadow: 110px 0 0 0 lightgray;
+    }
+    .H::before{
+      position: absolute;
+      content: '';
+      transform: translate(20px, 80px);
+      width: 90px;
+      height: 20px;
+      background: lightgray;
+    }
+    .I{
+      width: 80px;
+      height: 20px;
+      background: lightgray;
+      transform: translateX(40px);
+      box-shadow: 0 180px 0 0 lightgray;
+    }
+    .I::before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 160px;
+      background: lightgray;
+      transform: translate(30px, 20px);
+    }
+    .J{
+      width: 80px;
+      height: 20px;
+      background: lightgray;
+      transform: translateX(80px);
+    }
+    .J::before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 150px;
+      background: lightgray;
+      transform: translateX(30px);
+    }
+    .J::after{
+      position: absolute;
+      content: '';
+      width: 60px;
+      height: 60px;
+      border: 20px solid;
+      border-color: transparent lightgray lightgray transparent;
+      border-radius: 50%;
+      transform: translate(-50px, 90px) rotateZ(35deg);
+    }
+    .K{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+    }
+    .K::before{
+      position: absolute;
+      content: '';
+      width: 120px;
+      height: 20px;
+      background: lightgray;
+      left: 30px;
+      transform: translate(-30px, 45px) rotateZ(-45deg) skew(-45deg);
+    }
+    .K::after{
+      position: absolute;
+      content: '';
+      width: 120px;
+      height: 20px;
+      background: lightgray;
+      transform: translate(-1px,135px) rotateZ(45deg) skew(45deg);
+    }
+    .L{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+    }
+    .L::before{
+      position: absolute;
+      content: '';
+      transform: translateY(180px);
+      width: 120px;
+      height: 20px;
+      background: lightgray;
+
+    }
+    .M{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      box-shadow: 140px 0 0 0 lightgray;
+    }
+    .M::before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 160px;
+      background: lightgray;
+      transform: translate(34px) skew(23deg);
+    }
+    .M::after{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 160px;
+      background: lightgray;
+      transform: translate(106px) skew(-23deg);
+    }
+    .N{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      box-shadow: 120px 0 0 0 lightgray;
+    }
+    .N::before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 200px;
+      background-color: lightgray;
+      transform: translateX(60px) skew(30deg);
+    }
+    .O{
+      width: 120px;
+      height: 160px;
+      border: 20px solid lightgray;
+      border-radius: 50%;
+    }
+    .P{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+    }
+    .P::before{
+      position: absolute;
+      content: '';
+      width: 80px;
+      height: 60px;
+      border: 20px solid;
+      border-color: lightgray lightgray lightgray transparent;
+      border-radius: 0 40% 40% 0;
+    }
+    .Q{
+      width: 120px;
+      height: 160px;
+      border: 20px solid lightgray;
+      border-radius: 50%;
+    }
+    .Q::before{
+      position: absolute;
+      content: '';
+      width: 60px;
+      height: 20px;
+      background: lightgray;
+      transform: translate(80px, 140px) rotate(45deg);
+    }
+    .R{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+    }
+    .R::before{
+      position: absolute;
+      content: '';
+      width: 80px;
+      height: 60px;
+      border: 20px solid;
+      border-color: lightgray lightgray lightgray transparent;
+      border-radius: 0 40% 40% 0;
+    }
+    .R::after{
+      position: absolute;
+      content: '';
+      height: 20px;
+      width: 140px;
+      background: lightgray;
+      transform: translateY(135px) rotateZ(35deg) skew(45deg);
+    }
+    .S{
+      width: 120px;
+      height: 70px;
+      border: 20px solid;
+      border-color: lightgray transparent transparent lightgray;
+      border-radius: 50% 0 0 50%;
+    }
+    .S::before{
+      position: absolute;
+      content: '';
+      width: 120px;
+      height: 70px;
+      border: 20px solid;
+      border-color: transparent lightgray lightgray transparent;
+      border-radius: 0 50% 50% 0;
+      transform: translate(-20px,70px);
+    }
+    .S::after{
+      position: absolute;
+    content: '';
+    width: 122px;
+    height: 20px;
+    background: lightgray;
+    transform: translate(-1px,70px) rotateZ(18deg);
+    }
+    .T{
+      width: 140px;
+      height: 20px;
+      background: lightgray;
+      transform: translateX(10px);
+    }
+    .T::before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 180px;
+      background: lightgray;
+      transform: translate(60px, 20px);
+    }
+    .U{
+      width: 120px;
+      height: 160px;
+      border: 20px solid;
+      border-color: transparent lightgray lightgray lightgray;
+      border-radius: 0 0 50% 50%;
+    }
+    .U::before{
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 20px solid lightgray;
+      border-left: 20px solid transparent;
+      transform: translate(-20px, -20px)
+    }
+    .U::after{
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 20px solid lightgray;
+      border-right: 20px solid transparent;
+      transform: translate(120px,-20px);
+    }
+    .V{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      transform: translateX(36px) skew(20deg);
+    }
+    .V::after{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      transform: translateX(70px) skew(-35deg);
+    }
+    .W{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      transform: translateX(18px) skew(10deg);
+      box-shadow: 60px 70px 0 0 lightgrey;
+    }
+    .W::before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      transform: translateX(104px) skew(-20deg);
+      box-shadow: -60px 70px 0 0 lightgrey;
+    }
+    .X{
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      transform: translateX(70px) skew(35deg);
+    }
+    .X::before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 200px;
+      background: lightgray;
+      transform: skew(-54.5deg);
+    }
+    .Y{
+      width: 20px;
+      height: 100px;
+      background: lightgray;
+      transform: translate(70px, 100px);
+    }
+    .Y::before{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 100px;
+      background: lightgray;
+      transform: translate(-35px, -100px) skew(35deg);
+    }
+    .Y::after{
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 100px;
+      background: lightgray;
+      transform: translate(35px, -100px) skew(-35deg);
+    }
+    .Z{
+      width: 160px;
+      height: 20px;
+      background: lightgray;
+      box-shadow: 0 180px 0 0 lightgray;
+    }
+    .Z::before{
+      position: absolute;
+      content: '';
+      width: 211px;
+      height: 20px;
+      transform: translate(-26px, 90px) rotateZ(-50deg) skew(40deg);
+      background: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <!-- A B C D E F G H I J K L M N O P Q R S T U V W X Y Z -->
+  <div class="char"><div class="A"></div></div>
+  <div class="char"><div class="B"></div></div>
+  <div class="char"><div class="C"></div></div>
+  <div class="char"><div class="D"></div></div>
+  <div class="char"><div class="E"></div></div>
+  <div class="char"><div class="F"></div></div>
+  <div class="char"><div class="G"></div></div>
+  <div class="char"><div class="H"></div></div>
+  <div class="char"><div class="I"></div></div>
+  <div class="char"><div class="J"></div></div>
+  <div class="char"><div class="K"></div></div>
+  <div class="char"><div class="L"></div></div>
+  <div class="char"><div class="M"></div></div>
+  <div class="char"><div class="N"></div></div>
+  <div class="char"><div class="O"></div></div>
+  <div class="char"><div class="P"></div></div>
+  <div class="char"><div class="Q"></div></div>
+  <div class="char"><div class="R"></div></div>
+  <div class="char"><div class="S"></div></div>
+  <div class="char"><div class="T"></div></div>
+  <div class="char"><div class="U"></div></div>
+  <div class="char"><div class="V"></div></div>
+  <div class="char"><div class="W"></div></div>
+  <div class="char"><div class="X"></div></div>
+  <div class="char"><div class="Y"></div></div>
+  <div class="char"><div class="Z"></div></div>
+</body>
+</html>
