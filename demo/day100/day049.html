@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 049 - 判断两个子网是否位于同一个网络</title>
+  <style>
+    html,body{
+      font-family: 'Microsoft YaHei', 'Courier New', Courier, monospace;
+    }
+    h2{
+      text-align: center;
+    }
+    .container{
+      position: relative;
+      margin: 100px auto;
+      width: 817px;
+      height: 363px;
+    }
+    .container > span{
+      color: gray;
+      font-style: italic;
+    }
+    .wrap{
+      width: 815px;
+      height: 358px;
+      border: 1px solid gray;
+    }
+    .wrap > div{
+      display: inline-block;
+      width: 405px;
+      border: 1px solid lightgray;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+    .wrap > div > span:nth-of-type(1){
+      display: inline-block;
+      width: 100px;
+      font-weight: 800;
+    }
+    #btn{
+      position: relative;
+      top: 22px;
+      width: 815px;
+      text-align: center;
+      height: 60px;
+      line-height: 38px;
+      cursor: pointer;
+      background: lightgray;
+      transition: all .2s ease;
+    }
+    #btn:hover{
+      background: rgb(170, 169, 169);
+      border-color: rgb(170, 169, 169);
+    }
+    #result1, #result2,
+    #result-binary1, #result-binary2{
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>判断两个子网是否位于同一个网络</h2>
+    <span>结果颜色相同：同一网络，结果颜色不同：不在同一网络</span>
+    <div class="wrap">
+      <div><span>IP地址：</span><input id="ip1" type="text" placeholder="172.16.254.1"><button id="getCurrentIP">获取本机外网IP</button></div>
+      <div id="ip-binary1"></div>
+      <div><span>子网掩码：</span><input id="subnet1" type="text" placeholder="255.255.255.0"><button id="default-subnet1">默认子网掩码</button></div>
+      <div id="subnet-binary1"></div>
+      <div><span>IP地址：</span><input id="ip2" type="text" placeholder="172.16.254.233"></div>
+      <div id="ip-binary2"></div>
+      <div><span>子网掩码：</span><input id="subnet2" type="text" placeholder="255.255.255.0"><button id="default-subnet2">默认子网掩码</button></div>
+      <div id="subnet-binary2"></div>
+      <div id="result1">结果 ???</div>
+      <div id="result-binary1">结果 ???</div>
+      <div id="result2">结果 ???</div>
+      <div id="result-binary2">结果 ???</div>
+      <div id="btn">计算</div>
+    </div>
+  </div>
+
+  <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+  <script>
+    let btn = document.getElementById('btn');
+    let ip1 = document.getElementById('ip1');
+    let ip2 = document.getElementById('ip2');
+    let ipBinary1 = document.getElementById('ip-binary1');
+    let ipBinary2 = document.getElementById('ip-binary2');
+    let subnet1 = document.getElementById('subnet1');
+    let subnet2 = document.getElementById('subnet2');
+    let subnetBinary1 = document.getElementById('subnet-binary1');
+    let subnetBinary2 = document.getElementById('subnet-binary2');
+    let result1 = document.getElementById('result1');
+    let result2 = document.getElementById('result2');
+    let resultBinary1 = document.getElementById('result-binary1');
+    let resultBinary2 = document.getElementById('result-binary2');
+    let getCurrentIP = document.getElementById('getCurrentIP');
+    let defaultSubnet1 = document.getElementById('default-subnet1');
+    let defaultSubnet2 = document.getElementById('default-subnet2');
+
+    // 获取本机外网IPs
+    getCurrentIP.addEventListener('click', function(e){
+      ip1.value = returnCitySN.cip;
+    }, false);
+
+    // 默认子网掩码
+    defaultSubnet1.addEventListener('click', function(){
+      subnet1.value = '255.255.255.0';
+    }, false);
+    defaultSubnet2.addEventListener('click', function(){
+      subnet2.value = '255.255.255.0';
+    }, false);
+    
+    // IP地址转换为2进制形式
+    function toBinary(strnum) {
+      let ip = '';
+      let a = [];
+      let arr = strnum.split('.');
+      arr.forEach((ele, ind, arr) => {
+        let bin = Number.parseInt(ele).toString(2);
+        let b = '0'.repeat(8 - bin.length) + bin;
+        a.push(b);
+      });
+      ip = a[0] + '.' + a[1] + '.' + a[2] + '.' + a[3];
+      return ip;
+    }
+
+    // IP地址的二进制形式转换为10进制形式
+    function toDecimal(ip){
+      let str = ''
+      let arrBinary = ip.split('.');
+      arrBinary.forEach((ele, ind, arr) => {
+        str += parseInt(ele, 2) + '.';
+      })
+      return str.substr(0, str.length-1);
+    }
+
+    // 对比IP地址和子网掩码
+    function subnet(ip, subnet) {
+      let str = '';
+      for (let i = 0; i < 35; i++) {
+        if(i == 8 || i == 17 || i == 26){
+          str += '.';
+        } else {
+          str += ip[i] & subnet[i];
+        }
+      }
+      return str;
+    }
+
+    btn.addEventListener('click', function (e) {
+      ipBinary1.innerHTML = toBinary(ip1.value);
+      ipBinary2.innerHTML = toBinary(ip2.value);
+      subnetBinary1.innerHTML = toBinary(subnet1.value);
+      subnetBinary2.innerHTML = toBinary(subnet2.value);
+
+
+      resultBinary1.innerHTML = subnet(ipBinary1.innerText, subnetBinary1.innerText);
+      resultBinary2.innerHTML = subnet(ipBinary2.innerText, subnetBinary2.innerText);
+      result1.innerHTML = toDecimal(resultBinary1.innerHTML);
+      result2.innerHTML = toDecimal(resultBinary2.innerHTML);
+
+      if(resultBinary1.innerHTML === resultBinary2.innerHTML){
+        result1.style.color = 'green';
+        result2.style.color = 'green';
+        resultBinary1.style.color = 'green';
+        resultBinary2.style.color = 'green';
+      } else {
+        result1.style.color = 'red';
+        result2.style.color = 'blue';
+        resultBinary1.style.color = 'red';
+        resultBinary2.style.color = 'blue'
+      }
+    }, false);
+  </script>
+</body>
+
+</html>
