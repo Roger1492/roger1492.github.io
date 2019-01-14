@@ -83,7 +83,6 @@
     </div>
   </div>
 
-  <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
   <script>
     let btn = document.getElementById('btn');
     let ip1 = document.getElementById('ip1');
@@ -104,7 +103,9 @@
 
     // 获取本机外网IPs
     getCurrentIP.addEventListener('click', function(e){
-      ip1.value = returnCitySN.cip;
+      fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(res1 => ip1.value = res1.ip);
     }, false);
 
     // 默认子网掩码
