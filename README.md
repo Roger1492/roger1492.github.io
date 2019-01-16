@@ -8,6 +8,8 @@
 [Ajax和Fetch的简单运用](post/Ajax_n_Fetch的简单运用.md)  
 [this call apply 完全理解](post/this_call_apply完全理解.md)  
 [我对于闭包的简单理解](post/我对于闭包的简单理解.md)  
+
+[前端知识点](post/前端知识点.md)  
 [收藏的Web文章](post/收藏的Web文章.md)  
 
 # English
