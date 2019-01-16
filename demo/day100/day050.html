@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 050 - gank.io</title>
+  <style>
+    .container {
+      position: relative;
+    }
+
+    .container>div {
+      display: inline-block;
+    }
+
+    .wrap {
+      position: fixed;
+      width: 200px;
+    }
+
+    .wrap>div {
+      display: inline-block;
+      border: 1px solid lightgray;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+    }
+
+    .wrap>div:hover {
+      background: lightgray;
+    }
+
+    .show {
+      position: relative;
+      left: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrap">
+      <div class="page">1</div>
+      <div class="page">2</div>
+      <div class="page">3</div>
+      <div class="page">4</div>
+      <div class="page">5</div>
+      <div class="page">6</div>
+      <div class="page">7</div>
+      <div class="page">8</div>
+      <div class="page">9</div>
+      <div class="page">10</div>
+      <div class="page">11</div>
+      <div class="page">12</div>
+      <div class="page">13</div>
+      <div class="page">14</div>
+      <div class="page">15</div>
+      <div class="page">16</div>
+      <div class="page">17</div>
+      <div class="page">18</div>
+      <div class="page">19</div>
+      <div class="page">20</div>
+      <div class="page">21</div>
+      <div class="page">22</div>
+      <div class="page">23</div>
+      <div class="page">24</div>
+      <div class="page">25</div>
+      <div class="page">26</div>
+      <div class="page">27</div>
+      <div class="page">28</div>
+      <div class="page">29</div>
+      <div class="page">30</div>
+      <div class="page">31</div>
+      <div class="page">32</div>
+      <div class="page">33</div>
+      <div class="page">34</div>
+    </div>
+    <div class="show">
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+      <div><img alt=""><br><span class="createdAt"></span></div>
+    </div>
+  </div>
+
+  <script>
+    let url = 'https://gank.io/api/data/%E7%A6%8F%E5%88%A9/20/'
+    let page = Array.from(document.querySelectorAll('.page'));
+    let imgs = Array.from(document.querySelectorAll('img'));
+    let createdAt = Array.from(document.querySelectorAll('.createdAt'));
+
+    fetch('https://gank.io/api/data/%E7%A6%8F%E5%88%A9/20/1')
+      .then(res1 => res1.json())
+      .then(res2 => {
+        for (let i = 0; i < 20; i++) {
+          imgs[i].src = res2.results[i].url;
+          createdAt[i].innerHTML =res2.results[i].createdAt;
+        }
+      });
+
+
+    page.forEach((ele, ind, arr) => {
+      ele.addEventListener('click', function (e) {
+
+        fetch(url + this.innerHTML)
+          .then(res1 => res1.json())
+          .then(res2 => {
+            for (let i = 0; i < 20; i++) {
+              imgs[i].src = res2.results[i].url;
+              createdAt[i].innerHTML =res2.results[i].createdAt;
+            }
+          });
+
+      }, false);
+    })
+  </script>
+</body>
+
+</html>
