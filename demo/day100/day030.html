@@ -88,6 +88,21 @@
     let decimal = document.getElementById('decimal');
     let hexadeciaml = document.getElementById('hexadecimal');
 
+    // 二进制分组
+    // str 要分组的字符串，
+    // num 要分的组数
+    function group(str, num){
+      let arr = [];
+      let s = '';
+      for(let i = 0; i < str.length; i+=num){
+        arr.push(str.slice(i,i+num));
+      }
+      for(let i = 0; i < arr.length; i++){
+        s += arr[i] + ' ';
+      }
+      s.substr(0, s.length-1);
+      return s;
+    }
 
     // 在input框中输入value后清除其他框中的value
     function clearOtherValue() {
@@ -128,15 +143,16 @@
     function octalToOther(v) {
       let num = Number.parseInt(v, 8);
       decimal.value = num;
-      // binary.value = (num).toString(2);
-      binary.value = addZero((num).toString(2), 4);
+      // binary.value = addZero((num).toString(2), 4);
+      binary.value = group(addZero((num).toString(2), 4), 4);
       hexadeciaml.value = (num).toString(16);
     }
 
     // 十进制转换为其他进制
     function decimalToOther(v) {
       let num = Number.parseInt(v);
-      binary.value = addZero((num).toString(2), 4);
+      // binary.value = addZero((num).toString(2), 4);
+      binary.value = group(addZero((num).toString(2), 4), 4);
       octal.value = (num).toString(8);
       hexadeciaml.value = (num).toString(16);
     }
@@ -145,7 +161,8 @@
     function hexadeciamlToOther(v) {
       let num = Number.parseInt(v, 16);
       decimal.value = num;
-      binary.value = addZero((num).toString(2), 4);
+      // binary.value = addZero((num).toString(2), 4);
+      binary.value = group(addZero((num).toString(2), 4), 4);
       octal.value = (num).toString(8);
     }
 

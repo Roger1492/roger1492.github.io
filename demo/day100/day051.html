@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Day 051 - transform: 3D</title>
+  <style>
+    .container {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin: 100px auto;
+      perspective: 2000;
+      -webkit-perspective: 2000;
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+    }
+
+    .wrap {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      transform-origin: 50% 50%;
+      /* border: 1px solid lightgray; */
+      /* perspective: 800; */
+      /* -webkit-perspective: 800; */
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      /* transform: rotateX(10deg); */
+    }
+
+    .sub {
+      position: absolute;
+      left: 50px;
+      top: 50px;
+      width: 400px;
+      height: 400px;
+      line-height: 400px;
+      text-align: center;
+      font-size: 50px;
+      border: 1px solid gray;
+    }
+
+    .top {
+      background: rgba(103, 162, 182, 0.486);
+      transform-origin: 50% 0%;
+      transform: translateZ(-250px) rotateX(90deg);
+    }
+
+    .bottom {
+      background: rgba(180, 118, 37, 0.507);
+      transform-origin: 50% 100%;
+      transform: translateZ(-250px) rotateX(-90deg);
+    }
+
+    .left {
+      background: rgba(70, 60, 163, 0.493);
+      transform-origin: 0 50%;
+      transform: translateZ(150px) rotateY(90deg);
+    }
+
+    .right {
+      background: rgba(49, 168, 79, 0.514);
+      transform-origin: 100% 50%;
+      transform: translateZ(-250px) rotateY(90deg);
+    }
+
+    .front {
+      background: rgba(173, 61, 85, 0.473);
+      transform-origin: 50% 50%;
+      transform: translateZ(150px);
+    }
+
+    .back {
+      background: rgba(177, 34, 153, 0.26);
+      transform-origin: 50% 50%;
+      transform: translateZ(-250px);
+    }
+
+    .controls{
+      position: absolute;
+      top: 40%;
+    }
+    .controls div span{
+      display: inline-block;
+      width: 150px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrap">
+      <div class="sub top">top</div>
+      <div class="sub bottom">bottom</div>
+      <div class="sub left">left</div>
+      <div class="sub right">right</div>
+      <div class="sub front">front</div>
+      <div class="sub back">back</div>
+    </div>
+  </div>
+  <div class="controls">
+    <div>
+      <span id="showx">rotateX:(?deg) </span>
+      <input type="range" min="0" max="360" step="1" id="rangex">
+    </div>
+    <div>
+      <span id="showy">rotateY:(?deg) </span>
+      <input type="range" min="0" max="360" step="1" id="rangey">
+    </div>
+    <div>
+      <span id="showz">rotateZ:(?deg) </span>
+      <input type="range" min="0" max="360" step="1" id="rangez">
+    </div>
+  </div>
+  <script>
+    let wrap = document.getElementsByClassName('wrap')[0];
+    let showx = document.getElementById('showx');
+    let showy = document.getElementById('showy');
+    let showz = document.getElementById('showz');
+    let rangex = document.getElementById('rangex');
+    let rangey = document.getElementById('rangey');
+    let rangez = document.getElementById('rangez');
+
+    rangex.addEventListener('change', function (e) {
+      showx.innerHTML = `rotateX: (${rangex.value} deg)`;
+      wrap.style.transform = `rotateX(${rangex.value}deg) rotateY(${rangey.value}deg) rotateZ(${rangez.value}deg)`;
+    }, false);
+
+    rangey.addEventListener('change', function (e) {
+      showy.innerHTML = `rotateY: (${rangey.value} deg)`;
+      wrap.style.transform = `rotateX(${rangex.value}deg) rotateY(${rangey.value}deg) rotateZ(${rangez.value}deg)`;
+    }, false);
+
+    rangez.addEventListener('change', function (e) {
+      showz.innerHTML = `rotateZ: (${rangez.value} deg)`;
+      wrap.style.transform = `rotateX(${rangex.value}deg) rotateY(${rangey.value}deg) rotateZ(${rangez.value}deg)`;
+    }, false);
+  </script>
+</body>
+
+</html>
