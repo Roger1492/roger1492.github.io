@@ -22,12 +22,8 @@
       width: 500px;
       height: 500px;
       transform-origin: 50% 50%;
-      /* border: 1px solid lightgray; */
-      /* perspective: 800; */
-      /* -webkit-perspective: 800; */
       transform-style: preserve-3d;
       -webkit-transform-style: preserve-3d;
-      /* transform: rotateX(10deg); */
     }
 
     .sub {
@@ -39,7 +35,6 @@
       line-height: 400px;
       text-align: center;
       font-size: 50px;
-      border: 1px solid gray;
     }
 
     .top {
@@ -84,7 +79,9 @@
     }
     .controls div span{
       display: inline-block;
-      width: 150px;
+      background: lightgray;
+      width: 40px;
+      text-align: center;
     }
   </style>
 </head>
@@ -101,41 +98,56 @@
     </div>
   </div>
   <div class="controls">
-    <div>
-      <span id="showx">rotateX:(?deg) </span>
-      <input type="range" min="0" max="360" step="1" id="rangex">
-    </div>
-    <div>
-      <span id="showy">rotateY:(?deg) </span>
-      <input type="range" min="0" max="360" step="1" id="rangey">
-    </div>
-    <div>
-      <span id="showz">rotateZ:(?deg) </span>
-      <input type="range" min="0" max="360" step="1" id="rangez">
-    </div>
+    <div>rotateX: <span contenteditable id="rx">0</span> deg</div>
+    <div>rotateY: <span contenteditable id="ry">0</span> deg</div>
+    <div>rotateZ: <span contenteditable id="rz">0</span> deg</div>
   </div>
   <script>
     let wrap = document.getElementsByClassName('wrap')[0];
-    let showx = document.getElementById('showx');
-    let showy = document.getElementById('showy');
-    let showz = document.getElementById('showz');
-    let rangex = document.getElementById('rangex');
-    let rangey = document.getElementById('rangey');
-    let rangez = document.getElementById('rangez');
+    let rx = document.getElementById('rx');
+    let ry = document.getElementById('ry');
+    let rz = document.getElementById('rz');
+    let numx = 0;
+    let numy = 0;
+    let numz = 0;
 
-    rangex.addEventListener('change', function (e) {
-      showx.innerHTML = `rotateX: (${rangex.value} deg)`;
-      wrap.style.transform = `rotateX(${rangex.value}deg) rotateY(${rangey.value}deg) rotateZ(${rangez.value}deg)`;
+    rx.addEventListener('keydown', function (e) {
+      if(e.keyCode === 38){
+        numx += 1;
+        rx.innerHTML = numx;
+        wrap.style.transform = `rotateX(${numx}deg) rotateY(${numy}deg) rotateZ(${numz}deg)`;
+      }
+      if(e.keyCode === 40){
+        numx -= 1;
+        rx.innerHTML = numx;
+        wrap.style.transform = `rotateX(${numx}deg) rotateY(${numy}deg) rotateZ(${numz}deg)`;
+      }
     }, false);
 
-    rangey.addEventListener('change', function (e) {
-      showy.innerHTML = `rotateY: (${rangey.value} deg)`;
-      wrap.style.transform = `rotateX(${rangex.value}deg) rotateY(${rangey.value}deg) rotateZ(${rangez.value}deg)`;
+    ry.addEventListener('keydown', function (e) {
+      if(e.keyCode === 38){
+        numy += 1;
+        ry.innerHTML = numy;
+        wrap.style.transform = `rotateX(${numx}deg) rotateY(${numy}deg) rotateZ(${numz}deg)`;
+      }
+      if(e.keyCode === 40){
+        numy -= 1;
+        ry.innerHTML = numy;
+        wrap.style.transform = `rotateX(${numx}deg) rotateY(${numy}deg) rotateZ(${numz}deg)`;
+      }
     }, false);
 
-    rangez.addEventListener('change', function (e) {
-      showz.innerHTML = `rotateZ: (${rangez.value} deg)`;
-      wrap.style.transform = `rotateX(${rangex.value}deg) rotateY(${rangey.value}deg) rotateZ(${rangez.value}deg)`;
+    rz.addEventListener('keydown', function (e) {
+      if(e.keyCode === 38){
+        numz += 1;
+        rz.innerHTML = numz;
+        wrap.style.transform = `rotateX(${numx}deg) rotateY(${numy}deg) rotateZ(${numz}deg)`;
+      }
+      if(e.keyCode === 40){
+        numz -= 1;
+        rz.innerHTML = numz;
+        wrap.style.transform = `rotateX(${numx}deg) rotateY(${numy}deg) rotateZ(${numz}deg)`;
+      }
     }, false);
   </script>
 </body>
