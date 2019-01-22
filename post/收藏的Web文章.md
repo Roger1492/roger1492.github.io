@@ -15,6 +15,7 @@
 [for...of vs for...in Loops in JavaScript](https://alligator.io/js/for-of-for-in-loops/)  
 [[译] JavaScript：回调是什么鬼？](https://juejin.im/post/594b3607128fe100650355c7)  
 [JavaScript 代码简洁之道](https://juejin.im/post/5c24b7a851882509a76875e8)  
+[从标准原理出发理解 JavaScript 数值精度](https://juejin.im/post/5c3db8b7e51d45515817bdeb)  
 
 ## CSS
 
