@@ -1,12 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Day 007 - 旋转相册</title>
+    <style>
+        .container{
+            position: relative;
+            margin: 200px auto;
+            border: 1px solid lightgray;
+            width: 600px;
+            height: 600px;
+            transform-style: preserve-3d;
+            /* perspective: 800; */
+            /* -webkit-perspective: 800; */
+        }
+        .wrap {
+            position: relative;
+            top: 131px;
+            transform-style: preserve-3d;
+            perspective: 3000;
+            -webkit-perspective: 3000;
+            transform: rotateY(40deg);
+        }
+
+        section {
+            position: absolute;
+            width: 600px;
+            height: 338px;
+        }
+        
+        section:nth-of-type(1) {
+            /* transform-origin: 100% 50%; */
+            /* transform: rotateY(120deg); */
+            background: rgba(173, 216, 230, 0.377);
+        }
+
+        section:nth-of-type(2) {
+            transform-origin: 100% 50%;
+            transform: rotateY(120deg);
+            background: rgba(75, 150, 53, 0.377);
+        }
+
+        section:nth-of-type(3) {
+            transform-origin: 0 50%;
+            transform: rotateY(-120deg);
+            background: rgba(75, 77, 165, 0.377);
+        }
+
+        section:nth-of-type(4) {
+            transform-origin: 50% 50%;
+            transform: translate(-517px) rotateY(120deg);
+            background: rgba(167, 184, 71, 0.377);
+        }
+
+        section:nth-of-type(5) {
+            transform-origin: 50% 50%;
+            transform: translate(400px) rotateY(240deg);
+            background: rgba(199, 75, 199, 0.377);
+        }
+
+        section:nth-of-type(6) {
+            transform: rotateY(120deg);
+            background: rgba(187, 38, 38, 0.281);
+        }
+
+        section>img {
+            position: relative;
+            width: 600px;
+            height: 338px;
+            opacity: .5;
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="wrap">
+            <section><img src="F:\Wallpaper\4.jpg" alt=""></section>
+            <section><img src="F:\Wallpaper\2.jpg" alt=""></section>
+            <section><img src="F:\Wallpaper\12.jpg" alt=""></section>
+            <section><img src="F:\Wallpaper\59.jpg" alt=""></section>
+            <section><img src="F:\Wallpaper\75.jpg" alt=""></section>
+            <section><img src="F:\Wallpaper\76.jpg" alt=""></section>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -1,0 +1,60 @@
+* 标题
+第一级标题是一个”*",第二级标题是两个“**”，一次类推。
+
+* M-RET
+插入新行
+
+* 加重
+
++throuthline+
+
+_underline_
+
+/italic/
+
+In org-mode, TODO items are always /headlines/, I enterd TODO item for "Start new org file for tutorial". This is a bit silly, because we're already started a new file.
+So, let's mark the +throuthline+ TODO item DONE by moving thte cursor onto that line and hitting C-c C-t, which runs the command org-todo. Here is the result. Notice how org-mode 
+use a _timestamp_ to record when a TODO items was closed. Let's add some more TODO items. Position the cursor on the next line, and hit +M-shift-RET+ to call 
+org-insert-todo-heading. You can hit it severa times to add several TODOs. Useing headlines to structure a +document+. Often the best way to orgainze your ideas is an 
+outline the different _topics_ of the tutorial, By doing  this, you break up the intimidating blank page into a series of /less-intimidating/ smaller chunks. Then it becomes 
+easier to fill them in.
+
+* TODO项目
+
+所有的TOOD项目都是以标题的形式存在。我们在标题上按 C-c 和 C-t 就可以在 ”DONE“，”HEAD“，”TODO“之间切换。
+在TODO项目里按 C-c C-s 添加时间戳
+
+* 导入和导出
+
+C-c 和 C-e 就可以调出导出界面，然后按相应的快捷键导出相应的格式。
+
+* Tables
+   SCHEDULED: <2019-01-26 Sat>
+
+| name | age  | country | gender |
+|------+------+---------+--------|
+| Jim  |  22  |   USA   |  Male  |
+| Roger|  26  |  China  |  Male  |
+| lewis|  29  |  Japan  |  Male  |
+| Jack |  33  |   UK    | Female |
+
+* Hyperlinks
+
+[[https://www.zhihu.com][Zhihu]]
+
+lorem foe afhia fieaf fasef fisaefh afi [[https://www.google.com][Google]] seafiasf asf iasf hsao kmo nfiajef.
+
+* Lists
+*** Lord of the Rings
+    My favorite scene are (in the order)
+    1. The attack of the Rohirrim
+    2. Eowyn's fight with the witch king
+       + this was already my favorite scene in the book
+       + I really like Miranda Otto
+    3. Peter Jackson being shot by Legolas
+       - on DVD only
+     He makes a really funny face when it happens.
+    But in the end, no individual snenes matter but the film as a whole.
+    Importand actors in this film are:
+    - Elijah Wood :: He plays Frode
+    - Sean Austing :: He plays San, Frodo's friend. I still remembr

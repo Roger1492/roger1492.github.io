@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 054 - 地图</title>
+  <style>
+    #container{
+      width: 60vw;
+      height: 60vh;
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="container"></div>
+  <button id="showTrafficLayer">显示实时路况图层</button>
+  <button id="hideTrafficLayer">隐藏实时路况图层</button><br>
+  <button id="showSatelliteLayer">显示卫星图层</button>
+  <button id="hideSatelliteLayer">隐藏卫星图层</button><br>
+  <button id="showRoadNetLayer">显示路网图层</button>
+  <button id="hideRoadNetLayer">隐藏路网图层</button><br>
+
+
+  <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.12&key=d97dbd39ba720a972b5ed0c9c4045c92"></script> 
+  <script>
+    let showTrafficLayer = document.getElementById('showTrafficLayer');
+    let hideTrafficLayer = document.getElementById('hideTrafficLayer');
+    let showSatelliteLayer = document.getElementById('showSatelliteLayer');
+    let hideSatelliteLayer = document.getElementById('hideSatelliteLayer');
+    let showRoadNetLayer = document.getElementById('showRoadNetLayer');
+    let hideRoadNetLayer = document.getElementById('hideRoadNetLayer');
+
+    // 图层
+    let satellite = new AMap.TileLayer.Satellite();
+    let roadNet = new AMap.TileLayer.RoadNet();
+    let trafficLayer = new AMap.TileLayer.Traffic({
+      zIndex: 10,
+      'autoRefresh': true,    //是否自动刷新，默认为false
+      'interval': 180,        //刷新间隔，默认180s
+    });
+
+    var map = new AMap.Map('container',{
+      zoom: 11,     // 级别
+      resizeEnable: true,     // 重置大小
+      center: [116.397428, 39.90923],     // 中心坐标
+      viewMode: '3D',    // 使用3D视图
+      layers: [],           // 初始化时就添加多个图层
+    });
+
+
+    showTrafficLayer.addEventListener('click', function(e){ map.add(trafficLayer); }, false);
+    hideTrafficLayer.addEventListener('click', function(e){ map.remove(trafficLayer); }, false);
+
+    showSatelliteLayer.addEventListener('click', function(e){ map.add(satellite) }, false);
+    hideSatelliteLayer.addEventListener('click', function(e){ map.remove(satellite) }, false);
+
+    showRoadNetLayer.addEventListener('click', function(e){ map.add(roadNet) }, false);
+    hideRoadNetLayer.addEventListener('click', function(e){ map.remove(roadNet) }, false);
+  </script>
+</body>
+</html>
