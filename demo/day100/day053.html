@@ -1,12 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 65de2ed2f7c756b92d525c01c6b60af252dc31ca
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<<<<<<< HEAD
   <title>Day 053 - 输入框的历史记录</title>
 </head>
 <body>
   
 </body>
+=======
+  <title>Day 053 - 钟表</title>
+  <style>
+    #wrap {
+      position: absolute;
+      transform: translate(300px,-600px);
+    }
+
+    #hour {
+      position: absolute;
+      transform-origin: 50% 100%;
+      transform: translateY(130px);
+      width: 5px;
+      height: 150px;
+      background: black;
+    }
+
+    #minute {
+      position: absolute;
+      transform-origin: 50% 100%;
+      transform: translate(1px,80px);
+      width: 3px;
+      height: 200px;
+      background: rgb(109, 108, 108);
+    }
+
+    #second {
+      position: absolute;
+      transform-origin: 50% 100%;
+      width: 1px;
+      height: 280px;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <canvas id="canvas" width="602" height="602"></canvas>
+    <div id="wrap">
+      <section id="hour"></section>
+      <section id="minute"></section>
+      <section id="second"></section>
+    </div>
+  </div>
+  <script>
+    let ctx = document.getElementById('canvas').getContext('2d');
+    let hour = document.getElementById('hour');
+    let minute = document.getElementById('minute');
+    let second = document.getElementById('second');
+
+    let num = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
+    let x, y;
+    ctx.beginPath();
+    ctx.font = '16px Arial';
+    ctx.arc(300, 300, 300, 0, Math.PI * 2, true);
+    ctx.translate(295, 305);
+    for (let i = 0; i < 12; i++) {
+      x = 290 * Math.cos((Math.PI / 6) * i);
+      y = 290 * Math.sin((Math.PI / 6) * i);
+      ctx.fillText(num[i], x, y);
+    }
+    ctx.stroke();
+    ctx.closePath();
+
+    function runHour(){
+      setInterval(function () {
+        let time = new Date().getHours();
+        hour.style.transform = `translateY(130px) rotateZ(${time*6}deg)`;
+      }, 1000);
+    }
+
+    function runMinute(){
+      setInterval(function () {
+        let time = new Date().getMinutes();
+        minute.style.transform = `translate(1px,80px) rotateZ(${time*6}deg)`;
+      }, 1000);
+    }
+
+    function runSecond() {
+      setInterval(function () {
+        let time = new Date().getSeconds();
+        second.style.transform = `rotateZ(${time*6}deg)`;
+      }, 1000);
+    }
+    runSecond();
+    runMinute();
+    runHour();
+  </script>
+</body>
+
+>>>>>>> 65de2ed2f7c756b92d525c01c6b60af252dc31ca
 </html>
