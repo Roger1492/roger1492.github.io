@@ -4,7 +4,6 @@
 [Python爬虫 Mzitu](post/python_mzitu_all.md)  
 [Emacs快捷键总结](post/Emacs快捷键总结.md)  
 [Emacs配置文件](post/Emacs配置文件.md)  
-[Org-Mode基础学习](post/Org-Mode基础学习.org)  
 [JavaScript中的堆栈完全理解](post/head_and_stack.md)  
 [JS的原型与原型链](post/JS的原型与原型链)  
 [Ajax和Fetch的简单运用](post/Ajax_n_Fetch的简单运用.md)  
