@@ -74,20 +74,13 @@
                 initialX = e.touches[0].clientX - xOffset;
                 initialY = e.touches[0].clientY - yOffset;
             } else {
-                initialX = e.clientX - xOffset;
+                initialX = e.clientX - xOffset; // 获取初始位置
                 initialY = e.clientY - yOffset;
             }
 
             if (e.target === dragItem) {
                 active = true;
             }
-        }
-
-        function dragEnd(e) {
-            initialX = currentX;
-            initialY = currentY;
-
-            active = false;
         }
 
         function drag(e) {
@@ -99,19 +92,27 @@
                     currentX = e.touches[0].clientX - initialX;
                     currentY = e.touches[0].clientY - initialY;
                 } else {
-                    currentX = e.clientX - initialX;
+                    currentX = e.clientX - initialX;        // 获取当前位置
                     currentY = e.clientY - initialY;
                 }
 
-                xOffset = currentX;
+                xOffset = currentX;         // 偏移量就是当前位置
                 yOffset = currentY;
 
-                setTranslate(currentX, currentY, dragItem);
+                setTranslate(currentX, currentY, dragItem);     // 移动后 实时更新位置
+            }
+
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
             }
         }
 
-        function setTranslate(xPos, yPos, el) {
-            el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+
+        function dragEnd(e) {
+            initialX = currentX;        // 移动停止后，初始位置就是当前位置
+            initialY = currentY;
+
+            active = false;
         }
     </script>
 </body>
