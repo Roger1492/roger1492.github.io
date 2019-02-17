@@ -21,7 +21,9 @@
 ### 事件循环 Event Loop
 [JavaScript 事件循环](https://segmentfault.com/a/1190000014522243)  
 [详解JavaScript中的Event Loop（事件循环）机制](https://www.cnblogs.com/cangqinglang/p/8967268.html)  
-[图解搞懂JavaScript引擎Event Loop](https://juejin.im/post/5a6309f76fb9a01cab2858b1)
+[图解搞懂JavaScript引擎Event Loop](https://juejin.im/post/5a6309f76fb9a01cab2858b1)  
+[深入理解JavaScript的事件循环（Event Loop）](https://zhuanlan.zhihu.com/p/46068171)  
+[并发模型与事件循环](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop)  
 
 ### 跨域
 [九种跨域方式实现原理（完整版）](https://juejin.im/post/5c23993de51d457b8c1f4ee1)  
