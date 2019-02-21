@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 027 - 放大镜效果</title>
+</head>
+
+<body>
+  
+  <div id="top">
+    <section>111111111111</section>
+    <section>22222222222222222</section>
+    <section>33333333333333333</section>
+    <section>44444444444444444</section>
+    <section>5555555555555555</section>
+    <section>66666666666666666666</section>
+    <section>777777777777777</section>
+    <section>8888888888888888</section>
+    <section>999999999999999999</section>
+  </div>
+
+  <script>
+    let tp = document.getElementById('top');
+    tp.addEventListener('click', function(e){
+      if(e.target.tagName === 'SECTION'){
+        console.log(e.target.innerHTML);
+      }
+    }, false);
+</script>
+</body>
+
+</html>
