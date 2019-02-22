@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 022 - 弹幕</title>
+  <style>
+    #wrap{
+      position: relative;
+      width: 800px;
+      height: 600px;
+      border: 1px solid gray;
+    }
+    #video{
+      position: relative;
+      width: 800px;
+      height: 570px;
+      border: 1px solid gray;
+      overflow: hidden;
+    }
+    #video-source{
+      width: 100%;
+      height: 100%;
+    }
+    #video-danmu{
+      z-index: 999;
+    }
+    input{
+      width: 620px;
+      height: 22px;
+      float: left;
+    }
+    #btn{
+      float: left;
+      width: 76px;
+      height: 28px;;
+      border: none;
+    }
+    .danmu{
+      position: absolute;
+      width: 100%;
+      left: 800px;
+      animation: run 8s linear;
+    }
+    #danmu-controls{
+      position: relative;
+      width: 100px;
+      float: left;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+    }
+    #danmu-show{
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      left: -124px;
+      top: -201px;
+      background: rgba(146, 144, 144, 0.514);
+      display: none;
+    }
+    #danmu-show input{
+      width: 200px;
+    }
+    @keyframes run{
+      0%{
+        transform: translateX(0px);
+      }
+      100%{
+        transform: translateX(-140%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    log:
+    version 0.1 基础功能完成
+    TODO: version 0.2 弹幕样式设定
+   -->
+  <div id="wrap">
+    <!-- 视频wrap -->
+    <div id="video">
+      <!-- 视频内容 -->
+      <div id="video-source">
+        <!-- <video src=""></video> -->
+        <!-- <img src="E:\Wallpaper\7.jpg" alt=""> -->
+      </div>
+      <!-- 弹幕在 #video-danmu 里面 -->
+      <div id="video-danmu"></div>
+    </div>
+    <div id="controls">
+      <input type="text" placeholder="弹幕">
+      <div id="danmu-controls">
+        <div id="danmu-content">样式</div>
+        <div id="danmu-show">
+          <div>
+            字体大小:<input type="range" name="range" id="fontsize" min="16" max="46" step="10">
+          </div>
+        </div>
+      </div>
+      <button id="btn">输入弹幕</button>
+    </div>
+  </div>
+
+  <script>
+    let video = document.getElementById('video');
+    let videoSource = document.getElementById('video-source');
+    let videoDanmu = document.getElementById('video-danmu');
+    let danmuContent = document.getElementById('danmu-content');
+    let danmuShow = document.getElementById('danmu-show');
+    let input = document.getElementsByTagName('input')[0];
+    let btn = document.getElementById('btn');
+
+    // 发射弹幕
+    btn.addEventListener('click', function(e){
+      danmu();
+    }, false);
+
+    // 显示/隐藏 样式控制模块 TODO: 有点小问题
+    danmuContent.addEventListener('mouseover', function(e){
+      danmuShow.style.display = 'block';
+    }, false);
+    danmuContent.addEventListener('mouseout', function(e){
+      danmuShow.style.display = 'none';
+    }, false);
+
+    danmuShow.addEventListener('mouseover', function(e){
+      danmuShow.style.display = 'block';
+    }, false);
+
+    function danmu(){
+      // 点击发送弹幕按钮之后：
+      // 生成弹幕
+      // 移动到左边
+      // 弹幕消失
+      // TODO: 弹幕如果是汉字的话，有问题。是竖排显示的
+      let createDanmu = document.createElement('div');
+      let h = Math.floor(Math.random() * 550);
+      createDanmu.innerHTML = input.value;
+      createDanmu.classList.add('danmu');
+      createDanmu.style.top = h + 'px';
+      videoDanmu.appendChild(createDanmu);
+      input.value = '';
+      setTimeout((e) => {
+        createDanmu.remove();
+      }, 8000);
+    }
+  </script>
+</body>
+</html>
