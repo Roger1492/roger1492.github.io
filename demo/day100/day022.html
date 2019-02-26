@@ -39,8 +39,14 @@
     }
     .danmu{
       position: absolute;
-      width: 100%;
+      width: 100vw;
       left: 800px;
+      height: 20px;
+
+      /* font-size: 34px;
+      text-decoration: underline;
+      color: red; */
+
       animation: run 8s linear;
     }
     #danmu-controls{
@@ -50,6 +56,13 @@
       line-height: 30px;
       text-align: center;
       cursor: pointer;
+    }
+    #danmu-content{
+      height: 28px;
+    }
+    #danmu-content:hover{
+      background: gray;
+      color: white;
     }
     #danmu-show{
       position: absolute;
@@ -63,13 +76,10 @@
     #danmu-show input{
       width: 200px;
     }
+
     @keyframes run{
-      0%{
-        transform: translateX(0px);
-      }
-      100%{
-        transform: translateX(-140%);
-      }
+      0%{ transform: translateX(0px); }
+      100%{ transform: translateX(-100vw); }
     }
   </style>
 </head>
@@ -96,11 +106,26 @@
         <div id="danmu-content">样式</div>
         <div id="danmu-show">
           <div>
-            字体大小:<input type="range" name="range" id="fontsize" min="16" max="46" step="10">
+            字号：<span>小</span><span>标准</span>
+          </div>
+          <div>
+            颜色：<input type="text" id="get-color"><span></span>
+            <div>
+              <span class="color" id="red"></span>
+              <span class="color" id="orange"></span>
+              <span class="color" id="yellow"></span>
+              <span class="color" id="green"></span>
+              <span class="color" id="blue"></span>
+              <span class="color" id="lightblue"></span>
+              <span class="color" id="pink"></span>
+              <span class="color" id="black"></span>
+              <span class="color" id="gray"></span>
+              <span class="color" id="white"></span>
+            </div>
           </div>
         </div>
       </div>
-      <button id="btn">输入弹幕</button>
+      <button id="btn">发射弹幕</button>
     </div>
   </div>
 
@@ -109,6 +134,7 @@
     let videoSource = document.getElementById('video-source');
     let videoDanmu = document.getElementById('video-danmu');
     let danmuContent = document.getElementById('danmu-content');
+    let danmuControls = document.getElementById('danmu-controls');
     let danmuShow = document.getElementById('danmu-show');
     let input = document.getElementsByTagName('input')[0];
     let btn = document.getElementById('btn');
@@ -116,18 +142,14 @@
     // 发射弹幕
     btn.addEventListener('click', function(e){
       danmu();
+    // let danmu = document.getElementsByClassName('danmu')[0];
     }, false);
 
-    // 显示/隐藏 样式控制模块 TODO: 有点小问题
-    danmuContent.addEventListener('mouseover', function(e){
+    danmuControls.addEventListener('mouseover', function(e){
       danmuShow.style.display = 'block';
     }, false);
-    danmuContent.addEventListener('mouseout', function(e){
+    danmuControls.addEventListener('mouseout', function(e){
       danmuShow.style.display = 'none';
-    }, false);
-
-    danmuShow.addEventListener('mouseover', function(e){
-      danmuShow.style.display = 'block';
     }, false);
 
     function danmu(){
