@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 057 - 节拍器</title>
+  <style>
+    #speedUp,#speedDown{
+      display: inline-block;
+      border: 1px solid gray;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    #speedUp:hover,#speedDown:hover{
+      background: gray;
+      color: white;
+    }
+    #speedNum{
+      margin-left: 40px;
+      margin-right: 40px;
+      font-size: 30px;
+      font-weight: 800;
+    }
+    #circle{
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+      font-size: 80px;
+      border: 1px solid gray;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    #circle:hover{
+      color: gray;
+    }
+    #circle:active{
+      color: red;
+    }
+    #note-dot{
+      margin-top: 20px;
+      text-align: center;
+      width: 200px;
+    }
+    #note-dot span{
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background: gray;
+      border-radius: 50%;
+      margin-left: 1px;
+    }
+    #note-dot span:nth-of-type(1){
+      width: 20px;
+      height: 20px;
+    }
+    #note-dot-num{
+      width: 200px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 800;
+    }
+    #note-num-wrap{
+      width: 230px;
+    }
+    .note{
+      display: inline-block;
+      margin: 5px;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border: 1px solid gray;
+      cursor: pointer;
+    }
+    .note:hover{
+      background: gray;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="speed">
+      <span id="speedDown">-</span>
+      <span id="speedNum">120</span>
+      <span id="speedUp">+</span>
+    </div>
+    <div id="circle">
+      ▶
+    </div>
+    <div id="note-wrap">
+      <div id="note-dot-wrap">
+        <div id="note-dot">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="note-dot-num">4/4</div>
+      </div>
+      <div id="note-num-wrap">
+        <div class="note note1">1/4</div>
+        <div class="note note2">2/4</div>
+        <div class="note note3">3/4</div>
+        <div class="note note4">4/4</div>
+        <div class="note note5">5/4</div>
+        <div class="note note6">7/4</div>
+        <div class="note note7">5/8</div>
+        <div class="note note8">6/8</div>
+        <div class="note note9">7/8</div>
+        <div class="note note10">9/8</div>
+        <div class="note note11">12/8</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let speedUp = document.getElementById('speedUp');
+    let speedDown = document.getElementById('speedDown');
+    let speedNum = document.getElementById('speedNum');
+    let speedNumber = Number.parseInt(speedNum.innerText);
+    let noteDotNum = document.getElementById('note-dot-num');
+    let note = Array.from(document.getElementsByClassName('note'));
+    let noteDot = document.getElementById('note-dot');
+
+    // 加速/减速
+    speedUp.addEventListener('click', function(e){
+      if(speedNumber <= 30 || speedNumber >= 480){
+        return;
+      } else {
+        speedNumber++;
+      }
+      speedNum.innerHTML = speedNumber;
+    }, false);
+    speedDown.addEventListener('click', function(e){
+      if(speedNumber <= 30 || speedNumber >= 480){
+        return;
+      } else {
+        speedNumber--;
+      }
+      speedNum.innerHTML = speedNumber;
+    }, false);
+
+    function changeNote(n){
+      noteDot.innerHTML = null;
+      for(let i = 0; i < n; i++){
+        let createSpan = document.createElement('span');
+        noteDot.appendChild(createSpan);
+      }
+    }
+
+    // 改变拍子数
+    note.forEach((ele,ind,arr) => {
+      ele.addEventListener('click', function(e){
+        noteDotNum.innerHTML = this.innerHTML;
+        let num = noteDotNum.innerHTML.split('/')[0];
+        changeNote(num);
+      }, false);
+    })
+  </script>
+</body>
+
+</html>
