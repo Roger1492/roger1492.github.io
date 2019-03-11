@@ -8,6 +8,9 @@
 ### 变量提升
 [变量提升和函数提升](https://www.cnblogs.com/liuhe688/p/5891273.html)  
 
+### 闭包
+[JavaScript闭包的秘密](https://kryogenix.org/code/browser/secrets-of-javascript-closures/secrets_of_javascript_closures.pdf)  
+
 ### 回调函数
 [[译] JavaScript：回调是什么鬼？](https://juejin.im/post/594b3607128fe100650355c7)  
 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 058 - 贝塞尔曲线</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #sp,
+    #ep {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: black;
+      z-index: 999;
+    }
+
+    #cp1,
+    #cp2 {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    #sp {
+      top: 50px;
+      left: 50px;
+    }
+
+    #ep {
+      top: 650px;
+      left: 650px;
+    }
+
+    #cp1 {
+      top: 500px;
+      left: 250px;
+    }
+
+    #cp2 {
+      top: 100px;
+      left: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    贝塞尔曲线：
+    可调控的贝塞尔曲线
+   -->
+  <div id="container">
+    <canvas id="myCanvas" width="700" height="700" style="border: 1px solid gray;"></canvas>
+    <div id="wrap">
+      <div id="sp"></div> <!-- 开始点 -->
+      <div id="cp1"></div> <!-- 控制点 1 -->
+      <div id="cp2"></div> <!-- 控制点 2 -->
+      <div id="ep"></div> <!-- 结束点 -->
+    </div>
+  </div>
+
+  <script>
+    let ctx = document.getElementById('myCanvas').getContext('2d');
+
+    function draw() {
+      let sp = document.getElementById('sp');
+      let ep = document.getElementById('ep');
+      let cp1 = document.getElementById('cp1');
+      let cp2 = document.getElementById('cp2');
+      let spx = sp.getBoundingClientRect().x;
+          spy = sp.getBoundingClientRect().y;
+          epx = ep.getBoundingClientRect().x;
+          epy = ep.getBoundingClientRect().y;
+          cp1x = cp1.getBoundingClientRect().x;
+          cp1y = cp1.getBoundingClientRect().y;
+          cp2x = cp2.getBoundingClientRect().x;
+          cp2y = cp2.getBoundingClientRect().y;
+
+          ctx.beginPath();
+          ctx.moveTo(spx,spy);
+          ctx.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,epx,epy);
+          ctx.stroke();
+    }
+    draw();
+
+    sp.addEventListener('mousemove', draw, false);
+    ep.addEventListener('mousemove', draw, false);
+
+  </script>
+</body>
+
+</html>
