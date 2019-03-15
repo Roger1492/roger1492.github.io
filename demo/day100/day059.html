@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 059 - 太阳系</title>
+  <style>
+    html,body{
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .solar-system{
+      position: relative;
+      width: 900px;
+      height: 900px;
+      background: black;
+    }
+
+    .mercury,
+    .venus,
+    .earth,
+    .mars,
+    .jupiter,
+    .saturn,
+    .uranus,
+    .neptune,
+    .pluto{
+      position: absolute;
+      border: 1px solid white;
+      border-radius: 50%;
+    }
+
+    *::after,
+    *::before{
+      position: absolute;
+      content: '';
+    }
+
+    .sun{
+      position: absolute;
+      left: 445px;
+      top: 445px;
+      width: 40px;
+      height: 40px;
+      background: yellow;
+      border-radius: 50%;
+    }
+
+    .mercury{
+      left: 420px;
+      top: 420px;
+      width: 90px;
+      height: 90px;
+      animation: run-mercury 10s infinite linear;
+    }
+    .mercury::after{
+      left: 20px;
+      width: 10px;
+      height: 10px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .venus{
+      left: 385px;
+      top: 385px;
+      width: 160px;
+      height: 160px;
+    }
+
+    .earth{
+      left: 345px;
+      top: 345px;
+      width: 240px;
+      height: 240px;
+    }
+
+    .mars{
+      left: 305px;
+      top: 305px;
+      width: 320px;
+      height: 320px;
+    }
+
+    .jupiter{
+      left: 250px;
+      top: 250px;
+      width: 430px;
+      height: 430px;
+    }
+
+    .saturn{
+      left: 200px;
+      top: 200px;
+      width: 530px;
+      height: 530px;
+    }
+
+    .uranus{
+      left: 150px;
+      top: 150px;
+      width: 630px;
+      height: 630px;
+    }
+
+    .neptune{
+      left: 100px;
+      top: 100px;
+      width: 730px;
+      height: 730px;
+    }
+
+    .pluto{
+      left: 50px;
+      top: 50px;
+      width: 830px;
+      height: 830px;
+    }
+
+    @keyframes run-mercury{
+      100%{
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="solar-system">
+    <div title="Sun" class="sun"></div>
+    <div title="Mercury" class="mercury"></div>
+    <div title="Venus" class="venus"></div>
+    <div title="Earth" class="earth"></div>
+    <div title="Mars" class="mars"></div>
+    <div title="Jupiter" class="jupiter"></div>
+    <div title="Saturn" class="saturn"></div>
+    <div title="Uranus" class="uranus"></div>
+    <div title="Neptune" class="neptune"></div>
+    <div title="Pluto" class="pluto"></div>
+    <div title="Asteroids-belt" class="asteroids-belt"></div>
+  </div>
+</body>
+</html>
