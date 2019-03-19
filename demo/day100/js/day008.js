@@ -16,13 +16,7 @@ taskbarIcon[2].addEventListener("click", function (e) {
     windowsApp[1].style.display = "block";
 }, false);
 
-// TODO:
-// 拖动以打开的应用
-// dragTitlebar.addEventListener("keypress", function(e){
-//     dragTitlebar.addEventListener("mousemove", function(ev){
-//         console.log(ev.clientX);
-//     }, false);
-// }, false);
+// TODO: 拖动元素
 
 // 关闭应用
 close.forEach((ele, ind, arr) => {
