@@ -16,6 +16,7 @@
 
 ### this
 [JavaScript 的 this 原理](http://www.ruanyifeng.com/blog/2018/06/javascript-this.html)  
+[彻底理解js中this的指向，不必硬背](https://www.cnblogs.com/pssp/p/5216085.html)  
 
 ### 深拷贝和浅拷贝
 [深入理解JavaScript中的堆与栈 、浅拷贝与深拷贝](https://blog.csdn.net/flyingpig2016/article/details/52895620)  
