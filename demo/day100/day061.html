@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 061 - 随机获取一句诗词</title>
+  <style>
+    html,body{
+      font-family: 'Microsoft YaHei','Courier New', Courier, monospace;
+    }
+    #show{
+      position: relative;
+      max-width: 600px;
+      height: 300px;
+      border: 1px solid gray;
+      background: #f2ecde;
+      border-radius: 10px;
+      padding-left: 10px;
+    }
+    #category{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: #a78639;
+      font-style: italic;
+    }
+    .top{
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: #a78639;
+    }
+    #author{
+      font-size: 20px;
+    }
+    #intro{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 13px;
+      color: gray;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    #content{
+      font-size: 30px;
+      color: #a78639;
+    }
+    #intro:hover{
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="show">
+    <div id="category">古诗文-抒情-离别</div>
+    <div class="top">
+      <span id="author">柳永</span>
+      《<a href="" target="_blank" id="origin">雨霖铃·寒蝉凄切</a>》
+    </div>
+    <div id="content">多情自古伤离别，更那堪冷落清秋节！</div>
+    <span id="intro">点击我随机生成一句诗词</span>
+  </div>
+  <script>
+    let intro = document.getElementById('intro');
+    let category = document.getElementById('category');
+    let author = document.getElementById('author');
+    let origin = document.getElementById('origin');
+    let content = document.getElementById('content');
+
+    let btn = document.getElementById('btn');
+    let url = 'https://api.gushi.ci/all.json';
+
+    // 切换诗词
+    intro.addEventListener('click', function(e){
+      fetch(url)
+      .then(res => res.json())
+      .then(json => {
+        category.innerHTML = json.category;
+        author.innerHTML = json.author;
+        origin.innerHTML = json.origin;
+        content.innerHTML = json.content;
+      })
+    }, false);
+
+    // 搜索诗词
+    origin.addEventListener('click', function(e){
+    this.href = 'https://so.gushiwen.org/search.aspx?value=' + this.innerHTML;
+    }, false);
+  </script>
+</body>
+</html>

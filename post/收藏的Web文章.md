@@ -11,6 +11,10 @@
 ### 闭包
 [JavaScript闭包的秘密](https://kryogenix.org/code/browser/secrets-of-javascript-closures/secrets_of_javascript_closures.pdf)  
 
+### 构造函数
+[JavaScript 中的构造函数](https://juejin.im/entry/584a1c98ac502e006c5d63b8)  
+[深入javascript——构造函数和原型对象](https://segmentfault.com/a/1190000000602050)  
+
 ### 回调函数
 [[译] JavaScript：回调是什么鬼？](https://juejin.im/post/594b3607128fe100650355c7)  
 
