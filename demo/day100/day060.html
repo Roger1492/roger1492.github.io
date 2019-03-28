@@ -4,75 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Day 060 - 图章制作</title>
-  <style>
-    .control-panel{
-      width: 300px;
-      height: 600px;
-      border: 1px solid gray;
-      float: left;
-    }
-  </style>
+  <title>Document</title>
 </head>
 <body>
-  <div class="wrap">
-    <div class="control-panel">
-      <input type="text" placeholder="Test 1" id="text1">
-      <input type="text" placeholder="Test 2" id="text2">
-      <div>
-        text2-X: <input type="text" name="" id="text2x"><br>
-        text2-Y: <input type="text" name="" id="text2y">
-      </div>
-    </div>
-    <canvas id="canvas" width="600" height="600" style="border: 1px solid gray;"></canvas>
-  </div>
-
-  <script>
-    let text1 = document.getElementById('text1');
-    let text2 = document.getElementById('text2');
-    let text2x = document.getElementById('text2x');
-    let text2y = document.getElementById('text2y');
-
-    let args = {
-      text1: 'Testing1',
-      text2: 'Testing2',
-      text2x: 10,
-      text2y: 20
-    };
-
-    // args.text2x = text2x.value;
-    // args.text2y = text2y.value;
-
-    let ctx = document.getElementById('canvas').getContext('2d');
-
-    // 画圆
-    ctx.beginPath()
-    ctx.arc(300,300,300,0,2*Math.PI,true);
-    ctx.stroke();
-    ctx.closePath();
-
-    // 画五角星
-    ctx.beginPath();
-    ctx.moveTo(300,180);
-    ctx.lineTo(330,260);
-    ctx.lineTo(420,260);
-    ctx.lineTo(350,330);
-    ctx.lineTo(380,420);
-    ctx.lineTo(300,370);
-    ctx.lineTo(220,420);
-    ctx.lineTo(250,330);
-    ctx.lineTo(180,260);
-    ctx.lineTo(270,260);
-    ctx.lineTo(300,180);
-    ctx.fillStyle = 'red';
-    ctx.fill();
-    ctx.closePath();
-
-    // 文本2
-    ctx.beginPath();
-    ctx.font = '30px Arial';
-    ctx.fillText('Helo',args.text2x,args.text2y);
-    ctx.closePath();
-  </script>
+  
 </body>
 </html>
