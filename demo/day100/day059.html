@@ -128,7 +128,8 @@
   </style>
 </head>
 <body>
-  <div class="solar-system">
+  <canvas id="canvas" width="1200" height="950" style="border: 1px solid gray;"></canvas>
+  <!-- <div class="solar-system">
     <div title="Sun" class="sun"></div>
     <div title="Mercury" class="mercury"></div>
     <div title="Venus" class="venus"></div>
@@ -140,6 +141,27 @@
     <div title="Neptune" class="neptune"></div>
     <div title="Pluto" class="pluto"></div>
     <div title="Asteroids-belt" class="asteroids-belt"></div>
-  </div>
+  </div> -->
+  <script>
+    let ctx = document.getElementById('canvas').getContext('2d');
+    let distance = [20,50,90,130,170,230,280,320,380,450];
+    ctx.translate(550,480);
+
+    for(let i = 0; i < distance.length; i++){
+      drawCircle(distance[i]);
+    }
+
+    function drawCircle(radius){
+      ctx.beginPath();
+      ctx.arc(0,0,radius,0,2*Math.PI, true);
+      if(radius < 30){
+        ctx.fillStyle = 'yellow';
+        ctx.fill();
+      } else {
+        ctx.stroke();
+      }
+      ctx.closePath();
+    }
+  </script>
 </body>
 </html>
