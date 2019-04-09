@@ -1,1 +1,52 @@
 /* 任务栏样式 */
+.taskbar-icon{
+  position: relative;
+}
+
+/* 开始按钮 */
+.windows-start{
+  position: absolute;
+  top: -450px;
+  left: 0px;
+  width: 660px;
+  height: 450px;
+  background: #163b49;
+  /* display: none; */
+}
+.windows-start > div{
+  float: left;
+  height: 450px;
+}
+.startup-left{
+  width: 50px;
+  background: lightgray;
+}
+.startup-left div{
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.startup-left div:nth-of-type(2){
+  margin-top: 250px;
+}
+.startup-left img{
+  position: relative;
+  left: 15px;
+  top: 15px;
+  width: 20px;
+  height: 20px;
+}
+.startup-left div:hover{
+  background: gray;
+}
+.startup-middle{
+  width: 200px;
+  background: lightblue;
+}
+.startup-right{
+  width: 410px;
+  background: lightcoral;
+}
+/* .startup:hover .windows-start{
+  display: block;
+} */
