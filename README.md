@@ -23,6 +23,7 @@
 [100天100项目](demo/day100/day100.md)  
 [Web组件](demo/components/components.md)  
 [Games](demo/games/game.md)  
+[Window 10](demo/windows10/index.html)  
 
 # Poetry
 > 我会把我喜欢的诗词做古文个收集整理，就以朝代分类  

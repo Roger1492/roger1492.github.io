@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Windows 10 桌面体验</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  <link rel="stylesheet" href="css/container.css">
+  <link rel="stylesheet" href="css/taskbar.css">
+  <link rel="stylesheet" href="css/tray.css">
+</head>
+
+<body>
+  <div id="container">
+    <!-- 桌面 -->
+    <div id="desktop">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero libero fugiat impedit doloribus repudiandae,
+      placeat earum, maxime, totam cumque magni aspernatur. Voluptate natus inventore dolore, aspernatur at fuga qui
+      numquam!
+    </div>
+
+    <!-- 右键菜单 -->
+    <ul id="context-menu">
+      <li><span>Back</span><span>Alt+Left Arrow</span></li>
+      <li><span>Forward</span><span>Alt+Right Arrow</span></li>
+      <li><span class="reload">Reload</span><span>Ctrl+R</span></li>
+      <hr>
+      <li><span>Save As...</span><span>Ctrl+S</span></li>
+      <li><span class="print">Print...</span><span>Ctrl+P</span></li>
+      <li><span>Cast...</span><span></span></li>
+      <li><span>Translate to 中文</span><span></span></li>
+      <hr>
+      <li><span>View page source</span><span>Ctrl+U</span></li>
+      <!-- TODO: 打开控制台 -->
+      <li><span class="inspect">Inspect</span><span>Ctrl+Shift+I</span></li>
+    </ul>
+
+    <!-- 任务栏 -->
+    <div id="taskbar">
+      <!-- 任务栏左侧图标 -->
+      <div id="taskbar-wrap">
+        <div class="taskbar-icon" title="windows start">
+          <img src="img/logo_windows_start.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="windows folder">
+          <img src="img/logo_windows_folder.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="google chrome">
+          <img src="img/logo_google_chrome.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="mozilla firefox">
+          <img src="img/logo_firefox.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="windows edge">
+          <img src="img/logo_windows_edge.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="visual studio code">
+          <img src="img/logo_windows_vsc.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="sublime text">
+          <img src="img/logo_st.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="netease music">
+          <img src="img/logo_netease_music.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="tencent wechat">
+          <img src="img/logo_wechat.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="vim">
+          <img src="img/logo_vim.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="emacs">
+          <img src="img/logo_emacs.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="vlc">
+          <img src="img/logo_vlc.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="google email">
+          <img src="img/logo_google_email.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="google map">
+          <img src="img/logo_google_map.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="adobe photoshop">
+          <img src="img/logo_ps.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="ubuntu">
+          <img src="img/logo_ubuntu.png" alt="">
+        </div>
+        <div class="taskbar-icon" title="microsoft excel">
+          <img src="img/logo_windows_excel.png" alt="">
+        </div>
+      </div>
+      <!-- 任务栏右侧系统图标 -->
+      <div id="system-tray">
+        <div class="tray">
+          <img src="img/system_icon/icons8-chevron-up-64.png" alt="">
+        </div>
+        <div class="tray tray-power">
+          <img src="img/system_icon/icons8-full-battery-96.png" alt="">
+          <!-- 电源控制 -->
+          <div class="tray-power-control">
+            <div>
+              <img src="img/system_icon/icons8-full-battery-96.png" alt="">
+              <span>85%</span>
+            </div>
+            <div>
+              Power mode (on battery): Battery saver
+            </div>
+            <div>
+              <input type="range" id="power-range" min="40" max="100" step="20">
+            </div>
+            <div>
+              <div>
+                <img src="img/system_icon/icons8-leaf-64.png" alt=""><br>
+                Best battery life
+              </div>
+              <div>
+                <img src="img/system_icon/icons8-lightning-bolt-64.png" alt=""><br>
+                Best performance
+              </div>
+            </div>
+            <div>
+              Battery settings
+            </div>
+          </div>
+        </div>
+        <div class="tray tray-wifi">
+          <img src="img/system_icon/icons8-wi-fi-96.png" alt="">
+          <!-- Wifi 访问 -->
+          <div class="tray-wifi-control">
+            <div class="wifi-list">
+              <ul>
+                <li>
+                  <div>
+                    <img src="img/system_icon/icons8-wi-fi-96.png" alt="">
+                  </div>
+                  <div>
+                    <div class="wifi-name">Tsunami</div>
+                    <div class="wifi-secure">secured</div>
+                    <div class="wifi-connect">
+                      <input type="checkbox" name="" id=""> Connect automatically
+                    </div>
+                    <button class="wifi-connect-btn">Connect</button>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <img src="img/system_icon/icons8-wi-fi-96.png" alt="">
+                  </div>
+                  <div>
+                    <div class="wifi-name">Tsunami</div>
+                    <div class="wifi-secure">secured</div>
+                    <div class="wifi-connect">
+                      <input type="checkbox" name="" id=""> Connect automatically
+                    </div>
+                    <button class="wifi-connect-btn">Connect</button>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <img src="img/system_icon/icons8-wi-fi-96.png" alt="">
+                  </div>
+                  <div>
+                    <div class="wifi-name">Tsunami</div>
+                    <div class="wifi-secure">secured</div>
+                    <div class="wifi-connect">
+                      <input type="checkbox" name="" id=""> Connect automatically
+                    </div>
+                    <button class="wifi-connect-btn">Connect</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="wifi-network">
+              <span>Network & Internet settings</span><br>
+              <span>change settings,such as making a connect metered.</span>
+            </div>
+            <div class="wifi-other">
+              <div>
+                <img src="img/system_icon/icons8-wi-fi-96.png" alt=""><br>
+                <span>Wi-Fi</span>
+              </div>
+              <div>
+                <img src="img/system_icon/icons8-airplane-mode-off-96.png" alt=""><br>
+                <span>Airplane mode</span>
+              </div>
+              <div>
+                <img src="img/system_icon/icons8-wi-fi-logo-64.png" alt=""><br>
+                <span>Mobile hotspot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tray tray-voice">
+          <img src="img/system_icon/icons8-voice-96.png" alt="">
+          <!-- 音量控制器 -->
+          <div class="tray-voice-control">
+            <div>
+              Voice Speaker
+            </div>
+            <div>
+              <img src="img/system_icon/icons8-voice-96.png" alt="">
+              <input type="range" name="range" min="0" max="100" step="1" class="voice-range">
+              <span class="voice-volumn">50</span>
+            </div>
+          </div>
+        </div>
+        <div class="tray">
+          <img src="img/system_icon/icons8-settings-96.png" alt="">
+        </div>
+        <div class="tary date-time">
+          <div class="tray-date-time">
+            <span class="tray-time">16:21:22</span><br>
+            <span class="tray-date">2019/4/3 Wednesday</span>
+          </div>
+        </div>
+        <div class="tray notification">
+          <img src="img/system_icon/icons8-note-96.png" alt="">
+        </div>
+        <div class="tray">
+          <div class="show-desktop"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

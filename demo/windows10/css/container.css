@@ -1,0 +1,43 @@
+body{
+  background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554358722778&di=1197dba0ef4738846ed5953dfb4cfef6&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2017-10-10%2F59dc60885ff5a.jpg');
+  background-size: 100vw 100vh;
+}
+#desktop{
+  position: relative;
+  width: 100vw;
+  height: calc(100%-40px);
+}
+#taskbar{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 40px;
+  background: linear-gradient(to left,#6e6e6e,#1212128c,#1212128c,#1212128c,#6e6e6e);
+}
+#taskbar-wrap{
+  float: left;
+  height: 40px;
+}
+#system-tray{
+  position: relative;
+  width: 340px;
+  float: right;
+  height: 40px;
+}
+
+
+/* 任务栏左侧图标样式 */
+.taskbar-icon{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+.taskbar-icon:hover{
+  background: #ffffff80;
+}
+.taskbar-icon img{
+  width: 30px;
+  height: 30px;
+}

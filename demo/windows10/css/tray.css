@@ -1,0 +1,273 @@
+/* 任务栏右侧系统图标样式 */
+.tray{
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  min-width: 25px;
+  text-align: center;
+  padding-top: 10px;
+}
+.tray:hover{
+  background: #ffffff80;
+}
+.tray-date-time{
+  position: relative;
+  top: -45px;
+  left: 150px;
+  color: #f0f8ff;
+  height: 40px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.tray-time{
+  display: inline-block;
+  width: 123px;
+  text-align: center;
+}
+.notification{
+  position: relative;
+  top: -110px;
+  left: 280px;
+  width: 40px;
+  text-align: center;
+}
+.tray img{
+  height: 20px;
+  color: #ff0000;
+}
+.show-desktop{
+  position: relative;
+  top: -100px;
+  left: 285px;
+  width: 10px;
+  border-left: 1px solid white;
+  height: 40px;
+  background: #6e6e6e;
+}
+.show-desktop:hover{
+  background-color: #f0f8ff;
+}
+
+/* 电源控制 */
+.tray-power-control{
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  top: -200px;
+  left: -20px;
+  background: #163b49;
+  display: none;
+}
+.tray-power-control > div:nth-of-type(1){
+  height: 40px;
+}
+.tray-power-control > div:nth-of-type(1) img{
+  position: relative;
+  left: -100px;
+  width: 40px;
+  height: 40px;
+}
+.tray-power-control > div:nth-of-type(1) span{
+  position: relative;
+  top: -10px;
+  left: -100px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  line-height: 40px;
+}
+.tray-power-control > div:nth-of-type(2){
+  position: relative;
+  left: -10px;
+  font-size: 14px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.tray-power-control > div:nth-of-type(3) input{
+  width: 280px;
+}
+.tray-power-control > div:nth-of-type(4) div{
+  width: 100px;
+  height: 10px;
+  font-size: 12px;
+  float: left;
+  color: gray;
+}
+.tray-power-control > div:nth-of-type(4) div:nth-of-type(1) img{
+  position: relative;
+  left: -35px;
+}
+.tray-power-control > div:nth-of-type(4) div:nth-of-type(2) img{
+  position: relative;
+  left: 40px;
+}
+.tray-power-control > div:nth-of-type(4) div:nth-of-type(2){
+  position: relative;
+  left: 90px;
+}
+.tray-power-control > div:nth-of-type(5){
+  position: relative;
+  top: 40px;
+  left: -85px;
+  text-decoration: underline;
+  color: gray;
+  clear: both;
+}
+.tray-power:hover .tray-power-control{
+  display: block;
+}
+
+/* Wifi 访问 */
+.tray-wifi-control{
+  position: absolute;
+  width: 350px;
+  height: 500px;
+  top: -500px;
+  left: -70px;
+  background: #163b49;
+  display: none;
+}
+.wifi-list ul{
+  position: relative;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.wifi-list ul li{
+  position: relative;
+  width: 350px;
+  height: 100px;
+  float: left;
+}
+.wifi-list li > div{
+  position: relative;
+  float: left;
+  margin-top: 10px;
+  height: 100px;
+  width: 350px;
+}
+.wifi-list li > div:nth-of-type(1){
+  height: 100px;
+  width: 50px;
+}
+.wifi-list li > div:nth-of-type(2){
+  width: 300px;
+  text-align: left;
+  color: white;
+}
+.wifi-name{
+  font-size: 14px;
+}
+.wifi-secure{
+  font-size: 12px;
+}
+.wifi-connect{
+  margin-top: 5px;
+  font-size: 14px;
+}
+.wifi-connect-btn{
+  position: relative;
+  left: 170px;
+  top: 10px;
+  border: none;
+  outline: none;
+  background: gray;
+  width: 100px;
+  height: 25px;
+  color: white;
+}
+.wifi-network{
+  position: relative;
+  color: white;
+  text-align: left;
+  left: 20px;
+  width: 350px;
+  height: 60px;
+  font-size: 13px;
+  padding-top: 25px;
+  clear: both;
+  cursor: pointer;
+}
+.wifi-network span{
+  display: inline-block;
+}
+.wifi-network span:nth-of-type(1){
+  border-bottom: 1px solid gray;
+}
+.wifi-other{
+  position: relative;
+}
+.wifi-other > div{
+  float: left;
+  width: 80px;
+  height: 80px;
+  background: gray;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.wifi-other > div:hover{
+  background: rgba(128, 128, 128, 0.692);
+}
+.tray-wifi:hover .tray-wifi-control{
+  display: block;
+}
+
+
+/* 音量控制器样式 */
+.tray-voice-control{
+  position: absolute;
+  width: 300px;
+  height: 70px;
+  top: -70px;
+  left: -50px;
+  background: #163b49;
+  color: white;
+  display: none;
+}
+.tray-voice-control div:nth-of-type(1){
+  position: relative;
+  left: -80px;
+  top: 10px;
+}
+.tray-voice-control div:nth-of-type(2){
+  position: relative;
+  top: 20px;
+}
+.tray-voice-control div:nth-of-type(2) span{
+  display: inline-block;
+  width: 40px;
+}
+.voice-range{
+  width: 200px;
+}
+.tray-voice:hover .tray-voice-control{
+  display: block;
+}
+
+
+/* 右键菜单样式 */
+#context-menu{
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  list-style-type: none;
+  width: 300px;
+  border: 1px solid #808080;
+  background-color: #f0f8ff;
+  display: none;
+}
+#context-menu li{
+  padding-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 10px;
+  cursor: default;
+}
+#context-menu li span:nth-of-type(2){
+  float: right;
+  margin-right: 10px;
+}
+#context-menu li:hover{
+  background: #90c1d4;
+}
