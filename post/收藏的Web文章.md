@@ -45,6 +45,7 @@
 [从标准原理出发理解 JavaScript 数值精度](https://juejin.im/post/5c3db8b7e51d45515817bdeb)  
 [前端模块化详解(完整版)](https://juejin.im/post/5c17ad756fb9a049ff4e0a62)  
 [懒加载和预加载](https://juejin.im/post/5b0c3b53f265da09253cbed0)  
+[浅拷贝与深拷贝](https://juejin.im/post/5b5dcf8351882519790c9a2e)  
 [JavaScript 教程](https://wangdoc.com/javascript/index.html)  
 [ES6核心特性](https://juejin.im/post/5b037b536fb9a07aa9260b39)  
 [浏览器的回流与重绘 (Reflow & Repaint)](https://juejin.im/post/5a9923e9518825558251c96a)  

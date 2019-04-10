@@ -5,6 +5,8 @@ let voiceVolumn = document.getElementsByClassName('voice-volumn')[0];
 let showDesktop = document.getElementsByClassName('show-desktop')[0];
 let contextMenu = document.getElementById('context-menu');
 let reload = document.getElementsByClassName('reload')[0];
+let historyBack = document.getElementsByClassName('history_back')[0];
+let historyForward = document.getElementsByClassName('history_forward')[0];
 
 // 获取日期和时间
 function addZero(n){
@@ -71,3 +73,13 @@ reload.addEventListener('click', function(e){
 // TODO: 打开控制台
 
 // TODO: 添加打印功能
+
+// 点击返回上一页
+historyBack.addEventListener('click', function(e){
+  history.back(1);
+}, false);
+
+// 点击返回下一页
+historyForward.addEventListener('click', function(e){
+  history.forward(1);
+}, false);
