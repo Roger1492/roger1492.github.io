@@ -7,6 +7,9 @@ let contextMenu = document.getElementById('context-menu');
 let reload = document.getElementsByClassName('reload')[0];
 let historyBack = document.getElementsByClassName('history_back')[0];
 let historyForward = document.getElementsByClassName('history_forward')[0];
+let startup = document.getElementsByClassName('startup')[0];
+let desktop = document.getElementById('desktop');
+
 
 // 获取日期和时间
 function addZero(n){

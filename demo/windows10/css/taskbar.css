@@ -8,10 +8,10 @@
   position: absolute;
   top: -450px;
   left: 0px;
-  width: 660px;
+  width: 860px;
   height: 450px;
   background: #163b49;
-  /* display: none; */
+  display: none;
 }
 .windows-start > div{
   float: left;
@@ -19,7 +19,6 @@
 }
 .startup-left{
   width: 50px;
-  background: lightgray;
 }
 .startup-left div{
   position: relative;
@@ -41,12 +40,109 @@
 }
 .startup-middle{
   width: 200px;
-  background: lightblue;
 }
 .startup-right{
-  width: 410px;
-  background: lightcoral;
+  width: 610px;
+  overflow-y: scroll;
 }
-/* .startup:hover .windows-start{
+.startup-right::-webkit-scrollbar{
+  width: 4px;
+  display: none;
+}
+.startup-right:hover::-webkit-scrollbar{
   display: block;
-} */
+}
+.startup-right::-webkit-scrollbar-track{
+  background: #163b49;
+}
+.startup-right::-webkit-scrollbar-thumb{
+  background: #0c2933;
+}
+.startup:hover .windows-start{
+  display: block;
+}
+
+/* 开始按钮 Apps */
+.startup-middle-ul{
+  position: relative;
+  list-style-type: none;
+  overflow-y: scroll;
+  height: 450px;
+  font-size: 13px;
+  padding-left: 20px;
+  margin: 0;
+}
+.startup-middle-ul::-webkit-scrollbar{
+  display: none;
+  width: 4px;
+}
+.startup-middle-ul:hover::-webkit-scrollbar{
+  display: block;
+}
+.startup-middle-ul::-webkit-scrollbar-track{
+  background: #163b49;
+}
+.startup-middle-ul::-webkit-scrollbar-thumb{
+  background: #0c2933;
+}
+.startup-middle-ul > div{
+  position: relative;
+}
+.startup-middle-ul > div,
+.startup-middle-ul li div{
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.startup-middle-ul li div img{
+  margin-right: 5px;
+}
+.startup-middle-ul li div span{
+  position: relative;
+  top: -10px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+}
+.startup-middle-ul > div:hover,
+.startup-middle-ul li div:hover{
+  background: #0c2933;
+}
+
+
+/* 磁贴 */
+.startup-right > div{
+  position: relative;
+  width: 300px;
+  height: 450px;
+  float: left;
+}
+.metro-right{
+  margin-left: 6px;
+}
+.metro-group section{
+  color: #b3a7a7;
+  font-size: 18px;
+  margin: 20px 0 10px 0;
+  cursor: pointer;
+}
+.metro-parent{
+  display: grid;
+  grid-template-columns: repeat(3, 98px);
+  grid-gap: 2px;
+}
+.metro-parent div{
+  width: 98px;
+  height: 98px;
+  background: #0078d7;
+}
+.metro-parent div:hover{
+  background: #0c2933;
+}
+.metro-parent div img{
+  position: relative;
+  left: 15px;
+  top: 15px;
+  width: 60px;
+  height: 60px;
+}

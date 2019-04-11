@@ -48,6 +48,34 @@
   background-color: #f0f8ff;
 }
 
+
+
+/* 隐藏的图标 */
+.tray-hide-icon-control{
+  position: absolute;
+  top: -120px;
+  left: -30px;
+  width: 120px;
+  height: 120px;
+  background: #163b49;
+  display: grid;
+  grid-template-columns: repeat(4, 30px);
+  grid-template-rows: repeat(3, 30px);
+  display: none;
+}
+.tray-hide-icon-control img{
+  height: 20px;
+  height: 20px;
+  padding: 5px;
+}
+.tray-hide-icon-control img:hover{
+  background: #0c2933;
+}
+.tray-hide-icon:hover .tray-hide-icon-control{
+  display: grid;
+}
+
+
 /* 电源控制 */
 .tray-power-control{
   position: absolute;
@@ -247,27 +275,35 @@
 }
 
 
-/* 右键菜单样式 */
-#context-menu{
-  padding: 0;
-  margin: 0;
+/* 输入法 */
+.tray-input-control{
   position: absolute;
-  list-style-type: none;
-  width: 300px;
-  border: 1px solid #808080;
-  background-color: #f0f8ff;
+  left: -50px;
+  top: -150px;
+  width: 200px;
+  height: 150px;
+  background: #163b49;
   display: none;
 }
-#context-menu li{
-  padding-top: 3px;
-  margin-bottom: 3px;
+.tray-input-control > div{
+  position: relative;
+  color: #b3a7a7;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
   padding-left: 10px;
-  cursor: default;
+  cursor: pointer;
 }
-#context-menu li span:nth-of-type(2){
-  float: right;
-  margin-right: 10px;
+.tray-input-control > div:hover{
+  background: gray;
 }
-#context-menu li:hover{
-  background: #90c1d4;
+.tray-input-control > div span{
+  display: inline-block;
+  position: relative;
+  top: -5px;
+  left: 10px;
+  font-size: 13px;
+}
+.tray-input:hover .tray-input-control{
+  display: block;
 }

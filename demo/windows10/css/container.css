@@ -41,3 +41,31 @@ body{
   width: 30px;
   height: 30px;
 }
+
+
+
+/* 右键菜单样式 */
+#context-menu{
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  list-style-type: none;
+  width: 300px;
+  border: 1px solid #808080;
+  background-color: #f0f8ff;
+  display: none;
+  z-index: 99999;
+}
+#context-menu li{
+  padding-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 10px;
+  cursor: default;
+}
+#context-menu li span:nth-of-type(2){
+  float: right;
+  margin-right: 10px;
+}
+#context-menu li:hover{
+  background: #90c1d4;
+}
