@@ -72,17 +72,3 @@ reload.addEventListener('click', function(e){
 
 
 // TODO: 显示桌面
-
-// TODO: 打开控制台
-
-// TODO: 添加打印功能
-
-// 点击返回上一页
-historyBack.addEventListener('click', function(e){
-  history.back(1);
-}, false);
-
-// 点击返回下一页
-historyForward.addEventListener('click', function(e){
-  history.forward(1);
-}, false);

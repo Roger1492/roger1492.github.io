@@ -45,27 +45,28 @@ body{
 
 
 /* 右键菜单样式 */
-#context-menu{
+/* #context-menu{
+  position: relative;
+  width: 200px;
+  background: white;
+  list-style-type: none;
   padding: 0;
   margin: 0;
-  position: absolute;
-  list-style-type: none;
-  width: 300px;
-  border: 1px solid #808080;
-  background-color: #f0f8ff;
-  display: none;
-  z-index: 99999;
 }
-#context-menu li{
-  padding-top: 3px;
-  margin-bottom: 3px;
-  padding-left: 10px;
-  cursor: default;
+#context-menu > li{
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
 }
-#context-menu li span:nth-of-type(2){
+#context-menu > li:hover{
+  background: gray;
+}
+.cm-f1 > img{
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+.cm-f1 > span:nth-of-type(2){
+  display: inline-block;
   float: right;
-  margin-right: 10px;
-}
-#context-menu li:hover{
-  background: #90c1d4;
-}
+} */
