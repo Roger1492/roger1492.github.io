@@ -4,9 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Day 060 - JavaScript实现撞击边界反弹</title>
+  <style>
+    body{
+      overflow: hidden;
+    }
+    #wrap{
+      position: relative;
+      margin: 30px auto;
+      width: 900px;
+      height: 700px;
+      border: 1px solid gray;
+    }
+    #ball{
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: black;
+      border-radius: 50%;
+      left: 45vw;
+      top: 45vh;
+    }
+  </style>
 </head>
 <body>
-  
+  <div id="wrap">
+    <div id="ball"></div>
+  </div>
+
+  <script>
+    let ball = document.getElementById('ball');
+
+    let color = ['red','blue','pink','orange','gray','green'];
+    let i = 0,
+        j = 0,
+        x = 2,
+        y = 4;
+
+    setInterval(function(){
+
+      ball.style.left = i + 'px';
+      i += x;
+      if(i >= 840){
+        x *= -1;
+        changeColor();
+      } else if(i < 0){
+        x *= -1;
+        changeColor();
+      }
+
+      ball.style.top = j + 'px';
+      j += y;
+      if(j >= 640){
+        y *= -1;
+        changeColor();
+      } else if(j < 0){
+        y *= -1;
+        changeColor();
+      }
+
+    }, 20);
+
+    function changeColor(){
+      let c = Math.floor(Math.random() * 6);     // 有时碰撞后颜色是相同的，是因为连续产生的2个相同的随机数
+      ball.style.background = color[c];
+      console.log(color[c]);
+    }
+  </script>
 </body>
 </html>

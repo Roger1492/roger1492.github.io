@@ -1,0 +1,40 @@
+#in_theaters>div {
+  float: left;
+  width: 300px;
+  height: 400px;
+}
+
+#in_theaters>div img {
+  margin-left: 50px;
+  width: 200px;
+  height: 300px;
+}
+
+#in_theaters>div div {
+  text-align: center;
+}
+
+#wrap {
+  margin-left: 100px;
+  margin-top: 60px;
+}
+
+#wrap>* {
+  float: left;
+}
+
+#wrap>div {
+  position: relative;
+  left: 30px;
+  top: 20px;
+}
+
+#actor_wrap>div {
+  float: left;
+  margin: 10px;
+}
+
+#actor_wrap>div img {
+  width: 150px;
+  height: 200px;
+}
