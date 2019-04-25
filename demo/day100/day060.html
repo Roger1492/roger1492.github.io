@@ -36,30 +36,33 @@
     let ball = document.getElementById('ball');
 
     let color = ['red','blue','pink','orange','gray','green'];
-    let i = 0,
-        j = 0,
-        x = 2,
-        y = 4;
+
+    let arg = {
+      i: 0,
+      j: 0,
+      x: 6,    // x是横向速度
+      y: 8    // y是纵向速度
+    };
 
     setInterval(function(){
 
-      ball.style.left = i + 'px';
-      i += x;
-      if(i >= 840){
-        x *= -1;
+      ball.style.left = arg.i + 'px';
+      arg.i += arg.x;
+      if(arg.i >= 840){
+        arg.x *= -1;
         changeColor();
-      } else if(i < 0){
-        x *= -1;
+      } else if(arg.i < 0){
+        arg.x *= -1;
         changeColor();
       }
 
-      ball.style.top = j + 'px';
-      j += y;
-      if(j >= 640){
-        y *= -1;
+      ball.style.top = arg.j + 'px';
+      arg.j += arg.y;
+      if(arg.j >= 640){
+        arg.y *= -1;
         changeColor();
-      } else if(j < 0){
-        y *= -1;
+      } else if(arg.j < 0){
+        arg.y *= -1;
         changeColor();
       }
 
