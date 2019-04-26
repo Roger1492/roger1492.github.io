@@ -5,12 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Day 055 - 锤子科技首页 banner3D效果</title>
+  <style>
+    #wrap{
+      position: relative;
+      margin: 100px auto;
+      width: 800px;
+      height: 600px;
+      perspective: 1000px;
+      border: 1px solid gray;
+    }
+    #cover{
+      position: relative;
+      left: 100px;
+      top: 100px;
+      width: 600px;
+      height: 400px;
+      background: url(https://images.wallpaperscraft.com/image/dog_cat_grass_german_shepherd_65061_1920x1080.jpg) no-repeat;
+      background-size: 600px 400px;
+      font-size: 50px;
+      line-height: 400px;
+      text-align: center;
+      border-radius: 10px;
+      color: white;
+      transition: .2s ease-out;
+    }
+  </style>
 </head>
 <body>
-  <div>
-    <section id="cover">
-
-    </section>
+  <div id="wrap">
+    <section id="cover">Banner 3D</section>
   </div>
+
+  <script>
+    let wrap = document.getElementById('wrap');
+    let cover = document.getElementById('cover');
+
+    wrap.addEventListener('mousemove', function(e){
+
+      var centerX = this.offsetLeft + this.offsetWidth / 2;
+      var centerY = this.offsetTop + this.offsetHeight / 2;
+
+      var delatX = e.pageX - centerX;
+      var delatY = e.pageY - centerY;
+
+      var percentageX = delatX / centerX;
+      var percentageY = delatY / centerY;
+
+      var deg = 15;     // 旋转的幅度
+
+      var x = Number.parseInt(percentageY*-deg);
+      var y = Number.parseInt(percentageX*deg);
+
+      cover.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
+
+    }, false);
+
+    wrap.addEventListener('mouseout', function(e){
+      cover.style.transform = '';
+    }, false);
+  </script>
 </body>
 </html>
