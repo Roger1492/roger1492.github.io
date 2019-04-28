@@ -42,14 +42,17 @@
 
     wrap.addEventListener('mousemove', function(e){
 
+      // 获得中心点坐标
       var centerX = this.offsetLeft + this.offsetWidth / 2;
       var centerY = this.offsetTop + this.offsetHeight / 2;
 
-      var delatX = e.pageX - centerX;
-      var delatY = e.pageY - centerY;
+      var deltaX = e.pageX - centerX;
+      var deltaY = e.pageY - centerY;
 
-      var percentageX = delatX / centerX;
-      var percentageY = delatY / centerY;
+      console.log(`centerX: ${centerX} ,centerY:${centerY} - e.pageX: ${e.pageX} ,e.pageY: ${e.pageY} - deltaX: ${deltaX}, deltaY:${deltaY}`);
+
+      var percentageX = deltaX / centerX;
+      var percentageY = deltaY / centerY;
 
       var deg = 15;     // 旋转的幅度
 

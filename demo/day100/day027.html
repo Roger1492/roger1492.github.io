@@ -5,31 +5,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Day 027 - 放大镜效果</title>
+  <title>Day 027 - 电商放大镜效果</title>
+  <style>
+    #thumbnail_box,
+    #origin_box {
+      position: relative;
+      float: left;
+      margin: 10px;
+    }
+
+    #thumbnail_img {
+      width: 400px;
+      height: 400px;
+    }
+
+    #thumbnail_img>img {
+      width: 400px;
+      height: 400px;
+    }
+
+    #mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background: rgba(102, 101, 101, 0.4);
+      border: 1px solid gray;
+      box-sizing: border-box;
+      display: none;
+    }
+
+    #origin_box {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      overflow: hidden;
+      display: none;
+      border: 1px solid gray;
+    }
+
+    #origin_box>img {
+      position: relative;
+      width: 1200px;
+      height: 1200px;
+    }
+  </style>
 </head>
 
 <body>
-  
-  <div id="top">
-    <section>111111111111</section>
-    <section>22222222222222222</section>
-    <section>33333333333333333</section>
-    <section>44444444444444444</section>
-    <section>5555555555555555</section>
-    <section>66666666666666666666</section>
-    <section>777777777777777</section>
-    <section>8888888888888888</section>
-    <section>999999999999999999</section>
+  <!-- JS原生实现放大镜效果 -->
+
+  <div id="wrap">
+
+    <div id="thumbnail_box">
+      <div id="thumbnail_img">
+        <img src="https://wallpapershome.com/images/wallpapers/macbook-pro-2560x1440-iphone-wallpaper-4k-5k-live-wallpaper-3d-apple-12340.jpg" alt="">
+      </div>
+      <span id="mask"></span>
+    </div>
+
+    <div id="origin_box">
+      <img src="https://wallpapershome.com/images/wallpapers/macbook-pro-2560x1440-iphone-wallpaper-4k-5k-live-wallpaper-3d-apple-12340.jpg" alt="">
+    </div>
   </div>
 
   <script>
-    let tp = document.getElementById('top');
-    tp.addEventListener('click', function(e){
-      if(e.target.tagName === 'SECTION'){
-        console.log(e.target.innerHTML);
-      }
+    let thumbnail_box = document.getElementById('thumbnail_box');
+    let mask = document.getElementById('mask');
+    let origin_box = document.getElementById('origin_box');
+    let origin_img = origin_box.getElementsByTagName('img')[0];
+
+    thumbnail_box.addEventListener('mouseover', function (e) {
+      mask.style.display = 'block';
+      origin_box.style.display = 'block';
     }, false);
-</script>
+
+    thumbnail_box.addEventListener('mouseout', function (e) {
+      mask.style.display = 'none';
+      origin_box.style.display = 'none';
+    }, false);
+
+    thumbnail_box.addEventListener('mousemove', function (e) {
+      // 获取缩略图相对于页面的坐标
+      let imgX = thumbnail_box.offsetLeft;
+      let imgY = thumbnail_box.offsetTop;
+
+      // 获取鼠标的坐标
+      let cursorX = e.pageX - imgX;
+      let cursorY = e.pageY - imgY;
+
+      // 获取遮罩层的坐标
+      let maskX = (cursorX - 100) + 'px';
+      let maskY = (cursorY - 100) + 'px';
+
+      // 保证遮罩层在缩略图中
+      if (cursorX < 100) {
+        maskX = '0px';
+      } else if (cursorX > 300) {
+        maskX = '200px';
+      }
+      if (cursorY < 100) {
+        maskY = '0px';
+      } else if (cursorY > 300) {
+        maskY = '200px';
+      }
+
+      // 获取放大镜中的显示坐标
+      let marginfyX = -Number.parseInt(maskX) * 3 + 'px';
+      let marginfyY = -Number.parseInt(maskY) * 3 + 'px';
+
+
+      // 改变遮罩层和放大镜坐标
+      mask.style.left = maskX;
+      mask.style.top = maskY;
+
+      origin_img.style.left = marginfyX;
+      origin_img.style.top = marginfyY;
+
+    }, false);
+  </script>
 </body>
 
 </html>
