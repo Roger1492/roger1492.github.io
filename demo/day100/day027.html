@@ -12,6 +12,7 @@
       position: relative;
       float: left;
       margin: 10px;
+      border: 1px solid gray;
     }
 
     #thumbnail_img {
@@ -38,18 +39,65 @@
     }
 
     #origin_box {
-      position: relative;
+      position: absolute;
+      left: 450px;
       width: 600px;
       height: 600px;
       overflow: hidden;
       display: none;
-      border: 1px solid gray;
     }
 
     #origin_box>img {
       position: relative;
       width: 1200px;
       height: 1200px;
+    }
+
+    #small_box{
+      position: absolute;
+      transform: translate(10px,-20px);
+      top: 450px;
+      width: 400px;
+      height: 90px;
+    }
+    #pre,#next{
+      position: absolute;
+      width: 20px;
+      height: 90px;
+      line-height: 90px;
+      text-align: center;
+      border: 1px solid gray;
+      box-sizing: border-box;
+      color: gray;
+      cursor: pointer;
+    }
+    #next{
+      left: 380px;
+    }
+    #pre:hover,
+    #next:hover{
+      background: gray;
+      color: white;
+    }
+    #small_img_box{
+      position: absolute;
+      left: 20px;
+      width: 360px;
+      height: 90px;
+      overflow: hidden;
+    }
+    #small_img{
+      position: relative;
+      width: 540px;
+      height: 90px;
+    }
+    #small_img > img{
+      width: 90px;
+      height: 90px;
+      float: left;
+    }
+    #small_img > img:hover{
+      opacity: .7;
     }
   </style>
 </head>
@@ -61,13 +109,28 @@
 
     <div id="thumbnail_box">
       <div id="thumbnail_img">
-        <img src="https://wallpapershome.com/images/wallpapers/macbook-pro-2560x1440-iphone-wallpaper-4k-5k-live-wallpaper-3d-apple-12340.jpg" alt="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556514730394&di=98f853686051f11d4c05e385823e9bbf&imgtype=0&src=http%3A%2F%2Fimages.payeasy.com.tw%2Fproducts%2F7772%2F4887%2F4887865.jpg" alt="">
       </div>
       <span id="mask"></span>
     </div>
 
+    <div id="small_box">
+      <div id="pre">&lt;</div>
+      <div id="small_img_box">
+        <div id="small_img">
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556514730394&di=98f853686051f11d4c05e385823e9bbf&imgtype=0&src=http%3A%2F%2Fimages.payeasy.com.tw%2Fproducts%2F7772%2F4887%2F4887865.jpg" alt="">
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556514754711&di=12757000ef53c64df3feb9ef56a1dec1&imgtype=0&src=http%3A%2F%2Fimage.morethan.cc%2Fupload%2Fimages%2F000%2F000%2F037%2F201703%2F58c23c2ac810f.jpg" alt="">
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556514768122&di=d310b8f6d1d4efa12f775121f4fa7ece&imgtype=0&src=http%3A%2F%2Fec4.images-amazon.com%2Fimages%2FI%2F71g0OA4l1iL._SL1000_.jpg" alt="">
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556514783119&di=b6eb917181e151b1de33466f91cf35d5&imgtype=0&src=http%3A%2F%2Fimage.suning.cn%2Fuimg%2Fsop%2Fcommodity%2F102089397312215119273218_x.jpg" alt="">
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1557109524&di=d9ae543ce2c1c8669174c9f62fdad869&imgtype=jpg&er=1&src=http%3A%2F%2Fcbu01.alicdn.com%2Fimg%2Fibank%2F2016%2F888%2F708%2F3209807888_327629965.jpg" alt="">
+          <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556514822513&di=fc18548a174dbb0621d68ffcb87adf8a&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0189855a334505a80121db80e74d3a.jpg%402o.jpg" alt="">
+        </div>
+      </div>
+      <div id="next">&gt;</div>
+    </div>
+
     <div id="origin_box">
-      <img src="https://wallpapershome.com/images/wallpapers/macbook-pro-2560x1440-iphone-wallpaper-4k-5k-live-wallpaper-3d-apple-12340.jpg" alt="">
+      <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556514730394&di=98f853686051f11d4c05e385823e9bbf&imgtype=0&src=http%3A%2F%2Fimages.payeasy.com.tw%2Fproducts%2F7772%2F4887%2F4887865.jpg" alt="">
     </div>
   </div>
 
@@ -75,8 +138,30 @@
     let thumbnail_box = document.getElementById('thumbnail_box');
     let mask = document.getElementById('mask');
     let origin_box = document.getElementById('origin_box');
+    let small_imgs = Array.from(document.querySelectorAll('#small_img > img'));
+    let thumbnail_img = document.querySelector('#thumbnail_img > img');
     let origin_img = origin_box.getElementsByTagName('img')[0];
+    let pre = document.getElementById('pre');
+    let next = document.getElementById('next');
+    let small_img = document.getElementById('small_img');
 
+
+    // 切换图片
+    small_imgs.forEach((item, ind, arr) => {
+      item.addEventListener('click', function(e){
+        thumbnail_img.src = this.src;
+        origin_img.src = this.src;
+      }, false);
+    })
+
+    pre.addEventListener('click', function(e){
+      small_img.style.left = '0px';
+    }, false);
+    next.addEventListener('click', function(e){
+      small_img.style.left = '-180px';
+    }, false);
+
+    // 显示/隐藏遮罩层和放大镜
     thumbnail_box.addEventListener('mouseover', function (e) {
       mask.style.display = 'block';
       origin_box.style.display = 'block';
