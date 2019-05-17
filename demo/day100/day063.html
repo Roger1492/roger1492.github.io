@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>001-CSS实现两个小球融合效果.html</title>
+  <style>
+    .effect {
+      width: 100%;
+      height: 100%;
+      border: 1px solid gray;
+      position: relative;
+      background: white;
+      filter: contrast(10);
+    }
+
+    .red {
+      position: relative;
+      top: 50px;
+      left: 150px;
+      width: 100px;
+      height: 100px;
+      background: red;
+      border-radius: 50%;
+      filter: blur(5px);
+      z-index: 2;
+      animation: red_run 6s ease infinite;
+    }
+
+    .black {
+      position: relative;
+      top: -70px;
+      left: 500px;
+      width: 150px;
+      height: 150px;
+      background: black;
+      border-radius: 50%;
+      filter: blur(5px);
+      z-index: 1;
+      animation: black_run 6s ease infinite;
+    }
+
+    @keyframes red_run{
+      50%{
+        left: 400px;
+      }
+    }
+
+    @keyframes black_run{
+      50%{
+        left: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="effect">
+    <div class="red"></div>
+    <div class="black"></div>
+  </div>
+</body>
+
+</html>
