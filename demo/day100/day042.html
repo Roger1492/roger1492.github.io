@@ -4,9 +4,349 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Day 042 - 音乐播放器</title>
+    <title>Day 042 - 音乐播放器简易版</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.8.2/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.8.2/css/all.css">
+    <style>
+        #container{
+            display: grid;
+            width: 1200px;
+            height: 700px;
+            grid-template-columns: repeat(12,1fr);
+            grid-template-rows: repeat(7,1fr);
+            outline: 1px solid gray;
+        }
+        #container > div{
+            outline: 1px solid gray;
+        }
+        #searchBox{
+            grid-column: 1 / 4;
+            grid-row: 1 / 2;
+        }
+        #songList{
+            grid-column: 1 / 10;
+            grid-row: 2 / 8;
+        }
+        #controlWrap{
+            grid-column: 4 / 10;
+            grid-row: 1 / 2;
+        }
+        #albumPic{
+            grid-column: 10 / 13;
+            grid-row: 1 / 4;
+        }
+        #lyric{
+            grid-column: 10 / 13;
+            grid-row: 4 / 8;
+        }
+        #list-title{
+            width: 900px;
+            height: 25px;
+            border-bottom: 1px solid gray;
+        }
+        #list-title span{
+            display: inline-block;
+            height: 25px;
+            line-height: 25px;
+        }
+        #list-title span:not(:nth-of-type(1)){
+            border-left: 1px solid gray;
+        }
+        #list-title span:nth-of-type(1){width: 40px; text-indent: 2px;}
+        #list-title span:nth-of-type(2){width: 35px; text-indent: 2px;}
+        #list-title span:nth-of-type(3){width: 290px; text-indent: 5px;}
+        #list-title span:nth-of-type(4){width: 200px; text-indent: 5px;}
+        #list-title span:nth-of-type(5){width: 230px; text-indent: 5px;}
+        #list-title span:nth-of-type(6){width: 45px; text-indent: 5px;}
+        #list{
+            position: relative;
+            width: 900px;
+            height: 525px;
+            overflow-y: scroll;
+        }
+        #list div{
+            border-bottom: 1px solid rgba(235, 231, 231, 0.5);
+        }
+        #list div:nth-of-type(even){
+            background: rgba(235, 231, 231, 0.5);
+        }
+        #list div:hover{
+            background: rgba(212, 211, 211, 0.6);
+        }
+        #list div span{
+            display: inline-block;
+            height: 25px;
+            line-height: 25px;
+        }
+        #list div .songId{width: 40px; text-indent: 2px;}
+        #list div .songOperation{width: 36px; text-indent: 2px;}
+        #list div .songName{width: 291px; text-indent: 5px;}
+        #list div .artistName{width: 201px; text-indent: 5px;}
+        #list div .albumName{width: 231px; text-indent: 5px;}
+        #list div .songDuration{width: 46px; text-indent: 5px;}
+        #page-panel{
+            position: relative;
+            width: 900px;
+            height: 50px;
+            border-top: 1px solid gray;
+        }
+        #page-panel > div{
+            margin: 5px auto;
+            max-width: 400px;
+        }
+        #page-panel div div{
+            position: relative;
+            display: inline-block;
+        }
+        #page-pre,
+        #page-next{
+            border: 1px solid gray;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 20px;
+            text-align: center;
+            background: rgba(235, 231, 231, 0.5);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #pages{
+            min-width: 50px;
+        }
+        #pages > span{
+            position: relative;
+            top: -2px;
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            line-height: 25px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #pages > span:hover{
+            background: lightblue;
+        }
+        .search input{
+            position: relative;
+            top: 30px;
+            width: 270px;
+            height: 20px;
+            border-radius: 10px;
+            outline: none;
+            text-indent: 5px;
+            border: 1px solid gray;
+        }
+        .search span{
+            position: relative;
+            top: 31px;
+            left: -26px;
+            cursor: pointer;
+        }
+        .control-duration{
+            position: relative;
+            top: 10px;
+            left: 20px;
+        }
+        .duration-start,
+        .duration-end{
+            position: relative;
+            top: -5px;
+        }
+        .control-play{
+            position: relative;
+            top: 30px;
+            left: 20px;
+        }
+        .control-play > div{
+            display: inline-block;
+        }
+        .control-play-1 > span{
+            position: relative;
+            display: inline-block;
+            top: -5px;
+        }
+        .control-play-2{
+            position: relative;
+            left: 80px;
+            top: -5px;
+        }
+        .control-play-2 > span{
+            display: inline-block;
+            border: 1px solid gray;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .control-play-2 span:nth-of-type(2){
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .control-play-3{
+            position: relative;
+            left: 200px;
+            top: -5px;
+        }
+        .control-play-3 > span{
+            display: inline-block;
+            cursor: pointer;
+        }
+        .control-play-3 > span:nth-of-type(2){
+            position: relative;
+            left: 10px;
+            border: 1px solid gray;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="container">
+        <!-- 搜索框 -->
+        <div id="searchBox">
+            <div class="search">
+                <input id="searchBtn" type="text">
+                <span><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+        <!-- 播放列表 -->
+        <div id="songList">
+            <div id="list-title">
+                <span class="song-id">Num</span>
+                <span class="song-operation">播放</span>
+                <span class="song-name">音乐标题</span>
+                <span class="artist-name">歌手</span>
+                <span class="album-name">专辑</span>
+                <span class="song-duration">时长</span>
+            </div>
+            <div id="list"></div>
+            <div id="page-panel">
+                <div>
+                    <div id="page-pre">&lt;</div>
+                    <div id="pages"></div>
+                    <div id="page-next">&gt;</div>
+                </div>
+            </div>
+        </div>
+        <!-- 控制面板 -->
+        <div id="controlWrap">
+            <div class="control-duration">
+                <span class="duration-start">00:00</span>
+                <input style="width:450px;" type="range" name="" id="">
+                <span class="duration-end">5:16</span>
+            </div>
+            <div class="control-play">
+                <div class="control-play-1">
+                    <span><i class="fa fa-volume-up"></i></span>
+                    <input type="range" name="" id="">
+                </div>
+                <div class="control-play-2">
+                    <span><i class="fa fa-step-backward"></i></span>
+                    <span><i class="fa fa-play"></i></span>
+                    <span><i class="fa fa-step-forward"></i></span>
+                </div>
+                <div class="control-play-3">
+                    <span><i class="fa fa-retweet"></i></span>
+                    <span>词</span>
+                </div>
+            </div>
+        </div>
+        <!-- 专辑图片 -->
+        <div id="albumPic">
+            <img src="http://qukufile2.qianqian.com/data2/pic/246669552/246669552.jpg@s_2,w_300,h_300" alt="album picture">
+        </div>
+        <!-- 显示歌词 -->
+        <div id="lyric">Lyric</div>
+    </div>
+
+    <script>
+        // TODO: 专辑超过两行有问题
+
+        // 加载后首页内容
+        let list = document.getElementById('list');
+        let pages = document.getElementById('pages');
+        let searchBtnEnter = document.getElementById('searchBtn');
+        let searchBtnSpan = document.querySelector('.search span');
+        let first_url = 'https://www.mxnzp.com/api/music/song/search?keyWord=%E9%9D%92%E8%8A%B1%E7%93%B7';
+        let prefix = 'https://www.mxnzp.com/api/music/song/search?keyWord=';
+
+        function getData(url){
+            fetch(url)
+            .then(res => res.json())
+            .then(res1 => {
+                let page_len = res1.data.totalPage;
+                let len = res1.data.list.length;
+                // 创建分页
+                for(let i = 0; i < page_len; i++){
+                    let createp = document.createElement('span');
+                    createp.innerHTML = i + 1;
+                    pages.appendChild(createp);
+                }
+
+                for(let i = 0; i < len; i++){
+                let createLine = document.createElement('div');
+                let lineDetail = `<span class="songId">${i+1}</span>
+                    <span class="songOperation"></span>
+                    <span class="songName">${res1.data.list[i].songName}</span>
+                    <span class="artistName">${res1.data.list[i].artistName}</span>
+                    <span class="albumName">${res1.data.list[i].albumName}</span>
+                    <span class="songDuration">5:33</span>`;
+                createLine.innerHTML = lineDetail;
+                list.appendChild(createLine);
+            }
+            });
+        }
+        getData(first_url);
+
+        // 搜索歌曲
+        searchBtnEnter.addEventListener('keypress', function(e){
+            if(e.keyCode === 13){
+                list.innerHTML = '';
+                pages.innerHTML = '';
+                let val = e.target.value;
+                getData(prefix + val);
+            }
+        },false);
+        searchBtnSpan.addEventListener('click', function(e){
+            list.innerHTML = '';
+            pages.innerHTML = '';
+            let val = searchBtn.value;
+            getData(prefix + val);
+        }, false);
+
+        // 用事件委托的方式翻页
+        pages.addEventListener('click', function(e){
+            if(e.target.tagName.toUpperCase() === 'SPAN'){
+                list.innerHTML = '';
+                
+                fetch(prefix + searchBtnEnter.value + '&page=' + e.target.innerHTML)
+                .then(res => res.json())
+                .then(res1 => {
+                    let len = res1.data.list.length;
+                    for(let i = 0; i < len; i++){
+                    let createLine = document.createElement('div');
+                    let lineDetail = `<span class="songId">${i+1}</span>
+                        <span class="songOperation"></span>
+                        <span class="songName">${res1.data.list[i].songName}</span>
+                        <span class="artistName">${res1.data.list[i].artistName}</span>
+                        <span class="albumName">${res1.data.list[i].albumName}</span>
+                        <span class="songDuration">5:33</span>`;
+                    createLine.innerHTML = lineDetail;
+                    list.appendChild(createLine);
+                }
+                });
+
+            }
+        }, false);
+
+        // 用事件委托的方式，点击歌曲后播放
+        list.addEventListener('click', function(e){
+        }, false);
+
+
+    </script>
 </body>
 </html>
