@@ -73,12 +73,16 @@
         #list div:hover{
             background: rgba(212, 211, 211, 0.6);
         }
+        /* TODO: hover时显示另一个元素 */
+        /* #list div:hover .songOperation i{
+            display: inline-block;
+        } */
         #list div span{
             display: inline-block;
             height: 25px;
             line-height: 25px;
         }
-        #list div .songId{width: 40px; text-indent: 2px;}
+        #list div .songNumber{width: 40px; text-indent: 2px;}
         #list div .songOperation{width: 36px; text-indent: 2px;}
         #list div .songName{width: 291px; text-indent: 5px;}
         #list div .artistName{width: 201px; text-indent: 5px;}
@@ -92,7 +96,7 @@
         }
         #page-panel > div{
             margin: 5px auto;
-            max-width: 400px;
+            /* max-width: 400px; */
         }
         #page-panel div div{
             position: relative;
@@ -131,7 +135,7 @@
         .search input{
             position: relative;
             top: 30px;
-            width: 270px;
+            width: 297px;
             height: 20px;
             border-radius: 10px;
             outline: none;
@@ -140,11 +144,18 @@
         }
         .search span{
             position: relative;
-            top: 31px;
-            left: -26px;
+            top: 5px;
+            left: 277px;
             cursor: pointer;
         }
-        .control-duration{
+        #controlWrap > audio{
+            position: relative;
+            top: 20px;
+            width: 598px;
+            left: 1px;
+            background: #f1f3f4;
+        }
+        /* .control-duration{
             position: relative;
             top: 10px;
             left: 20px;
@@ -200,7 +211,7 @@
             position: relative;
             left: 10px;
             border: 1px solid gray;
-        }
+        } */
     </style>
 </head>
 <body>
@@ -233,6 +244,11 @@
         </div>
         <!-- 控制面板 -->
         <div id="controlWrap">
+            <audio controls>
+                <source id="song" src="http://zhangmenshiting.qianqian.com/data2/music/c077e9e8d8fb63f136adc14373550d17/599553398/35438710800128.mp3?xcode=48f570a54a60104358a651629ec11350" type="audio/mp3">
+            </audio>
+        </div>
+        <!-- <div id="controlWrap">
             <div class="control-duration">
                 <span class="duration-start">00:00</span>
                 <input style="width:450px;" type="range" name="" id="">
@@ -253,7 +269,7 @@
                     <span>词</span>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- 专辑图片 -->
         <div id="albumPic">
             <img src="http://qukufile2.qianqian.com/data2/pic/246669552/246669552.jpg@s_2,w_300,h_300" alt="album picture">
@@ -268,8 +284,10 @@
         // 加载后首页内容
         let list = document.getElementById('list');
         let pages = document.getElementById('pages');
+        let controlWrap = document.getElementById('controlWrap');
         let searchBtnEnter = document.getElementById('searchBtn');
         let searchBtnSpan = document.querySelector('.search span');
+        let albumPic = document.querySelector('#albumPic img');
         let first_url = 'https://www.mxnzp.com/api/music/song/search?keyWord=%E9%9D%92%E8%8A%B1%E7%93%B7';
         let prefix = 'https://www.mxnzp.com/api/music/song/search?keyWord=';
 
@@ -288,12 +306,15 @@
 
                 for(let i = 0; i < len; i++){
                 let createLine = document.createElement('div');
-                let lineDetail = `<span class="songId">${i+1}</span>
-                    <span class="songOperation"></span>
+                let lineDetail = `
+                    <span class="songId" style="display:none;">${res1.data.list[i].id}</span>
+                    <span class="songNumber">${i+1}</span>
+                    <span class="songOperation"><i class="fa fa-play" style="display:none;"></i></span>
                     <span class="songName">${res1.data.list[i].songName}</span>
                     <span class="artistName">${res1.data.list[i].artistName}</span>
                     <span class="albumName">${res1.data.list[i].albumName}</span>
-                    <span class="songDuration">5:33</span>`;
+                    <span class="songDuration">5:33</span>
+                    `;
                 createLine.innerHTML = lineDetail;
                 list.appendChild(createLine);
             }
@@ -328,12 +349,15 @@
                     let len = res1.data.list.length;
                     for(let i = 0; i < len; i++){
                     let createLine = document.createElement('div');
-                    let lineDetail = `<span class="songId">${i+1}</span>
-                        <span class="songOperation"></span>
+                    let lineDetail = `
+                        <span class="songId" style="display:none;">${res1.data.list[i].id}</span>
+                        <span class="songNumber">${i+1}</span>
+                        <span class="songOperation"><i class="fa fa-play" style="display:none;"></i></span>
                         <span class="songName">${res1.data.list[i].songName}</span>
                         <span class="artistName">${res1.data.list[i].artistName}</span>
                         <span class="albumName">${res1.data.list[i].albumName}</span>
-                        <span class="songDuration">5:33</span>`;
+                        <span class="songDuration">5:33</span>
+                        `;
                     createLine.innerHTML = lineDetail;
                     list.appendChild(createLine);
                 }
@@ -344,6 +368,22 @@
 
         // 用事件委托的方式，点击歌曲后播放
         list.addEventListener('click', function(e){
+            let songid = e.target.parentElement.getElementsByClassName('songId')[0].innerHTML;
+            let url = 'https://www.mxnzp.com/api/music/song/detail?songId=';
+            fetch(url + songid)
+            .then(res => res.json())
+            .then(res1 => {
+                controlWrap.innerHTML = '';
+                albumPic.src = res1.data.songPic;
+                let createAudio = document.createElement('audio');
+                let createSource = document.createElement('source');
+                createAudio.setAttribute('controls', 'controls');
+                createSource.src = res1.data.songLink;
+                createSource.setAttribute('type', 'audio/mp3');
+                controlWrap.appendChild(createAudio);
+                createAudio.appendChild(createSource);
+
+            })
         }, false);
 
 
