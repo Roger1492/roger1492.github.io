@@ -65,7 +65,10 @@
             overflow-y: scroll;
         }
         #list div{
+            height: 30px;
             border-bottom: 1px solid rgba(235, 231, 231, 0.5);
+            box-sizing: border-box;
+            cursor: default;
         }
         #list div:nth-of-type(even){
             background: rgba(235, 231, 231, 0.5);
@@ -73,14 +76,15 @@
         #list div:hover{
             background: rgba(212, 211, 211, 0.6);
         }
-        /* TODO: hover时显示另一个元素 */
-        /* #list div:hover .songOperation i{
-            display: inline-block;
+        /* #list div:hover .songOperation{
+            visibility: visible;
         } */
         #list div span{
             display: inline-block;
-            height: 25px;
-            line-height: 25px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            overflow: hidden;
         }
         #list div .songNumber{width: 40px; text-indent: 2px;}
         #list div .songOperation{width: 36px; text-indent: 2px;}
@@ -88,6 +92,10 @@
         #list div .artistName{width: 201px; text-indent: 5px;}
         #list div .albumName{width: 231px; text-indent: 5px;}
         #list div .songDuration{width: 46px; text-indent: 5px;}
+        #list div .artistName:hover{
+            cursor: pointer;
+            color: rgb(24, 135, 187);
+        }
         #page-panel{
             position: relative;
             width: 900px;
@@ -96,7 +104,6 @@
         }
         #page-panel > div{
             margin: 5px auto;
-            /* max-width: 400px; */
         }
         #page-panel div div{
             position: relative;
@@ -115,7 +122,7 @@
             cursor: pointer;
         }
         #pages{
-            min-width: 50px;
+            min-width: 25px;
         }
         #pages > span{
             position: relative;
@@ -134,7 +141,7 @@
         }
         .search input{
             position: relative;
-            top: 30px;
+            top: 15px;
             width: 297px;
             height: 20px;
             border-radius: 10px;
@@ -144,7 +151,7 @@
         }
         .search span{
             position: relative;
-            top: 5px;
+            top: -5px;
             left: 277px;
             cursor: pointer;
         }
@@ -155,71 +162,21 @@
             left: 1px;
             background: #f1f3f4;
         }
-        /* .control-duration{
-            position: relative;
-            top: 10px;
-            left: 20px;
+        #lyric{
+            overflow-y: scroll;
         }
-        .duration-start,
-        .duration-end{
-            position: relative;
-            top: -5px;
-        }
-        .control-play{
-            position: relative;
-            top: 30px;
-            left: 20px;
-        }
-        .control-play > div{
-            display: inline-block;
-        }
-        .control-play-1 > span{
-            position: relative;
-            display: inline-block;
-            top: -5px;
-        }
-        .control-play-2{
-            position: relative;
-            left: 80px;
-            top: -5px;
-        }
-        .control-play-2 > span{
-            display: inline-block;
-            border: 1px solid gray;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
-            cursor: pointer;
-        }
-        .control-play-2 span:nth-of-type(2){
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-        }
-        .control-play-3{
-            position: relative;
-            left: 200px;
-            top: -5px;
-        }
-        .control-play-3 > span{
-            display: inline-block;
-            cursor: pointer;
-        }
-        .control-play-3 > span:nth-of-type(2){
-            position: relative;
-            left: 10px;
-            border: 1px solid gray;
-        } */
     </style>
 </head>
 <body>
     <div id="container">
         <!-- 搜索框 -->
         <div id="searchBox">
-            <div class="search">
-                <input id="searchBtn" type="text">
+            <div class="search searchSong">
+                <input id="searchBtnSong" type="text" placeholder="歌名">
+                <span><i class="fa fa-search"></i></span>
+            </div>
+            <div class="search searchSinger">
+                <input id="searchBtnSinger" type="text" placeholder="歌手">
                 <span><i class="fa fa-search"></i></span>
             </div>
         </div>
@@ -246,47 +203,40 @@
         <div id="controlWrap">
             <audio controls>
                 <source id="song" src="http://zhangmenshiting.qianqian.com/data2/music/c077e9e8d8fb63f136adc14373550d17/599553398/35438710800128.mp3?xcode=48f570a54a60104358a651629ec11350" type="audio/mp3">
+                您的浏览器不支持 audio 元素。
             </audio>
         </div>
-        <!-- <div id="controlWrap">
-            <div class="control-duration">
-                <span class="duration-start">00:00</span>
-                <input style="width:450px;" type="range" name="" id="">
-                <span class="duration-end">5:16</span>
-            </div>
-            <div class="control-play">
-                <div class="control-play-1">
-                    <span><i class="fa fa-volume-up"></i></span>
-                    <input type="range" name="" id="">
-                </div>
-                <div class="control-play-2">
-                    <span><i class="fa fa-step-backward"></i></span>
-                    <span><i class="fa fa-play"></i></span>
-                    <span><i class="fa fa-step-forward"></i></span>
-                </div>
-                <div class="control-play-3">
-                    <span><i class="fa fa-retweet"></i></span>
-                    <span>词</span>
-                </div>
-            </div>
-        </div> -->
         <!-- 专辑图片 -->
         <div id="albumPic">
             <img src="http://qukufile2.qianqian.com/data2/pic/246669552/246669552.jpg@s_2,w_300,h_300" alt="album picture">
         </div>
         <!-- 显示歌词 -->
-        <div id="lyric">Lyric</div>
+        <div id="lyric">
+            <pre><code>
+
+            </code></pre>
+        </div>
     </div>
 
     <script>
-        // TODO: 专辑超过两行有问题
+        // TODO: 列表中显示正确的歌曲时间
+        // TODO: 在列表中 鼠标滑过一列应该显示播放按钮
+        // TODO: 点击播放按钮后播放歌曲
+        // TODO: 通过歌手搜索
+        // TODO: 通过点击列表中的歌手搜索 * 2
+        // TODO: 添加歌词
+        // TODO: 让歌词滚动起来
 
         // 加载后首页内容
+        let audio;
         let list = document.getElementById('list');
         let pages = document.getElementById('pages');
+        let lyric = document.querySelector('#lyric pre code');
         let controlWrap = document.getElementById('controlWrap');
-        let searchBtnEnter = document.getElementById('searchBtn');
-        let searchBtnSpan = document.querySelector('.search span');
+        let searchBtnSong = document.getElementById('searchBtnSong');   // 通过歌名搜索 - 回车直接搜索
+        let searchSongSpan = document.querySelector('.searchSong span'); // 通过歌名搜索 - 点击搜索按钮搜索
+        let searchBtnSinger = document.getElementById('searchBtnSinger'); // 通过歌手搜索 - 回车直接搜索
+        let searchSingerSpan = document.querySelector('.searchSinger span'); // 通过歌手搜索 - 点击搜索按钮搜索
         let albumPic = document.querySelector('#albumPic img');
         let first_url = 'https://www.mxnzp.com/api/music/song/search?keyWord=%E9%9D%92%E8%8A%B1%E7%93%B7';
         let prefix = 'https://www.mxnzp.com/api/music/song/search?keyWord=';
@@ -306,13 +256,18 @@
 
                 for(let i = 0; i < len; i++){
                 let createLine = document.createElement('div');
+
+                // 去掉专辑的‘《》’
+                let s = res1.data.list[i].albumName;
+                let deleteBracket = s.slice(1, s.length-1);
+
                 let lineDetail = `
                     <span class="songId" style="display:none;">${res1.data.list[i].id}</span>
                     <span class="songNumber">${i+1}</span>
-                    <span class="songOperation"><i class="fa fa-play" style="display:none;"></i></span>
+                    <span class="songOperation" style="visibility: hidden;"><i class="fa fa-play"></i></span>
                     <span class="songName">${res1.data.list[i].songName}</span>
                     <span class="artistName">${res1.data.list[i].artistName}</span>
-                    <span class="albumName">${res1.data.list[i].albumName}</span>
+                    <span class="albumName">${deleteBracket}</span>
                     <span class="songDuration">5:33</span>
                     `;
                 createLine.innerHTML = lineDetail;
@@ -323,7 +278,7 @@
         getData(first_url);
 
         // 搜索歌曲
-        searchBtnEnter.addEventListener('keypress', function(e){
+        searchBtnSong.addEventListener('keypress', function(e){
             if(e.keyCode === 13){
                 list.innerHTML = '';
                 pages.innerHTML = '';
@@ -331,7 +286,7 @@
                 getData(prefix + val);
             }
         },false);
-        searchBtnSpan.addEventListener('click', function(e){
+        searchSongSpan.addEventListener('click', function(e){
             list.innerHTML = '';
             pages.innerHTML = '';
             let val = searchBtn.value;
@@ -339,53 +294,80 @@
         }, false);
 
         // 用事件委托的方式翻页
-        pages.addEventListener('click', function(e){
-            if(e.target.tagName.toUpperCase() === 'SPAN'){
-                list.innerHTML = '';
+        // pages.addEventListener('click', function(e){
+        //     if(e.target.tagName.toUpperCase() === 'SPAN'){
+        //         list.innerHTML = '';
                 
-                fetch(prefix + searchBtnEnter.value + '&page=' + e.target.innerHTML)
-                .then(res => res.json())
-                .then(res1 => {
-                    let len = res1.data.list.length;
-                    for(let i = 0; i < len; i++){
-                    let createLine = document.createElement('div');
-                    let lineDetail = `
-                        <span class="songId" style="display:none;">${res1.data.list[i].id}</span>
-                        <span class="songNumber">${i+1}</span>
-                        <span class="songOperation"><i class="fa fa-play" style="display:none;"></i></span>
-                        <span class="songName">${res1.data.list[i].songName}</span>
-                        <span class="artistName">${res1.data.list[i].artistName}</span>
-                        <span class="albumName">${res1.data.list[i].albumName}</span>
-                        <span class="songDuration">5:33</span>
-                        `;
-                    createLine.innerHTML = lineDetail;
-                    list.appendChild(createLine);
-                }
-                });
+        //         fetch(prefix + searchBtnSong.value + '&page=' + e.target.innerHTML)
+        //         .then(res => res.json())
+        //         .then(res1 => {
+        //             let len = res1.data.list.length;
+        //             for(let i = 0; i < len; i++){
 
-            }
-        }, false);
+                    // 去掉专辑的‘《》’
+        //             let s = res1.data.list[i].albumName;
+        //             let deleteBracket = s.slice(1, s.length-1);
+
+        //             let createLine = document.createElement('div');
+        //             let lineDetail = `
+        //                 <span class="songId" style="display:none;">${res1.data.list[i].id}</span>
+        //                 <span class="songNumber">${i+1}</span>
+        //                 <span class="songOperation"><i class="fa fa-play"></i></span>
+        //                 <span class="songName">${res1.data.list[i].songName}</span>
+        //                 <span class="artistName">${res1.data.list[i].artistName}</span>
+        //                 <span class="albumName">${deleteBracket}</span>
+        //                 <span class="songDuration">5:33</span>
+        //                 `;
+        //             createLine.innerHTML = lineDetail;
+        //             list.appendChild(createLine);
+        //         }
+        //         });
+
+        //     }
+        // }, false);
 
         // 用事件委托的方式，点击歌曲后播放
-        list.addEventListener('click', function(e){
-            let songid = e.target.parentElement.getElementsByClassName('songId')[0].innerHTML;
-            let url = 'https://www.mxnzp.com/api/music/song/detail?songId=';
-            fetch(url + songid)
-            .then(res => res.json())
-            .then(res1 => {
-                controlWrap.innerHTML = '';
-                albumPic.src = res1.data.songPic;
-                let createAudio = document.createElement('audio');
-                let createSource = document.createElement('source');
-                createAudio.setAttribute('controls', 'controls');
-                createSource.src = res1.data.songLink;
-                createSource.setAttribute('type', 'audio/mp3');
-                controlWrap.appendChild(createAudio);
-                createAudio.appendChild(createSource);
+        // list.addEventListener('click', function(e){
+        //     let songid = e.target.parentElement.getElementsByClassName('songId')[0].innerHTML;
+        //     let url = 'https://www.mxnzp.com/api/music/song/detail?songId=';
+        //     fetch(url + songid)
+        //     .then(res => res.json())
+        //     .then(res1 => {
+        //         controlWrap.innerHTML = '';
+        //         albumPic.src = res1.data.songPic;
+        //         let createAudio = document.createElement('audio');
+        //         let createSource = document.createElement('source');
+        //         createAudio.setAttribute('controls', 'controls');
+        //         createSource.src = res1.data.songLink;
+        //         createSource.setAttribute('type', 'audio/mp3');
+        //         controlWrap.appendChild(createAudio);
+        //         createAudio.appendChild(createSource);
 
-            })
-        }, false);
+                // 获取歌词
+        //         fetch(res1.data.lrcLink)
+        //         .then(res2 => res2.text())
+        //         .then(res3 => {
+        //             lyric.innerHTML = res3;
+        //         });
 
+        //         audio = document.querySelector('#controlWrap audio');
+        //     })
+        // }, false);
+
+        // 添加前置数字0
+        // function addZero(n){
+        //     return n > 9 ? ''+n : '0'+n;
+        // }
+
+        // 转换时间：126.55 -> [02:06.55]
+        // function translateTime(t){
+        //     let nt = (t).toFixed(2);
+        //     let ms = nt.slice(-3,nt.length) // 获得毫秒
+        //     let minutes = addZero(parseInt(nt / 60));
+        //     let seconds = addZero((nt % 60).toFixed(2));
+        //     let time = `[${minutes}:${seconds}]`;
+        //     return time;
+        // }
 
     </script>
 </body>

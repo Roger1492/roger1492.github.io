@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web版音乐播放器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+        <!-- 搜索框 -->
+        <div id="searchBox">
+            <div class="search">
+                <input id="searchSongEnter" type="text" placeholder="歌名">
+                <span id="searchSongClick"><i class="fa fa-search"></i></span>
+            </div>
+            <div class="search">
+                <input id="searchSingerEnter" type="text" placeholder="歌手">
+                <span id="searchSingerClick"><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+        <!-- 播放列表 -->
+        <div id="songList">
+            <div id="list-title">
+                <span class="song-id">Num</span>
+                <span class="song-operation">播放</span>
+                <span class="song-name">音乐标题</span>
+                <span class="artist-name">歌手</span>
+                <span class="album-name">专辑</span>
+                <span class="song-duration">时长</span>
+            </div>
+            <div id="list"></div>
+            <div id="page-panel">
+                <div>
+                    <div id="page-pre">&lt;</div>
+                    <div id="pages"></div>
+                    <div id="page-next">&gt;</div>
+                </div>
+            </div>
+        </div>
+        <!-- 控制面板 -->
+        <div id="controlWrap">
+            <audio id="song" controls>
+                <source
+                    src="http://zhangmenshiting.qianqian.com/data2/music/c077e9e8d8fb63f136adc14373550d17/599553398/35438710800128.mp3?xcode=48f570a54a60104358a651629ec11350"
+                    type="audio/mp3">
+                您的浏览器不支持 audio 元素。
+            </audio>
+        </div>
+        <!-- 专辑图片 -->
+        <div id="albumPic">
+            <img src="http://qukufile2.qianqian.com/data2/pic/246669552/246669552.jpg@s_2,w_300,h_300"
+                alt="album picture">
+        </div>
+        <!-- 显示歌词 -->
+        <div id="lyric">
+            <pre><code>
+
+            </code></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+#container{
+    display: grid;
+    width: 1200px;
+    height: 700px;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(7,1fr);
+    outline: 1px solid gray;
+}
+#container > div{
+    outline: 1px solid gray;
+}
+#searchBox{
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+#songList{
+    grid-column: 1 / 10;
+    grid-row: 2 / 8;
+}
+#controlWrap{
+    grid-column: 4 / 10;
+    grid-row: 1 / 2;
+}
+#albumPic{
+    grid-column: 10 / 13;
+    grid-row: 1 / 4;
+}
+#lyric{
+    grid-column: 10 / 13;
+    grid-row: 4 / 8;
+}
+#list-title{
+    width: 900px;
+    height: 25px;
+    border-bottom: 1px solid gray;
+}
+#list-title span{
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+}
+#list-title span:not(:nth-of-type(1)){
+    border-left: 1px solid gray;
+}
+#list-title span:nth-of-type(1){width: 40px; text-indent: 2px;}
+#list-title span:nth-of-type(2){width: 35px; text-indent: 2px;}
+#list-title span:nth-of-type(3){width: 290px; text-indent: 5px;}
+#list-title span:nth-of-type(4){width: 200px; text-indent: 5px;}
+#list-title span:nth-of-type(5){width: 230px; text-indent: 5px;}
+#list-title span:nth-of-type(6){width: 45px; text-indent: 5px;}
+#list{
+    position: relative;
+    width: 900px;
+    height: 525px;
+    overflow-y: scroll;
+}
+#list div{
+    height: 30px;
+    border-bottom: 1px solid rgba(235, 231, 231, 0.5);
+    box-sizing: border-box;
+    cursor: default;
+}
+#list div:nth-of-type(even){
+    background: rgba(235, 231, 231, 0.5);
+}
+#list div:hover{
+    background: rgba(212, 211, 211, 0.6);
+}
+#list div span{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    overflow: hidden;
+}
+#list div .songNumber{width: 40px; text-indent: 2px;}
+#list div .songOperation{width: 36px; text-indent: 2px;}
+#list div .songName{width: 291px; text-indent: 5px;}
+#list div .artistName{width: 201px; text-indent: 5px;}
+#list div .albumName{width: 231px; text-indent: 5px;}
+#list div .songDuration{width: 46px; text-indent: 5px;}
+#list div .artistName:hover{
+    cursor: pointer;
+    color: rgb(24, 135, 187);
+}
+#page-panel{
+    position: relative;
+    width: 900px;
+    height: 50px;
+    border-top: 1px solid gray;
+}
+#page-panel > div{
+    margin: 5px auto;
+}
+#page-panel div div{
+    position: relative;
+    display: inline-block;
+}
+#page-pre,
+#page-next{
+    border: 1px solid gray;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    text-align: center;
+    background: rgba(235, 231, 231, 0.5);
+    border-radius: 5px;
+    cursor: pointer;
+}
+#pages{
+    min-width: 25px;
+}
+#pages > span{
+    position: relative;
+    top: -2px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    line-height: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+#pages > span:hover{
+    background: lightblue;
+}
+.search input{
+    position: relative;
+    top: 15px;
+    width: 297px;
+    height: 20px;
+    border-radius: 10px;
+    outline: none;
+    text-indent: 5px;
+    border: 1px solid gray;
+}
+.search span{
+    position: relative;
+    top: -5px;
+    left: 277px;
+    cursor: pointer;
+}
+#controlWrap > audio{
+    position: relative;
+    top: 20px;
+    width: 598px;
+    left: 1px;
+    background: #f1f3f4;
+}
+#lyric{
+    overflow-y: scroll;
+}
