@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 064 - base64的加密和解密</title>
+    <style>
+        .container{
+            position: relative;
+            top: 40px;
+            width: 90vw;
+            height: 80vh;
+            display: grid;
+            grid-template-columns: 1fr 100px 1fr;
+            grid-template-rows: 1fr;
+            border: 1px solid gray;
+        }
+        .container div:nth-of-type(1)::before{
+            position: absolute;
+            top: -20px;
+            content: '输入遥加密的内容';
+            color: gray;
+        }
+        .container div:nth-of-type(3)::before{
+            position: absolute;
+            top: -20px;
+            content: '输入遥解密的内容';
+            color: gray;
+        }
+        .wrap{
+            border-width: 0 1px;
+            border-color: gray;
+            border-style: solid;
+            padding-top: 200px;
+        }
+        button{
+            border: none;
+            outline: none;
+            width: 98px;
+            margin-top: 10px;
+            height: 30px;
+        }
+        button:hover{
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="encrypt-text" contenteditable></div>
+        <div class="wrap">
+            <button id="encrypt">加密 -></button>
+            <button id="encode">解密 <-</button>
+        </div>
+        <div id="encode-text" contenteditable></div>
+    </div>
+    <script>
+        let encrypt = document.getElementById('encrypt');
+        let encode = document.getElementById('encode');
+        let encryptText = document.getElementById('encrypt-text');
+        let encodeText = document.getElementById('encode-text');
+        let letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+        let base64 = letter.split('');
+
+        // 加密算法
+        encrypt.addEventListener('click', function(e){
+            let text = encryptText.innerHTML;
+        }, false);
+
+        // 解密算法
+        encode.addEventListener('click', function(e){
+            let text = encodeText.innerHTML;
+        }, false);
+    </script>
+</body>
+</html>
