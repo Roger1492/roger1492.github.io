@@ -1,14 +1,15 @@
 #container{
     display: grid;
-    width: 1200px;
+    width: 1500px;
     height: 700px;
-    grid-template-columns: repeat(12,1fr);
+    grid-template-columns: repeat(15,1fr);
     grid-template-rows: repeat(7,1fr);
-    outline: 1px solid gray;
+    grid-gap: 5px;
+    /* outline: 1px solid gray; */
 }
-#container > div{
+/* #container > div{
     outline: 1px solid gray;
-}
+} */
 #searchBox{
     grid-column: 1 / 4;
     grid-row: 1 / 2;
@@ -28,6 +29,12 @@
 #lyric{
     grid-column: 10 / 13;
     grid-row: 4 / 8;
+}
+#intro{
+    grid-column: 13 / 16;
+    grid-row: 1 / 8;
+    overflow: scroll;
+    padding: 5px;
 }
 #list-title{
     width: 900px;
@@ -74,18 +81,17 @@
     overflow: hidden;
 }
 #list div .songNumber{width: 40px; text-indent: 2px;}
-#list div .songOperation{width: 36px; text-indent: 2px;}
+#list div .songOperation{width: 36px; text-indent: 2px; visibility: hidden;}
 #list div .songName{width: 291px; text-indent: 5px;}
 #list div .artistName{width: 201px; text-indent: 5px;}
 #list div .albumName{width: 231px; text-indent: 5px;}
 #list div .songDuration{width: 46px; text-indent: 5px;}
-#list div .songOperation:hover{
-    color: gray;
-    cursor: pointer;
-}
 #list div .artistName:hover{
     cursor: pointer;
     color: rgb(24, 135, 187);
+}
+#list div:hover .songOperation{
+    visibility: visible;
 }
 #page-panel{
     position: relative;
@@ -142,7 +148,7 @@
 }
 .search span{
     position: relative;
-    top: -10px;
+    top: -5px;
     left: 277px;
     cursor: pointer;
 }
