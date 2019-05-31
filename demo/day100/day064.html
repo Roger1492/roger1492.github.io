@@ -16,18 +16,6 @@
             grid-template-rows: 1fr;
             border: 1px solid gray;
         }
-        .container div:nth-of-type(1)::before{
-            position: absolute;
-            top: -20px;
-            content: '输入要加密的内容';
-            color: gray;
-        }
-        .container div:nth-of-type(3)::before{
-            position: absolute;
-            top: -20px;
-            content: '输入要解密的内容';
-            color: gray;
-        }
         .wrap{
             border-width: 0 1px;
             border-color: gray;
@@ -48,20 +36,20 @@
 </head>
 <body>
     <div class="container">
-        <div id="encrypt-text" contenteditable></div>
+        <textarea id="encrypt-text" cols="30" rows="10" placeholder="输入要加密的内容"></textarea>
         <div class="wrap">
             <button id="encrypt">加密 -></button>
             <button id="encode">解密 <-</button>
         </div>
-        <div id="encode-text" contenteditable style="word-wrap:break-word;"></div>
+        <textarea id="encode-text" cols="30" rows="10" placeholder="输入要解密的内容"></textarea>
     </div>
     <script>
         let encrypt = document.getElementById('encrypt');
         let encode = document.getElementById('encode');
         let encryptText = document.getElementById('encrypt-text');
         let encodeText = document.getElementById('encode-text');
-        let alphabat = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-        let IndexTable = alphabat.split('');
+        let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+        let IndexTable = alphabet.split('');
 
         // 二进制不足八位的前置补0
         function addBinaryZero(num){
@@ -70,7 +58,7 @@
         
         // base64加密算法
         encrypt.addEventListener('click', function(e){
-            let text = encryptText.innerHTML;
+            let text = encryptText.value;
             let group = [];
             let index = [];
             let base64 = [];
@@ -83,51 +71,85 @@
                 ascii.push(charCode);
             })
             
-            // 2, 转换为二进制
+            // 2, 转换为二进制(并在不满8位的前面补0)
             let binary = [];
             ascii.forEach((item, ind, arr) => {
                 let t = addBinaryZero(item.toString(2));
                 binary.push(t);
             })
             
-            // 3, 二进制后面补0
-            let bin = binary.join('') + '0'.repeat((6 - binary.join('').length % 6));
+            // 3, 二进制后面补0(空2个原始字符，加2个八位，空一个原始字符，加1个八位)
+            let len = 3 - text.length % 3;
+            if(len === 0 || len === 3){
+                bin = binary.join('');
+            } else if(len === 1){
+                bin = binary.join('') + '00000000';
+            } else {
+                bin = binary.join('') + '0000000000000000'
+            }
 
             // 4, 每6位分一组
             for(let i = 0; i < bin.length; i+=6){
-                group.push(bin.slice(i,i+6));
+                group.push(bin.slice(i, i+6));
             }
-            console.log(group);
 
-            // 5, 再转换位十进制作为base64的索引
+            // 5, 空1个原始字符，去掉最后一个元素，空2个原始字符，去掉最后两个元素。
+            if(len === 1){
+                group.length = group.length - 1;
+            }
+            if(len === 2){
+                group.length = group.length - 2;
+            }
+
+            // 6, 再转换位十进制作为base64的索引
             group.forEach((item, ind, arr) => {
                 index.push(parseInt(item, 2))
             })
 
-            // 6, 根据索引得到字符
+            // 7, 根据索引得到字符
             index.forEach((item, ind, arr) => {
                 base64.push(IndexTable[item]);
             })
             
-            // 7, 确定后面要加几个= (剩余1个字符，则加2个==，剩余2个字符，则加1个=)
-            let len = text.length % 3;
-            if(len === 0){
+            // 8, 确定后面要加几个= (有1个字符（空2个），则加2个==，有2个字符（空1个），则加1个=)
+            if(len === 0 || len === 3){
                 suffix = '';
             } else if(len === 1){
-                suffix = '==';
-            } else{
                 suffix = '=';
+            } else{
+                suffix = '==';
             }
 
-            // 8, 把第6步和第7步的结果相加
+            // 9, 把第6步和第7步的结果相加
 
-            encodeText.innerHTML =  base64.join('') + suffix;
+            encodeText.value =  base64.join('') + suffix;
 
         }, false);
 
-        // 解密算法
+        // 解密算法 (加密的逆运算)
         encode.addEventListener('click', function(e){
-            let text = encodeText.innerHTML;
+            let text = encodeText.value;
+            let indexNum = [];                       // base64的索引
+            let binArr = [];
+            let equalNum = /={1,2}/g.exec(text)[0];  // 原始字符中的=数量
+            let equalToA = text.replace(/=/g, 'A');  // 把=转换为A
+
+            // 1，获取原始字符串的索引
+            for(let i = 0; i < equalToA.length; i++){
+                indexNum.push(alphabet.search(equalToA[i]));
+            }
+
+            // 2，转换为二进制
+            for(let i = 0; i < indexNum.length; i++){
+                binArr.push(indexNum[i].toString(2));
+            }
+            console.log(binArr);
+
+            // 3, 二进制加前缀0
+            for(let i = 0; i < binArr.length; i++){
+                binArr[i] = '0'.repeat((6 - binArr[i].length)) + binArr[i];
+            }
+            console.log(binArr);
         }, false);
     </script>
 </body>
