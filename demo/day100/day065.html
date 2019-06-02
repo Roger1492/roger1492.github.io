@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      width: 98vw;
+      height: 100vh;
+      overflow-y: scroll;
+      word-wrap: break-word;
+    }
+    .empty::before{
+      position: absolute;
+      content: '把任意文件拖入到这里';
+      line-height: 100vh;
+      color: gray;
+    }
+  </style>
+</head>
+<body class="empty">
+  
+
+  <script>
+    let empty = document.getElementsByClassName('empty')[0];
+    window.addEventListener('dragenter', function(event){ event.preventDefault(); }, false);
+    window.addEventListener('dragover', function(event){ event.preventDefault(); }, false);
+    window.addEventListener('drop', function(event){
+      let reader = new FileReader();
+      reader.onload = function(e){
+        document.body.innerHTML = e.target.result;
+        if(!empty.classList.contains('empty')){
+          return;
+        } else {
+          empty.classList.remove('empty');
+        }
+      };
+      reader.readAsDataURL(event.dataTransfer.files[0]);
+      event.preventDefault();
+      }, false);
+
+      console.log('%c内容是从张鑫旭博客学(chao)习(xi)来的','color:red; font-size:20px;');
+  </script>
+</body>
+</html>

@@ -213,12 +213,15 @@
         
         // base64加密算法
         encrypt.addEventListener('click', function(e){
-          encodeText.value = base64Encode(encryptText.value);
+          // encodeText.value = base64Encode(encryptText.value);
+          encodeText.value = window.btoa(encryptText.value);
+
         }, false);
 
         // 解密算法 (加密的逆运算)
         encode.addEventListener('click', function(e){
-          encryptText.value = base64Decode(encodeText.value);
+          // encryptText.value = base64Decode(encodeText.value);
+          encryptText.value = window.atob(encodeText.value);
         }, false);
 
         // 清除原码和编码
@@ -228,6 +231,8 @@
         clearWrap[1].addEventListener('click', function(){
           encodeText.value = '';
         }, false)
+
+        console.log('%c代码写完后第二天才发现浏览器竟然支持原生的Base64方法','color: red; font-size: 20px;');
     </script>
 </body>
 </html>
