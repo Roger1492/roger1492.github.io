@@ -81,120 +81,96 @@
     // 3，其他进制转换为其他进制
     // 先用 `parseInt()` 转换为十进制，再用 `toString()` 转换为相应的进制
 
-    let btnTranslate = document.getElementById('btn-translate');
-    let btnClear = document.getElementById('btn-clear');
-    let binary = document.getElementById('binary');
-    let octal = document.getElementById('octal');
-    let decimal = document.getElementById('decimal');
-    let hexadeciaml = document.getElementById('hexadecimal');
-
-    // 二进制分组
-    // str 要分组的字符串，
-    // num 要分的组数
-    function group(str, num){
-      let arr = [];
-      let s = '';
-      for(let i = 0; i < str.length; i+=num){
-        arr.push(str.slice(i,i+num));
+    // 功能: 查看输入的是否包含非法字符
+    String.prototype.contains = function(str){
+      let strArr = str.split('');
+      for(let i = 0; i < strArr.length; i++){
+        if(this.indexOf(strArr[i]) !== -1){
+          return true;
+        } else {
+          return false;
+        }
       }
-      for(let i = 0; i < arr.length; i++){
-        s += arr[i] + ' ';
-      }
-      s.substr(0, s.length-1);
-      return s;
+    }
+    
+    // 2 -> 8 (2 -> 10 -> 8)
+    function translate2to8(num){
+      let middle = parseInt((num), 2);
+      return middle.toString(8);
     }
 
-    // 在input框中输入value后清除其他框中的value
-    function clearOtherValue() {
-      binary.addEventListener('focus', function (e) {
-        octal.value = '';
-        decimal.value = '';
-        hexadeciaml.value = '';
-      }, false);
-
-      octal.addEventListener('focus', function (e) {
-        binary.value = '';
-        decimal.value = '';
-        hexadeciaml.value = '';
-      }, false);
-
-      decimal.addEventListener('focus', function (e) {
-        binary.value = '';
-        octal.value = '';
-        hexadeciaml.value = '';
-      }, false);
-
-      hexadeciaml.addEventListener('focus', function (e) {
-        binary.value = '';
-        octal.value = '';
-        decimal.value = '';
-      }, false);
+    // 2 -> 10
+    function translate2to10(num){
+      return parseInt((num), 2);
     }
 
-    // 二进制转换为其他进制
-    function twoToOther(v) {
-      let num = Number.parseInt(v, 2);
-      decimal.value = num;
-      octal.value = (num).toString(8);
-      hexadeciaml.value = (num).toString(16);
+    // 2 -> 16
+    function translate2to16(num){
+      let middle = parseInt((num), 2);
+      return middle.toString(16);
     }
 
-    // 八进制转换为其他进制
-    function octalToOther(v) {
-      let num = Number.parseInt(v, 8);
-      decimal.value = num;
-      // binary.value = addZero((num).toString(2), 4);
-      binary.value = group(addZero((num).toString(2), 4), 4);
-      hexadeciaml.value = (num).toString(16);
+    // 8 -> 2
+    function translate8to2(num){
+      let middle = parseInt(num, 8);
+      return middle.toString(2);
+    }
+    // 8 -> 10
+    function translate8to10(num){
+      return parseInt(num, 8);
     }
 
-    // 十进制转换为其他进制
-    function decimalToOther(v) {
-      let num = Number.parseInt(v);
-      // binary.value = addZero((num).toString(2), 4);
-      binary.value = group(addZero((num).toString(2), 4), 4);
-      octal.value = (num).toString(8);
-      hexadeciaml.value = (num).toString(16);
+    // 8 -> 16
+    function translate8to16(num){
+      let middle = parseInt(num, 8);
+      return middle.toString(16);
     }
 
-    // 十六进制转化为其他进制
-    function hexadeciamlToOther(v) {
-      let num = Number.parseInt(v, 16);
-      decimal.value = num;
-      // binary.value = addZero((num).toString(2), 4);
-      binary.value = group(addZero((num).toString(2), 4), 4);
-      octal.value = (num).toString(8);
+    // 10 -> 2
+    function translate(num){
+      return (num).toString(2);
     }
 
-    // 在位数不够的二进制数字前添加0
-    function addZero(str, n) {
-      let len = n - (str.length % n) == n ? 0 : (n - (str.length % n));
-      return '0'.repeat(len) + str;
+    // 10 -> 8
+    function translate10to8(num){
+      return (num).toString(8);
     }
 
+    // 10 -> 16
+    function translate10to16(num){
+      return (num).toString(16);
+    }
 
-    // 开始进制转换
-    btnTranslate.addEventListener('click', function (e) {
-      if (binary.value) {
-        twoToOther(binary.value);
-      } else if (octal.value) {
-        octalToOther(octal.value);
-      } else if (decimal.value) {
-        decimalToOther(decimal.value);
+    // 16 -> 2 (16 -> 10 -> 2)
+    function translate16to2(num){
+      let middle = parseInt(num, 16);
+      return middle.toString(2);
+    }
+
+    // 16 -> 8
+    function translate16to8(num){
+      let middle = parseInt(num, 16);
+      return middle.toString(8);
+    }
+    // 16 -> 10
+    function translate16to10(num){
+      return parseInt(num, 16);
+    }
+
+    // 任意进制的任意数字转换为任意进制的任意数字
+    function translateAll(num, origin, result){
+      if(origin === 2){
+
+      } else if(origin === 8){
+
+      } else if(origin === 10){
+
+      } else if(origin === 16){
+
       } else {
-        hexadeciamlToOther(hexadeciaml.value);
+        return '请输入2,8,10,16'
       }
-    }, false);
-
-    // 清除所有的输入
-    btnClear.addEventListener('click', function (e) {
-      binary.value = '';
-      octal.value = '';
-      decimal.value = '';
-      hexadeciaml.value = '';
-    }, false);
-
-    clearOtherValue();
+    }
   </script>
 </body>
 
