@@ -9,59 +9,53 @@
   <style>
     #wrap{
       position: relative;
-      margin: 100px auto;
-      width: 600px;
-      border: 1px solid gray;
+      margin: 200px auto;
+      width: 300px;
     }
-    #btn-group{
-      width: 100%;
-      height: 50px;
-      text-align: center;
-    }
-    button{
-      width: 50%;
-      height: 50px;
+    #wrap::before{
+      position: absolute;
+      content: '进制转换';
       font-size: 30px;
-      float: left;
-      border: none;
-      outline: none;
-      transition: all .2s ease-in;
-    }
-    button:hover{
-      background: rgb(131, 131, 131);
+      font-weight: 800;
+      top: -40px;
+      left: 100px;
     }
     section{
-      width: 100%;
+      position: relative;
+      width: 300px;
+      height: 30px;
     }
-    input{
-      width: 100%;
-      outline: none;
+    section span{
+      display: inline-block;
+      position: relative;
+      width: 70px;
+    }
+    section input{
+      width: 226px;
+    }
+    button{
+      width: 300px;
+      height: 40px;
       font-size: 30px;
-      border-width: 0 0 1px 0;
-      border-style: solid;
-      border-color: transparent transparent gray transparent;
-      text-transform: uppercase;
-    }
-    section:last-child input{
-      border-width: 0;
     }
   </style>
 </head>
 
 <body>
   <div id="wrap">
-    <div class="btn-group">
-      <button id="btn-translate">进制转换</button>
-      <button id="btn-clear">清除</button>
-    </div>
-    <div class="container">
-      <section>二进制:<input id="binary" type="text"></section>
-      <section>八进制:<input id="octal" type="text"></section>
-      <section>十进制:<input id="decimal" type="text"></section>
-      <section>十六进制:<input id="hexadecimal" type="text"></section>
-    </div>
+    <section><span>二进制:</span><input id="binary" type="text"></section>
+    <section><span>八进制:</span><input id="octal" type="text"></section>
+    <section><span>十进制:</span><input id="decimal" type="text"></section>
+    <section><span>十六进制:</span><input id="hexadecimal" type="text"></section>
+    <button id="btn-clear">清除</button>
   </div>
   <script>
+    let btnClear = document.getElementById('btn-clear');
+    let binary = document.getElementById('binary');
+    let octal = document.getElementById('octal');
+    let decimal = document.getElementById('decimal');
+    let hexadecimal = document.getElementById('hexadecimal');
+
     // 1，任意一个input框中输入内容后，清除其他三个框中的value。
     // 2，点击转换按钮后先判断哪个input框中有value
     // 3，转换成其他进制
@@ -80,18 +74,6 @@
 
     // 3，其他进制转换为其他进制
     // 先用 `parseInt()` 转换为十进制，再用 `toString()` 转换为相应的进制
-
-    // 功能: 查看输入的是否包含非法字符
-    String.prototype.contains = function(str){
-      let strArr = str.split('');
-      for(let i = 0; i < strArr.length; i++){
-        if(this.indexOf(strArr[i]) !== -1){
-          return true;
-        } else {
-          return false;
-        }
-      }
-    }
     
     // 2 -> 8 (2 -> 10 -> 8)
     function translate2to8(num){
@@ -127,7 +109,7 @@
     }
 
     // 10 -> 2
-    function translate(num){
+    function translate10to2(num){
       return (num).toString(2);
     }
 
@@ -157,20 +139,76 @@
       return parseInt(num, 16);
     }
 
+    binary.addEventListener('change', function(e){
+      octal.value = translate2to8(this.value);
+      decimal.value = translate2to10(this.value);
+      hexadecimal.value = translate2to16(this.value);
+    }, false);
+    octal.addEventListener('change', function(e){
+      binary.value = translate8to2(this.value);
+      decimal.value = translate8to10(this.value);
+      hexadecimal.value = translate8to16(this.value);
+    }, false);
+    decimal.addEventListener('change', function(e){
+      binary.value = translate10to2(this.value);
+      octal.value = translate10to8(this.value);
+      hexadecimal.value = translate10to16(this.value);
+    }, false);
+    hexadecimal.addEventListener('change', function(e){
+      binary.value = translate16to2(this.value);
+      octal.value = translate16to8(this.value);
+      decimal.value = translate16to10(this.value);
+    }, false);
+
+
     // 任意进制的任意数字转换为任意进制的任意数字
-    function translateAll(num, origin, result){
+    function translateAny(num, origin, result){
       if(origin === 2){
-
+        if(result === 8){
+          return translate2to8(num);
+        } else if(result === 10){
+          return translate2to10(num);
+        } else if(result === 16){
+          return translate2to16(num);
+        } else {
+          return 'wrong';
+        }
       } else if(origin === 8){
-
+        if(result === 2){
+          return translate8to2(num);
+        } else if(result === 10){
+          return translate8to10(num);
+        } else if(result === 16){
+          return translate8to16(num);
+        } else {
+          return 'wrong';
+        }
       } else if(origin === 10){
-
+        if(result === 2){
+          return translate10to2(num);
+        } else if(result === 8){
+          return translate10to8(num);
+        } else if(result === 16){
+          return translate10to16(num);
+        } else {
+          return 'wrong';
+        }
       } else if(origin === 16){
-
+        if(result === 2){
+          return translate16to2(num);
+        } else if(result === 8){
+          return translate16to8(num);
+        } else if(result === 10){
+          return translate16to10(num);
+        } else {
+          return 'wrong';
+        }
       } else {
         return '请输入2,8,10,16'
       }
     }
+
+
   </script>
 </body>
 

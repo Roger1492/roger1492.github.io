@@ -1,106 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Day 029 - 像素画板</title>
-  <style>
-    body {
-      position: relative;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .pixel {
-      position: relative;
-      box-sizing: border-box;
-      width: 20px;
-      height: 20px;
-      line-height: 50px;
-      text-align: center;
-      float: left;
-      border: 1px solid gray;
-      cursor: pointer;
-      border-radius: 50%;
-    }
-  </style>
+  <title>Day 029 - Canvas画板</title>
 </head>
-
 <body>
-  <div>请选择颜色：<input id="color" type="color"></div>
-  <div id="wrap">
-
-  </div>
-
-  <!-- 右键事件显示样式 -->
-
-  <script>
-    var currentColor = '#000';
-    let wrap = document.getElementById('wrap');
-    let menu = document.getElementsByClassName('menu')[0];
-    let color = document.getElementById('color');
-
-    // 创建像素画板
-    function board() {
-      let xWinth = 20; // x和y表示每个像素的高和宽 单位：px
-      let yHeight = 20;
-      let xNum = Math.floor(window.innerWidth / xWinth);
-      let yNum = Math.floor(window.innerHeight / yHeight);
-      let allNum = xNum * yNum;
-
-      for (let i = 0; i < allNum; i++) {
-        let createSec = document.createElement('section');
-        createSec.classList.add('pixel');
-        // createSec.innerHTML = i + 1;
-        wrap.appendChild(createSec);
-      }
-    }
-
-    // 点击section后改变颜色
-    function changeColor(){
-      let allSec = Array.from(document.querySelectorAll('section'));
-      allSec.forEach((ele, ind, arr) => {
-        ele.addEventListener('click' ,function(e){
-          // let sRndColor = Math.floor(Math.random()*(1<<24)).toString(16);
-          // this.style.backgroundColor = '#' + sRndColor;
-          this.style.backgroundColor = currentColor;
-        }, false);
-      })
-    }
-
-    // 右击事件
-    // function contextMenu(){
-    //   let allSec = Array.from(document.querySelectorAll('section'));
-    //   // 阻止默认contextmenu事件
-    //   document.addEventListener('contextmenu', function(e){
-    //     e.preventDefault();
-
-    //     allSec.forEach((ele, ind, arr) => {
-    //       ele.addEventListener('mousedown', function(e){
-    //         if(!e) e = window.event;
-    //         if(e.button == 2){
-    //           let px = e.clientX;
-    //           let py = e.clientY;
-    //           menu.style.display = 'block';
-    //           menu.style.left = px+50 + 'px';
-    //           menu.style.top = py + 'px';
-    //         }
-    //       }, false);
-    //     })
-
-    //   }, false);
-    // }
-
-    color.addEventListener('change', function(e){
-      currentColor = this.value;
-    }, false);
-
-    board();
-    changeColor();
-    // contextMenu();
-  </script>
+  
 </body>
-
 </html>
