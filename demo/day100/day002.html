@@ -5,8 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Day 002 - 原生JS实现轮播图</title>
+    <style>
+        #container{
+            margin: 200px auto;
+            position: relative;
+            width: 600px;
+            height: 338px;
+            overflow: hidden;
+        }
+        #list{
+            position: relative;
+            width: 4200px;
+            height: 338px;
+        }
+        img{
+            position: relative;
+            float: left;
+            width: 600px;
+            height: 338px;
+        }
+        #dots{
+            position: relative;
+            width: 130px;
+            top: -50px;
+            left: 235px;
+        }
+        #dots span{
+            display: inline-block;
+            width: 15px;
+            height: 6px;
+            background: white;
+            border-radius: 3px;
+            margin-left: 6px;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+        #dots span:hover{
+            box-shadow: 0 0 3px 3px red;
+        }
+        .on{
+            box-shadow: 0 0 3px 3px red;
+        }
+        #pre,#next{
+            position: relative;
+            display: inline-block;
+            top: -230px;
+            width: 30px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 800;
+            background: rgba(255, 255, 255, 0.5);
+            transition: all .2s ease;
+        }
+        #next{
+            left: 536px;
+        }
+        #pre:hover, #next:hover{
+            background: white;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="container">
+        <div id="list" style="left: -600px;">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560922234579&di=ff3babec39d6f36ee91f730d6e4e15b5&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201112%2F15%2F185245k2kp52kp660o6y3t.jpg" alt="">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560922168014&di=4a1f43006d84c457dc63b26ce5c820d1&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fc5438ee12f9346b1cc487b10ce92e61d8c265c11.jpg" alt="">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560922184179&di=c3ff832ea2ed09fc0c3deeff7d387ba6&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2F2e29de892f522c96bd39a1e76d5ecc6f825ce5bb.jpg" alt="">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560922199902&di=05bdf37f668f6254ac3a22754e23e666&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201406%2F12%2F20140612202753_u4nG5.jpeg" alt="">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560922213608&di=bfbf8655688186599869e457b9567107&imgtype=0&src=http%3A%2F%2Fimg5q.duitang.com%2Fuploads%2Fitem%2F201309%2F15%2F20130915222633_FwW2N.jpeg" alt="">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560922234579&di=ff3babec39d6f36ee91f730d6e4e15b5&imgtype=0&src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201112%2F15%2F185245k2kp52kp660o6y3t.jpg" alt="">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1560922168014&di=4a1f43006d84c457dc63b26ce5c820d1&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Fc5438ee12f9346b1cc487b10ce92e61d8c265c11.jpg" alt="">
+        </div>
+        <div id="dots">
+            <span index="1" class="on"></span>
+            <span index="2"></span>
+            <span index="3"></span>
+            <span index="4"></span>
+            <span index="5"></span>
+        </div>
+        <span id="pre">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+
+    <script>
+        // 1, 先实现左右两个箭头切换图片的效果
+        window.onload = function(){
+            let container = document.getElementById('container');
+            let list = document.getElementById('list');
+            let pre = document.getElementById('pre');
+            let next = document.getElementById('next');
+            let dots = Array.from(document.querySelectorAll('#dots span'));
+            let index = 1;
+            let timer;
+
+            function animate(offset){
+                let newLeft = parseInt(list.style.left) + offset;
+                list.style.left = newLeft + 'px';
+
+                // 2，轮播到第5张时，list的位置回到第1张。轮播到第1张时，list位置回到第5张
+                if(newLeft < -3000){
+                    list.style.left = -600 + 'px';
+                }
+                if(newLeft > -600){
+                    list.style.left = -3000 + 'px';
+                }
+            }
+
+            // 5，清除之前的样式
+            function dotShow(){
+                for(let i = 0; i < dots.length; i++){
+                    if(dots[i].className === 'on'){
+                        dots[i].className = '';
+                    }
+                }
+                dots[index - 1].className = 'on';
+            }
+
+            // 6，切换到相应的图片
+            dots.forEach((item, ind, arr) => {
+                item.onclick = function(){
+                    let clickIndex = parseInt(this.getAttribute('index'));
+                    let offset = 600 * (index - clickIndex);
+                    animate(offset);
+                    index = clickIndex;
+                    dotShow();
+                };
+            })
+
+            pre.onclick = function(){
+                index -= 1;
+                if(index < 1){
+                    index = 5;
+                }
+                dotShow();
+                animate(600);
+            };
+            next.onclick = function(){
+                index += 1;
+                if(index > 5){
+                    index = 1;
+                }
+                dotShow();
+                animate(-600);
+            };
+
+            // 3，自动轮播下一张图片
+            function play(){
+                timer = setInterval(function(){
+                    next.onclick();
+                }, 3000);
+            }
+            play();
+
+            // 4，停止轮播
+            function stop(){
+                clearInterval(timer);
+            }
+            container.onmouseover = stop;
+            container.onmouseout = play;
+        };
+    </script>
+    <!-- 
+        https://www.cnblogs.com/LIUYANZUO/p/5679753.html
+     -->
 </body>
 </html>

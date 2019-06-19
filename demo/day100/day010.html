@@ -38,24 +38,63 @@
 </head>
 <body>
     <div class="wrap">
-        <section class="io">result</section>
+        <section class="display" data-first="123" data-operate="+" data-second="12">0</section>
         <section class="operation">+</section>
         <section class="operation">-</section>
-        <section class="operation">&times;</section>
-        <section class="operation">&divide;</section>
-        <section class="numbers">7</section>
-        <section class="numbers">8</section>
-        <section class="numbers">9</section>
-        <section class="numbers">4</section>
-        <section class="numbers">5</section>
-        <section class="numbers">6</section>
-        <section class="numbers">1</section>
-        <section class="numbers">2</section>
-        <section class="numbers">3</section>
-        <section class="numbers">0</section>
-        <section class="numbers">.</section>
-        <section class="clear">C</section>
-        <section class="result">&equals;</section>
+        <section class="operation">*</section>
+        <section class="operation">/</section>
+        <section class="number">7</section>
+        <section class="number">8</section>
+        <section class="number">9</section>
+        <section class="number">4</section>
+        <section class="number">5</section>
+        <section class="number">6</section>
+        <section class="number">1</section>
+        <section class="number">2</section>
+        <section class="number">3</section>
+        <section class="number">0</section>
+        <section class="number dot">.</section>
+        <section class="clear">AC</section>
+        <section class="equal">&equals;</section>
     </div>
+
+    <script>
+        // 获取所有的DOM元素
+        let display = document.getElementsByClassName('display')[0];
+        let operations = Array.from(document.querySelectorAll('operation'));
+        let numbers = Array.from(document.querySelectorAll('.number'));
+        let dot = document.getElementsByClassName('dot')[0];
+        let clear = document.getElementsByClassName('clear')[0];
+        let equal = document.getElementsByClassName('equal')[0];
+
+        // 输入数字
+        numbers.forEach((item, ind, arr) => {
+            item.addEventListener('click', function(e){
+                if(display.textContent === '0'){
+                    display.textContent = item.textContent;
+                } else {
+                    display.textContent += item.textContent;
+                }
+            }, false);
+        })
+
+        // cleculate(第一个数，符号，第二个数)
+        function calculate(firstNum, operator, secondNum){
+            let result = '';
+            if(operator === '+'){
+                result = parseFloat(firstNum) + parseFloat(secondNum);
+            }
+            if(operator === '-'){
+                result = parseFloat(firstNum) - parseFloat(secondNum);
+            }
+            if(operator === '*'){
+                result = parseFloat(firstNum) * parseFloat(secondNum);
+            }
+            if(operator === '/'){
+                result = parseFloat(firstNum) / parseFloat(secondNum);
+            }
+            return result;
+        }
+    </script>
 </body>
 </html>
