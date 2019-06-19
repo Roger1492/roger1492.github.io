@@ -53,7 +53,7 @@
         <section class="number">2</section>
         <section class="number">3</section>
         <section class="number">0</section>
-        <section class="number dot">.</section>
+        <section class="dot">.</section>
         <section class="clear">AC</section>
         <section class="equal">&equals;</section>
     </div>
@@ -61,7 +61,7 @@
     <script>
         // 获取所有的DOM元素
         let display = document.getElementsByClassName('display')[0];
-        let operations = Array.from(document.querySelectorAll('operation'));
+        let operations = Array.from(document.querySelectorAll('.operation'));
         let numbers = Array.from(document.querySelectorAll('.number'));
         let dot = document.getElementsByClassName('dot')[0];
         let clear = document.getElementsByClassName('clear')[0];
@@ -77,6 +77,32 @@
                 }
             }, false);
         })
+
+        // 输入点.
+        dot.addEventListener('click', function(e){
+            display.textContent = display.textContent.includes('.') ? display.textContent : display.textContent + '.';
+        }, false);
+
+        // 输入操作符
+        operations.forEach((item, ind, arr) => {
+            item.addEventListener('click', function(e){
+                if(
+                    display.textContent.includes('+') ||
+                    display.textContent.includes('-') ||
+                    display.textContent.includes('*') ||
+                    display.textContent.includes('/')
+                ){
+                    display.textContent = display.textContent;
+                } else {
+                    display.textContent = display.textContent + item.textContent;
+                }
+            }, false);
+        })
+
+        // 删除display
+        clear.addEventListener('click', function(e){
+            display.textContent = '0';
+        }, false);
 
         // cleculate(第一个数，符号，第二个数)
         function calculate(firstNum, operator, secondNum){
