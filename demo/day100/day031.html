@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>富文本编辑器 version 0.1</title>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.8.2/css/all.min.css">
     <style>
-        h2{
+        h2 {
             text-align: center;
         }
-        .editor{
+
+        .editor {
             margin: 0 auto;
             width: 1200px;
             height: 700px;
-            border: 1px solid gray;
+            border: 1px solid #d6d6d6;
+            border-radius: 0 0 5px 5px;
         }
-        .actions{
+
+        .actions {
             float: left;
             width: 100%;
             height: 30px;
-            background: rgb(211, 210, 210);
+            background: #f5f5f5;
         }
-        .actions > div{
+
+        .actions>div {
             float: left;
         }
-        .actions button{
+
+        .actions button {
             height: 30px;
             width: 30px;
             border: none;
-            background: rgb(211, 210, 210);
+            background: #f5f5f5;
         }
-        .actions button:hover{
-            background: rgb(190, 190, 190);;
+
+        .actions button:hover {
+            background: rgb(190, 190, 190);
         }
-        .context{
+
+        .context {
             box-sizing: border-box;
             float: left;
             width: 100%;
@@ -42,17 +50,61 @@
             padding: 8px;
             outline: none;
             letter-spacing: 1px;
+            overflow-y: scroll;
         }
-        .tips{
+
+        .tips {
             position: absolute;
-            border: 1px solid gray;
             padding-left: 4px;
             padding-right: 4px;
             border-radius: 5px;
-            background: white;
+            color: #fff;
+            background: #000;
+            border: none;
+            padding: 3px 6px;
+            display: none;
+        }
+        .tips::before{
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+            top: 24px;
+            left: 3px;
+            border: 5px solid;
+            border-color: #000 transparent transparent transparent;
+        }
+        #imgInsert{
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            width: 400px;
+            height: 100px;
+            border: 1px solid gray;
+            background: gray;
+            display: none;
+        }
+        #subTable{
+            border-collapse: collapse;
+            border: 1px solid gray;
+        }
+        #subTable tr{
+            border: 1px solid gray;
+        }
+        #subTable tr th,
+        #subTable tr td{
+            min-width: 50px;
+            height: 18px;
+            border: 1px solid gray;
+            padding: 2px;
+            text-align: center;
+        }
+        #subTable tr:nth-of-type(odd){
+            background: #f5f5f5;
         }
     </style>
 </head>
+
 <body>
     <h2>富文本编辑器 version 0.1</h2>
     <div class="editor">
@@ -65,14 +117,20 @@
                 <button id="subscript"><i class="fa fa-subscript"></i></button>
                 <button id="superscript"><i class="fa fa-superscript"></i></button>
                 <button id="undo"><i class="fa fa-undo"></i></button>
+                <button id="redo"><i class="fa fa-redo"></i></button>
                 <button id="justifyLeft"><i class="fa fa-align-left"></i></button>
                 <button id="JustifyCenter"><i class="fa fa-align-center"></i></button>
                 <button id="justifyRight"><i class="fa fa-align-right"></i></button>
                 <button id="indent"><i class="fa fa-indent"></i></button>
                 <button id="outdent"><i class="fa fa-outdent"></i></button>
+                <button id="copy"><i class="fa fa-copy"></i></button>
+                <button id="insertOrderedList"><i class="fa fa-list-ol"></i></button>
+                <button id="insertUnorderedList"><i class="fa fa-list-ul"></i></button>
+                <button id="removeFormat"><i class="fa fa-remove-format"></i></button>
             </div>
+            <button id="paragraph"><i class="fa fa-paragraph"></i></button>
 
-            <select name="heading" id="heading">
+            <select name="heading" id="formatblock">
                 <option value="h1">h1</option>
                 <option value="h2">h2</option>
                 <option value="h3">h3</option>
@@ -80,53 +138,96 @@
                 <option value="h5">h5</option>
                 <option value="h6">h6</option>
             </select>
-            <select name="font" id="fontFamily">
+            <select name="font" id="fontName">
                 <option value="Microsoft YaHei">Microsoft YaHei</option>
                 <option value="Fira Code">Fira Code</option>
                 <option value="Arial">Arial</option>
                 <option value="Consolas">Consolas</option>
                 <option value="Courier New">Courier New</option>
                 <option value="Monospace">Monospace</option>
-                <option value="Source Code Pro">Source Code Pro</option>
+                <option value="Helvetica">Helvetica</option>
+                <option value="Verdana">Verdana</option>
+                <option value="sans-serif">sans-serif</option>
             </select>
             <select name="fontSize" id="fontSize">
-                <option value="12">12</option>
-                <option value="16">16</option>
-                <option value="18">18</option>
-                <option value="22">22</option>
-                <option value="26">26</option>
-                <option value="34">34</option>
-                <option value="48">48</option>
-                <option value="72">72</option>
+                <option value="1">12</option>
+                <option value="2">16</option>
+                <option value="3">18</option>
+                <option value="4">22</option>
+                <option value="5">26</option>
+                <option value="6">34</option>
+                <option value="7">48</option>
             </select>
 
-            <button id="copy"><i class="fa fa-copy"></i></button>
-            <button id="paste"><i class="fa fa-paste"></i></button>
-            <button id="list-ol"><i class="fa fa-list-ol"></i></button>
-            <button id="list-ul"><i class="fa fa-list-ul"></i></button>
+            <button id="createLink"><i class="fa fa-paperclip"></i></button>
+            <button id="unlink"><i class="fa fa-unlink"></i></button>
+            <button id="insertImage"><i class="fa fa-image"></i></button>
 
-            <button id="link"><i class="fa fa-paperclip"></i></button>
             <button id="table"><i class="fa fa-table"></i></button>
-            <button id="image"><i class="fa fa-image"></i></button>
         </div>
         <div class="context" contenteditable></div>
     </div>
 
     <script>
-        let sec = Array.from(document.querySelectorAll('.actions div button'));
-        let heading = document.getElementById('heading');
-
+        let normalBtn = Array.from(document.querySelectorAll('.normal button'));
         let context = document.getElementsByClassName('context')[0];
+        let select = Array.from(document.querySelectorAll('select'));
+        let imgLink = Array.from(document.querySelectorAll('#createLink,#insertImage'));
+        let table = document.getElementById('table');
+        let unlink = document.getElementById('unlink');
+        let paragraph = document.getElementById('paragraph');
 
-        sec.forEach((ele, ind, arr) => {
-            ele.addEventListener('click', function(e){
-                document.execCommand(this.id, false, null);
+        normalBtn.forEach((item, ind, arr) => {
+            item.addEventListener('click', function(e){
+                document.execCommand(this.id, false, null || this.id);
             }, false);
         })
 
-        // 鼠标滑过按钮后提示内容
-        function tooltips(){
+        // 标题,字体,字体大小
+        select.forEach((item, ind, arr) => {
+            item.addEventListener('change', function(e){
+                let index = this.selectedIndex;
+                let val = this.options[index].value;
+                document.execCommand(this.id, false, val);
+            }, false);
+        })
 
+        // TODO: 点击图片后可调整图片大小
+        
+        // 图片, 链接
+        imgLink.forEach((item, ind, arr) => {
+            item.addEventListener('click', function(e){
+                document.execCommand(this.id, false, prompt());
+            }, false);
+        })
+
+        // 去除所选的锚链接
+        unlink.addEventListener('click', function(e){
+            document.execCommand(this.id, false, null);
+        }, false);
+
+        // 段落
+        paragraph.addEventListener('click', function(e){
+            document.execCommand('formatblock', false, '<p>');
+        }, false);
+
+        // 表格
+        table.addEventListener('click', function(e){
+            let row = prompt('行');
+            let column = prompt('列');
+            let createTable = document.createElement('table');
+            createTable.setAttribute('id', 'subTable');
+
+            let trth = `<tr>${'<th></th>'.repeat(column)}</tr>`;
+            let thtd = `<tr>${'<td></td>'.repeat(column)}</tr>`.repeat(row-1);
+            createTable.innerHTML = trth + thtd;
+            
+            context.appendChild(createTable);
+        }, false);
+
+
+        // 鼠标滑过按钮后提示内容
+        function tooltips() {
             // 提示框
             let tips = document.createElement('span');
             tips.classList.add('tips');
@@ -134,24 +235,19 @@
 
             let btn = Array.from(document.querySelectorAll('button,select'));
             btn.forEach((ele, ind, arr) => {
-                ele.addEventListener('mouseenter', function(e){
+                ele.addEventListener('mouseenter', function (e) {
                     tips.innerHTML = this.id;
-                    tips.setAttribute('style', `display:block; top:${e.target.offsetTop-30}px; left:${e.target.offsetLeft}px;`);
+                    tips.setAttribute('style', `display:block; top:${e.target.offsetTop - 30}px; left:${e.target.offsetLeft}px;`);
                 }, false);
             })
             btn.forEach((ele, ind, arr) => {
-                ele.addEventListener('mouseleave', function(e){
+                ele.addEventListener('mouseleave', function (e) {
                     tips.style.display = 'none'
                 }, false);
             })
         }
-
         tooltips();
     </script>
-
-    <!-- 
-        以下是log:
-        1，添加一些简单的基础功能
-     -->
 </body>
+
 </html>
