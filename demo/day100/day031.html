@@ -17,7 +17,6 @@
             width: 1200px;
             height: 700px;
             border: 1px solid #d6d6d6;
-            border-radius: 0 0 5px 5px;
         }
 
         .actions {
@@ -32,6 +31,7 @@
         }
 
         .actions button {
+            float: left;
             height: 30px;
             width: 30px;
             border: none;
@@ -40,6 +40,12 @@
 
         .actions button:hover {
             background: rgb(190, 190, 190);
+        }
+
+        select{
+            position: relative;
+            margin-top: 6px;
+            float: left;
         }
 
         .context {
@@ -126,9 +132,9 @@
                 <button id="copy"><i class="fa fa-copy"></i></button>
                 <button id="insertOrderedList"><i class="fa fa-list-ol"></i></button>
                 <button id="insertUnorderedList"><i class="fa fa-list-ul"></i></button>
-                <button id="removeFormat"><i class="fa fa-remove-format"></i></button>
+                <button id="insertHorizontalRule"><i style="position: relative; display: inline-block; width:15px; height: 3px; background: #000; top: -3px; border-radius: 3px;"></i></button>
+                <button id="paragraph"><i class="fa fa-paragraph"></i></button>
             </div>
-            <button id="paragraph"><i class="fa fa-paragraph"></i></button>
 
             <select name="heading" id="formatblock">
                 <option value="h1">h1</option>
@@ -162,10 +168,15 @@
             <button id="createLink"><i class="fa fa-paperclip"></i></button>
             <button id="unlink"><i class="fa fa-unlink"></i></button>
             <button id="insertImage"><i class="fa fa-image"></i></button>
-
             <button id="table"><i class="fa fa-table"></i></button>
+            <button id="contenteditable" style="width: 90px;">
+                <label for="able_edit">
+                    <input type="checkbox" name="" id="able_edit">
+                    <span>可编辑</span>
+                </label>
+            </button>
         </div>
-        <div class="context" contenteditable></div>
+        <div class="context" contenteditable="true"></div>
     </div>
 
     <script>
@@ -176,6 +187,8 @@
         let table = document.getElementById('table');
         let unlink = document.getElementById('unlink');
         let paragraph = document.getElementById('paragraph');
+        let contenteditable = document.querySelector('#contenteditable label input');
+        let contenteditableSpan = document.querySelector('#contenteditable label span');
 
         normalBtn.forEach((item, ind, arr) => {
             item.addEventListener('click', function(e){
@@ -223,6 +236,17 @@
             createTable.innerHTML = trth + thtd;
             
             context.appendChild(createTable);
+        }, false);
+
+        // 切换模式（可编辑/不可编辑）
+        contenteditable.addEventListener('click', function(e){
+            if(context.getAttribute('contenteditable') === 'true'){
+                contenteditableSpan.innerHTML = '不可编辑';
+                context.setAttribute('contenteditable', 'false');
+            } else {
+                contenteditableSpan.innerHTML = '可编辑';
+                context.setAttribute('contenteditable', 'true');
+            }
         }, false);
 
 
