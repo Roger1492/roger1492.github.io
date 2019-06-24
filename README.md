@@ -26,6 +26,7 @@
 [Window 10](demo/windows10/index.html)  
 [豆瓣](demo/douabn/index.html)  
 [web版音乐播放器](demo/music_player_web/index.html)  
+[windows 10 计算器](demo/windows_10_calculator/index.html)  
 
 # Poetry
 > 我会把我喜欢的诗词做古文个收集整理，就以朝代分类  
