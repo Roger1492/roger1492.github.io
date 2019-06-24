@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Drag</title>
+  <style>
+    div {
+      width: 300px;
+      height: 120px;
+      border: 1px solid gray;
+      float: left;
+    }
+    p{
+      position: relative;
+      margin: 0;
+      width: 300px;
+      height: 120px;
+      line-height: 120px;
+      text-align: center;
+      font-size: 30px;
+      background: lightblue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div ondrop="drop(event)" ondragover="dragOver(event)">
+    <p ondragstart="dragStart(event)" draggable="true" id="dragText1">Drag and Drop</p>
+  </div>
+  <div ondrop="drop(event)" ondragover="dragOver(event)"></div>
+  <div ondrop="drop(event)" ondragover="dragOver(event)">
+    <p ondragstart="dragStart(event)" draggable="true" id="dragText2">Drag and Drop</p>
+  </div>
+  <div ondrop="drop(event)" ondragover="dragOver(event)"></div>
+  <div ondrop="drop(event)" ondragover="dragOver(event)">
+    <p ondragstart="dragStart(event)" draggable="true" id="dragText3">Drag and Drop</p>
+  </div>
+  <div ondrop="drop(event)" ondragover="dragOver(event)"></div>
+  <div ondrop="drop(event)" ondragover="dragOver(event)"></div>
+  <div ondrop="drop(event)" ondragover="dragOver(event)"></div>
+  <div ondrop="drop(event)" ondragover="dragOver(event)"></div>
+  <div ondrop="drop(event)" ondragover="dragOver(event)"></div>
+
+  <script>
+    function dragStart(event){
+      event.dataTransfer.setData('Text', event.target.id);
+    }
+    function dragOver(eevent){
+      event.preventDefault();
+    }
+    function drop(event){
+      event.preventDefault();
+      let d = event.dataTransfer.getData('Text');
+      event.target.appendChild(document.getElementById(d));
+    }
+  </script>
+
+</body>
+
+</html>
