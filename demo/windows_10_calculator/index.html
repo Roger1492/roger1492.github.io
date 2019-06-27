@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Windows 10 计算器</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.8.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,9 +16,10 @@
     <!-- 显示和隐藏按钮 -->
     <div id="top-title">
       <div class="show-hide">
-        <span>show</span>
+        <i class="fa fa-list-ul"></i>
       </div>
       <div class="title">Standard</div>
+      <div class="history">History</div>
     </div>
 
     <!-- 显示和隐藏列表 -->
@@ -27,7 +29,9 @@
         <li>Standard</li>
         <li>Scientific</li>
         <li>Programmer</li>
+        <li>Date Calculation</li>
         <div>Converter</div>
+        <li>Currency</li>
         <li>Volumn</li>
         <li>Length</li>
         <li>Weight and Mass</li>
@@ -37,88 +41,261 @@
         <li>Speed</li>
         <li>Time</li>
         <li>Power</li>
+        <li>Data</li>
+        <li>Pressure</li>
+        <li>Angle</li>
       </ul>
     </div>
 
     <div id="calc-wrap">
-      <div id="standard" style="display: none;">
-        <section class="display"></section>
-        <section class="number">7</section>
-        <section class="number">8</section>
-        <section class="number">9</section>
-        <section class="operator">+</section>
-        <section class="number">4</section>
-        <section class="number">5</section>
-        <section class="number">6</section>
-        <section class="operator">-</section>
-        <section class="number">1</section>
-        <section class="number">2</section>
-        <section class="number">3</section>
-        <section class="operator">*</section>
-        <section class="number">0</section>
-        <section class="number">.</section>
-        <section class="clearAll">AC</section>
-        <section class="operator">/</section>
-        <section class="square">x<sup>2</sup></section>
-        <section class="factorial">!</section>
-        <section class="clearBackward">backspace</section>
-        <section class="equal">&equals;</section>
-      </div>
-      <div id="scientific" style="display: block;">
-        <section class="sc-display"></section>
-        <section class="sc-button">
-          <section class="sc-left">
-            <section>(</section>
-            <section>)</section>
-            <section>PI</section>
-            <section>n!</section>
-            <section>Mod</section>
-            <section>x<sup>2</sup></section>
-            <section>x<sup>y</sup></section>
-            <section>sin</section>
-            <section>cos</section>
-            <section>tan</section>
-            <section>x<sup>3</sup></section>
-            <section>x</section>
-            <section>sin<sup>-2</sup></section>
-            <section>cos<sup>-2</sup></section>
-            <section>tan<sup>-2</sup></section>
-            <section>10<sup>x</sup></section>
-            <section>log</section>
-            <section>sinh</section>
-            <section>cosh</section>
-            <section>tanh</section>
-            <section>e<sup>x</sup></section>
-            <section>In</section>
-            <section>sinh<sup>-2</sup></section>
-            <section>cosh<sup>-2</sup></section>
-            <section>tanh<sup>-2</sup></section>
+
+      <div id="standard" style="display: none">
+        <div class="input-wrap">
+          <section class="display st-display"></section>
+          <section class="input-panel st-input-panel">
+              <section class="st-number">7</section>
+              <section class="st-number">8</section>
+              <section class="st-number">9</section>
+              <section class="st-operator">+</section>
+              <section class="st-number">4</section>
+              <section class="st-number">5</section>
+              <section class="st-number">6</section>
+              <section class="st-operator">-</section>
+              <section class="st-number">1</section>
+              <section class="st-number">2</section>
+              <section class="st-number">3</section>
+              <section class="st-operator">*</section>
+              <section class="st-number">0</section>
+              <section class="st-number st-dot">.</section>
+              <section class="st-clearAll">AC</section>
+              <section class="st-operator">/</section>
+              <section class="st-square">x<sup>2</sup></section>
+              <section class="factorial">!</section>
+              <section class="st-clearBackward">&larr;</section>
+              <section class="st-equal">&equals;</section>
           </section>
-          <section class="sc-right">
-            <section>7</section>
-            <section>8</section>
-            <section>9</section>
-            <section>+</section>
-            <section>4</section>
-            <section>5</section>
-            <section>6</section>
-            <section>-</section>
-            <section>1</section>
-            <section>2</section>
-            <section>3</section>
-            <section>*</section>
-            <section>0</section>
-            <section>.</section>
-            <section>/</section>
-            <section>AC</section>
-            <section>&equals;</section>
-            <section></section>
-            <section></section>
-            <section></section>
-          </section>
-        </section>
+        </div>
+        <div class="history-wrap st-history-wrap">
+          <!-- <div class="history-item st-history-item">
+            <div class="history-input st-history-input">
+              <span class="history-equal st-history-equal">&equals;</span>
+              <span class="history-snum st-history-snum">53</span>
+              <span class="histtory-oper st-history-oper">+</span>
+              <span class="history-fnum st-history-fnum">4</span>
+            </div>
+            <div class="history-result st-history-result">43</div>
+          </div> -->
+        </div>
+        <div class="history-delete st-history-delete">
+          <i class="fa fa-trash-alt"></i>
+        </div>
       </div>
-      <div id="programmer">programmer</div>
+
+
+      <div id="scientific" style="display: none;">
+        <div class="input-wrap">
+          <section class="display sc-display"></section>
+          <section class="input-panel sc-input-panel">
+              <section class="sc-x2">x<sup>2</sup></section>
+              <section class="sc-xy">x<sup>y</sup></section>
+              <section class="sc-sin">sin</section>
+              <section class="sc-cos">cos</section>
+              <section class="sc-tan">tan</section>
+              <section class="sc-number">7</section>
+              <section class="sc-number">8</section>
+              <section class="sc-number">9</section>
+              <section class="sc-operation">+</section>
+              <section class="sc-x3">x<sup>3</sup></section>
+              <section class="sc-yrootr">y&radic;x</section>
+              <section class="sc-sin1">sin<sup>-1</sup></section>
+              <section class="sc-cos1">cos<sup>-1</sup></section>
+              <section class="sc-tan1">tan<sup>-1</sup></section>
+              <section class="sc-number">4</section>
+              <section class="sc-number">5</section>
+              <section class="sc-number">6</section>
+              <section class="sc-operation">-</section>
+              <section class="sc-root">&radic;</section>
+              <section class="sc-10x">10<sup>x</sup></section>
+              <section class="sc-log">log</section>
+              <section class="sc-exp">Exp</section>
+              <section class="sc-mod">Mod</section>
+              <section class="sc-number">1</section>
+              <section class="sc-number">2</section>
+              <section class="sc-number">3</section>
+              <section class="sc-operation">*</section>
+              <section class="sc-1rootx">1&radic;x</section>
+              <section class="sc-ex">e<sup>x</sup></section>
+              <section class="sc-in">In</section>
+              <section class="sc-dms">dms</section>
+              <section class="sc-deg">deg</section>
+              <section class="sc-number">0</section>
+              <section class="sc-number">.</section>
+              <section  class="sc-clearAll">AC</section>
+              <section class="sc-operation">/</section>
+              <section></section>
+              <section class="sc-pi">&pi;</section>
+              <section class="sc-factorial">n!</section>
+              <section></section>
+              <section class="precent">%</section>
+              <section class="sc-bracket">(</section>
+              <section class="sc-bracket">)</section>
+              <section class="sc-clearBackward">&larr;</section>
+              <section class="sc-equal">&equals;</section>
+          </section>
+        </div>
+        <div class="history-wrap sc-history-wrap">
+            <!-- <div class="history-item">
+              <div class="history-input">
+                <span class="history-equal">&equals;</span>
+                <span class="history-snum">53</span>
+                <span class="histtory-oper">+</span>
+                <span class="history-fnum">4</span>
+              </div>
+              <div class="history-result">43</div>
+            </div> -->
+        </div>
+        <div class="history-delete sc-history-delete">
+            <i class="fa fa-trash-alt"></i>
+          </div>
+      </div>
+
+      <div id="programmer" style="display: block;">
+        <div class="input-wrap">
+          <section class="display pr-display"></section>
+          <section class="pr-translation-wrap">
+            <div>HEX <span></span></div>
+            <div>DEC <span></span></div>
+            <div>OCT <span></span></div>
+            <div>BIN <span></span></div>
+          </section>
+          <section class="pr-translation-switch">
+            <span class="pts1"><i class="fa fa-list-ul"></i></span>
+            <span class="pts2"><i class="fa fa-list-ul"></i></span>
+          </section>
+          <section class="input-panel pr-input-panel">
+            <section class="pr-input-panel-first">
+              <section>Lsh</section>
+              <section>Rsh</section>
+              <section>Or</section>
+              <section>Xor</section>
+              <section>Not</section>
+              <section>And</section>
+              <section>&uarr;</section>
+              <section>Mod</section>
+              <section>Ce</section>
+              <section>C</section>
+              <section>&larr;</section>
+              <section>/</section>
+              <section>A</section>
+              <section>B</section>
+              <section>7</section>
+              <section>8</section>
+              <section>9</section>
+              <section>*</section>
+              <section>C</section>
+              <section>D</section>
+              <section>4</section>
+              <section>5</section>
+              <section>6</section>
+              <section>-</section>
+              <section>E</section>
+              <section>F</section>
+              <section>1</section>
+              <section>2</section>
+              <section>3</section>
+              <section>+</section>
+              <section>(</section>
+              <section>)</section>
+              <section>+-</section>
+              <section>0</section>
+              <section>.</section>
+              <section>&equals;</section>
+            </section>
+            <section class="pr-input-panel-second">
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+              <span>0</span>
+            </section>
+          </section>
+        </div>
+        <div class="history-wrap pr-history-wrap">
+          <!-- <div class="history-item">
+              <div class="history-input">
+                <span class="history-equal">&equals;</span>
+                <span class="history-snum">53</span>
+                <span class="histtory-oper">+</span>
+                <span class="history-fnum">4</span>
+              </div>
+              <div class="history-result">43</div>
+            </div> -->
+        </div>
+        <div class="history-delete pr-history-delete">
+            <i class="fa fa-trash-alt"></i>
+          </div>
+      </div>
+      <div id="datecalculation">Date calculation</div>
+      <div id="currency">Currency</div>
       <div id="volumn">volumn</div>
       <div id="length">length</div>
       <div id="weightandmass">weightandmass</div>
@@ -128,12 +305,16 @@
       <div id="speed">speed</div>
       <div id="time">time</div>
       <div id="power">power</div>
+      <div id="data">Data</div>
+      <div id="pressure">Pressure</div>
+      <div id="angle">Angle</div>
     </div>
 
   </div>
 
   <script src="script.js"></script>
-  <script id="usingScript" src="standard.js"></script>
+  <script src="standard.js"></script>
+  <script src="scientific.js"></script>
 </body>
 
 </html>

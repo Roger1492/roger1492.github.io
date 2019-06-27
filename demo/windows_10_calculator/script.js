@@ -19,12 +19,7 @@ showHide.addEventListener('click', function(e){
 
 sliderli.forEach((item, index, arr) => {
   item.addEventListener('click', function(e){
-    // 脚本地址
-    let usingScript = document.getElementById('usingScript');
-    let scriptName = this.innerHTML.toLowerCase().split(' ').join('');
-    usingScript.src = `${scriptName}.js`;
     title.innerHTML = this.innerHTML;
-
     // 隐藏全部
     calcWrap.forEach((item, index, arr) => {
       item.style.display = 'none';
