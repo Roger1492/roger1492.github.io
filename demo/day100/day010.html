@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Day 010 - js实现网页版计算器</title>
     <style>
-        .wrap{
+        h2{
+            width: 200px;
+            margin: 50px auto;
+        }
+        .wrap {
             margin: 50px auto;
             width: 600px;
             display: grid;
@@ -14,31 +19,37 @@
             grid-template-rows: repeat(6, 80px);
             grid-gap: 5px;
         }
-        section{
+
+        section {
             line-height: 80px;
             text-align: center;
             border: 1px solid gray;
             font-size: 2rem;
             cursor: pointer;
         }
-        section:nth-of-type(1){
+
+        section:nth-of-type(1) {
             grid-column: 1 / 5;
             text-align: right;
         }
-        section:nth-of-type(18){
+
+        section:nth-of-type(18) {
             grid-column: 4 / 5;
             grid-row: 3 / 7;
             line-height: 320px;
             background-color: lightseagreen;
         }
-        section:not(:first-child):hover{
+
+        section:not(:first-child):hover {
             background-color: lightgray;
         }
     </style>
 </head>
+
 <body>
+    <h2>简易计算器</h2>
     <div class="wrap">
-        <section class="display">0</section>
+        <section class="display"></section>
         <section class="operation">+</section>
         <section class="operation">-</section>
         <section class="operation">*</section>
@@ -53,7 +64,7 @@
         <section class="number">2</section>
         <section class="number">3</section>
         <section class="number">0</section>
-        <section class="dot">.</section>
+        <section class="number">.</section>
         <section class="clear">AC</section>
         <section class="equal">&equals;</section>
     </div>
@@ -63,64 +74,72 @@
         let display = document.getElementsByClassName('display')[0];
         let operations = Array.from(document.querySelectorAll('.operation'));
         let numbers = Array.from(document.querySelectorAll('.number'));
-        let dot = document.getElementsByClassName('dot')[0];
         let clear = document.getElementsByClassName('clear')[0];
         let equal = document.getElementsByClassName('equal')[0];
+        let numArr = [];
 
-        // 输入数字
-        numbers.forEach((item, ind, arr) => {
+        // 添加数字和点
+        numbers.forEach((item, index, arr) => {
             item.addEventListener('click', function(e){
-                if(display.textContent === '0'){
-                    display.textContent = item.textContent;
-                } else {
-                    display.textContent += item.textContent;
+
+                if(display.innerHTML === '' && this.innerHTML === '.'){
+                    display.innerHTML = '0.';
+                }
+
+                if(typeof parseFloat(this.innerHTML) === 'number' || this.innerHTML === '.'){
+                    if(display.innerHTML.indexOf('.') !== -1){
+                        if(this.innerHTML !== '.'){
+                            display.innerHTML += this.innerHTML;
+                        }
+                    } else {
+                        display.innerHTML += this.innerHTML;
+                    }
                 }
             }, false);
         })
 
-        // 输入点.
-        dot.addEventListener('click', function(e){
-            display.textContent = display.textContent.includes('.') ? display.textContent : display.textContent + '.';
-        }, false);
-
-        // 输入操作符
-        operations.forEach((item, ind, arr) => {
+        // 输入符号 并且把数字和符号保存在数组中。
+        operations.forEach((item, index, arr) => {
             item.addEventListener('click', function(e){
-                if(
-                    display.textContent.includes('+') ||
-                    display.textContent.includes('-') ||
-                    display.textContent.includes('*') ||
-                    display.textContent.includes('/')
-                ){
-                    display.textContent = display.textContent;
-                } else {
-                    display.textContent = display.textContent + item.textContent;
-                }
+                // 数字保存在数组中
+                numArr[numArr.length] = display.innerHTML;
+                // 符号保存在数组中
+                numArr[numArr.length] = this.innerHTML;
+                display.innerHTML = ''
             }, false);
         })
 
-        // 删除display
-        clear.addEventListener('click', function(e){
-            display.textContent = '0';
+        // 计算结果 并把第二个数字保存在数组中
+        equal.addEventListener('click', function(e){
+            numArr[numArr.length] = display.innerHTML;
+            display.innerHTML = calculator(numArr[0], numArr[1], numArr[2]);
+            numArr.length = 0;
         }, false);
 
-        // cleculate(第一个数，符号，第二个数)
-        function calculate(firstNum, operator, secondNum){
-            let result = '';
+        // 计算
+        function calculator(firstNum, operator, secondNum){
             if(operator === '+'){
-                result = parseFloat(firstNum) + parseFloat(secondNum);
+                return parseFloat(firstNum) + parseFloat(secondNum);
             }
             if(operator === '-'){
-                result = parseFloat(firstNum) - parseFloat(secondNum);
+                return parseFloat(firstNum) - parseFloat(secondNum);
             }
             if(operator === '*'){
-                result = parseFloat(firstNum) * parseFloat(secondNum);
+                return parseFloat(firstNum) * parseFloat(secondNum);
             }
             if(operator === '/'){
-                result = parseFloat(firstNum) / parseFloat(secondNum);
+                return parseFloat(firstNum) / parseFloat(secondNum);
             }
-            return result;
         }
+
+        // 清除输出
+        clear.addEventListener('click', function(e){
+            display.innerHTML = '';
+            numArr.length = 0;
+        }, false);
     </script>
+
+    <!-- https://juejin.im/entry/58eda6348d6d8100580d1a23 -->
 </body>
+
 </html>

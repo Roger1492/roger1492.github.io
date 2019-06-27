@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,132 @@
   <title>Windows 10 计算器</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  
-  <div id="calculator">
-    
+
+  <div id="container">
+    <!-- 显示和隐藏按钮 -->
+    <div id="top-title">
+      <div class="show-hide">
+        <span>show</span>
+      </div>
+      <div class="title">Standard</div>
+    </div>
+
+    <!-- 显示和隐藏列表 -->
+    <div id="slider" class="hide">
+      <ul class="slider-ul">
+        <div>Calculator</div>
+        <li>Standard</li>
+        <li>Scientific</li>
+        <li>Programmer</li>
+        <div>Converter</div>
+        <li>Volumn</li>
+        <li>Length</li>
+        <li>Weight and Mass</li>
+        <li>Temperature</li>
+        <li>Energy</li>
+        <li>Area</li>
+        <li>Speed</li>
+        <li>Time</li>
+        <li>Power</li>
+      </ul>
+    </div>
+
+    <div id="calc-wrap">
+      <div id="standard" style="display: none;">
+        <section class="display"></section>
+        <section class="number">7</section>
+        <section class="number">8</section>
+        <section class="number">9</section>
+        <section class="operator">+</section>
+        <section class="number">4</section>
+        <section class="number">5</section>
+        <section class="number">6</section>
+        <section class="operator">-</section>
+        <section class="number">1</section>
+        <section class="number">2</section>
+        <section class="number">3</section>
+        <section class="operator">*</section>
+        <section class="number">0</section>
+        <section class="number">.</section>
+        <section class="clearAll">AC</section>
+        <section class="operator">/</section>
+        <section class="square">x<sup>2</sup></section>
+        <section class="factorial">!</section>
+        <section class="clearBackward">backspace</section>
+        <section class="equal">&equals;</section>
+      </div>
+      <div id="scientific" style="display: block;">
+        <section class="sc-display"></section>
+        <section class="sc-button">
+          <section class="sc-left">
+            <section>(</section>
+            <section>)</section>
+            <section>PI</section>
+            <section>n!</section>
+            <section>Mod</section>
+            <section>x<sup>2</sup></section>
+            <section>x<sup>y</sup></section>
+            <section>sin</section>
+            <section>cos</section>
+            <section>tan</section>
+            <section>x<sup>3</sup></section>
+            <section>x</section>
+            <section>sin<sup>-2</sup></section>
+            <section>cos<sup>-2</sup></section>
+            <section>tan<sup>-2</sup></section>
+            <section>10<sup>x</sup></section>
+            <section>log</section>
+            <section>sinh</section>
+            <section>cosh</section>
+            <section>tanh</section>
+            <section>e<sup>x</sup></section>
+            <section>In</section>
+            <section>sinh<sup>-2</sup></section>
+            <section>cosh<sup>-2</sup></section>
+            <section>tanh<sup>-2</sup></section>
+          </section>
+          <section class="sc-right">
+            <section>7</section>
+            <section>8</section>
+            <section>9</section>
+            <section>+</section>
+            <section>4</section>
+            <section>5</section>
+            <section>6</section>
+            <section>-</section>
+            <section>1</section>
+            <section>2</section>
+            <section>3</section>
+            <section>*</section>
+            <section>0</section>
+            <section>.</section>
+            <section>/</section>
+            <section>AC</section>
+            <section>&equals;</section>
+            <section></section>
+            <section></section>
+            <section></section>
+          </section>
+        </section>
+      </div>
+      <div id="programmer">programmer</div>
+      <div id="volumn">volumn</div>
+      <div id="length">length</div>
+      <div id="weightandmass">weightandmass</div>
+      <div id="temperature">temperature</div>
+      <div id="energy">energy</div>
+      <div id="area">area</div>
+      <div id="speed">speed</div>
+      <div id="time">time</div>
+      <div id="power">power</div>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
+  <script id="usingScript" src="standard.js"></script>
 </body>
+
 </html>
