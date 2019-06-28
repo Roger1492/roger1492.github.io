@@ -35,6 +35,12 @@
   background-color: lightcoral;
   overflow-y: scroll;
 }
+.history-wrap::-webkit-scrollbar{
+  width: 5px;
+}
+.history-wrap::-webkit-scrollbar-thumb{
+  background: gray;
+}
 .history::before{
   position: absolute;
   top: 40px;
@@ -93,9 +99,10 @@
 .show-hide i{
   position: absolute;
   display: inline-block;
+  padding-top: 16px;
   left: 0px;
   width: 50px;
-  height: 50px;
+  height: 34px;
 }
 .show-hide i:hover{
 background-color: lightseagreen;
@@ -110,6 +117,12 @@ background-color: lightseagreen;
   background-color: lightseagreen;
   z-index: 9;
   overflow-y: scroll;
+}
+#slider::-webkit-scrollbar{
+  width: 5px;
+}
+#slider::-webkit-scrollbar-thumb{
+  background: gray;
 }
 
 .slider-ul {
@@ -187,6 +200,12 @@ background-color: lightseagreen;
   height: 90px;
   background-color: lightcoral;
 }
+.pr-translation-wrap > div{
+  height: 22.5px;
+}
+.pr-translation-wrap > div:hover{
+  background: lightgray;
+}
 .pr-translation-switch{
   height: 30px;
   width: 100%;
@@ -200,6 +219,13 @@ background-color: lightseagreen;
 }
 .pr-translation-switch span:hover{
   background-color: red;
+}
+.pr-translation-switch span i{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  padding-top: 7px;
+  text-align: center;
 }
 .pr-input-panel{
   width: 100%;
@@ -217,6 +243,9 @@ background-color: lightseagreen;
   height: 80px;
   text-align: center;
   line-height: 80px;
+}
+.pr-input-panel-first section:hover{
+  background-color: lightgray;
 }
 .pr-input-panel-second{
   display: none;
