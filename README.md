@@ -1,33 +1,33 @@
 # Articles
-[进制转换](post/进制转换.md)
-[数学 -三角函数基本知识点](post/math_trigonometric_function.md)
-[Python爬虫 Mzitu](post/python_mzitu_all.md)
-[Emacs快捷键总结](post/Emacs快捷键总结.md)
-[Emacs配置文件](post/Emacs配置文件.md)
-[JavaScript中的堆栈完全理解](post/head_and_stack.md)
-[JS的原型与原型链](post/JS的原型与原型链)
-[Ajax和Fetch的简单运用](post/Ajax_n_Fetch的简单运用.md)
-[this call apply 完全理解](post/this_call_apply完全理解.md)
-[我对于闭包的简单理解](post/我对于闭包的简单理解.md)
-[JavaScript的事件循环](post/JavaScript的事件循环.md)
-
-[前端知识点](post/前端知识点.md)
-[收藏的Web文章](post/收藏的Web文章.md)
+[进制转换](post/进制转换.md)  
+[数学 -三角函数基本知识点](post/math_trigonometric_function.md)  
+[Python爬虫 Mzitu](post/python_mzitu_all.md)  
+[Emacs快捷键总结](post/Emacs快捷键总结.md)  
+[Emacs配置文件](post/Emacs配置文件.md)  
+[JavaScript中的堆栈完全理解](post/head_and_stack.md)  
+[JS的原型与原型链](post/JS的原型与原型链)  
+[Ajax和Fetch的简单运用](post/Ajax_n_Fetch的简单运用.md)  
+[this call apply 完全理解](post/this_call_apply完全理解.md)  
+[我对于闭包的简单理解](post/我对于闭包的简单理解.md)  
+[JavaScript的事件循环](post/JavaScript的事件循环.md)  
+  
+[前端知识点](post/前端知识点.md)  
+[收藏的Web文章](post/收藏的Web文章.md)  
 
 # English
-[关于Javascript的相关单词](English/Javascript.md)
-[分类词汇](English/Words.md)
+[关于Javascript的相关单词](English/Javascript.md)  
+[分类词汇](English/Words.md)  
 
 # Demo
-[仿animate.css](demo/animate.css/animate.html)
-[100天100项目](demo/day100/day100.md)
-[Web组件](demo/components/components.md)
-[Games](demo/games/game.md)
-[Window 10](demo/windows10_desktop/index.html)
-[豆瓣](demo/douabn/index.html)
-[web版音乐播放器](demo/music_player_web/index.html)
-[windows 10 计算器](demo/windows_10_calculator/index.html)
-[网站练习](demo/website_practice/index.html)
+[仿animate.css](demo/animate.css/animate.html)  
+[100天100项目](demo/day100/day100.md)  
+[Web组件](demo/components/components.md)  
+[Games](demo/games/game.md)  
+[Window 10](demo/windows10_desktop/index.html)  
+[豆瓣](demo/douabn/index.html)  
+[web版音乐播放器](demo/music_player_web/index.html)  
+[windows 10 计算器](demo/windows_10_calculator/index.html)  
+[网站练习](demo/website_practice/index.html)  
 
 # Poetry
 > 我会把我喜欢的诗词做古文个收集整理，就以朝代分类

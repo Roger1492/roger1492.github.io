@@ -20,11 +20,10 @@
   min-width: 50px;
   height: 50px;
   line-height: 50px;
-  text-align: center;
   cursor: default;
 }
 .title{
-  width: 530px;
+  width: 580px;
   font-weight: 800;
 }
 .history-wrap{
@@ -39,7 +38,7 @@
   width: 5px;
 }
 .history-wrap::-webkit-scrollbar-thumb{
-  background: gray;
+  background: #000;
 }
 .history::before{
   position: absolute;
@@ -94,7 +93,8 @@
 }
 
 .show-hide{
-  width: 100px;
+  width: 50px;
+  text-align: center;
 }
 .show-hide i{
   position: absolute;
@@ -122,7 +122,7 @@ background-color: lightseagreen;
   width: 5px;
 }
 #slider::-webkit-scrollbar-thumb{
-  background: gray;
+  background: #000;
 }
 
 .slider-ul {
@@ -153,9 +153,24 @@ background-color: lightseagreen;
 }
 #calc-wrap > div{
   position: absolute;
-  width: 1000px;
+  min-width: 600px;
   height: 650px;
   display: none;
+}
+#currency,
+#volumn,
+#length,
+#weightandmass,
+#temperature,
+#energy,
+#area,
+#speed,
+#time,
+#power,
+#data,
+#pressure,
+#angle{
+  width: 600px;
 }
 .input-wrap{
   position: absolute;
@@ -280,3 +295,40 @@ background-color: lightseagreen;
 .pr-input-panel-second span:nth-of-type(56)::before{ content: '8'; top: 385px;}
 .pr-input-panel-second span:nth-of-type(60)::before{ content: '4'; top: 385px;}
 .pr-input-panel-second span:nth-of-type(64)::before{ content: '0'; top: 385px;}
+
+
+#otherInput{
+  position: absolute;
+  border: 1px solid gray;
+  top: 50px;
+  left: 600px;
+  width: 400px;
+  height: 650px;
+  background-color: lightslategray;
+  display: none;
+}
+.oi-wrap{
+  position: relative;
+  left: 50px;
+  top: 50px;
+  width: 300px;
+  height: 500px;
+  outline: 1px solid #000;
+}
+.oi-wrap section{
+  float: left;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+.oi-wrap section:hover{
+  background-color: lightcyan;
+}
+
+.other-translate{
+  position: relative;
+  left: 50px;
+  height: 325px;
+  width: 550px;
+}

@@ -31,48 +31,48 @@
         <li>Programmer</li>
         <li>Date Calculation</li>
         <div>Converter</div>
-        <li>Currency</li>
-        <li>Volumn</li>
-        <li>Length</li>
-        <li>Weight and Mass</li>
-        <li>Temperature</li>
-        <li>Energy</li>
-        <li>Area</li>
-        <li>Speed</li>
-        <li>Time</li>
-        <li>Power</li>
-        <li>Data</li>
-        <li>Pressure</li>
-        <li>Angle</li>
+        <li class="showOtherInput">Currency</li>
+        <li class="showOtherInput">Volumn</li>
+        <li class="showOtherInput">Length</li>
+        <li class="showOtherInput">Weight and Mass</li>
+        <li class="showOtherInput">Temperature</li>
+        <li class="showOtherInput">Energy</li>
+        <li class="showOtherInput">Area</li>
+        <li class="showOtherInput">Speed</li>
+        <li class="showOtherInput">Time</li>
+        <li class="showOtherInput">Power</li>
+        <li class="showOtherInput">Data</li>
+        <li class="showOtherInput">Pressure</li>
+        <li class="showOtherInput">Angle</li>
       </ul>
     </div>
 
     <div id="calc-wrap">
 
-      <div id="standard" style="display: none">
+      <div id="standard" style="display: block;">
         <div class="input-wrap">
           <section class="display st-display"></section>
           <section class="input-panel st-input-panel">
-              <section class="st-number">7</section>
-              <section class="st-number">8</section>
-              <section class="st-number">9</section>
-              <section class="st-operator">+</section>
-              <section class="st-number">4</section>
-              <section class="st-number">5</section>
-              <section class="st-number">6</section>
-              <section class="st-operator">-</section>
-              <section class="st-number">1</section>
-              <section class="st-number">2</section>
-              <section class="st-number">3</section>
-              <section class="st-operator">*</section>
-              <section class="st-number">0</section>
-              <section class="st-number st-dot">.</section>
-              <section class="st-clearAll">AC</section>
-              <section class="st-operator">/</section>
-              <section class="st-square">x<sup>2</sup></section>
-              <section class="factorial">!</section>
-              <section class="st-clearBackward">&larr;</section>
-              <section class="st-equal">&equals;</section>
+            <section class="st-number">7</section>
+            <section class="st-number">8</section>
+            <section class="st-number">9</section>
+            <section class="st-operator">+</section>
+            <section class="st-number">4</section>
+            <section class="st-number">5</section>
+            <section class="st-number">6</section>
+            <section class="st-operator">-</section>
+            <section class="st-number">1</section>
+            <section class="st-number">2</section>
+            <section class="st-number">3</section>
+            <section class="st-operator">*</section>
+            <section class="st-number">0</section>
+            <section class="st-number st-dot">.</section>
+            <section class="st-clearAll">AC</section>
+            <section class="st-operator">/</section>
+            <section class="st-square">x<sup>2</sup></section>
+            <section class="factorial">!</section>
+            <section class="st-clearBackward">&larr;</section>
+            <section class="st-equal">&equals;</section>
           </section>
         </div>
         <div class="history-wrap st-history-wrap">
@@ -90,61 +90,59 @@
           <i class="fa fa-trash-alt"></i>
         </div>
       </div>
-
-
-      <div id="scientific" style="display: none;">
+      <div id="scientific">
         <div class="input-wrap">
           <section class="display sc-display"></section>
           <section class="input-panel sc-input-panel">
-              <section class="sc-x2">x<sup>2</sup></section>
-              <section class="sc-xy">x<sup>y</sup></section>
-              <section class="sc-sin">sin</section>
-              <section class="sc-cos">cos</section>
-              <section class="sc-tan">tan</section>
-              <section class="sc-number">7</section>
-              <section class="sc-number">8</section>
-              <section class="sc-number">9</section>
-              <section class="sc-operation">+</section>
-              <section class="sc-x3">x<sup>3</sup></section>
-              <section class="sc-yrootr">y&radic;x</section>
-              <section class="sc-sin1">sin<sup>-1</sup></section>
-              <section class="sc-cos1">cos<sup>-1</sup></section>
-              <section class="sc-tan1">tan<sup>-1</sup></section>
-              <section class="sc-number">4</section>
-              <section class="sc-number">5</section>
-              <section class="sc-number">6</section>
-              <section class="sc-operation">-</section>
-              <section class="sc-root">&radic;</section>
-              <section class="sc-10x">10<sup>x</sup></section>
-              <section class="sc-log">log</section>
-              <section class="sc-exp">Exp</section>
-              <section class="sc-mod">Mod</section>
-              <section class="sc-number">1</section>
-              <section class="sc-number">2</section>
-              <section class="sc-number">3</section>
-              <section class="sc-operation">*</section>
-              <section class="sc-1rootx">1&radic;x</section>
-              <section class="sc-ex">e<sup>x</sup></section>
-              <section class="sc-in">In</section>
-              <section class="sc-dms">dms</section>
-              <section class="sc-deg">deg</section>
-              <section class="sc-number">0</section>
-              <section class="sc-number">.</section>
-              <section  class="sc-clearAll">AC</section>
-              <section class="sc-operation">/</section>
-              <section></section>
-              <section class="sc-pi">&pi;</section>
-              <section class="sc-factorial">n!</section>
-              <section></section>
-              <section class="precent">%</section>
-              <section class="sc-bracket">(</section>
-              <section class="sc-bracket">)</section>
-              <section class="sc-clearBackward">&larr;</section>
-              <section class="sc-equal">&equals;</section>
+            <section class="sc-x2">x<sup>2</sup></section>
+            <section class="sc-xy">x<sup>y</sup></section>
+            <section class="sc-sin">sin</section>
+            <section class="sc-cos">cos</section>
+            <section class="sc-tan">tan</section>
+            <section class="sc-number">7</section>
+            <section class="sc-number">8</section>
+            <section class="sc-number">9</section>
+            <section class="sc-operation">+</section>
+            <section class="sc-x3">x<sup>3</sup></section>
+            <section class="sc-yrootr">y&radic;x</section>
+            <section class="sc-sin1">sin<sup>-1</sup></section>
+            <section class="sc-cos1">cos<sup>-1</sup></section>
+            <section class="sc-tan1">tan<sup>-1</sup></section>
+            <section class="sc-number">4</section>
+            <section class="sc-number">5</section>
+            <section class="sc-number">6</section>
+            <section class="sc-operation">-</section>
+            <section class="sc-root">&radic;</section>
+            <section class="sc-10x">10<sup>x</sup></section>
+            <section class="sc-log">log</section>
+            <section class="sc-exp">Exp</section>
+            <section class="sc-mod">Mod</section>
+            <section class="sc-number">1</section>
+            <section class="sc-number">2</section>
+            <section class="sc-number">3</section>
+            <section class="sc-operation">*</section>
+            <section class="sc-1rootx">1&radic;x</section>
+            <section class="sc-ex">e<sup>x</sup></section>
+            <section class="sc-in">In</section>
+            <section class="sc-dms">dms</section>
+            <section class="sc-deg">deg</section>
+            <section class="sc-number">0</section>
+            <section class="sc-number">.</section>
+            <section class="sc-clearAll">AC</section>
+            <section class="sc-operation">/</section>
+            <section></section>
+            <section class="sc-pi">&pi;</section>
+            <section class="sc-factorial">n!</section>
+            <section></section>
+            <section class="precent">%</section>
+            <section class="sc-bracket">(</section>
+            <section class="sc-bracket">)</section>
+            <section class="sc-clearBackward">&larr;</section>
+            <section class="sc-equal">&equals;</section>
           </section>
         </div>
         <div class="history-wrap sc-history-wrap">
-            <!-- <div class="history-item">
+          <!-- <div class="history-item">
               <div class="history-input">
                 <span class="history-equal">&equals;</span>
                 <span class="history-snum">53</span>
@@ -155,11 +153,10 @@
             </div> -->
         </div>
         <div class="history-delete sc-history-delete">
-            <i class="fa fa-trash-alt"></i>
-          </div>
+          <i class="fa fa-trash-alt"></i>
+        </div>
       </div>
-
-      <div id="programmer" style="display: block;">
+      <div id="programmer">
         <div class="input-wrap">
           <section class="display pr-display"></section>
           <section class="pr-translation-wrap">
@@ -291,23 +288,436 @@
             </div> -->
         </div>
         <div class="history-delete pr-history-delete">
-            <i class="fa fa-trash-alt"></i>
-          </div>
+          <i class="fa fa-trash-alt"></i>
+        </div>
       </div>
       <div id="datecalculation">Date calculation</div>
       <div id="currency">Currency</div>
-      <div id="volumn">volumn</div>
-      <div id="length">length</div>
-      <div id="weightandmass">weightandmass</div>
-      <div id="temperature">temperature</div>
-      <div id="energy">energy</div>
-      <div id="area">area</div>
-      <div id="speed">speed</div>
-      <div id="time">time</div>
-      <div id="power">power</div>
-      <div id="data">Data</div>
-      <div id="pressure">Pressure</div>
-      <div id="angle">Angle</div>
+      <div id="volumn">
+        <div class="other-translate volumn-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Millitiers">Millitiers</option>
+            <option value="Cubic centimeters">Cubic centimeters</option>
+            <option value="Liters">Liters</option>
+            <option value="Cubic meters">Cubic meters</option>
+            <option value="Teaspoons(US)">Teaspoons(US)</option>
+            <option value="Tablespoons(US)">Tablespoons(US)</option>
+            <option value="Fluid ounces(US)">Fluid ounces(US)</option>
+            <option value="Cups(US)">Cups(US)</option>
+            <option value="Pints(US)">Pints(US)</option>
+            <option value="Quarts(US)">Quarts(US)</option>
+            <option value="Gallons(US)">Gallons(US)</option>
+            <option value="Cubic inches">Cubic inches</option>
+            <option value="Cubic feet">Cubic feet</option>
+            <option value="Cubic yards">Cubic yards</option>
+            <option value="Teaspoons(UK)">Teaspoons(UK)</option>
+            <option value="Tablespoons(UK)">Tablespoons(UK)</option>
+            <option value="Fluid ounces(UK)">Fluid ounces(UK)</option>
+            <option value="Paints(UK)">Paints(UK)</option>
+            <option value="Quarts(UK)">Quarts(UK)</option>
+            <option value="Gallons(UK)">Gallons(UK)</option>
+          </select>
+        </div>
+        <div class="other-translate volumn-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Millitiers">Millitiers</option>
+            <option value="Cubic centimeters">Cubic centimeters</option>
+            <option value="Liters">Liters</option>
+            <option value="Cubic meters">Cubic meters</option>
+            <option value="Teaspoons(US)" selected>Teaspoons(US)</option>
+            <option value="Tablespoons(US)">Tablespoons(US)</option>
+            <option value="Fluid ounces(US)">Fluid ounces(US)</option>
+            <option value="Cups(US)">Cups(US)</option>
+            <option value="Pints(US)">Pints(US)</option>
+            <option value="Quarts(US)">Quarts(US)</option>
+            <option value="Gallons(US)">Gallons(US)</option>
+            <option value="Cubic inches">Cubic inches</option>
+            <option value="Cubic feet">Cubic feet</option>
+            <option value="Cubic yards">Cubic yards</option>
+            <option value="Teaspoons(UK)">Teaspoons(UK)</option>
+            <option value="Tablespoons(UK)">Tablespoons(UK)</option>
+            <option value="Fluid ounces(UK)">Fluid ounces(UK)</option>
+            <option value="Paints(UK)">Paints(UK)</option>
+            <option value="Quarts(UK)">Quarts(UK)</option>
+            <option value="Gallons(UK)">Gallons(UK)</option>
+          </select>
+        </div>
+      </div>
+      <div id="length">
+        <div class="other-translate length-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Nanometers">Nanometers</option>
+            <option value="Microns">Microns</option>
+            <option value="Millitiers">Millitiers</option>
+            <option value="Centimeters" selected>Centimeters</option>
+            <option value="Meters">Meters</option>
+            <option value="Kilometers">Kilometers</option>
+            <option value="Inches">Inches</option>
+            <option value="Feet">Feet</option>
+            <option value="Yards">Yards</option>
+            <option value="Miles">Miles</option>
+            <option value="Nautical Miles">Nautical Miles</option>
+          </select>
+        </div>
+        <div class="other-translate length-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Nanometers">Nanometers</option>
+            <option value="Microns">Microns</option>
+            <option value="Millitiers">Millitiers</option>
+            <option value="Centimeters">Centimeters</option>
+            <option value="Meters">Meters</option>
+            <option value="Kilometers">Kilometers</option>
+            <option value="Inches" selected>Inches</option>
+            <option value="Feet">Feet</option>
+            <option value="Yards">Yards</option>
+            <option value="Miles">Miles</option>
+            <option value="Nautical Miles">Nautical Miles</option>
+          </select>
+        </div>
+      </div>
+      <div id="weightandmass">
+        <div class="other-translate weightandmass-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Catats">Catats</option>
+            <option value="Milligrams">Milligrams</option>
+            <option value="Centigrams">Centigrams</option>
+            <option value="Decigrams">Decigrams</option>
+            <option value="Grams">Grams</option>
+            <option value="Dekagrams">Dekagrams</option>
+            <option value="Hectogramms">Hectogramms</option>
+            <option value="Kilograms" selected>Kilograms</option>
+            <option value="Metric tonnes">Metric tonnes</option>
+            <option value="Ounces">Ounces</option>
+            <option value="Pounds">Pounds</option>
+            <option value="Stone">Stone</option>
+            <option value="Short tons(US)">Short tons(US)</option>
+            <option value="Short tons(UK)">Short tons(UK)</option>
+          </select>
+        </div>
+        <div class="other-translate weightandmass-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Catats">Catats</option>
+            <option value="Milligrams">Milligrams</option>
+            <option value="Centigrams">Centigrams</option>
+            <option value="Decigrams">Decigrams</option>
+            <option value="Grams">Grams</option>
+            <option value="Dekagrams">Dekagrams</option>
+            <option value="Hectogramms">Hectogramms</option>
+            <option value="Kilograms">Kilograms</option>
+            <option value="Metric tonnes">Metric tonnes</option>
+            <option value="Ounces">Ounces</option>
+            <option value="Pounds" selected>Pounds</option>
+            <option value="Stone">Stone</option>
+            <option value="Short tons(US)">Short tons(US)</option>
+            <option value="Short tons(UK)">Short tons(UK)</option>
+          </select>
+        </div>
+      </div>
+      <div id="temperature">
+        <div class="other-translate temperature-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Celsius">Celsius</option>
+            <option value="Fahrenheit">Fahrenheit</option>
+            <option value="Kelvin">Kelvin</option>
+          </select>
+        </div>
+        <div class="other-translate temperature-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Celsius">Celsius</option>
+            <option value="Fahrenheit" selected>Fahrenheit</option>
+            <option value="Kelvin">Kelvin</option>
+          </select>
+        </div>
+      </div>
+      <div id="energy">
+        <div class="other-translate energy-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Electron volts">Electron volts</option>
+            <option value="Joules" selected>Joules</option>
+            <option value="Kilojoules">Kilojoules</option>
+            <option value="Thermal calories">Thermal calories</option>
+            <option value="Food calories">Food calories</option>
+            <option value="Foot-pounds">Foot-pounds</option>
+            <option value="British thermal units">British thermal units</option>
+          </select>
+        </div>
+        <div class="other-translate energy-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Electron volts">Electron volts</option>
+            <option value="Joules">Joules</option>
+            <option value="Kilojoules">Kilojoules</option>
+            <option value="Thermal calories">Thermal calories</option>
+            <option value="Food calories" selected>Food calories</option>
+            <option value="Foot-pounds">Foot-pounds</option>
+            <option value="British thermal units">British thermal units</option>
+          </select>
+        </div>
+      </div>
+      <div id="area">
+        <div class="other-translate area-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Square millimeters">Square millimeters</option>
+            <option value="Square centimeters">Square centimeters</option>
+            <option value="Square meters" selected>Square meters</option>
+            <option value="Hectares">Hectares</option>
+            <option value="Square Kilometers">Food calories</option>
+            <option value="Square inches">Square inches</option>
+            <option value="Square feet">Square feet</option>
+            <option value="Square feet">Square feet</option>
+            <option value="Square yards">Square yards</option>
+            <option value="Acres">Acres</option>
+            <option value="Square miles">Square miles</option>
+          </select>
+        </div>
+        <div class="other-translate area-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Square millimeters">Square millimeters</option>
+            <option value="Square centimeters">Square centimeters</option>
+            <option value="Square meters">Square meters</option>
+            <option value="Hectares">Hectares</option>
+            <option value="Square Kilometers">Food calories</option>
+            <option value="Square inches">Square inches</option>
+            <option value="Square feet" selected>Square feet</option>
+            <option value="Square feet">Square feet</option>
+            <option value="Square yards">Square yards</option>
+            <option value="Acres">Acres</option>
+            <option value="Square miles">Square miles</option>
+          </select>
+        </div>
+      </div>
+      <div id="speed">
+        <div class="other-translate speed-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Centimeters per second">Centimeters per second</option>
+            <option value="Meters per second">Meters per second</option>
+            <option value="Kilometers per hour" selected>Kilometers per hour</option>
+            <option value="Feet per second">Feet per second</option>
+            <option value="Miles per hour">Miles per hour</option>
+            <option value="Knots">Knots</option>
+            <option value="Mach">Math</option>
+          </select>
+        </div>
+        <div class="other-translate speed-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Centimeters per second">Centimeters per second</option>
+            <option value="Meters per second">Meters per second</option>
+            <option value="Kilometers per hour">Kilometers per hour</option>
+            <option value="Feet per second">Feet per second</option>
+            <option value="Miles per hour" selected>Miles per hour</option>
+            <option value="Knots">Knots</option>
+            <option value="Mach">Math</option>
+          </select>
+        </div>
+      </div>
+      <div id="time">
+        <div class="other-translate time-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Microseconds">Microseconds</option>
+            <option value="Milliseconds">Milliseconds</option>
+            <option value="Seconds">Seconds</option>
+            <option value="Hours" selected>Hours</option>
+            <option value="Minutes">Minutes</option>
+            <option value="Days">Days</option>
+            <option value="Weeks">Weeks</option>
+            <option value="Years">Years</option>
+          </select>
+        </div>
+        <div class="other-translate time-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Microseconds">Microseconds</option>
+            <option value="Milliseconds">Milliseconds</option>
+            <option value="Seconds">Seconds</option>
+            <option value="Hours">Hours</option>
+            <option value="Minutes" selected>Minutes</option>
+            <option value="Days">Days</option>
+            <option value="Weeks">Weeks</option>
+            <option value="Years">Years</option>
+          </select>
+        </div>
+      </div>
+      <div id="power">
+        <div class="other-translate power-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Watts">Watts</option>
+            <option value="Kilowatts" selected>Kilowatts</option>
+            <option value="Horsepower(US)">Horsepower(US)</option>
+            <option value="Foot-pounds/minute">Foot-pounds/minute</option>
+            <option value="BTUS/minutes">BTUS/minutes</option>
+          </select>
+        </div>
+        <div class="other-translate power-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Watts">Watts</option>
+            <option value="Kilowatts">Kilowatts</option>
+            <option value="Horsepower(US)" selected>Horsepower(US)</option>
+            <option value="Foot-pounds/minute">Foot-pounds/minute</option>
+            <option value="BTUS/minutes">BTUS/minutes</option>
+          </select>
+        </div>
+      </div>
+      <div id="data">
+        <div class="other-translate data-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Bits">Bits</option>
+            <option value="Bytes">Bytes</option>
+            <option value="Kilobits">Kilobits</option>
+            <option value="Kibibits">Kibibits</option>
+            <option value="Kilobytes">Kilobytes</option>
+            <option value="Kibibytes">Kibibytes</option>
+            <option value="Megabits">Megabits</option>
+            <option value="Mebibits">Mebibits</option>
+            <option value="Megabytes">Megabytes</option>
+            <option value="Mebibytes">Mebibytes</option>
+            <option value="Gigabits">Gigabits</option>
+            <option value="Gibibits">Gibibits</option>
+            <option value="Gigabytes" selected>Gigabytes</option>
+            <option value="Gibibytes">Gibibytes</option>
+            <option value="Terabits">Terabits</option>
+            <option value="Tebibits">Tebibits</option>
+            <option value="Terabytes">Terabytes</option>
+            <option value="Tebibytes">Tebibytes</option>
+            <option value="Petabits">Petabits</option>
+            <option value="Pebibits">Pebibits</option>
+            <option value="Petabyts">Petabyts</option>
+            <option value="Pebibytes">Pebibytes</option>
+            <option value="Petabits">Petabits</option>
+            <option value="Exabits">Exabits</option>
+            <option value="Exbibits">Exbibits</option>
+            <option value="Exabytes">Exabytes</option>
+            <option value="Exbibytes">Exbibytes</option>
+            <option value="Zebabits">Zebabits</option>
+            <option value="Zebibits">Zebibits</option>
+            <option value="Zetabytes">Zetabytes</option>
+            <option value="Zebibytes">Zebibytes</option>
+            <option value="Yottabit">Yottabit</option>
+            <option value="Yobibits">Yobibits</option>
+            <option value="Yottabyte">Yottabyte</option>
+            <option value="Yobibytes">Yobibytes</option>
+          </select>
+        </div>
+        <div class="other-translate data-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Bits">Bits</option>
+            <option value="Bytes">Bytes</option>
+            <option value="Kilobits">Kilobits</option>
+            <option value="Kibibits">Kibibits</option>
+            <option value="Kilobytes">Kilobytes</option>
+            <option value="Kibibytes">Kibibytes</option>
+            <option value="Megabits">Megabits</option>
+            <option value="Mebibits">Mebibits</option>
+            <option value="Megabytes" selected>Megabytes</option>
+            <option value="Mebibytes">Mebibytes</option>
+            <option value="Gigabits">Gigabits</option>
+            <option value="Gibibits">Gibibits</option>
+            <option value="Gigabytes">Gigabytes</option>
+            <option value="Gibibytes">Gibibytes</option>
+            <option value="Terabits">Terabits</option>
+            <option value="Tebibits">Tebibits</option>
+            <option value="Terabytes">Terabytes</option>
+            <option value="Tebibytes">Tebibytes</option>
+            <option value="Petabits">Petabits</option>
+            <option value="Pebibits">Pebibits</option>
+            <option value="Petabyts">Petabyts</option>
+            <option value="Pebibytes">Pebibytes</option>
+            <option value="Petabits">Petabits</option>
+            <option value="Exabits">Exabits</option>
+            <option value="Exbibits">Exbibits</option>
+            <option value="Exabytes">Exabytes</option>
+            <option value="Exbibytes">Exbibytes</option>
+            <option value="Zebabits">Zebabits</option>
+            <option value="Zebibits">Zebibits</option>
+            <option value="Zetabytes">Zetabytes</option>
+            <option value="Zebibytes">Zebibytes</option>
+            <option value="Yottabit">Yottabit</option>
+            <option value="Yobibits">Yobibits</option>
+            <option value="Yottabyte">Yottabyte</option>
+            <option value="Yobibytes">Yobibytes</option>
+          </select>
+        </div>
+      </div>
+      <div id="pressure">
+        <div class="other-translate pressure-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Atmospheres" selected>Atmospheres</option>
+            <option value="Bars">Bars</option>
+            <option value="Kilopascals">Kilopascals</option>
+            <option value="Millimeters of mercury">Millimeters of mercury</option>
+            <option value="Pascals">Pascals</option>
+            <option value="Pounds per square inch">Pounds per square inch</option>
+          </select>
+        </div>
+        <div class="other-translate pressure-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Atmospheres">Atmospheres</option>
+            <option value="Bars" selected>Bars</option>
+            <option value="Kilopascals">Kilopascals</option>
+            <option value="Millimeters of mercury">Millimeters of mercury</option>
+            <option value="Pascals">Pascals</option>
+            <option value="Pounds per square inch">Pounds per square inch</option>
+          </select>
+        </div>
+      </div>
+      <div id="angle">
+        <div class="other-translate angle-to">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Degrees" selected>Degrees</option>
+            <option value="Radians">Radians</option>
+            <option value="Gradians">Gradians</option>
+          </select>
+        </div>
+        <div class="other-translate angle-from">
+          <h1>0</h1>
+          <select name="" id="">
+            <option value="Degrees">Degrees</option>
+            <option value="Radians" selected>Radians</option>
+            <option value="Gradians">Gradians</option>
+          </select>
+        </div>
+      </div>
+      
+    </div>
+
+    <div id="otherInput">
+      <div class="oi-wrap">
+        <section></section>
+        <section>CE</section>
+        <section>&larr;</section>
+        <section>7</section>
+        <section>8</section>
+        <section>9</section>
+        <section>4</section>
+        <section>5</section>
+        <section>6</section>
+        <section>1</section>
+        <section>2</section>
+        <section>3</section>
+        <section></section>
+        <section>0</section>
+        <section>.</section>
+      </div>
     </div>
 
   </div>
