@@ -17,15 +17,18 @@
     #container {
       position: relative;
       margin: 50px auto;
-      width: 500px;
-      border: 1px solid gray;
+      width: 600px;
     }
 
     h2 {
+      position: relative;
+      margin-top: 5px;
       background: lightblue;
-      margin: 0;
+      margin-top: 5px;
+      margin-bottom: 5px;
       height: 60px;
       line-height: 60px;
+      border-radius: 5px;
     }
 
     #input-wrap {
@@ -34,24 +37,28 @@
     }
 
     #input-content {
-      width: 440px;
+      width: 540px;
       height: 30px;
       font-size: 20px;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid lightgray;
+      text-indent: 5px;
     }
 
     #input-btn {
       position: relative;
       top: -1px;
       width: 51px;
-      height: 37px;
+      height: 34px;
       border: none;
       font-size: 18px;
+      border-radius: 5px;
     }
 
     .list-wrap {
       width: 100%;
       height: 40px;
-      outline: 1px solid gray;
       line-height: 40px;
     }
 
@@ -59,9 +66,35 @@
       display: inline-block;
     }
 
+    .list-title {
+      display: inline-block;
+      width: 540px;
+      text-indent: 5px;
+    }
+
+    .number {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      line-height: 60px;
+      border-radius: 50%;
+    }
+
     .list-item {
       display: inline-block;
-      width: 420px;
+      width: 480px;
+      text-indent: 5px;
+    }
+
+    .update-item {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: lightcoral;
+      cursor: default;
+      text-align: center;
+      border-radius: 5px;
     }
 
     .switch {
@@ -72,6 +105,7 @@
       cursor: default;
       text-align: center;
       line-height: 40px;
+      border-radius: 5px;
     }
 
     .close {
@@ -99,10 +133,10 @@
       <input type="button" value="Add" id="input-btn">
     </div>
     <div id="show-content">
-      <h2>Doing</h2>
+      <h2><span class="list-title">Doing</span><span class="number doingNum">0</span></h2>
       <div id="doingList">
       </div>
-      <h2>Done</h2>
+      <h2><span class="list-title">Done</span><span class="number doneNum">0</span></h2>
       <div id="doneList">
       </div>
     </div>
@@ -115,6 +149,8 @@
       let add = document.getElementById('input-btn');
       let doingList = document.getElementById('doingList');
       let doneList = document.getElementById('doneList');
+      let doingNum = document.getElementsByClassName('doingNum')[0];
+      let doneNum = document.getElementsByClassName('doneNum')[0];
 
       // 页面加载后，先从localStorage中恢复数据,push到doneItem
       let newItem = localStorage.length === 0 ? 0 : JSON.parse(localStorage.todolist);
@@ -127,12 +163,23 @@
         // doingList
         if (newItem[i].done === true) {
           createListItem(newItem[i].title, doingList);
+          doingNum.textContent = Array.from(document.querySelectorAll('#doingList section')).length;
         }
         // doneList
         if (newItem[i].done === false) {
           createListItem(newItem[i].title, doneList);
+          doneNum.textContent = Array.from(document.querySelectorAll('#doneList section')).length;
         }
       }
+
+      // 给所有的updateItem添加index属性
+      function addIndex() {
+        let update = Array.from(document.querySelectorAll('.update-item'));
+        for (let i = 0; i < update.length; i++) {
+          update[i].setAttribute('index', i);
+        }
+      }
+      addIndex();
 
       // 添加新的todolist
       window.addEventListener('keypress', function (e) {
@@ -148,41 +195,53 @@
       function initial() {
         let inputContent = document.getElementById('input-content');
         createListItem(inputContent.value, doingList);
-        doneItem.push({ title: inputContent.value, done: true });    //todo添加到doneItem
-        localStorage.setItem('todolist', JSON.stringify(doneItem))   //并同时保存到localStorage中
+        doneItem.push({
+          title: inputContent.value,
+          done: true
+        }); //todo添加到doneItem
+        localStorage.setItem('todolist', JSON.stringify(doneItem)) //并同时保存到localStorage中
         inputContent.value = '';
       }
 
       // 创建 listItem
       function createListItem(content, el) {
+        let update = Array.from(document.querySelectorAll('.update-item'));
         let listWrap = document.createElement('section');
         let doing = document.createElement('span');
+        let updateItem = document.createElement('span');
         let listItem = document.createElement('span');
         let close = document.createElement('span');
 
         listWrap.className = 'list-wrap';
         listItem.className = 'list-item';
-        doing.classList = 'switch';
+        doing.className = 'switch';
+        updateItem.className = 'update-item';
+        updateItem.setAttribute('index', update.length);
         close.className = 'close';
 
         listItem.textContent = content;
+        updateItem.textContent = '↑';
         doing.textContent = '√';
         close.textContent = '×';
 
         el.appendChild(listWrap);
         listWrap.appendChild(doing);
+        listWrap.appendChild(updateItem);
         listWrap.appendChild(listItem);
         listWrap.appendChild(close);
+
+        doingNum.textContent = Array.from(document.querySelectorAll('#doingList section')).length;
       }
 
       doingList.addEventListener('click', function (e) {
         switchList(e, doneList, false);
-        close(e);
+        updateItem(e);
+        close(e, doingList);
       }, false);
 
       doneList.addEventListener('click', function (e) {
         switchList(e, doingList, true);
-        close(e);
+        close(e, doneList);
       }, false);
 
       // doingList 相互切换 doneList
@@ -192,6 +251,9 @@
           el.appendChild(done);
           e.target.parentElement.parentElement.removeChild(e.target.parentElement);
 
+          doingNum.textContent = Array.from(document.querySelectorAll('#doingList section')).length;
+          doneNum.textContent = Array.from(document.querySelectorAll('#doneList section')).length;
+
           changeTruth(truth, e);
           localStorage.setItem('todolist', JSON.stringify(doneItem));
         }
@@ -200,17 +262,24 @@
       // 改done的truth值
       function changeTruth(truth, e) {
         for (let i = 0; i < doneItem.length; i++) {
-          if (doneItem[i].title === e.target.nextSibling.textContent) {
+          if (doneItem[i].title === e.target.nextSibling.nextSibling.textContent) {
             doneItem[i].done = truth;
           }
         }
       }
 
       // 关闭doing的list item,并删除localStorage中的todolist
-      function close(e) {
+      function close(e, el) {
         if (e.target.className === 'close') {
           e.target.parentElement.parentElement.removeChild(e.target.parentElement);
           deleteLocalStorage(e);
+
+          if (el === doingList) {
+            doingNum.textContent = Array.from(document.querySelectorAll('#doingList section')).length;
+          }
+          if (el === doneList) {
+            doneNum.textContent = Array.from(document.querySelectorAll('#doneList section')).length;
+          }
         }
       }
 
@@ -218,8 +287,26 @@
       function deleteLocalStorage(e) {
         for (let i = 0; i < doneItem.length; i++) {
           if (doneItem[i].title === e.target.previousSibling.textContent) {
-            doneItem[i] = '';    // 删除的todoItem设为空的项
-            localStorage.todolist = JSON.stringify(doneItem.filter(s => s));       // doneItem.filter(s => s) 删除数组中的空项
+            doneItem[i] = ''; // 删除的todoItem设为空的项
+            localStorage.todolist = JSON.stringify(doneItem.filter(s => s)); // doneItem.filter(s => s) 删除数组中的空项
+          }
+        }
+      }
+
+      // 更新 todoItem
+      function updateItem(e) {
+        if (e.target.className === 'update-item') {
+          if (e.target.textContent === '↑') {
+            e.target.textContent = '↓';
+            e.target.style.background = 'red';
+            e.target.nextSibling.contentEditable = true;
+          } else {
+            e.target.textContent = '↑';
+            e.target.style.background = 'lightcoral';
+            e.target.nextSibling.contentEditable = false;
+            let index = e.target.getAttribute('index');
+            doneItem[index].title = e.target.nextSibling.textContent;
+            localStorage.todolist = JSON.stringify(doneItem);
           }
         }
       }
