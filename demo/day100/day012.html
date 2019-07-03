@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 012 - 防抖(debounce)和节流(throttle)</title>
+</head>
+<body>
+<div id="container">
+  <div>没有使用防抖：<input type="text" id="noDebounce"></div>
+  <div>使用防抖(debounce)：<input type="text" id="useDebounce"></div>
+  <div>使用节流(throttle)：<input type="text" id="useThrottle"></div>
+  <span style="color: gray; font-style: italic;">打开浏览器的DevTools查看效果</span>
+  <script>
+    // 没有使用防抖
+    let noDebounce = document.getElementById('noDebounce');
+    let useDebounce = document.getElementById('useDebounce');
+    let useThrottle = document.getElementById('useThrottle');
+
+    noDebounce.onkeyup = getUser;
+    useDebounce.onkeyup = debounce(getUser, 500);
+    useThrottle.onkeyup = throttle(getUser, 500);
+
+
+    function getUser(){
+      console.log(this.value);
+    }
+
+    // 防抖函数（debounce）
+    function debounce(func, delay){
+      let timer = null;
+      return function(){
+        let that = this;
+        let arg = arguments;
+
+        if(timer){
+          clearTimeout(timer);
+          timer = null;
+        }
+        
+        timer = setTimeout(function(){
+          func.apply(that, arg);
+        }, delay);
+      }
+    }
+
+    // 函数节流(throttle)
+    // 1，时间戳的方式实现
+    function throttle(func, delay){
+      let pre = 0;
+
+      return function(){
+        let now = +new Date();
+        let that = this;
+        let arg = arguments;
+        if(now - pre > delay){
+          func.apply(that, arg);
+          pre = now;
+        }
+      }
+    }
+
+    // 2,使用定时器方式实现
+    // function throttle(func, delay){
+    //   let timer;
+    //   let pre = 0;
+
+    //   return function(){
+    //     let that = this;
+    //     let arg = arguments;
+    //     if(!timer){
+    //       timer = setTimeout(function(){
+    //         timer = null;
+    //         func.apply(that, arg);
+    //       }, delay)
+    //     }
+    //   }
+    // }
+  </script>
+  <!-- https://juejin.im/post/5b8de829f265da43623c4261 -->
+  <!-- https://juejin.im/post/5a35ed25f265da431d3cc1b1 -->
+</div>
+</body>
+</html>
