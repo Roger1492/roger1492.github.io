@@ -215,10 +215,11 @@
             </div>
             <div class="cate-sub">
               <div class="cs-left">
-                <!-- <div class="csl">
+                <div class="csl">
                   <div>当季流行</div>
                   <div class="csl-1">
-                    <a href="javascript:void(0);">女装新品</a>
+                    <categroy-list-a v-for="name in lists1.length" :name="name" :href="href"></categroy-list-a>
+                    <!-- <a href="javascript:void(0);">女装新品</a>
                     <a href="javascript:void(0);">商场同款</a>
                     <a href="javascript:void(0);">仙女连衣裙</a>
                     <a href="javascript:void(0);">T恤</a>
@@ -229,10 +230,9 @@
                     <a href="javascript:void(0);">无痕文胸</a>
                     <a href="javascript:void(0);">运动文胸</a>
                     <a href="javascript:void(0);">潮流家居服</a>
-                    <a href="javascript:void(0);">百搭船袜</a>
+                    <a href="javascript:void(0);">百搭船袜</a> -->
                   </div>
-                </div> -->
-                <cate-list></cate-list>
+                </div>
                 <div class="csl">
                   <div>精选上装</div>
                   <div class="csl-1">
@@ -547,20 +547,18 @@
 
   </div>
   <!-- 页面主体结束 -->
-
-
-
+  
 
   <!-- footer开始 -->
   <div id="footer"></div>
   <!-- footer结束 -->
 
-  <script src="https://cdn.bootcss.com/react/16.8.6/umd/react.development.js"></script>
-  <script src="https://cdn.bootcss.com/react-dom/16.8.6/umd/react-dom.development.js"></script>
-  <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
-  <!-- <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script> -->
+  <!-- <script src="https://cdn.bootcss.com/react/16.8.6/umd/react.development.js"></script> -->
+  <!-- <script src="https://cdn.bootcss.com/react-dom/16.8.6/umd/react-dom.development.js"></script> -->
+  <!-- <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script> -->
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
   <script src="js/slider.js"></script>
-  <script src="js/script.react.js" type="text/babel"></script>
+  <script src="js/script.vue.js"></script>
 </body>
 
 </html>
