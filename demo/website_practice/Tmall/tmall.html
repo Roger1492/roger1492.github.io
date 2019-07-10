@@ -169,92 +169,29 @@
             </div>
             <div class="cate-sub">
               <div class="cs-left">
-                <div class="csl">
-                  <div>当季流行</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[0]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>精选上装</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[1]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>浪漫裙装</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[2]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>女士下装</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[3]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>特色女装</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[4]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>文胸塑身</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[5]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>家居服</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[6]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>内裤背心</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[7]">{{cl}}</a>
-                  </div>
-                </div>
+                <cate-list v-for="list in catelist1" :title="list.title" :sub="list.sub"></cate-list>
               </div>
               <div class="cs-right">
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1B_DcJpXXXXXWXFXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/i4/T1gRqVXk4fXXb1upjX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1wNJAHFXXXXc7XpXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1w472LFXXXXXwXVXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1fETUHpXXXXbmapXXwu0bFXXX.png_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1UJIfJXXXXXctaXXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1FfxjHFXXXXbWaXXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB18XAnIVXXXXclXXXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1gWxjFFXXXXcEaFXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/http://img.taobaocdn.com/bao/uploaded/TB1HMfoHpXXXXclXXXXwu0bFXXX.png_170x120q30.jpg"
-                    alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/TB18nTOLVXXXXc5XXXXXXXXXXXX-1000-500.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/TB1wzzFLVXXXXbXXFXXXXXXXXXX-400-200.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/TB1SvLzLVXXXXaKXVXXXXXXXXXX-1000-500.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/TB17DDrLVXXXXbOaXXXXXXXXXXX-1000-500.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/TB1dSYULVXXXXXlXXXXXXXXXXXX-1000-500.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/TB1xPvNLVXXXXXDXpXXXXXXXXXX-1000-500.jpg_170x120q30.jpg" alt=""></a>
+                <cate-img v-for="src in cateImg1" :src="src"></cate-img>
               </div>
             </div>
           </li>
+          <li class="category-li">
+              <div class="cate-parent">
+                <i class="fa fa-list-ul"></i>
+                <span>
+                  <a href="">男装</a> /<a href="">运动户外</a>
+                </span>
+              </div>
+              <div class="cate-sub">
+                <div class="cs-left">
+                  <cate-list v-for="list in catelist2" :title="list.title" :sub="list.sub"></cate-list>
+                </div>
+                <div class="cs-right">
+                  <cate-img v-for="src in cateImg2" :src="src"></cate-img>
+                </div>
+              </div>
+            </li>
           <li class="category-li">
             <div class="cate-parent">
               <i class="fa fa-list-ul"></i>
@@ -264,96 +201,10 @@
             </div>
             <div class="cate-sub">
               <div class="cs-left">
-                <div class="csl">
-                  <div>当季流行</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[8]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>男士外套</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[9]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>男士内搭</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[10]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>男士裤装</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[11]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>特色男装</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[12]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>运动鞋</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[13]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>运动服</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[14]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>户外鞋服</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[15]">{{cl}}</a>
-                  </div>
-                </div>
+                <cate-list v-for="list in catelist3" :title="list.title" :sub="list.sub"></cate-list>
               </div>
               <div class="cs-right">
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1QgL7LFXXXXboXFXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB18HHTLFXXXXaJaXXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1B6.BLFXXXXXZXXXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1krn7LFXXXXbVXFXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1Im6ULFXXXXapaXXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB16BD9LFXXXXXhXFXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1KtC.LVXXXXauaXXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/bao/uploaded/TB1eFwrLFXXXXacXXXXSutbFXXX.jpg_170x120q30.jpg" alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/i2/TB1MDj0LVXXXXaNXpXXXpJt1pXX-1000-500.jpg_170x120q30.jpg"
-                    alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/i2/TB1rGn5LVXXXXcZXXXXXpJt1pXX-1000-500.jpg_170x120q30.jpg"
-                    alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/i4/TB1gAvVLVXXXXbeXFXXPqXt1pXX-1000-500.png_170x120q30.jpg"
-                    alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/i2/TB1ORPWLVXXXXX1XFXXPqXt1pXX-1000-500.png_170x120q30.jpg"
-                    alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/i3/TB1vifWLVXXXXc6XpXXXpJt1pXX-1000-500.jpg_170x120q30.jpg"
-                    alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/imgextra/i1/414285109/TB273rQaazyQeBjy0FbXXbZapXa_!!414285109.png_170x120q30.jpg"
-                    alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/i1/TB1NBn3LVXXXXXyXpXXXpJt1pXX-1000-500.jpg_170x120q30.jpg"
-                    alt=""></a>
-                <a href="javascript:void(0);"><img
-                    src="https://img.alicdn.com/tps/i4/TB1F3PILVXXXXcZapXXXpJt1pXX-1000-500.jpg_170x120q30.jpg"
-                    alt=""></a>
+                <cate-img v-for="src in cateImg3" :src="src"></cate-img>
               </div>
             </div>
           </li>
@@ -366,50 +217,11 @@
             </div>
             <div class="cate-sub">
               <div class="cs-left">
-                <div class="csl">
-                  <div>推荐女鞋</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[16]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>潮流男鞋</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[17]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>女单鞋</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[18]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>特色鞋</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[19]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>潮流女包</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[20]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>精品男包</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[21]">{{cl}}</a>
-                  </div>
-                </div>
-                <div class="csl">
-                  <div>功能箱包</div>
-                  <div class="csl-1">
-                    <a :href="href" v-for="cl in catelist[22]">{{cl}}</a>
-                  </div>
-                </div>
+                <cate-list v-for="list in catelist4" :title="list.title" :sub="list.sub"></cate-list>
               </div>
-              <div class="cs-right"></div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg4" :src="src"></cate-img>
+              </div>
             </div>
           </li>
           <li class="category-li">
@@ -420,7 +232,12 @@
               </span>
             </div>
             <div class="cate-sub">
-              
+              <div class="cs-left">
+                <cate-list v-for="list in catelist5" :title="list.title" :sub="list.sub"></cate-list>
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg5" :src="src"></cate-img>
+              </div>
             </div>
           </li>
           <li class="category-li">
@@ -430,7 +247,14 @@
                 <a href="">手机</a> /<a href="">数码</a> /<a href="">电脑办公</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <cate-list v-for="list in catelist6" :title="list.title" :sub="list.sub"></cate-list>
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg6" :src="src"></cate-img>
+              </div>
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -439,7 +263,14 @@
                 <a href="">母婴玩具</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <cate-list v-for="list in catelist7" :title="list.title" :sub="list.sub"></cate-list>
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg7" :src="src"></cate-img>
+              </div>
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -448,7 +279,14 @@
                 <a href="">零食</a> /<a href="">茶酒</a> /<a href="">进口食品</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <cate-list v-for="list in catelist8" :title="list.title" :sub="list.sub"></cate-list>
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg8" :src="src"></cate-img>
+              </div>
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -457,7 +295,14 @@
                 <a href="">生鲜水果</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <cate-list v-for="list in catelist9" :title="list.title" :sub="list.sub"></cate-list>
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg9" :src="src"></cate-img>
+              </div>
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -466,7 +311,14 @@
                 <a href="">大家电</a> /<a href="">生活电器</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <cate-list v-for="list in catelist10" :title="list.title" :sub="list.sub"></cate-list>
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg10" :src="src"></cate-img>
+              </div>
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -475,7 +327,14 @@
                 <a href="">家具建材</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <cate-list v-for="list in catelist11" :title="list.title" :sub="list.sub"></cate-list>
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg11" :src="src"></cate-img>
+              </div>
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -484,7 +343,14 @@
                 <a href="">汽车</a> /<a href="">配件</a> /<a href="">用品</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <!-- <cate-list v-for="list in catelist12" :title="list.title" :sub="list.sub"></cate-list> -->
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg12" :src="src"></cate-img>
+              </div>
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -493,7 +359,14 @@
                 <a href="">家纺</a> /<a href="">家饰</a> /<a href="">鲜花</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <!-- <cate-list v-for="list in catelist13" :title="list.title" :sub="list.sub"></cate-list> -->
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg13" :src="src"></cate-img>
+              </div>
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -502,7 +375,14 @@
                 <a href="">医药保健</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <!-- <cate-list v-for="list in catelist14" :title="list.title" :sub="list.sub"></cate-list> -->
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg14" :src="src"></cate-img>
+              </div>
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -511,7 +391,14 @@
                 <a href="">厨具</a> /<a href="">收纳</a> /<a href="">宠物</a>
               </span>
             </div>
-            <div class="cate-sub"></div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <!-- <cate-list v-for="list in catelist15" :title="list.title" :sub="list.sub"></cate-list> -->
+              </div>
+              <!-- <div class="cs-right">
+                <cate-img v-for="src in cateImg15" :src="src"></cate-img>
+              </div> -->
+            </div>
           </li>
           <li class="category-li">
             <div class="cate-parent">
@@ -521,7 +408,12 @@
               </span>
             </div>
             <div class="cate-sub">
-              151515
+              <div class="cs-left">
+                <!-- <cate-list v-for="list in catelist16" :title="list.title" :sub="list.sub"></cate-list> -->
+              </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg15" :src="src"></cate-img>
+              </div>
             </div>
           </li>
         </ul>

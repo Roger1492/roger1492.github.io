@@ -62,8 +62,8 @@
   padding: 0;
 }
 .category-li{
-  height: 33.3px;
-  line-height: 33.3px;
+  height: 31.3px;
+  line-height: 31.3px;
 }
 .category-li:hover{
   background: #fff;
@@ -119,12 +119,18 @@
   width: 100px;
 }
 .csl-1{
+  font-weight: 600;
+  text-align: center;
+}
+.csl-2{
   width: 500px;
 }
-.csl-1 a{
+.csl-2 a{
+  display: inline-block;
   text-decoration: none;
   color: gray;
   font-size: 14px;
+  margin-left: 10px;
 }
 .cs-right{
   position: relative;
