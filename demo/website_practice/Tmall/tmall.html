@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/site-nav.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/content.css">
+  <link rel="stylesheet" href="css/brandWall.css">
 </head>
 
 <body class="w1230">
@@ -177,21 +178,21 @@
             </div>
           </li>
           <li class="category-li">
-              <div class="cate-parent">
-                <i class="fa fa-list-ul"></i>
-                <span>
-                  <a href="">男装</a> /<a href="">运动户外</a>
-                </span>
+            <div class="cate-parent">
+              <i class="fa fa-list-ul"></i>
+              <span>
+                <a href="">男装</a> /<a href="">运动户外</a>
+              </span>
+            </div>
+            <div class="cate-sub">
+              <div class="cs-left">
+                <cate-list v-for="list in catelist2" :title="list.title" :sub="list.sub"></cate-list>
               </div>
-              <div class="cate-sub">
-                <div class="cs-left">
-                  <cate-list v-for="list in catelist2" :title="list.title" :sub="list.sub"></cate-list>
-                </div>
-                <div class="cs-right">
-                  <cate-img v-for="src in cateImg2" :src="src"></cate-img>
-                </div>
+              <div class="cs-right">
+                <cate-img v-for="src in cateImg2" :src="src"></cate-img>
               </div>
-            </li>
+            </div>
+          </li>
           <li class="category-li">
             <div class="cate-parent">
               <i class="fa fa-list-ul"></i>
@@ -345,7 +346,7 @@
             </div>
             <div class="cate-sub">
               <div class="cs-left">
-                <!-- <cate-list v-for="list in catelist12" :title="list.title" :sub="list.sub"></cate-list> -->
+                <cate-list v-for="list in catelist12" :title="list.title" :sub="list.sub"></cate-list>
               </div>
               <div class="cs-right">
                 <cate-img v-for="src in cateImg12" :src="src"></cate-img>
@@ -361,7 +362,7 @@
             </div>
             <div class="cate-sub">
               <div class="cs-left">
-                <!-- <cate-list v-for="list in catelist13" :title="list.title" :sub="list.sub"></cate-list> -->
+                <cate-list v-for="list in catelist13" :title="list.title" :sub="list.sub"></cate-list>
               </div>
               <div class="cs-right">
                 <cate-img v-for="src in cateImg13" :src="src"></cate-img>
@@ -377,7 +378,7 @@
             </div>
             <div class="cate-sub">
               <div class="cs-left">
-                <!-- <cate-list v-for="list in catelist14" :title="list.title" :sub="list.sub"></cate-list> -->
+                <cate-list v-for="list in catelist14" :title="list.title" :sub="list.sub"></cate-list>
               </div>
               <div class="cs-right">
                 <cate-img v-for="src in cateImg14" :src="src"></cate-img>
@@ -393,7 +394,7 @@
             </div>
             <div class="cate-sub">
               <div class="cs-left">
-                <!-- <cate-list v-for="list in catelist15" :title="list.title" :sub="list.sub"></cate-list> -->
+                <cate-list v-for="list in catelist15" :title="list.title" :sub="list.sub"></cate-list>
               </div>
               <!-- <div class="cs-right">
                 <cate-img v-for="src in cateImg15" :src="src"></cate-img>
@@ -409,7 +410,7 @@
             </div>
             <div class="cate-sub">
               <div class="cs-left">
-                <!-- <cate-list v-for="list in catelist16" :title="list.title" :sub="list.sub"></cate-list> -->
+                <cate-list v-for="list in catelist16" :title="list.title" :sub="list.sub"></cate-list>
               </div>
               <div class="cs-right">
                 <cate-img v-for="src in cateImg15" :src="src"></cate-img>
@@ -450,23 +451,28 @@
       </div>
     </div>
 
-
-    <!-- 新品展示列 -->
-    <div id="brandWall"></div>
-    <!-- 热门品牌 -->
-    <div id="newHotBrand"></div>
-
   </div>
   <!-- 页面主体结束 -->
+
+  <!-- 新品展示列开始 -->
+  <div id="brandWall">
+    <brand-wall v-for="bw in b_wall" :class="bw.itemclass" :title="bw.title" :src="bw.src"></brand-wall>
+  </div>
+  <!-- 新品展示列结束 -->
+
+  <!-- 热门品牌开始-->
+  <div id="newHotBrand">
+    
+  </div>
+  <!-- 热门品牌结束-->
+
 
 
   <!-- footer开始 -->
   <div id="footer"></div>
   <!-- footer结束 -->
 
-  <!-- <script src="https://cdn.bootcss.com/react/16.8.6/umd/react.development.js"></script> -->
-  <!-- <script src="https://cdn.bootcss.com/react-dom/16.8.6/umd/react-dom.development.js"></script> -->
-  <!-- <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script> -->
+
   <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
   <script src="js/slider.js"></script>
   <script src="js/script.vue.js"></script>
