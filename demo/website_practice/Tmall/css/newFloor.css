@@ -57,15 +57,6 @@
   height: 618px;
 }
 
-.tmallmart-wrap-right{
-  display: inline-block;
-  position: absolute;
-  width: 1000px;
-  height: 618px;
-  border: 1px solid gray;
-}
-
-
 .bbc{
   position: absolute;
   top: 70%;
@@ -113,6 +104,9 @@
   width: 235px;
   height: 300px;
 }
+.small-banner-con:nth-of-type(1){
+  margin-bottom: 20px;
+}
 .small-banner-con img{
   width: 235px;
   height: 300px;
@@ -124,11 +118,15 @@
   float: left;
   width: 238px;
   height: 300px;
-  border: 1px solid gray;
+  border: 1px solid transparent;
   box-sizing: border-box;
   color: #333;
+  background-color: #fff;
   text-decoration: none;
-  margin: 6px;
+  margin: 5px;
+}
+.price-item-wrap:hover{
+  border-color: #f00;
 }
 .price-item-img{
   position: relative;
@@ -142,6 +140,7 @@
 .price-item-name-tag span{
   position: relative;
   left: 20%;
+  top: 25px;
   display: inline-block;
   width: 60%;
   display: -webkit-box;
@@ -150,6 +149,9 @@
   overflow: hidden;
 }
 .price-item-price-tag{
+  position: relative;
+  top: 20px;
+  width: 100%;
   width: 100%;
 }
 .price-item-price-tag span{
@@ -161,19 +163,58 @@
   color: #f00;
 }
 
-.tmallhk-right-wrap{
+.floor-sub-right-wrap{
   position: absolute;
   display: inline-block;
-  width: 1000px;
+  width: 995px;
   height: 618px;
-  top: 0;
+  top: 31px;
   left: 235px;
 }
 
 
-/* 天猫国际 */
 #tmallHK{
   position: relative;
   margin: 30px auto;
   width: 1230px;
+}
+
+.insertedImg{
+  position: relative;
+  width: 1230px;
+  height: 90px;
+}
+.insertedImg img{
+  width: 1230px;
+  height: 90px;
+}
+
+#fashion-beauty,
+#electronics,
+#grocery-health,
+#home,
+#outders{
+  position: relative;
+  margin: 30px auto;
+  width: 1230px;
+  height: 665px;
+}
+.fb-wrap{
+  width: 1230px;
+  height: 618px;
+}
+
+.grid-wrap-name{
+  margin-bottom: 10px;
+  border-left: 3px solid #000;
+  padding-left: 5px;
+}
+
+#guesslikeAll{
+  position: relative;
+  margin: 20px auto;
+  width: 1230px;
+}
+#guesslikeAll > a{
+  margin: 4px;
 }

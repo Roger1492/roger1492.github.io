@@ -472,7 +472,7 @@
         <div class="tmallmart-wrap">
           <big-banner-con v-for="bc in bannerCon1" :src="bc.src" :name1="bc.name1" :name2="bc.name2" :href="href">
           </big-banner-con>
-          <div class="tmallmart-wrap-right">
+          <div class="floor-sub-right-wrap">
             <div class="tmallmart-switch-item"></div>
             <price-item-wrap v-for="p in priceTags1" :href="href" :src="p.src" :name="p.name" :price="p.price"></price-item-wrap>
           </div>
@@ -488,10 +488,99 @@
           <small-banner-con v-for="hk in bannerCon3" :src="hk.src" :name1="hk.name1" :name2="hk.name2" :href="href">
           </small-banner-con>
         </div>
-        <div class="tmallhk-right-wrap">
+        <div class="floor-sub-right-wrap">
             <price-item-wrap v-for="p in priceTags2" :href="href" :src="p.src" :name="p.name" :price="p.price"></price-item-wrap>
         </div>
       </div>
+      
+      <div class="insertedImg">
+        <img src="https://aecpm.alicdn.com/simba/img/TB1_EfIJFXXXXXOXFXXSutbFXXX.jpg" alt="">
+      </div>
+      
+      <!-- 美丽人生 -->
+      <div id="fashion-beauty">
+        <div class="grid-wrap-name">美丽人生FASHION & BEAUTY</div>
+        <div class="fb-wrap">
+          <div class="fb-left-wrap">
+            <big-banner-con v-for="fb in bannerCon4" :src="fb.src" :name1="fb.name1" :name2="fb.name2"></big-banner-con>
+          </div>
+          <div class="floor-sub-right-wrap">
+            <price-item-wrap v-for="p in priceTags3" :href="href" :src="p.src" :name="p.name" :price="p.price"></price-item-wrap>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 潮电酷玩 -->
+      <div id="electronics">
+        <div class="grid-wrap-name">潮电酷玩 ELECTRONICS</div>
+        <div class="elec-wrap">
+          <div class="elec-left-wrap">
+            <big-banner-con v-for="elec in bannerCon5" :src="elec.src" :name1="elec.name1" :name2="elec.name2"></big-banner-con>
+          </div>
+          <div class="floor-sub-right-wrap">
+            <price-item-wrap v-for="p in priceTags4" :href="href" :src="p.src" :name="p.name" :price="p.price"></price-item-wrap>
+          </div>
+        </div>
+      </div>
+      
+      <div class="insertedImg">
+        <img src="https://aecpm.alicdn.com/simba/img/TB1tELGJFXXXXaLXFXXSutbFXXX.jpg" alt="">
+      </div>
+      
+      <!-- 居家生活 -->
+      <div id="grocery-health">
+        <div class="grid-wrap-name">居家生活 GROCERY & HEALTH</div>
+        <div class="grocery-wrap">
+          <div class="grocery-left-wrap">
+            <big-banner-con v-for="grocery in bannerCon6" :src="grocery.src" :name1="grocery.name1" :name2="grocery.name2"></big-banner-con>
+          </div>
+          <div class="floor-sub-right-wrap">
+            <price-item-wrap v-for="p in priceTags5" :href="href" :src="p.src" :name="p.name" :price="p.price"></price-item-wrap>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 打造爱巢 -->
+      <div id="home">
+        <div class="grid-wrap-name">打造爱巢 HOME</div>
+        <div class="home-wrap">
+          <div class="home-left-wrap">
+            <big-banner-con v-for="home in bannerCon7" :src="home.src" :name1="home.name1" :name2="home.name2"></big-banner-con>
+          </div>
+          <div class="floor-sub-right-wrap">
+            <price-item-wrap v-for="p in priceTags6" :href="href" :src="p.src" :name="p.name" :price="p.price"></price-item-wrap>
+          </div>
+        </div>
+      </div>
+      
+      <div class="insertedImg">
+        <img src="https://aecpm.alicdn.com/simba/img/TB1x8DCJFXXXXc7XFXXSutbFXXX.jpg" alt="">
+      </div>
+      
+      <!-- 户外出行 -->
+      <div id="outders">
+        <div class="grid-wrap-name">户外出行 OUTDOORS & AUTOMOTIVE</div>
+        <div class="outdoors-wrap">
+          <div class="outdoors-left-wrap">
+            <big-banner-con v-for="outdoors in bannerCon8" :src="outdoors.src" :name1="outdoors.name1" :name2="outdoors.name2"></big-banner-con>
+          </div>
+          <div class="floor-sub-right-wrap">
+            <price-item-wrap v-for="p in priceTags7" :href="href" :src="p.src" :name="p.name" :price="p.price"></price-item-wrap>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 猜你喜欢 -->
+      <div id="guesslike">
+        <span>♥</span>
+        <span>猜你喜欢</span>
+      </div>
+      
+      <div id="guesslikeAll">
+          <price-item-wrap v-for="p in priceTags8" :href="href" :src="p.src" :name="p.name" :price="p.price"></price-item-wrap>
+      </div>
+      
+      
     </div>
 
     <!-- footer -->
