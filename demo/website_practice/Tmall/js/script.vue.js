@@ -1,29 +1,3 @@
-let href = 'javascript:void(0)';
-
-// 导航页
-new Vue({
-  el: '#site-nav',
-  data: {
-    siteNav: [
-      ['天猫超市', '喵鲜生', '科技新品', '女装新品', '酷玩街', '内衣新品', '试美妆', '运动新品', '时尚先生', '精明妈咪', '吃乐会', '企业采购', '会员积分', '天猫国际', '品质频道'],
-      ['美妆', '电器', '女装', '男装', '女鞋', '男鞋', '内衣', '箱包', '运动', '母婴', '家装', '医药', '食品', '配饰', '汽车'],
-      ['帮助中心', '品质保障', '特色服务', '7天退换货']
-    ],
-    href: href
-  }
-})
-
-// header
-new Vue({
-  el: '#header',
-  data: {
-    searchSuggestion: ['针织衫', '连衣裙', '四件套', '摄像头', '客厅灯', '口红', '手机', '运动鞋', '牛奶'],
-    headNav: ['天猫会员', '电器城', '喵鲜生', '医药馆', '营业厅', '魅力惠', '飞猪旅行', '苏宁易购'],
-    href: href
-  }
-})
-
-
 // #content-wrap 目录列表
 let subA = {
   props: ['s'],
@@ -45,15 +19,139 @@ Vue.component('cate-list', {
 })
 
 
-// #content-wrap 目录列表图片
+// #content-wrap 目录列表图片 模版
 Vue.component('cate-img', {
   props: ['src'],
   template: `<a href="javascript:void(0);"><img :src="src" alt="list imgs" /></a>`
 })
 
-new Vue({
-  el: '#content-wrap',
+
+// 新品展示列 模版
+Vue.component('brand-wall', {
+  props: ['title', 'src', 'itemclass', 'href'],
+  template: `
+    <div class="bw_item" :class="itemclass">
+      <div class="bw_word">
+        <span>{{title}}</span>
+        <a :href="href">&gt;</a>
+      </div>
+      <div class="bw_img">
+        <a :href="href">
+          <img :src="src" alt="brand wall img" />
+        </a>
+      </div>
+    </div>`
+})
+
+
+// 天猫超市 标题板模版
+let floorSubA = {
+  props: ['w'],
+  template: `<a class="hot-word" href="javascript:void(0);">{{w}}</a>`
+};
+
+Vue.component('floor-line-name', {
+  props: ['src', 'word'],
+  template: `
+    <div class="floor-line-name">
+      <div class="floor-img">
+        <img :src="src" />
+      </div>
+      <div class="hot-word-con">
+        <floor-sub-a v-for="w in word" :w="w"></floor-sub-a>
+      </div>
+    </div>`,
+    components: {
+      'floor-sub-a': floorSubA
+    }
+})
+
+
+// 天猫超市 banner 模版
+Vue.component('big-banner-con', {
+  props: ['src', 'href','name1','name2'],
+  template: `
+    <a :href="href" class="big-banner-con">
+      <img :src="src" />
+      <div class="bbc">
+        <div class="bbc-left">
+          <span>{{name1}}</span>
+        </div>
+        <div class="bbc-right">
+          <span>{{name2}}</span>
+        </div>
+      </div>
+    </a>`
+})
+
+Vue.component('small-banner-con', {
+  props: ['src', 'href','name1','name2'],
+  template: `
+    <a :href="href" class="small-banner-con">
+      <img :src="src" />
+      <div class="bbc">
+        <div class="bbc-left">
+          <span>{{name1}}</span>
+        </div>
+        <div class="bbc-right">
+          <span>{{name2}}</span>
+        </div>
+      </div>
+    </a>`
+})
+
+
+// 天猫超市 价格 模版
+Vue.component('price-item-wrap', {
+  props: ['href', 'src', 'name', 'price'],
+  template: `
+    <a class="price-item-wrap" :href="href">
+      <img class="price-item-img" :src="src" />
+      <div class="price-item-name-tag">
+        <span>{{name}}</span>
+      </div>
+      <div class="price-item-price-tag">
+        <span>￥{{price}}</span>
+      </div>
+    </a>`
+})
+
+
+// Vue实例
+let Tmall = new Vue({
+  el: '#w1230',
   data: {
+    href: 'javascript:void(0);',
+
+    // 导航页 数据
+    siteNav: [
+      ['天猫超市', '喵鲜生', '科技新品', '女装新品', '酷玩街', '内衣新品', '试美妆', '运动新品', '时尚先生', '精明妈咪', '吃乐会', '企业采购', '会员积分', '天猫国际', '品质频道'],
+      ['美妆', '电器', '女装', '男装', '女鞋', '男鞋', '内衣', '箱包', '运动', '母婴', '家装', '医药', '食品', '配饰', '汽车'],
+      ['帮助中心', '品质保障', '特色服务', '7天退换货']
+    ],
+
+    // header 数据
+    searchSuggestion: ['针织衫', '连衣裙', '四件套', '摄像头', '客厅灯', '口红', '手机', '运动鞋', '牛奶'],
+    headNav: ['天猫会员', '电器城', '喵鲜生', '医药馆', '营业厅', '魅力惠', '飞猪旅行', '苏宁易购'],
+
+    // 标题板 数据
+    marts: [
+      {src: 'https://img.alicdn.com/tfs/TB1Q67hXPihSKJjy0FeXXbJtpXa-428-50.png', word: ['进口食品', '食品饮料', '粮油副食', '美容洗护', '家居家电', '家庭清洁', '母婴用品', '生鲜水果']}
+    ],
+    hks: [
+      {src: 'https://img.alicdn.com/tfs/TB1R.slXGagSKJjy0FgXXcRqFXa-428-50.png', word: ['口红', 'YSL', '面膜', '防晒', '迪奥']}
+    ],
+
+
+    // 新品展示列 数据
+    b_wall: [
+      {itemclass: 'bw_item1',title: '品牌闪购 BRAND SALE', src: 'https://img.alicdn.com/tfs/TB15I0OLMHqK1RjSZJnXXbNLpXa-468-644.jpg_320x5000q100.jpg_.webp'},
+      {itemclass: 'bw_item2',title: '聚名品 LUXURY CHANNEL', src: 'https://img.alicdn.com/tfs/TB1PuSIXq67gK0jSZFHXXa9jVXa-966-644.jpg_490x490q100.jpg_.webp'},
+      {itemclass: 'bw_item3',title: '品牌活动 BRAND ACTIVITY', src: 'https://img.alicdn.com/tps/i4/TB11ITte8WD3KVjSZFsSuwqkpXa.jpg_490x490q100.jpg_.webp'}
+    ],
+
+
+    // content-wrap 轮播图上面的目录列表和图片 数据
     catelist1: [
       { title: '当季流行 >', sub: ['女装新品', '商场同款', '仙女连衣裙', 'T恤', '衬衫', '时髦外套', '休闲裤', '牛仔裤', '无痕文胸', '运动文胸', '潮流家居服', '百搭船袜'] },
       { title: '精选上装 >', sub: ['毛呢外套', '羽绒服', '棉服', '丝绒卫衣', '毛针织衫', '皮毛一体', '皮草毛衣', '衬衫', '卫衣', '针织衫', 'T恤', '短外套', '小西装', '风衣'] },
@@ -501,36 +599,31 @@ new Vue({
       'https://img.alicdn.com/bao/uploaded/TB1g0h4KXXXXXcHXXXXSutbFXXX.jpg_170x120q30.jpg',
       'https://img.alicdn.com/bao/uploaded/TB1X0e_LVXXXXXgXpXXwu0bFXXX.png_170x120q30.jpg',
       'https://img.alicdn.com/tps/i3/TB1YJkgLVXXXXXCXXXX38MsFXXX-140-70.jpg_170x120q30.jpg',
-    ]
-  }
-})
+    ],
+  
+  
+    bannerCon1: [{src: 'https://img.alicdn.com/tfs/TB1oquGGv9TBuNjy0FcXXbeiFXa-468-1236.png', name1: '天猫超市', name2: '粮油调味爆款直接'}],
+    bannerCon2: [{src: 'https://img.alicdn.com/tps/i4/TB1FbCaeRCw3KVjSZFuwu3AOpXa.png', name1: '进口精选', name2: '大牌好货轻松购入'}],
+    bannerCon3: [{src: 'https://img.alicdn.com/tps/i4/TB1gM5veGWs3KVjSZFxwu1WUXXa.png', name1: '直营品质', name2: '放心体验畅享全球'}],
 
 
-// 新品展示列
-Vue.component('brand-wall', {
-  props: ['title', 'src', 'itemclass'],
-  template: `
-    <div class="bw_item" :class="itemclass">
-      <div class="bw_word">
-        <span>{{title}}</span>
-        <a :href="href">&gt;</a>
-      </div>
-      <div class="bw_img">
-        <a :href="href">
-          <img :src="src" alt="brand wall img" />
-        </a>
-      </div>
-    </div>`
-})
+    priceTags1:[
+      {name: '【天猫超市】Hisense/海信 BC-100S/A 单门冷藏节能静音小冰箱', price: '579', src: 'https://gw.alicdn.com/bao/uploaded/i2/1055977456/TB1EOqUrgaTBuNjSszfXXXgfpXa_!!0-item_pic.jpg'},
+      {name: '康师傅 超福袋红烧牛肉面 109g*5袋 方便面泡面速食面', price: '7.5', src: 'https://gw.alicdn.com/bao/uploaded/i4/725677994/TB2LJkPc3HqK1RjSZFgXXa7JXXa_!!725677994-0-sm.jpg'},
+      {name: '【天猫超市】Changhong/长虹 39M1 节能LED高清平板液晶电视', price: '999', src: 'https://gw.alicdn.com/bao/uploaded/i4/TB1aGzbQXXXXXXTXVXXXXXXXXXX_!!0-item_pic.jpg'},
+      {name: '乌江涪陵榨菜小包装清爽辣菜芯80g下饭酱菜泡菜咸菜佐餐开口小菜', price: '3', src: 'https://gw.alicdn.com/bao/uploaded/i1/725677994/O1CN01dtjiIv28vIgs4tG1B_!!0-item_pic.jpg'},
+      {name: '牛浪汉麻辣牛肉干160g美味小吃四川重庆特产休闲零食牛肉辣条', price: '35', src: 'https://gw.alicdn.com/bao/uploaded/i2/725677994/O1CN01ZmnVic28vIgq0Zfmq_!!0-item_pic.jpg'},
+      {name: '三牛上海万年青饼干528g/袋休闲零食 儿时味道 美味可口', price: '14.8', src: 'https://gw.alicdn.com/bao/uploaded/i3/725677994/TB2Jss9c4TpK1RjSZFMXXbG_VXa_!!725677994-0-sm.jpg'},
+    ],
 
-new Vue({
-  el: '#brandWall',
-  data: {
-    bw_href: 'javascript:void(0);',
-    b_wall: [
-      {itemclass: 'bw_item1',title: '品牌闪购 BRAND SALE', src: 'https://img.alicdn.com/tfs/TB15I0OLMHqK1RjSZJnXXbNLpXa-468-644.jpg_320x5000q100.jpg_.webp'},
-      {itemclass: 'bw_item2',title: '品牌闪购 LUXURY CHANNEL', src: 'https://img.alicdn.com/tfs/TB1PuSIXq67gK0jSZFHXXa9jVXa-966-644.jpg_490x490q100.jpg_.webp'},
-      {itemclass: 'bw_item3',title: '品牌闪购 BRAND ACTIVITY', src: 'https://img.alicdn.com/tps/i4/TB11ITte8WD3KVjSZFsSuwqkpXa.jpg_490x490q100.jpg_.webp'}
+    priceTags2: [
+      {name: 'dha澳洲bio island 婴儿海藻油胶囊60粒 儿童补脑记忆力宝宝2瓶装', price: '198', src: 'https://gw.alicdn.com/bao/uploaded/i3/2183588465/O1CN013xFO652CP1EyM6H3A_!!0-item_pic.jpg'},
+      {name: '韩国the face shop/菲诗小铺圆形海绵卸妆化妆棉化妆品工具脸部', price: '29', src: 'https://gw.alicdn.com/bao/uploaded/i2/2063458233/O1CN01RzVoZK2AglIyGEhdM_!!0-item_pic.jpg'},
+      {name: '保税日本Esthe Dew伊诗露化妆水500ml*2 保湿美白胎盘素爽肤水', price: '130', src: 'https://gw.alicdn.com/bao/uploaded/i2/2495029969/O1CN01warGhE2NVqvIDjrWD_!!0-item_pic.jpg'},
+      {name: '呵叻泰 米糠油1L 稻米油 稻谷油 谷维素食用油 泰国原装进口油', price: '89', src: 'https://gw.alicdn.com/bao/uploaded/i2/2985642883/O1CN015GVf0Z1XASNkqZthM_!!0-item_pic.jpg'},
+      {name: 'Y-3男装19年新款奢侈品男士T恤短袖 DY7183 白色', price: '699', src: 'http://gw.alicdn.com/bao/uploaded/i1/3969433079/O1CN01a2QNbf1YcE0RwFcI9_!!0-item_pic.jpg'},
+      {name: '菲诗小铺黒杆防水睫毛膏 7g', price: '16.5', src: 'https://gw.alicdn.com/bao/uploaded/i4/2175912342/O1CN01pyJpDQ1TAg75lFanM_!!0-item_pic.jpg'},
+      {name: '【会员专享】LACHESCA高保湿洁面130g', price: '99', src:'http://gw.alicdn.com/bao/uploaded/i2/2877976327/O1CN01EsOiWB1wboOSVAGEI_!!0-item_pic.jpg'}
     ]
   }
 })
