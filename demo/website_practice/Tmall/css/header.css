@@ -37,7 +37,7 @@ html,body{
 .search-input {
     position: absolute;
     width: 485px;
-    height: 32px;
+    height: 35px;
     outline: none;
     border: none;
     text-indent: 5px;

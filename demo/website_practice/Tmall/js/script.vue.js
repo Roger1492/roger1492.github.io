@@ -470,7 +470,7 @@ let Tmall = new Vue({
     ],
     cateImg9: [
       'https://img.alicdn.com/imgextra/i3/2939922051/TB2zWd0muOSBuNjy0FdXXbDnVXa_!!2939922051.png_170x120q30.jpg',
-      'https://img.alicdn.com/imgextra/i1/2868009672/TB2icfrorGYBuNjy0FoXXciBFXa_!!2868009672.png_170x120q30.jpg',
+      'https://img.alicdn.com/bao/uploaded/TB14lgnlnnI8KJjSszgwu38ApXa.png_170x120q30.jpg',
       'https://img.alicdn.com/imgextra/i2/793475151/TB2PMxWa7yWBuNjy0FpXXassXXa_!!793475151.jpg_170x120q30.jpg',
       'https://img.alicdn.com/imgextra/i3/1734796729/TB2AaE0emMmBKNjSZTEXXasKpXa_!!1734796729.jpg_170x120q30.jpg',
       'https://img.alicdn.com/imgextra/i2/2217550171/TB2p.jjmY_I8KJjy1XaXXbsxpXa_!!2217550171.jpg_170x120q30.jpg',
@@ -606,9 +606,9 @@ let Tmall = new Vue({
     bannerCon2: [{src: 'https://img.alicdn.com/tps/i4/TB1FbCaeRCw3KVjSZFuwu3AOpXa.png', name1: '进口精选', name2: '大牌好货轻松购入'}],
     bannerCon3: [{src: 'https://img.alicdn.com/tps/i4/TB1gM5veGWs3KVjSZFxwu1WUXXa.png', name1: '直营品质', name2: '放心体验畅享全球'}],
     bannerCon4: [{src: 'https://img.alicdn.com/tps/i4/TB1_PDsiG6qK1RjSZFmSut0PFXa.jpg', name1: '周末好货', name2: '便宜随买爆款精选'}],
-    bannerCon5: [{src: 'https://img.alicdn.com/tps/i4/TB1_PDsiG6qK1RjSZFmSut0PFXa.jpg', name1: '华为新品', name2: '6期免息立即抢购'}],
+    bannerCon5: [{src: 'https://img.alicdn.com/tfs/TB1AxhNXUY1gK0jSZFCXXcwqXXa-468-1236.jpg', name1: '大牌直降', name2: '女装折扣全场3折'}],
     bannerCon6: [{src: 'https://img.alicdn.com/tps/i4/TB1iAupe8Kw3KVjSZFOSuurDVXa.jpg', name1: '家装建材', name2: '品质厨卫一站购齐'}],
-    bannerCon7: [{src: 'https://img.alicdn.com/tps/i4/TB17ZI1XEz1gK0jSZLeSuv9kVXa.jpg', name1: '空调', name2: '狂暑大放价1匹999元'}],
+    bannerCon7: [{src: 'https://img.alicdn.com/tfs/TB1yT4PQSrqK1RjSZK9XXXyypXa-468-1236.jpg', name1: '天猫超市', name2: '全城消暑超级热卖'}],
     bannerCon8: [{src: 'https://img.alicdn.com/tps/i4/TB180AyXQL0gK0jSZFxSutWHVXa.jpg', name1: '我型我秀', name2: '运动户外领券立减'}],
 
 

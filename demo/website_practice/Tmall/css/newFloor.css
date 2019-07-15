@@ -1,23 +1,24 @@
 /* 天猫超市 */
-#newFloor{
+
+#newFloor {
   position: relative;
-  margin: 40px auto;
+  margin: 40px auto 20px auto;
   width: 1230px;
 }
 
-#tmallMart{
+#tmallMart {
   position: relative;
   margin: 30px auto;
   width: 1230px;
 }
 
-.floor-line-name{
+.floor-line-name {
   position: relative;
   width: 1230px;
   height: 31px;
 }
 
-.floor-img, .hot-word-con{
+.floor-img, .hot-word-con {
   float: left;
 }
 
@@ -25,15 +26,17 @@
   width: 214px;
   height: 25px;
 }
-.floor-img img{
+
+.floor-img img {
   width: 214px;
   height: 25px;
 }
 
-.hot-word-con{
+.hot-word-con {
   float: right;
 }
-.hot-word{
+
+.hot-word {
   text-decoration: none;
   color: #333;
   height: 31px;
@@ -42,52 +45,58 @@
   margin-left: 5px;
   margin-right: 5px;
 }
-.hot-word:hover{
+
+.hot-word:hover {
   text-decoration: underline;
 }
 
-.big-banner-con{
+.big-banner-con {
   position: relative;
   display: inline-block;
   width: 235px;
   height: 618px;
 }
-.big-banner-con img{
+
+.big-banner-con img {
   width: 235px;
   height: 618px;
 }
 
-.bbc{
+.bbc {
   position: absolute;
   top: 70%;
   width: 218px;
   height: 64px;
 }
-.bbc-left,
-.bbc-right{
+
+.bbc-left, .bbc-right {
   display: inline-block;
   height: 64px;
   font-size: 20px;
   color: #fff;
 }
-.bbc-left{
+
+.bbc-left {
   width: 70px;
   background: #333;
 }
-.bbc-right{
+
+.bbc-right {
   position: relative;
   left: -5px;
   width: 128px;
   background: rgba(51, 51, 51, 0.5);
 }
-.bbc-left span{
+
+.bbc-left span {
   float: left;
   position: relative;
   top: 8px;
   left: 10px;
   width: 50px;
 }
-.bbc-right span{
+
+.bbc-right span {
   float: left;
   position: relative;
   top: 8px;
@@ -95,25 +104,37 @@
   width: 85px;
 }
 
-.tmallhk-left-wrap{
+.tmallhk-left-wrap {
   width: 235px;
 }
-.small-banner-con{
+
+.small-banner-con {
   position: relative;
   display: inline-block;
   width: 235px;
   height: 300px;
 }
-.small-banner-con:nth-of-type(1){
+
+.small-banner-con:nth-of-type(1) {
   margin-bottom: 20px;
 }
-.small-banner-con img{
+
+.small-banner-con img {
   width: 235px;
   height: 300px;
 }
 
+.tmallmart-switch-item {
+  position: relative;
+  float: left;
+  margin: 5px;
+  width: 485px;
+  height: 300px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+}
 
-.price-item-wrap{
+.price-item-wrap {
   position: relative;
   float: left;
   width: 238px;
@@ -125,19 +146,23 @@
   text-decoration: none;
   margin: 5px;
 }
-.price-item-wrap:hover{
+
+.price-item-wrap:hover {
   border-color: #f00;
 }
-.price-item-img{
+
+.price-item-img {
   position: relative;
   top: 10px;
   left: 25px;
   width: 180px;
 }
-.price-item-name-tag{
+
+.price-item-name-tag {
   width: 100%;
 }
-.price-item-name-tag span{
+
+.price-item-name-tag span {
   position: relative;
   left: 20%;
   top: 25px;
@@ -148,13 +173,15 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-.price-item-price-tag{
+
+.price-item-price-tag {
   position: relative;
   top: 20px;
   width: 100%;
   width: 100%;
 }
-.price-item-price-tag span{
+
+.price-item-price-tag span {
   position: relative;
   margin-top: 20px;
   display: inline-block;
@@ -163,7 +190,7 @@
   color: #f00;
 }
 
-.floor-sub-right-wrap{
+.floor-sub-right-wrap {
   position: absolute;
   display: inline-block;
   width: 995px;
@@ -172,49 +199,72 @@
   left: 235px;
 }
 
+.fsrw-1 {
+  font-size: 22px;
+  margin: 10px;
+}
 
-#tmallHK{
+.fsrw-2 {
+  color: #f00;
+  margin: 10px;
+}
+
+#tmallHK {
   position: relative;
   margin: 30px auto;
   width: 1230px;
 }
 
-.insertedImg{
+.insertedImg {
   position: relative;
   width: 1230px;
   height: 90px;
 }
-.insertedImg img{
+
+.insertedImg img {
   width: 1230px;
   height: 90px;
 }
 
-#fashion-beauty,
-#electronics,
-#grocery-health,
-#home,
-#outders{
+#fashion-beauty, #electronics, #grocery-health, #home, #outders {
   position: relative;
   margin: 30px auto;
   width: 1230px;
   height: 665px;
 }
-.fb-wrap{
+
+.fb-wrap {
   width: 1230px;
   height: 618px;
 }
 
-.grid-wrap-name{
+.grid-wrap-name {
   margin-bottom: 10px;
   border-left: 3px solid #000;
   padding-left: 5px;
 }
 
-#guesslikeAll{
+#guesslike {
+  position: relative;
+  width: 1230px;
+  height: 30px;
+}
+
+#guesslike div {
+  position: relative;
+  left: 46%;
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+}
+
+#guesslikeAll {
   position: relative;
   margin: 20px auto;
   width: 1230px;
+  height: 5900px;
 }
-#guesslikeAll > a{
+
+#guesslikeAll>a {
   margin: 4px;
 }

@@ -67,6 +67,7 @@ html,body{
     border-color: transparent lightgray lightgray lightgray;
     background: #fff;
     z-index: 999;
+    box-sizing: border-box;
 }
 .li-nav-slide a{
     color: #000;
@@ -115,8 +116,8 @@ html,body{
 }
 .li-nav-big{
     position: absolute;
-    left: -462px;
-    width: 1200px;
+    left: -464px;
+    width: 1230px;
     height: 160px;
 }
 .li-nav-big div{
