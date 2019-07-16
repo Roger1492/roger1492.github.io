@@ -8,17 +8,12 @@
   <title>天猫</title>
   <link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/5.8.2/css/all.min.css">
-  <link rel="stylesheet" href="css/site-nav.css">
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/content.css">
-  <link rel="stylesheet" href="css/brandWall.css">
-  <link rel="stylesheet" href="css/newFloor.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/float-item.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
+  <!-- 下拉搜索框 -->
   <div id="slideDownSearchBox">
     <div class="sdsb-wrap">
       <span>TMALL 天猫</span>
@@ -477,7 +472,7 @@
 
     <div id="newFloor">
       <!-- 天猫超市 -->
-      <div id="tmallMart">
+      <div id="tmallMart" class="fnav-slider">
         <floor-line-name v-for="mart in marts" :src="mart.src" :word="mart.word"></floor-line-name>
         <div class="tmallmart-wrap">
           <big-banner-con v-for="bc in bannerCon1" :src="bc.src" :name1="bc.name1" :name2="bc.name2" :href="href">
@@ -493,7 +488,7 @@
       </div>
 
       <!-- 天猫国际 -->
-      <div id="tmallHK">
+      <div id="tmallHK" class="fnav-slider">
         <floor-line-name v-for="hk in hks" :src="hk.src" :word="hk.word"></floor-line-name>
         <div class="tmallhk-left-wrap">
           <small-banner-con v-for="hk in bannerCon2" :src="hk.src" :name1="hk.name1" :name2="hk.name2" :href="href">
@@ -517,7 +512,7 @@
       </div>
 
       <!-- 美丽人生 -->
-      <div id="fashion-beauty">
+      <div id="fashion-beauty" class="fnav-slider">
         <div class="grid-wrap-name">美丽人生FASHION & BEAUTY</div>
         <div class="fb-wrap">
           <div class="fb-left-wrap">
@@ -531,7 +526,7 @@
       </div>
 
       <!-- 潮电酷玩 -->
-      <div id="electronics">
+      <div id="electronics" class="fnav-slider">
         <div class="grid-wrap-name">潮电酷玩 ELECTRONICS</div>
         <div class="elec-wrap">
           <div class="elec-left-wrap">
@@ -550,7 +545,7 @@
       </div>
 
       <!-- 居家生活 -->
-      <div id="grocery-health">
+      <div id="grocery-health" class="fnav-slider">
         <div class="grid-wrap-name">居家生活 GROCERY & HEALTH</div>
         <div class="grocery-wrap">
           <div class="grocery-left-wrap">
@@ -565,7 +560,7 @@
       </div>
 
       <!-- 打造爱巢 -->
-      <div id="home">
+      <div id="home" class="fnav-slider">
         <div class="grid-wrap-name">打造爱巢 HOME</div>
         <div class="home-wrap">
           <div class="home-left-wrap">
@@ -584,7 +579,7 @@
       </div>
 
       <!-- 户外出行 -->
-      <div id="outders">
+      <div id="outders" class="fnav-slider">
         <div class="grid-wrap-name">户外出行 OUTDOORS & AUTOMOTIVE</div>
         <div class="outdoors-wrap">
           <div class="outdoors-left-wrap">
@@ -606,7 +601,7 @@
         </div>
       </div>
 
-      <div id="guesslikeAll">
+      <div id="guesslikeAll" class="fnav-slider">
         <price-item-wrap v-for="p in priceTags8" :href="href" :src="p.src" :name="p.name" :price="p.price">
         </price-item-wrap>
       </div>
@@ -765,17 +760,61 @@
 
   </div>
 
+  <!-- 导航栏 -->
   <div id="nav-bar">
-    <section>导航</section>
-    <section>天猫超市</section>
-    <section>天猫国际</section>
-    <section>美丽人生</section>
-    <section>潮电酷玩</section>
-    <section>居家生活</section>
-    <section>打造爱巢</section>
-    <section>户外出行</section>
-    <section>猜你喜欢</section>
-    <section>顶部</section>
+    <section class="sub-nav sub-nav1">导航</section>
+    <section class="sub-nav sub-nav2 nav-slider">天猫超市</section>
+    <section class="sub-nav sub-nav3 nav-slider">天猫国际</section>
+    <section class="sub-nav sub-nav4 nav-slider">美丽人生</section>
+    <section class="sub-nav sub-nav5 nav-slider">潮电酷玩</section>
+    <section class="sub-nav sub-nav6 nav-slider">居家生活</section>
+    <section class="sub-nav sub-nav7 nav-slider">打造爱巢</section>
+    <section class="sub-nav sub-nav8 nav-slider">户外出行</section>
+    <section class="sub-nav sub-nav9 nav-slider">猜你喜欢</section>
+    <section class="sub-nav sub-nav10 scroll-to-top">顶部</section>
+  </div>
+
+  <!-- 购物车 -->
+  <div id="cart">
+    <div class="cart-wrap">
+      <div class="cart-wrap-top">
+        <div class="cart-item">
+          <section class="cart-show"><i class="fa fa-list"></i></section>
+          <section class="cart-hide">会员权益</section>
+        </div>
+        <div class="cart-item cart-self-wrap">
+          <section class="cart-show"><i class="fa fa-list"></i></section>
+          <section class="cart-self-1">购物车</section>
+        </div>
+        <div class="cart-item">
+          <section class="cart-show"><i class="fa fa-list"></i></section>
+          <section class="cart-hide">我的资产</section>
+        </div>
+        <div class="cart-item">
+          <section class="cart-show"><i class="fa fa-list"></i></section>
+          <section class="cart-hide">我的收藏</section>
+        </div>
+        <div class="cart-item">
+          <section class="cart-show"><i class="fa fa-list"></i></section>
+          <section class="cart-hide">我看过的</section>
+        </div>
+        <div class="cart-item">
+          <section class="cart-show"><i class="fa fa-list"></i></section>
+          <section class="cart-hide">我要充值</section>
+        </div>
+      </div>
+      <div class="cart-wrap-bottom">
+        <div class="cart-item">
+          <section class="cart-show"><i class="fa fa-list"></i></section>
+          <section class="cart-hide">用户反馈</section>
+        </div>
+        <div class="cart-item">
+          <section class="cart-show"><i class="fa fa-list"></i></section>
+          <section class="cart-hide">二维码</section>
+        </div>
+      </div>
+    </div>
+    <div class="cartToTop">Top</div>
   </div>
 
   <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>

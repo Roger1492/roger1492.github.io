@@ -87,21 +87,61 @@ window.onload = function () {
 
 // 向下滑动一定距离后显示 #slideDownSearchBox
 // 导航侧栏
-document.body.onscroll = function(){
+document.body.onscroll = function () {
+  let fNavSlider = Array.from(document.querySelectorAll('.fnav-slider'));
   let slideDown = document.getElementById('slideDownSearchBox');
   let navBar = document.getElementById('nav-bar');
   let wh = window.innerHeight;
   slideDown.style.transition = 'all .5s';
   navBar.style.transition = 'all .5s';
   navBar.style.transformOrigin = '0 100%';
-  
-  if(document.documentElement.scrollTop > wh){
+
+  if (document.documentElement.scrollTop > wh) {
     slideDown.style.top = '0px';
     navBar.style.transform = 'scale(1,1)';
   } else {
     slideDown.style.top = '-50px';
     navBar.style.transform = 'scale(0,0)';
   }
-  
+
+
+  // 页面中的各个元素滑动到指定位置时高亮相关的导航栏
+//   fNavSlider.forEach((item, index, arr) => {
+//     if(item.getBoundingClientRect().top === 0){
+//       console.log(item);
+//     }
+//   })
 }
 
+
+window.onload = function () {
+  let fNavSlider = Array.from(document.querySelectorAll('.fnav-slider'));
+  let navSlider = Array.from(document.querySelectorAll('.nav-slider'));
+  let scrollToTop = document.getElementsByClassName('scroll-to-top')[0];
+  let cartToTop = document.getElementsByClassName('cartToTop')[0];
+
+
+  // 点击导航栏导航到指定位置
+  navSlider.forEach((item, index, arr) => {
+    item.addEventListener('click', function (e) {
+      let scroll_height = fNavSlider[index].getBoundingClientRect().top + document.documentElement.scrollTop - 50;
+      window.scrollTo(0, scroll_height);
+    }, false);
+  })
+
+
+  // 点击后返回顶部
+  scrollToTop.addEventListener('click', function (e) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, false);
+
+  cartToTop.addEventListener('click', function (e) {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, false);
+}
