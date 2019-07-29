@@ -5,6 +5,8 @@
 
 ## JavaScript
 
+[一个合格(优秀)的前端都应该阅读这些文章](https://juejin.im/post/5d387f696fb9a07eeb13ea60)  
+
 ### 变量提升
 [变量提升和函数提升](https://www.cnblogs.com/liuhe688/p/5891273.html)  
 
@@ -27,7 +29,9 @@
 [浅拷贝与深拷贝](https://juejin.im/post/5b5dcf8351882519790c9a2e)  
 
 ### 事件循环 Event Loop
+[JavaScript 运行机制详解：再谈Event Loop](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)  
 [JavaScript 事件循环](https://segmentfault.com/a/1190000014522243)  
+[JavaScript：彻底理解同步、异步和事件循环(Event Loop)](https://segmentfault.com/a/1190000004322358)  
 [详解JavaScript中的Event Loop（事件循环）机制](https://www.cnblogs.com/cangqinglang/p/8967268.html)  
 [图解搞懂JavaScript引擎Event Loop](https://juejin.im/post/5a6309f76fb9a01cab2858b1)  
 [深入理解JavaScript的事件循环（Event Loop）](https://zhuanlan.zhihu.com/p/46068171)  
