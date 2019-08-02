@@ -36,6 +36,7 @@
 [图解搞懂JavaScript引擎Event Loop](https://juejin.im/post/5a6309f76fb9a01cab2858b1)  
 [深入理解JavaScript的事件循环（Event Loop）](https://zhuanlan.zhihu.com/p/46068171)  
 [并发模型与事件循环](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop)  
+[这一次，彻底弄懂 JavaScript 执行机制](https://juejin.im/post/59e85eebf265da430d571f89)  
 
 ### 跨域
 [九种跨域方式实现原理（完整版）](https://juejin.im/post/5c23993de51d457b8c1f4ee1)  
@@ -67,3 +68,4 @@
 
 [开发APP必须知道的API集合](https://www.cnblogs.com/wikiki/p/7232388.html)  
 [干货集中营 API 文档](https://gank.io/api)  
+[一个合格(优秀)的前端都应该阅读这些文章](https://juejin.im/post/5d387f696fb9a07eeb13ea60)  
