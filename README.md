@@ -11,7 +11,7 @@
 [我对于闭包的简单理解](post/我对于闭包的简单理解.md)  
 [JavaScript的事件循环](post/JavaScript的事件循环.md)  
   
-[收藏的Web文章](post/收藏的Web文章.md)  
+[**收藏的Web文章**](post/收藏的Web文章.md)  
 
 [**前端学习路径图**](post/前端学习路径.md)  
 
