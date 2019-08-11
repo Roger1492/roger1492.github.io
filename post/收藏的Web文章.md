@@ -69,3 +69,4 @@
 [开发APP必须知道的API集合](https://www.cnblogs.com/wikiki/p/7232388.html)  
 [干货集中营 API 文档](https://gank.io/api)  
 [一个合格(优秀)的前端都应该阅读这些文章](https://juejin.im/post/5d387f696fb9a07eeb13ea60)  
+[JS方法速查](https://juejin.im/post/5d0e3e27f265da1b7f298815)  
