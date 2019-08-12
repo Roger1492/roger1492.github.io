@@ -1,4 +1,5 @@
 ```javascript
+
 //     Zepto.js
 //     (c) 2010-2017 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
@@ -22,8 +23,11 @@ var Zepto = (function() {
     tableRow = document.createElement('tr'),
     containers = {
       'tr': document.createElement('tbody'),
-      'tbody': table, 'thead': table, 'tfoot': table,
-      'td': tableRow, 'th': tableRow,
+      'tbody': table, 
+      'thead': table, 
+      'tfoot': table,
+      'td': tableRow, 
+      'th': tableRow,
       '*': document.createElement('div')
     },
     simpleSelectorRE = /^[\w-]*$/,
@@ -46,8 +50,7 @@ var Zepto = (function() {
       'frameborder': 'frameBorder',
       'contenteditable': 'contentEditable'
     },
-    isArray = Array.isArray ||
-      function(object){ return object instanceof Array }
+    isArray = Array.isArray || function(object){ return object instanceof Array }
 
   zepto.matches = function(element, selector) {
     if (!selector || !element || element.nodeType !== 1) return false
@@ -948,4 +951,5 @@ var Zepto = (function() {
 // If `$` is not yet defined, point it to `Zepto`
 window.Zepto = Zepto
 window.$ === undefined && (window.$ = Zepto)
+
 ```
