@@ -11,7 +11,7 @@
 [我对于闭包的简单理解](post/我对于闭包的简单理解.md)  
 [JavaScript的事件循环](post/JavaScript的事件循环.md)  
   
-[收藏的Web文章](post/收藏的Web文章.md)  
+[**收藏的Web文章**](post/收藏的Web文章.md)  
 
 [**前端学习路径图**](post/前端学习路径.md)  
 
@@ -29,6 +29,12 @@
 [web版音乐播放器](demo/music_player_web/index.html)  
 [windows 10 计算器](demo/windows_10_calculator/index.html)  
 [网站练习](demo/website_practice/index.html)  
+
+# Github 项目
+[JS-function-library]()  
+
+# 源代码阅读
+[zepto.core.js 源码阅读与注释](source/zepto.core.md)
 
 # Poetry
 > 我会把我喜欢的诗词做古文个收集整理，就以朝代分类
