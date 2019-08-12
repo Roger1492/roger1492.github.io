@@ -33,6 +33,9 @@
 # Github 项目
 [JS-function-library]()  
 
+# 源代码阅读
+[zepto.core.js 源码阅读与注释](source/zepto.core.md)
+
 # Poetry
 > 我会把我喜欢的诗词做古文个收集整理，就以朝代分类
 
