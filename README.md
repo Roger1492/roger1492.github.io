@@ -34,7 +34,8 @@
 [JS-function-library]()  
 
 # 源代码阅读
-[zepto.core.js 源码阅读与注释](source/zepto.core.md)
+[zepto.core.js 源码阅读与注释(未完成)](source/zepto.core.md)  
+[underscore 源码阅读与注释(进行中)](source/underscore.md)   
 
 # Poetry
 > 我会把我喜欢的诗词做古文个收集整理，就以朝代分类
