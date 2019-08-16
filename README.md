@@ -5,7 +5,7 @@
 [Emacs快捷键总结](post/Emacs快捷键总结.md)  
 [Emacs配置文件](post/Emacs配置文件.md)  
 [JavaScript中的堆栈完全理解](post/head_and_stack.md)  
-[JS的原型与原型链](post/JS的原型与原型链)  
+[彻底搞懂JS的原型与原型链](post/彻底搞懂JS的原型与原型链.md)  
 [Ajax和Fetch的简单运用](post/Ajax_n_Fetch的简单运用.md)  
 [this call apply 完全理解](post/this_call_apply完全理解.md)  
 [我对于闭包的简单理解](post/我对于闭包的简单理解.md)  
@@ -18,6 +18,9 @@
 # English
 [关于Javascript的相关单词](English/Javascript.md)  
 [分类词汇](English/Words.md)  
+
+# Games
+[贪吃蛇 v0.1](games/snake.html)  
 
 # Demo
 [仿animate.css](demo/animate.css/animate.html)  
