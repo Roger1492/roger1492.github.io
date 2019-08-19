@@ -7,16 +7,19 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>日历</title>
   <style>
-    #calendar{
+    #calendar {
       position: relative;
       width: 442px;
       font-family: 'Microsoft Yahei', 'Courier New', Courier, monospace;
     }
-    .title-bar{
+
+    .title-bar {
       height: 50px;
-      background-color: rgb(83, 132, 172);
+      background-color: gainsboro;
+      border-radius: 5px 5px 0 0;
     }
-    .title-bar select{
+
+    .title-bar select {
       position: relative;
       top: -5px;
       left: 30px;
@@ -24,33 +27,46 @@
       width: 80px;
       height: 25px;
     }
-    .title-bar span{
+
+    .title-bar span {
       display: inline-block;
       width: 50px;
       height: 50px;
       text-align: center;
       line-height: 50px;
       font-size: 30px;
-      color: aliceblue;
       cursor: pointer;
     }
-    .title-bar span:hover{
-      background-color: rgb(20, 100, 165);
+
+    .title-bar span:hover {
+      background-color: rgb(172, 170, 170);
     }
+
     .title-bar span:nth-of-type(3),
-    .title-bar span:nth-of-type(4){
+    .title-bar span:nth-of-type(4) {
       float: right;
     }
-    table{
+
+    table {
       border-collapse: collapse;
     }
-    tr,th,td{
+
+    tr,
+    th,
+    td {
       border: 1px solid gainsboro;
     }
-    th, td{
+
+    th,
+    td {
       width: 60px;
       height: 40px;
       text-align: center;
+    }
+
+    td:hover {
+      background-color: aliceblue;
+      cursor: default;
     }
   </style>
 </head>
@@ -122,6 +138,26 @@
         <option value="2028">2028</option>
         <option value="2029">2029</option>
         <option value="2030">2030</option>
+        <option value="2031">2031</option>
+        <option value="2032">2032</option>
+        <option value="2033">2033</option>
+        <option value="2034">2034</option>
+        <option value="2035">2035</option>
+        <option value="2036">2036</option>
+        <option value="2037">2037</option>
+        <option value="2038">2038</option>
+        <option value="2039">2039</option>
+        <option value="2040">2040</option>
+        <option value="2041">2041</option>
+        <option value="2042">2042</option>
+        <option value="2043">2043</option>
+        <option value="2044">2044</option>
+        <option value="2045">2045</option>
+        <option value="2046">2046</option>
+        <option value="2047">2047</option>
+        <option value="2048">2048</option>
+        <option value="2049">2049</option>
+        <option value="2050">2050</option>
       </select>
       <select name="" id="month">
         <option value="1">Jan</option>
@@ -195,11 +231,20 @@
         <td></td>
         <td></td>
       </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
     </table>
   </div>
 
   <script>
-    window.onload = function(){
+    window.onload = function () {
       let month = document.getElementById('month');
       let year = document.getElementById('year');
       let td = document.getElementsByTagName('td');
@@ -209,36 +254,107 @@
       let nextYear = document.getElementById('nextYear');
 
       // 把title-bar中的日期设置为当年当月
-      let d = new Date();
-      let currentMonth = d.getMonth() + 1;
-      let currentYear = d.getFullYear();
-      // let monthFirstDay = new Date(`${currentYear}-${currentMonth}-1`).getDay();
+      let date = new Date();
+      let currentMonth = date.getMonth() + 1;
+      let currentYear = date.getFullYear();
+      let upMonth = new Date(currentYear, currentMonth - 1, 0).getDate();   // 上个月
+      let downMonth = new Date(currentYear, currentMonth + 1, 0).getDate();   // 下个月
+      let witchDay = new Date(`${currentYear}-${currentMonth}-1`).getDay();   // // 当月第一天是周几？
+      let lastDay = new Date(currentYear, currentMonth, 0).getDate();   // 当月的最后一天几号？
       year.value = currentYear;
       month.value = currentMonth;
 
-      // 选取获取`年月`日期
-      month.addEventListener('change', function(){
-        let monthOpt = month.options[month.selectedIndex];
-        console.log(monthOpt.value);
+
+      // 填充日期
+      // @witchday - 当月第一天是周几？
+      // @lastday - 当月的最后一天是几号？
+      function fillMonth(wd, ld) {
+
+        for (let i = 0; i < td.length; i++) {
+          td[i].innerHTML = '';
+        }
+
+        if (wd === 0) {
+          for (let i = 0; i < ld; i++) {
+            td[i + wd + 7].innerHTML = i + 1;
+          }
+        } else {
+          for (let i = 0; i < ld; i++) {
+            td[i + wd].innerHTML = i + 1;
+          }
+        }
+
+      }
+      fillMonth(witchDay, lastDay);
+
+
+      // TODO: 填补上月和下月的日期
+
+
+      // 通过直接改变title-bar中的`年月`日期 切换日历
+      month.addEventListener('change', function () {
+        let monthVal = month.options[month.selectedIndex].value;
+        let yearsVal = year.options[year.selectedIndex].value;
+        let witchDay = new Date(`${yearsVal}-${monthVal}-1`).getDay();
+        let lastDay = new Date(yearsVal, monthVal, 0).getDate();
+        fillMonth(witchDay, lastDay);
       }, false);
-      year.addEventListener('change', function(){
-        let yearOpt = year.options[year.selectedIndex];
-        console.log(yearOpt.value);
+      year.addEventListener('change', function () {
+        let monthVal = month.options[month.selectedIndex].value;
+        let yearsVal = year.options[year.selectedIndex].value;
+        let witchDay = new Date(`${yearsVal}-${monthVal}-1`).getDay();
+        let lastDay = new Date(yearsVal, monthVal, 0).getDate();
+        fillMonth(witchDay, lastDay);
       }, false);
 
-      // console.log(monthFirstDay);
-      // console.log(td[monthFirstDay].innerHTML = '1')
 
-      // 年份切换
-      preYear.addEventListener('click', function(){
-        let pyOpt = year.options[year.selectedIndex];
-        let pyVal = pyOpt.value;
+      // 通过年份箭头切换日历 // TODO:
+      preYear.addEventListener('click', function () {
+        let yearVal = year.options[year.selectedIndex].value;
+        let monthVal = month.options[month.selectedIndex].value;
+        if (yearVal > 1970) {
+          yearVal -= 1;
+          year.value = yearVal;
+          let witchDay = new Date(`${yearVal}-${monthVal}-1`).getDay();
+          let lastDay = new Date(yearVal, monthVal, 0).getDate();
+          fillMonth(witchDay, lastDay);
+        }
       }, false);
-      nextYear.addEventListener('click', function(){}, false);
+      nextYear.addEventListener('click', function () {
+        let yearVal = Number.parseInt(year.options[year.selectedIndex].value);
+        let monthVal = month.options[month.selectedIndex].value;
+        if (yearVal < 2050) {
+          yearVal += 1;
+          year.value = yearVal;
+          let witchDay = new Date(`${yearVal}-${monthVal}-1`).getDay();
+          let lastDay = new Date(yearVal, monthVal, 0).getDate();
+          fillMonth(witchDay, lastDay);
+        }
+      }, false);
 
-      // 月份切换
-      preMonth.addEventListener('click', function(){
+      // 通过月份箭头切换日历 // TODO:
+      preMonth.addEventListener('click', function () {
+        let yearVal = year.options[year.selectedIndex].value;
+        let monthVal = month.options[month.selectedIndex].value;
+        if (monthVal > 0) {
+          monthVal -= 1;
+          month.value = monthVal;
+          let witchDay = new Date(`${yearVal}-${monthVal}-1`).getDay();
+          let lastDay = new Date(yearVal, monthVal, 0).getDate();
+          fillMonth(witchDay, lastDay);
+        }
+      }, false);
 
+      nextMonth.addEventListener('click', function () {
+        let yearVal = year.options[year.selectedIndex].value;
+        let monthVal = month.options[month.selectedIndex].value;
+        if (monthVal < 12) {
+          monthVal += 1;
+          month.value = monthVal;
+          let witchDay = new Date(`${yearVal}-${monthVal}-1`).getDay();
+          let lastDay = new Date(yearVal, monthVal, 0).getDate();
+          fillMonth(witchDay, lastDay);
+        }
       }, false);
     };
   </script>
