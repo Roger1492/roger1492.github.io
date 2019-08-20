@@ -9,6 +9,7 @@
   <style>
     #calendar {
       position: relative;
+      margin: 200px auto;
       width: 442px;
       font-family: 'Microsoft Yahei', 'Courier New', Courier, monospace;
     }
@@ -289,6 +290,14 @@
 
 
       // TODO: 填补上月和下月的日期
+      function addPreMonth(wd, upMonth){
+        for(let i = 0, j = upMonth-wd+1; i < wd, j <= upMonth; i++, j++){
+          // console.log(i + ' - ' + j);
+          td[i].innerHTML = j;
+          td[i].style.color = '#999';
+        }
+      }
+      // addPreMonth(witchDay, upMonth);
 
 
       // 通过直接改变title-bar中的`年月`日期 切换日历
@@ -308,7 +317,7 @@
       }, false);
 
 
-      // 通过年份箭头切换日历 // TODO:
+      // 通过年份箭头切换日历
       preYear.addEventListener('click', function () {
         let yearVal = year.options[year.selectedIndex].value;
         let monthVal = month.options[month.selectedIndex].value;
@@ -347,7 +356,7 @@
 
       nextMonth.addEventListener('click', function () {
         let yearVal = year.options[year.selectedIndex].value;
-        let monthVal = month.options[month.selectedIndex].value;
+        let monthVal = Number.parseInt(month.options[month.selectedIndex].value);
         if (monthVal < 12) {
           monthVal += 1;
           month.value = monthVal;

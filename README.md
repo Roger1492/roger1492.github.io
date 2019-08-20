@@ -15,12 +15,19 @@
 
 [**前端学习路径图**](post/前端学习路径.md)  
 
+
 # English
 [关于Javascript的相关单词](English/Javascript.md)  
 [分类词汇](English/Words.md)  
 
+
 # Games
+[2048](games/2048.html)  
+[连连看](games/lianliankan.html)  
+[打地鼠](games/mouse.html)  
 [贪吃蛇 v0.1](games/snake.html)  
+[俄罗斯方块](games/tetris.html)  
+
 
 # Demo
 [仿animate.css](demo/animate.css/animate.html)  
@@ -33,8 +40,10 @@
 [windows 10 计算器](demo/windows_10_calculator/index.html)  
 [网站练习](demo/website_practice/index.html)  
 
+
 # Github 项目
 [JS-function-library]()  
+
 
 # 源代码阅读
 [zepto.core.js 源码阅读与注释(未完成)](source/zepto.core.md)  
@@ -59,6 +68,7 @@
 [现代诗](poetry/现代诗.md)  
 [日本诗](poetry/日本诗.md)  
 [古文](poetry/古文.md)  
+
 
 # 句子
 [摘录](句子/摘录.md)
