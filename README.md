@@ -33,7 +33,6 @@
 [仿animate.css](demo/animate.css/animate.html)  
 [100天100项目](demo/day100/day100.md)  
 [Web组件](demo/components/components.md)  
-[Games](demo/games/game.md)  
 [Window 10](demo/windows10_desktop/index.html)  
 [豆瓣](demo/douabn/index.html)  
 [web版音乐播放器](demo/music_player_web/index.html)  
